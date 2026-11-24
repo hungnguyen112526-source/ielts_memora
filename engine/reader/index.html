@@ -75,9 +75,20 @@
         </div>
       </button>
 
+      <button onclick="exitToLibrary()" class="hidden sm:inline-flex items-center gap-1 px-2.5 py-1.5 rounded-lg text-xs sm:text-sm font-semibold border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 transition">
+        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.4" d="M15 19l-7-7 7-7"/></svg>
+        Danh sách đề
+      </button>
+
       <!-- Test Switcher (visible in test view) -->
       <div id="headerTestControls" class="hidden flex items-center gap-1.5 sm:gap-2 ml-1 sm:ml-2 pl-2 sm:pl-3 border-l border-slate-200 dark:border-slate-700">
+        <button id="btnPrevTest" onclick="goNeighbour('prev')" title="Đề trước" aria-label="Đề trước" class="p-1.5 rounded-lg border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition disabled:opacity-35 disabled:cursor-not-allowed disabled:hover:bg-transparent">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M15 19l-7-7 7-7"/></svg>
+        </button>
         <span id="testTitleBadge" class="text-xs sm:text-sm font-semibold px-2.5 py-1 rounded-lg bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700"></span>
+        <button id="btnNextTest" onclick="goNeighbour('next')" title="Đề sau" aria-label="Đề sau" class="p-1.5 rounded-lg border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition disabled:opacity-35 disabled:cursor-not-allowed disabled:hover:bg-transparent">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M9 5l7 7-7 7"/></svg>
+        </button>
         <span id="answeredBadge" class="hidden sm:inline-flex items-center px-2.5 py-1 rounded-lg text-xs font-semibold bg-blue-50 text-blue-700 dark:bg-blue-900/40 dark:text-blue-300">
           0 đã làm
         </span>
@@ -261,6 +272,20 @@
     function exitToLibrary() {
       stopTimer();
       pushState('exit');
+    }
+
+    // Chuyển sang đề trước / đề sau trong cùng bộ (Python lưu tiến độ rồi mở đề mới)
+    let NAV = { prev: false, next: false };
+    function applyNav() {
+      const p = document.getElementById('btnPrevTest');
+      const n = document.getElementById('btnNextTest');
+      if (p) p.disabled = !NAV.prev;
+      if (n) n.disabled = !NAV.next;
+    }
+    function goNeighbour(which) {
+      if (!NAV[which]) return;
+      stopTimer();
+      pushState(which);
     }
 
     /* =========================================================================
@@ -1035,6 +1060,8 @@
     function onRender(args) {
       if (args.height) setFrameHeight(args.height);
       if (!args.test) return;
+      NAV = Object.assign({ prev: false, next: false }, args.nav || {});
+      applyNav();
       const key = args.sessionKey || args.test.id;
       if (key === SESSION_KEY) return;          // Streamlit rerun: giữ nguyên trạng thái đang làm
       SESSION_KEY = key;

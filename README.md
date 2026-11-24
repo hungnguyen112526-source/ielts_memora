@@ -14,6 +14,8 @@ Muốn đặt file ở chỗ khác: `MEMORA_DB=/duong/dan/memora.db streamlit ru
 
 Giao diện làm bài dùng Tailwind CSS và font Inter tải từ CDN, nên máy người dùng cần có internet.
 
+Giao diện chung (màu, thẻ, sidebar, đăng nhập) nằm trong `core/ui.py` và `.streamlit/config.toml`; logo ở `assets/`. Màn làm bài chiếm trọn chiều cao cửa sổ, các nút Danh sách đề / Đề trước / Đề sau nằm ngay trong header của engine. Yêu cầu Streamlit từ 1.52.
+
 ## Cấu trúc
 
 ```

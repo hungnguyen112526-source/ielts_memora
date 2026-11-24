@@ -59,42 +59,76 @@ def logout() -> None:
     st.rerun()
 
 
+LOGIN_CSS = """
+<style>
+[data-testid="stSidebar"], [data-testid="stSidebarCollapsedControl"], [data-testid="stExpandSidebarButton"] { display: none !important; }
+.stApp { background:
+  radial-gradient(700px 420px at 12% -5%, rgba(37, 99, 235, .13), transparent 70%),
+  radial-gradient(600px 400px at 100% 105%, rgba(37, 99, 235, .09), transparent 70%), #f8fafc; }
+.block-container, [data-testid="stMainBlockContainer"] { padding-top: 4.5rem; }
+.memora-hero { text-align: center; margin-bottom: 1.4rem; }
+.memora-hero .mark { width: 56px; height: 56px; border-radius: 16px; margin: 0 auto 14px; display: block;
+  box-shadow: 0 8px 20px rgba(37, 99, 235, .3); }
+.memora-hero h1 { font-size: 2.1rem; font-weight: 800; letter-spacing: -.025em; margin: 0 0 6px; color: #0f172a; }
+.memora-hero p { color: #64748b; margin: 0; font-size: .98rem; }
+.st-key-card-login { box-shadow: 0 10px 30px rgba(15, 23, 42, .07); padding: 24px 26px 22px; }
+.st-key-card-login button[kind="primary"], .st-key-card-login [data-testid="stFormSubmitButton"] button { width: 100%; padding: .6rem 1rem; }
+.memora-perks { display: flex; justify-content: center; flex-wrap: wrap; gap: 6px 16px; margin-top: 1.1rem;
+  color: #64748b; font-size: .82rem; font-weight: 600; }
+.memora-perks span::before { content: ""; display: inline-block; width: 6px; height: 6px; border-radius: 50%;
+  background: #2563eb; margin-right: 7px; vertical-align: middle; }
+</style>
+"""
+
+MARK_SVG = ("data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' "
+            "height='64' rx='16' fill='%232563eb'/%3E%3Cpath d='M17 46V18h6.5l8.5 14 8.5-14H47v28h-6.2V28.6l-7.3 12h-3l-7.3-12V46z' "
+            "fill='%23fff'/%3E%3C/svg%3E")
+
+
 def login_view() -> None:
     """Login / register screen (shown by app.py whenever nobody is signed in)."""
-    left, mid, right = st.columns([1, 1.4, 1])
+    st.markdown(LOGIN_CSS, unsafe_allow_html=True)
+    _, mid, _ = st.columns([1, 1.5, 1])
     with mid:
         st.markdown(
-            '<div class="memora-logo">M</div>'
-            '<h1 class="memora-login-title">IELTS Memora</h1>'
-            '<p class="memora-muted">Đăng nhập để lưu tiến độ và điểm số của bạn.</p>',
+            f'<div class="memora-hero"><img class="mark" src="{MARK_SVG}" alt="">'
+            '<h1>IELTS Memora</h1>'
+            '<p>Đăng nhập để lưu tiến độ và điểm số của bạn.</p></div>',
             unsafe_allow_html=True,
         )
-        tab_login, tab_register = st.tabs(["Đăng nhập", "Tạo tài khoản"])
+        with st.container(key="card-login"):
+            tab_login, tab_register = st.tabs(["Đăng nhập", "Tạo tài khoản"])
 
-        with tab_login:
-            with st.form("login_form"):
-                username = st.text_input("Tên đăng nhập", autocomplete="username")
-                password = st.text_input("Mật khẩu", type="password", autocomplete="current-password")
-                submitted = st.form_submit_button("Đăng nhập", type="primary")
-            if submitted:
-                ok, msg, user = auth.authenticate(username, password)
-                if ok:
-                    _sign_in(user)
-                    st.rerun()
-                else:
-                    st.error(msg)
+            with tab_login:
+                with st.form("login_form"):
+                    username = st.text_input("Tên đăng nhập", autocomplete="username")
+                    password = st.text_input("Mật khẩu", type="password", autocomplete="current-password")
+                    submitted = st.form_submit_button("Đăng nhập", type="primary")
+                if submitted:
+                    ok, msg, user = auth.authenticate(username, password)
+                    if ok:
+                        _sign_in(user)
+                        st.rerun()
+                    else:
+                        st.error(msg)
 
-        with tab_register:
-            with st.form("register_form"):
-                r_user = st.text_input("Tên đăng nhập", help="3–30 ký tự: chữ, số, _ hoặc .", key="reg_user")
-                r_name = st.text_input("Tên hiển thị", key="reg_name")
-                r_pw = st.text_input("Mật khẩu", type="password", help="Ít nhất 8 ký tự.", key="reg_pw")
-                r_pw2 = st.text_input("Nhập lại mật khẩu", type="password", key="reg_pw2")
-                created = st.form_submit_button("Tạo tài khoản", type="primary")
-            if created:
-                ok, msg, uid = auth.register(r_user.strip(), r_name, r_pw, r_pw2)
-                if ok:
-                    _sign_in({"id": uid, "username": r_user.strip(), "display_name": r_name.strip()})
-                    st.rerun()
-                else:
-                    st.error(msg)
+            with tab_register:
+                with st.form("register_form"):
+                    r_user = st.text_input("Tên đăng nhập", help="3–30 ký tự: chữ, số, _ hoặc .", key="reg_user")
+                    r_name = st.text_input("Tên hiển thị", key="reg_name")
+                    r_pw = st.text_input("Mật khẩu", type="password", help="Ít nhất 8 ký tự.", key="reg_pw")
+                    r_pw2 = st.text_input("Nhập lại mật khẩu", type="password", key="reg_pw2")
+                    created = st.form_submit_button("Tạo tài khoản", type="primary")
+                if created:
+                    ok, msg, uid = auth.register(r_user.strip(), r_name, r_pw, r_pw2)
+                    if ok:
+                        _sign_in({"id": uid, "username": r_user.strip(), "display_name": r_name.strip()})
+                        st.rerun()
+                    else:
+                        st.error(msg)
+
+        st.markdown(
+            '<div class="memora-perks"><span>Giao diện thi máy</span><span>Chấm band tự động</span>'
+            '<span>Lưu tiến độ theo tài khoản</span></div>',
+            unsafe_allow_html=True,
+        )
