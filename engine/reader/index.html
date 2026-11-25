@@ -150,7 +150,7 @@
               READING PASSAGE 1
             </span>
             <div class="flex items-center gap-2">
-              <button onclick="clearHighlights()" class="text-xs font-medium text-slate-500 hover:text-rose-600 dark:text-slate-400 dark:hover:text-rose-400 transition">
+              <button onclick="clearHighlights()" title="Xóa toàn bộ highlight của passage này (cả bài đọc và phần đề)" class="text-xs font-medium text-slate-500 hover:text-rose-600 dark:text-slate-400 dark:hover:text-rose-400 transition">
                 Xóa highlight
               </button>
             </div>
@@ -170,7 +170,7 @@
 
       <!-- RIGHT PANE: QUESTIONS -->
       <div id="questionsPane" class="hidden md:block w-full min-w-0 h-full overflow-y-auto p-4 sm:p-6 lg:p-8 bg-slate-50 dark:bg-slate-950">
-        <div id="questionsContainer" class="w-full mx-auto space-y-6 pb-10">
+        <div id="questionsContainer" class="w-full mx-auto space-y-6 pb-10 select-text">
           <!-- Question groups rendered here -->
         </div>
       </div>
@@ -847,6 +847,7 @@
           </div>
         `;
       }).join('');
+      if (typeof renderRootHighlights === 'function') renderRootHighlights(HL_ROOTS[1]);   // dựng lại highlight của phần đề
     }
 
     function replaceInlineInputs(text) {
@@ -1191,38 +1192,63 @@
        11. CÔNG CỤ HIGHLIGHT VĂN BẢN TRÊN BÀI ĐỌC
        ========================================================================= */
     const passageContentEl = document.getElementById('passageContent');
+    const questionsEl = document.getElementById('questionsContainer');
     const hlTooltip = document.getElementById('hlTooltip');
     const HL_COLORS = ['yellow', 'orange', 'red'];
 
-    // Highlight lưu dưới dạng vùng ký tự {s, e, c} trong văn bản của passage, nên vẽ lại được sau khi đổi passage / tải lại trang
-    function hlStore() {
+    // Highlight được cả bài đọc lẫn phần đề (câu hỏi, hướng dẫn, bảng, ghi chú...).
+    // Mỗi vùng có khóa riêng trong st.hl: "0", "1"... cho bài đọc; "q0", "q1"... cho phần đề của passage đó.
+    const HL_ROOTS = [
+      { el: passageContentEl, key: () => String(currentPassageIdx) },
+      { el: questionsEl,      key: () => 'q' + currentPassageIdx },
+    ];
+    const HL_SKIP = 'select, option, textarea, button, script, style, input';
+
+    // Highlight lưu dưới dạng vùng ký tự {s, e, c} trong văn bản của vùng, nên vẽ lại được sau khi đổi passage / làm mới đề / tải lại trang
+    function hlStore(root) {
       const st = appState.tests[currentTestIdx];
       if (!st.hl) st.hl = {};
-      if (!st.hl[currentPassageIdx]) st.hl[currentPassageIdx] = [];
-      return st.hl[currentPassageIdx];
+      const k = root.key();
+      if (!st.hl[k]) st.hl[k] = [];
+      return st.hl[k];
     }
 
-    function textOffset(node, off) {
+    // Các nút chữ có thể highlight (bỏ qua ô chọn, nút bấm, ô nhập)
+    function hlTextNodes(rootEl) {
+      const walker = document.createTreeWalker(rootEl, NodeFilter.SHOW_TEXT, {
+        acceptNode: (n) => (n.parentElement && n.parentElement.closest(HL_SKIP))
+          ? NodeFilter.FILTER_REJECT : NodeFilter.FILTER_ACCEPT,
+      });
+      const nodes = [];
+      let n;
+      while ((n = walker.nextNode())) nodes.push(n);
+      return nodes;
+    }
+
+    function textOffset(rootEl, node, off) {
       const r = document.createRange();
-      r.selectNodeContents(passageContentEl);
+      r.setStart(rootEl, 0);
       r.setEnd(node, off);
-      return r.toString().length;
+      let pos = 0;
+      for (const t of hlTextNodes(rootEl)) {
+        if (t === node) return pos + off;
+        if (r.comparePoint(t, t.nodeValue.length) > 0) break;     // nút này nằm sau điểm chọn
+        pos += t.nodeValue.length;
+      }
+      return pos;
     }
 
-    function unwrapMarks() {
-      passageContentEl.querySelectorAll('mark.user-hl').forEach(m => {
+    function unwrapMarks(rootEl) {
+      rootEl.querySelectorAll('mark.user-hl').forEach(m => {
         const parent = m.parentNode;
         while (m.firstChild) parent.insertBefore(m.firstChild, m);
         parent.removeChild(m);
       });
-      passageContentEl.normalize();
+      rootEl.normalize();
     }
 
-    function wrapRange(s, e, color, index) {
-      const walker = document.createTreeWalker(passageContentEl, NodeFilter.SHOW_TEXT);
-      const nodes = [];
-      let n;
-      while ((n = walker.nextNode())) nodes.push(n);
+    function wrapRange(rootEl, s, e, color, index) {
+      const nodes = hlTextNodes(rootEl);
       let pos = 0;
       for (const node of nodes) {
         const len = node.nodeValue.length;
@@ -1230,6 +1256,7 @@
         const b = Math.min(e, pos + len) - pos;
         pos += len;
         if (b <= a) { if (pos >= e) break; continue; }
+        if (!node.nodeValue.slice(a, b).trim()) continue;          // đoạn toàn khoảng trắng (giữa các thẻ) thì bỏ qua
         let target = node;
         if (a > 0) target = node.splitText(a);
         if (b - a < target.nodeValue.length) target.splitText(b - a);
@@ -1242,12 +1269,18 @@
       }
     }
 
-    function renderHighlights() {
-      unwrapMarks();
-      hlStore().forEach((h, i) => wrapRange(h.s, h.e, h.c, i));
+    function renderRootHighlights(root) {
+      unwrapMarks(root.el);
+      hlStore(root).forEach((h, i) => wrapRange(root.el, h.s, h.e, h.c, i));
     }
 
+    function renderHighlights() { HL_ROOTS.forEach(renderRootHighlights); }
+
     function hideTip() { hlTooltip.style.display = 'none'; }
+
+    function rootOf(node) { return HL_ROOTS.find(r => r.el.contains(node)) || null; }
+
+    let pendingRoot = null;
 
     function updateTip(ev) {
       if (ev && ev.target && ev.target.closest && ev.target.closest('#hlTooltip')) return;
@@ -1255,9 +1288,11 @@
         const sel = window.getSelection();
         if (!sel || sel.isCollapsed || !sel.rangeCount) { hideTip(); return; }
         const range = sel.getRangeAt(0);
-        if (passageContentEl.contains(range.commonAncestorContainer)) {
+        const root = rootOf(range.commonAncestorContainer);
+        if (root) {
           const rect = range.getBoundingClientRect();
           pendingSelectionRange = range.cloneRange();
+          pendingRoot = root;
           hlTooltip.style.top = Math.max(10, rect.top - 46) + 'px';
           hlTooltip.style.left = Math.min(window.innerWidth - 110, Math.max(110, rect.left + rect.width / 2)) + 'px';
           hlTooltip.style.display = 'flex';
@@ -1271,46 +1306,56 @@
     document.addEventListener('keyup', (e) => { if (e.shiftKey) updateTip(e); });
 
     function applyHighlight(color) {
-      if (!pendingSelectionRange) return;
+      if (!pendingSelectionRange || !pendingRoot) return;
       if (!HL_COLORS.includes(color)) color = 'yellow';
-      const r = pendingSelectionRange;
-      pendingSelectionRange = null;
+      const r = pendingSelectionRange, root = pendingRoot;
+      pendingSelectionRange = null; pendingRoot = null;
       hideTip();
-      if (!passageContentEl.contains(r.commonAncestorContainer)) return;
-      let s = textOffset(r.startContainer, r.startOffset);
-      let e = textOffset(r.endContainer, r.endOffset);
+      if (!root.el.contains(r.commonAncestorContainer)) return;
+      let s = textOffset(root.el, r.startContainer, r.startOffset);
+      let e = textOffset(root.el, r.endContainer, r.endOffset);
       if (e < s) { const t = s; s = e; e = t; }
       if (e <= s) return;
       // Phần chồng lên highlight cũ thì cắt bỏ phần đó, highlight mới đè lên
       const out = [];
-      hlStore().forEach(h => {
+      hlStore(root).forEach(h => {
         if (h.e <= s || h.s >= e) { out.push(h); return; }
         if (h.s < s) out.push({ s: h.s, e: s, c: h.c });
         if (h.e > e) out.push({ s: e, e: h.e, c: h.c });
       });
       out.push({ s: s, e: e, c: color });
       out.sort((x, y) => x.s - y.s);
-      appState.tests[currentTestIdx].hl[currentPassageIdx] = out;
+      appState.tests[currentTestIdx].hl[root.key()] = out;
       window.getSelection().removeAllRanges();
-      renderHighlights();
+      renderRootHighlights(root);
       saveState();
     }
 
-    passageContentEl.addEventListener('click', (ev) => {
-      const m = ev.target.closest && ev.target.closest('mark.user-hl');
-      if (!m) return;
-      const sel = window.getSelection();
-      if (sel && !sel.isCollapsed) return;
-      const list = hlStore();
-      const i = parseInt(m.dataset.i, 10);
-      if (!(i >= 0 && i < list.length)) return;
-      list.splice(i, 1);
-      renderHighlights();
-      saveState();
+    // Bấm vào chữ đã highlight để xóa. Dùng capture để không kích hoạt nhầm đáp án khi chữ nằm trong nhãn chọn.
+    HL_ROOTS.forEach(root => {
+      root.el.addEventListener('click', (ev) => {
+        const sel = window.getSelection();
+        const selecting = sel && !sel.isCollapsed;
+        const m = ev.target.closest && ev.target.closest('mark.user-hl');
+        if (selecting) {
+          // vừa bôi đen xong trong nhãn đáp án: đừng để nhãn tự chọn đáp án
+          if (ev.target.closest && ev.target.closest('label')) ev.preventDefault();
+          return;
+        }
+        if (!m) return;
+        const list = hlStore(root);
+        const i = parseInt(m.dataset.i, 10);
+        if (!(i >= 0 && i < list.length)) return;
+        ev.preventDefault();
+        ev.stopPropagation();
+        list.splice(i, 1);
+        renderRootHighlights(root);
+        saveState();
+      }, true);
     });
 
     function clearHighlights() {
-      appState.tests[currentTestIdx].hl[currentPassageIdx] = [];
+      HL_ROOTS.forEach(root => { appState.tests[currentTestIdx].hl[root.key()] = []; });
       renderHighlights();
       saveState();
     }

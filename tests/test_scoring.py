@@ -55,3 +55,13 @@ def test_clean_state_limits_answers_to_scope():
     assert st["answers"] == {"1": "a"}
     assert st["spent"] == 600 and st["passage"] == 0 and st["scope"] == "p1"
     assert scoring.answered_count(t, {"1": "a", "20": "b"}, "p1") == 1
+
+
+def test_clean_state_keeps_question_highlights():
+    t = load(3)
+    hl = {"0": [{"s": 1, "e": 5, "c": "yellow"}], "q1": [{"s": 2, "e": 9, "c": "red"}],
+          "q9": [{"s": 0, "e": 3, "c": "red"}], "qx": [], "1": [{"s": 4, "e": 2, "c": "red"}]}
+    st = scoring.clean_state(t, {"hl": hl}, "full")
+    assert st["hl"] == {"0": [{"s": 1, "e": 5, "c": "yellow"}], "q1": [{"s": 2, "e": 9, "c": "red"}], "1": []}
+    st = scoring.clean_state(t, {"hl": hl}, "p2")
+    assert set(st["hl"]) == {"q1", "1"}

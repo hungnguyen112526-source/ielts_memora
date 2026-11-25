@@ -1,0 +1,8 @@
+{
+  "categories": [
+    {"id": "band_4_5",   "title": "Band 4–5.0",      "description": "Bài đọc cơ bản dành cho người mới bắt đầu, mục tiêu 4.0–5.0.", "order": 1},
+    {"id": "band_5_6_5", "title": "Band 5–6.5",      "description": "Bài đọc nâng cao dần, mục tiêu 5.0–6.5.", "order": 2},
+    {"id": "orange",     "title": "Đề luyện Orange", "description": "Bộ đề Orange mô phỏng phòng thi máy tính, 60 phút, 40 câu.", "order": 3},
+    {"id": "vol",        "title": "Bộ Vol",          "description": "Bộ đề Vol.", "order": 4}
+  ]
+}

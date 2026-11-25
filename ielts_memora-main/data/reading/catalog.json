@@ -1,0 +1,130 @@
+{
+ "generated": 1795561377,
+ "signature": 150841010137381,
+ "categories": [
+  {
+   "id": "band_4_5",
+   "title": "Band 4–5.0",
+   "description": "Bài đọc cơ bản dành cho người mới bắt đầu, mục tiêu 4.0–5.0.",
+   "order": 1,
+   "series": []
+  },
+  {
+   "id": "band_5_6_5",
+   "title": "Band 5–6.5",
+   "description": "Bài đọc nâng cao dần, mục tiêu 5.0–6.5.",
+   "order": 2,
+   "series": []
+  },
+  {
+   "id": "orange",
+   "title": "Đề luyện Orange",
+   "description": "Bộ đề Orange mô phỏng phòng thi máy tính, 60 phút, 40 câu.",
+   "order": 3,
+   "series": [
+    {
+     "id": "orange-21",
+     "title": "Orange 21",
+     "description": "Bộ đề Orange 21 – Academic Reading, 4 đề đầy đủ.",
+     "badge": "O21",
+     "order": 21,
+     "tests": [
+      {
+       "id": "orange-21-test-1",
+       "file": "orange/orange-21/test-1.json",
+       "title": "Test 1",
+       "summary": "The Davies Sisters • Why we need silence • The World of Sugar",
+       "module": "academic",
+       "durationMin": 60,
+       "totalQuestions": 40,
+       "questionTypes": [
+        "notes",
+        "tfng",
+        "matching",
+        "summary_text",
+        "mcq",
+        "summary_box"
+       ],
+       "passages": [
+        "The Davies Sisters",
+        "Why we need silence",
+        "Book review: The World of Sugar by Ulbe Bosma"
+       ]
+      },
+      {
+       "id": "orange-21-test-2",
+       "file": "orange/orange-21/test-2.json",
+       "title": "Test 2",
+       "summary": "Do animals dream? • Mapungubwe • Artificial Intelligence",
+       "module": "academic",
+       "durationMin": 60,
+       "totalQuestions": 40,
+       "questionTypes": [
+        "table",
+        "tfng",
+        "matching",
+        "multi2",
+        "summary_text",
+        "mcq",
+        "summary_box"
+       ],
+       "passages": [
+        "Do animals dream?",
+        "Mapungubwe",
+        "Artificial Intelligence"
+       ]
+      },
+      {
+       "id": "orange-21-test-3",
+       "file": "orange/orange-21/test-3.json",
+       "title": "Test 3",
+       "summary": "Saving the saiga • Dar es Salaam BRT • Rethinking the Past",
+       "module": "academic",
+       "durationMin": 60,
+       "totalQuestions": 40,
+       "questionTypes": [
+        "notes",
+        "tfng",
+        "mcq",
+        "matching"
+       ],
+       "passages": [
+        "Saving the saiga",
+        "The problems of getting around the city of Dar es Salaam",
+        "Rethinking the Past"
+       ]
+      },
+      {
+       "id": "orange-21-test-4",
+       "file": "orange/orange-21/test-4.json",
+       "title": "Test 4",
+       "summary": "Water hyacinth in Kenya • Multilingualism in India • The Globemakers",
+       "module": "academic",
+       "durationMin": 60,
+       "totalQuestions": 40,
+       "questionTypes": [
+        "tfng",
+        "flowchart",
+        "notes",
+        "summary_box",
+        "mcq"
+       ],
+       "passages": [
+        "The problems and benefits created by the spread of the water hyacinth in Kenya",
+        "How could multilingualism benefit India's poorest schoolchildren?",
+        "The Globemakers: The Curious Story of an Ancient Craft"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "vol",
+   "title": "Bộ Vol",
+   "description": "Bộ đề Vol.",
+   "order": 4,
+   "series": []
+  }
+ ]
+}

@@ -92,12 +92,15 @@ def _int(v, lo: int, hi: int, default: int) -> int:
 
 
 def _clean_highlights(raw, n_passages: int) -> dict:
-    """{passage: [{s, e, c}]}: vùng ký tự đã highlight, chỉ giữ dữ liệu hợp lệ."""
+    """{"0": [...], "q0": [...]}: vùng ký tự đã highlight, chỉ giữ dữ liệu hợp lệ.
+    Khóa "N" là bài đọc của passage N, khóa "qN" là phần đề (câu hỏi) của passage N."""
     out: dict[str, list] = {}
     if not isinstance(raw, dict):
         return out
     for k, items in raw.items():
-        if not str(k).isdigit() or int(k) >= n_passages or not isinstance(items, list):
+        ks = str(k)
+        digits = ks[1:] if ks[:1] == "q" else ks
+        if not digits.isdigit() or int(digits) >= n_passages or not isinstance(items, list):
             continue
         clean = []
         for h in items[:MAX_HL_PER_PASSAGE]:
@@ -106,7 +109,7 @@ def _clean_highlights(raw, n_passages: int) -> dict:
             s, e = _int(h.get("s"), 0, 10_000_000, -1), _int(h.get("e"), 0, 10_000_000, -1)
             if 0 <= s < e:
                 clean.append({"s": s, "e": e, "c": h["c"]})
-        out[str(int(k))] = clean
+        out[("q" if ks[:1] == "q" else "") + str(int(digits))] = clean
     return out
 
 
@@ -128,7 +131,7 @@ def clean_state(test: dict, state: dict | None, scope="full") -> dict:
     cap = limit if limit > 0 else 24 * 3600
     hl = _clean_highlights(state.get("hl"), n_pass)
     if pidx is not None:
-        hl = {k: v for k, v in hl.items() if int(k) == pidx}
+        hl = {k: v for k, v in hl.items() if int(k.lstrip("q")) == pidx}
     return {
         "answers": answers, "submitted": bool(state.get("submitted")),
         "score": state.get("score") if isinstance(state.get("score"), int) else None,

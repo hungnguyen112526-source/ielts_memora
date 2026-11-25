@@ -86,15 +86,23 @@ LOGIN_CSS = """
 [data-testid="stAppViewContainer"] { background:
   radial-gradient(700px 420px at 12% -5%, color-mix(in srgb, var(--m-accent) 16%, transparent), transparent 70%),
   radial-gradient(600px 400px at 100% 105%, color-mix(in srgb, var(--m-accent) 11%, transparent), transparent 70%); }
-.block-container, [data-testid="stMainBlockContainer"] { padding-top: 7vh; max-width: 460px; }
+.block-container, [data-testid="stMainBlockContainer"] { padding-top: 7vh; max-width: 480px; }
 .memora-hero { text-align: center; margin-bottom: 1.3rem; }
 .memora-hero .mark { width: 64px; height: 64px; border-radius: 20px; margin: 0 auto 14px; display: block;
   box-shadow: 0 12px 26px -8px color-mix(in srgb, var(--m-accent) 70%, transparent); }
 .memora-hero h1 { font-size: 2rem; font-weight: 800; letter-spacing: -.035em; margin: 0 0 6px; }
 .memora-hero p { opacity: .7; margin: 0; font-size: .96rem; }
-.st-key-card-login { padding: 22px 26px 20px; }
-.st-key-card-login [data-testid="stFormSubmitButton"] button { width: 100%; padding: .5rem 1rem; }
-.memora-perks { display: flex; justify-content: center; flex-wrap: wrap; gap: 6px 16px; margin-top: 1.1rem; opacity: .7; font-size: .82rem; font-weight: 600; }
+.st-key-card-login { padding: 26px 30px 24px; border-radius: 28px; backdrop-filter: blur(6px);
+  box-shadow: 0 40px 80px -48px color-mix(in srgb, var(--m-accent) 55%, transparent), var(--m-shadow); }
+.st-key-card-login [data-baseweb="tab-list"] { gap: 0; margin-bottom: 1.1rem; }
+.st-key-card-login button[data-baseweb="tab"] { flex: 1 1 0; justify-content: center; padding: .65rem .5rem; }
+.st-key-card-login [data-testid="stTextInput"] { margin-bottom: .15rem; }
+.st-key-card-login [data-testid="stFormSubmitButton"], .st-key-card-login [data-testid="stFormSubmitButton"] button { width: 100%; }
+.st-key-card-login [data-testid="stFormSubmitButton"] button { min-height: 46px; font-size: 1rem; margin-top: .3rem; }
+.st-key-card-login [data-testid="stAlert"] { border-radius: 14px; }
+.memora-hint { text-align: center; border: 0; background: color-mix(in srgb, currentColor 5%, transparent); border-radius: 14px;
+  padding: .65rem .9rem; font-size: .85rem; opacity: .85; margin-top: 1rem; }
+.memora-perks { display: flex; justify-content: center; flex-wrap: wrap; gap: 6px 16px; margin-top: 1.3rem; opacity: .7; font-size: .82rem; font-weight: 600; }
 .memora-perks span::before { content: ""; display: inline-block; width: 6px; height: 6px; border-radius: 50%;
   background: var(--m-accent); margin-right: 7px; vertical-align: middle; }
 @media (max-width: 640px) { .block-container, [data-testid="stMainBlockContainer"] { padding-top: 3.6rem; } }
@@ -123,7 +131,7 @@ def login_view() -> None:
                 with st.form("login_form"):
                     username = st.text_input("Tên đăng nhập", autocomplete="username")
                     password = st.text_input("Mật khẩu", type="password", autocomplete="current-password")
-                    submitted = st.form_submit_button("Đăng nhập", type="primary")
+                    submitted = st.form_submit_button("Đăng nhập", type="primary", width="stretch")
                 if submitted:
                     ok, msg, user = auth.authenticate(username, password)
                     if ok:
@@ -140,7 +148,7 @@ def login_view() -> None:
                     r_name = st.text_input("Tên hiển thị", key="reg_name")
                     r_pw = st.text_input("Mật khẩu", type="password", help="Ít nhất 8 ký tự.", key="reg_pw")
                     r_pw2 = st.text_input("Nhập lại mật khẩu", type="password", key="reg_pw2")
-                    created = st.form_submit_button("Tạo tài khoản", type="primary")
+                    created = st.form_submit_button("Tạo tài khoản", type="primary", width="stretch")
                 if created:
                     ok, msg, uid = auth.register(r_user.strip(), r_name, r_pw, r_pw2)
                     if ok:
