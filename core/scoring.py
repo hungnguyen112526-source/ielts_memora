@@ -39,11 +39,13 @@ def is_correct(test: dict, answers: dict, q: int) -> bool:
     user = normalize(answers.get(str(q)))
     if not user:
         return False
-    for a, b, valid in test.get("pairQuestions", []):
-        if q in (a, b):
+    for entry in test.get("pairQuestions", []):
+        *qs, valid = entry          # [a, b, valid] hoặc [a, b, c, valid]
+        if q in qs:
             valid_norm = [normalize(v) for v in valid]
-            u1, u2 = normalize(answers.get(str(a))), normalize(answers.get(str(b)))
-            return u1 in valid_norm if q == a else (u2 in valid_norm and u2 != u1)
+            us = [normalize(answers.get(str(x))) for x in qs]
+            i = qs.index(q)
+            return us[i] in valid_norm and us[i] not in us[:i]
     return user in [normalize(x) for x in test["answers"][str(q)]]
 
 

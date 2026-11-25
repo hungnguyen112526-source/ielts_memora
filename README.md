@@ -45,7 +45,7 @@ data/reading/<mục>/<bộ>/series.json        # {"id","title","description","ba
 data/reading/<mục>/<bộ>/test-<số>.json
 ```
 
-`<mục>` là một trong `band_4_5`, `band_5_6_5`, `orange`, `vol` (khai báo trong `data/reading/categories.json`).
+`<mục>` là một trong `band_4_5`, `band_5_6_5`, `orange`, `vol` (mục **Recent Actual Test**, giữ tên thư mục `vol`; khai báo trong `data/reading/categories.json`).
 Ví dụ bộ có sẵn: `data/reading/orange/orange-21/`.
 
 Danh mục tự cập nhật khi bạn thêm, sửa hoặc xóa file, không cần sửa code. Trước khi dùng, chạy:
