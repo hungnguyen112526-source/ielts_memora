@@ -210,8 +210,10 @@ def _is_dark() -> bool:
 
 
 def inject_css() -> None:
-    tokens = DARK if _is_dark() else LIGHT
-    root = ":root{" + "".join(f"--m-{k}:{v};" for k, v in tokens.items()) + "}"
+    """Màu sáng/tối do trình duyệt chọn bằng light-dark() theo color-scheme mà Streamlit đặt cho theme đang hiển thị,
+    nên không còn lệch khi st.context.theme trả về giá trị cũ."""
+    root = ":root{" + "".join(f"--m-{k}:light-dark({LIGHT[k]},{DARK[k]});" for k in LIGHT if k != "shadow") + (
+        "--m-shadow:0 30px 60px -42px light-dark(rgba(30,41,90,.35),rgba(0,0,0,.7));}")
     st.markdown(
         '<style>@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap");'
         + root + "</style>" + CSS,
