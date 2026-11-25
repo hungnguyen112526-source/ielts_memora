@@ -29,16 +29,21 @@
     ::-webkit-scrollbar-track { background: transparent; }
     ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 9999px; }
     .dark ::-webkit-scrollbar-thumb { background: #475569; }
-    mark.user-hl {
-      background-color: #fef08a;
-      color: #1e293b;
-      padding: 0 2px;
-      border-radius: 3px;
-      cursor: pointer;
-    }
-    .dark mark.user-hl {
-      background-color: #ca8a04;
-      color: #ffffff;
+    mark.user-hl { color: #1e293b; padding: 0 1px; border-radius: 3px; cursor: pointer; }
+    mark.hl-yellow { background-color: #fef08a; }
+    mark.hl-orange { background-color: #fdba74; }
+    mark.hl-red    { background-color: #fca5a5; }
+    .dark mark.user-hl { color: #ffffff; }
+    .dark mark.hl-yellow { background-color: #a16207; }
+    .dark mark.hl-orange { background-color: #c2410c; }
+    .dark mark.hl-red    { background-color: #b91c1c; }
+    .hl-dot { width: 20px; height: 20px; border-radius: 9999px; border: 2px solid rgba(255,255,255,.75); transition: transform .12s; }
+    .hl-dot:hover { transform: scale(1.18); }
+    /* Chia đôi màn hình: khung bài đọc kéo được, mặc định hẹp hơn khung câu hỏi */
+    @media (min-width: 768px) {
+      #passagePane { flex: 0 0 var(--split, 42%); width: var(--split, 42%); }
+      #questionsPane { flex: 1 1 0%; width: auto; }
+      #splitter { width: 10px; cursor: col-resize; touch-action: none; }
     }
     .inline-input {
       border-bottom: 2px solid #94a3b8;
@@ -99,6 +104,7 @@
     <div id="timerBar" class="hidden flex items-center gap-1.5 bg-slate-100 dark:bg-slate-800 px-3 py-1.5 rounded-xl border border-slate-200 dark:border-slate-700">
       <svg class="w-4 h-4 text-blue-600 dark:text-blue-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
       <span id="timerDisplay" class="font-mono font-bold text-sm sm:text-base tracking-tight">60:00</span>
+      <span id="timerScope" class="hidden text-[11px] font-bold px-1.5 py-0.5 rounded-md bg-blue-100 text-blue-700 dark:bg-blue-900/50 dark:text-blue-300"></span>
       <button id="btnToggleTimer" onclick="toggleTimer()" title="Tạm dừng / Tiếp tục" class="ml-1 p-1 rounded-md hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-600 dark:text-slate-300 transition">
         <svg id="iconPause" class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zM7 8a1 1 0 012 0v4a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v4a1 1 0 102 0V8a1 1 0 00-1-1z" clip-rule="evenodd"/></svg>
         <svg id="iconPlay" class="w-3.5 h-3.5 hidden" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd"/></svg>
@@ -149,8 +155,8 @@
     <!-- Split Panes Container -->
     <div class="flex-1 flex flex-col md:flex-row overflow-hidden relative">
       <!-- LEFT PANE: READING PASSAGE -->
-      <div id="passagePane" class="w-full md:w-1/2 h-full overflow-y-auto p-4 sm:p-6 lg:p-8 bg-white dark:bg-slate-900 md:border-r border-slate-200 dark:border-slate-800">
-        <div class="max-w-2xl mx-auto">
+      <div id="passagePane" class="w-full min-w-0 h-full overflow-y-auto p-4 sm:p-6 lg:p-8 bg-white dark:bg-slate-900 md:border-r border-slate-200 dark:border-slate-800">
+        <div class="max-w-3xl mx-auto">
           <div class="flex items-center justify-between gap-2 mb-4 pb-3 border-b border-slate-100 dark:border-slate-800">
             <span id="passageLabel" class="text-xs font-bold uppercase tracking-wider px-2.5 py-1 rounded-lg bg-blue-50 text-blue-700 dark:bg-blue-900/40 dark:text-blue-300">
               READING PASSAGE 1
@@ -171,19 +177,25 @@
         </div>
       </div>
 
+      <!-- THANH KÉO CHIA KHUNG -->
+      <div id="splitter" title="Kéo để đổi độ rộng (bấm đúp để về mặc định)" class="hidden md:block shrink-0 bg-slate-200 dark:bg-slate-700 hover:bg-blue-400 dark:hover:bg-blue-500 transition-colors"></div>
+
       <!-- RIGHT PANE: QUESTIONS -->
-      <div id="questionsPane" class="hidden md:block w-full md:w-1/2 h-full overflow-y-auto p-4 sm:p-6 lg:p-8 bg-slate-50 dark:bg-slate-950">
-        <div id="questionsContainer" class="max-w-2xl mx-auto space-y-6 pb-10">
+      <div id="questionsPane" class="hidden md:block w-full min-w-0 h-full overflow-y-auto p-4 sm:p-6 lg:p-8 bg-slate-50 dark:bg-slate-950">
+        <div id="questionsContainer" class="w-full mx-auto space-y-6 pb-10">
           <!-- Question groups rendered here -->
         </div>
       </div>
     </div>
 
     <!-- Floating Highlight Tooltip -->
-    <button id="hlTooltip" onclick="applyHighlight()" class="hidden fixed z-50 bg-slate-900 text-amber-300 text-xs font-bold px-3 py-1.5 rounded-lg shadow-lg flex items-center gap-1.5 hover:bg-slate-800 transition transform -translate-x-1/2">
-      <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20"><path d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z"/></svg>
-      Highlight
-    </button>
+    <div id="hlTooltip" onmousedown="event.preventDefault()" style="display:none"
+         class="fixed z-50 bg-slate-900 text-white text-xs font-bold px-2.5 py-1.5 rounded-xl shadow-lg items-center gap-2 transform -translate-x-1/2">
+      <span class="text-slate-300">Highlight</span>
+      <button type="button" onclick="applyHighlight('yellow')" title="Vàng" aria-label="Highlight vàng" class="hl-dot" style="background:#facc15"></button>
+      <button type="button" onclick="applyHighlight('orange')" title="Cam" aria-label="Highlight cam" class="hl-dot" style="background:#fb923c"></button>
+      <button type="button" onclick="applyHighlight('red')" title="Đỏ" aria-label="Highlight đỏ" class="hl-dot" style="background:#ef4444"></button>
+    </div>
 
     <!-- ==================== FOOTER NAVIGATOR ==================== -->
     <footer class="bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 px-3 sm:px-5 py-2 shrink-0 z-20">
@@ -191,7 +203,7 @@
         <div id="passageTabs" class="flex items-center gap-1.5 shrink-0"></div>
 
         <!-- 40 Question Pills -->
-        <div id="questionNavPills" class="flex items-center gap-1 overflow-x-auto pb-1 lg:pb-0">
+        <div id="questionNavPills" class="flex flex-wrap items-center gap-1 lg:justify-end">
           <!-- Rendered by JS -->
         </div>
       </div>
@@ -222,7 +234,9 @@
     let appState = {
       darkMode: false,
       fontSize: 15,
-      tests: { 0: { answers: {}, submitted: false, timeLeft: 3600, score: null } }
+      split: 42,
+      tests: { 0: { answers: {}, submitted: false, score: null, configured: false, mode: 'full', limit: 3600,
+                    spent: 0, pspent: {}, pdone: {}, passage: 0, hl: {} } }
     };
 
     let currentTestIdx = null;
@@ -232,7 +246,41 @@
     let pendingSelectionRange = null;
 
     function durationSec() { return (TEST ? TEST.durationMin : 60) * 60; }
-    function freshState() { return { answers: {}, submitted: false, timeLeft: durationSec(), score: null }; }
+    function freshState() {
+      return { answers: {}, submitted: false, score: null, configured: false, mode: 'full', limit: durationSec(),
+               spent: 0, pspent: {}, pdone: {}, passage: 0, hl: {} };
+    }
+
+    // Đọc trạng thái đã lưu (kể cả bản cũ chỉ có timeLeft)
+    function loadSaved(saved) {
+      const base = freshState();
+      if (!saved || (saved.mode === undefined && saved.answers === undefined && saved.timeLeft === undefined)) return base;
+      const num = (v, d) => (typeof v === 'number' && isFinite(v) && v >= 0 ? Math.floor(v) : d);
+      if (saved.mode) {
+        return Object.assign(base, {
+          answers: saved.answers || {}, submitted: !!saved.submitted, score: saved.score == null ? null : saved.score,
+          configured: !!saved.configured, mode: saved.mode === 'passage' ? 'passage' : 'full',
+          limit: num(saved.limit, durationSec()), spent: num(saved.spent, 0),
+          pspent: saved.pspent || {}, pdone: saved.pdone || {}, passage: num(saved.passage, 0), hl: saved.hl || {}
+        });
+      }
+      const lim = durationSec();
+      return Object.assign(base, {
+        answers: saved.answers || {}, submitted: !!saved.submitted, score: saved.score == null ? null : saved.score,
+        configured: true, mode: 'full', limit: lim,
+        spent: typeof saved.timeLeft === 'number' ? Math.max(0, lim - Math.floor(saved.timeLeft)) : 0
+      });
+    }
+
+    function isPassageDone(idx) { const st = appState.tests[0]; return !!(st.pdone && st.pdone[idx]); }
+    function isLocked(idx) { return !!appState.tests[0].submitted || isPassageDone(idx); }
+    function allPassagesDone() { const st = appState.tests[0]; return TEST.passages.every((_, i) => !!st.pdone[i]); }
+    function passagesLeft() { const st = appState.tests[0]; return TEST.passages.filter((_, i) => !st.pdone[i]).length; }
+    function getSpent(st) { return st.mode === 'passage' ? (st.pspent[currentPassageIdx] || 0) : (st.spent || 0); }
+    function setSpent(st, v) { if (st.mode === 'passage') st.pspent[currentPassageIdx] = v; else st.spent = v; }
+    function totalSpent(st) {
+      return st.mode === 'passage' ? Object.values(st.pspent || {}).reduce((s, v) => s + (v || 0), 0) : (st.spent || 0);
+    }
 
     /* ---- Giao tiếp với Streamlit (giao thức custom component) ---- */
     function sendMsg(type, data) {
@@ -245,7 +293,8 @@
 
     function snapshot() {
       const st = appState.tests[0];
-      return { answers: st.answers, submitted: st.submitted, timeLeft: st.timeLeft, score: st.score };
+      return { answers: st.answers, submitted: st.submitted, score: st.score, configured: st.configured, mode: st.mode,
+               limit: st.limit, spent: st.spent, pspent: st.pspent, pdone: st.pdone, passage: currentPassageIdx, hl: st.hl };
     }
 
     function pushState(event, result) {
@@ -256,7 +305,7 @@
         sessionKey: SESSION_KEY,
         testId: TEST.id,
         state: snapshot(),
-        prefs: { darkMode: appState.darkMode, fontSize: appState.fontSize }
+        prefs: { darkMode: appState.darkMode, fontSize: appState.fontSize, split: appState.split }
       };
       if (result) payload.result = result;
       sendMsg('streamlit:setComponentValue', { value: payload, dataType: 'json' });
@@ -271,7 +320,8 @@
 
     function exitToLibrary() {
       stopTimer();
-      pushState('exit');
+      // Chưa bấm "Bắt đầu" thì không lưu gì cả
+      pushState(appState.tests[0].configured || appState.tests[0].submitted ? 'exit' : 'cancel');
     }
 
     // Chuyển sang đề trước / đề sau trong cùng bộ (Python lưu tiến độ rồi mở đề mới)
@@ -343,8 +393,11 @@
     }
 
     function openTest(testIdx) {
+      stopTimer();
       currentTestIdx = testIdx;
-      currentPassageIdx = 0;
+      const stOpen = appState.tests[testIdx];
+      currentPassageIdx = Math.min(Math.max(0, stOpen.passage || 0), TEST.passages.length - 1);
+      applySplit();
       document.getElementById('testView').classList.remove('hidden');
       document.getElementById('headerTestControls').classList.remove('hidden');
       document.getElementById('timerBar').classList.remove('hidden');
@@ -354,15 +407,20 @@
       updateHeaderActionButtons();
       renderPassage();
       renderFooterNav();
-      startTimer();
+      if (!stOpen.configured && !stOpen.submitted) openSetup(); else startTimer();
     }
 
     function switchPassage(pIdx) {
       currentPassageIdx = pIdx;
+      appState.tests[currentTestIdx].passage = pIdx;
+      saveState();
+      hideTip();
       renderPassage();
       renderFooterNav();
       document.getElementById('passagePane').scrollTop = 0;
       document.getElementById('questionsPane').scrollTop = 0;
+      updateHeaderActionButtons();
+      updateTimerUI();
     }
 
     function setMobilePane(pane) {
@@ -386,13 +444,21 @@
     function updateHeaderActionButtons() {
       const st = appState.tests[currentTestIdx];
       document.getElementById('answeredBadge').textContent = `${countAnswered(currentTestIdx)}/${QTOTAL} đã làm`;
+      const sub = document.getElementById('btnSubmitTest');
+      const view = document.getElementById('btnViewResult');
       if (st.submitted) {
-        document.getElementById('btnSubmitTest').classList.add('hidden');
-        document.getElementById('btnViewResult').classList.remove('hidden');
-      } else {
-        document.getElementById('btnSubmitTest').classList.remove('hidden');
-        document.getElementById('btnViewResult').classList.add('hidden');
+        sub.classList.add('hidden');
+        view.classList.remove('hidden');
+        return;
       }
+      view.classList.add('hidden');
+      if (st.mode === 'passage') {
+        if (isPassageDone(currentPassageIdx)) { sub.classList.add('hidden'); return; }
+        sub.textContent = 'Nộp Passage ' + (currentPassageIdx + 1);
+      } else {
+        sub.textContent = 'Nộp bài';
+      }
+      sub.classList.remove('hidden');
     }
 
     /* =========================================================================
@@ -409,21 +475,26 @@
       timerPaused = false;
       updateTimerUI();
       const st = appState.tests[currentTestIdx];
-      if (st.submitted) return;
+      if (st.submitted || !st.configured) return;
+      timerInterval = setInterval(tick, 1000);
+    }
 
-      timerInterval = setInterval(() => {
-        if (timerPaused || currentTestIdx === null) return;
-        const cur = appState.tests[currentTestIdx];
-        if (cur.submitted) { stopTimer(); return; }
-        if (cur.timeLeft > 0) {
-          cur.timeLeft--;
-          updateTimerUI();
-          if (cur.timeLeft % 5 === 0) saveState();
-        } else {
-          stopTimer();
-          submitTest(true);
-        }
-      }, 1000);
+    function tick() {
+      if (timerPaused || currentTestIdx === null) return;
+      const st = appState.tests[currentTestIdx];
+      if (st.submitted || !st.configured) return;
+      if (isLocked(currentPassageIdx)) { updateTimerUI(); return; }   // passage đã nộp: đồng hồ đứng yên
+      const spent = getSpent(st);
+      if (st.limit > 0 && spent >= st.limit) { onTimeUp(); return; }
+      setSpent(st, spent + 1);
+      updateTimerUI();
+      if ((spent + 1) % 5 === 0) saveState();
+      if (st.limit > 0 && spent + 1 >= st.limit) onTimeUp();
+    }
+
+    function onTimeUp() {
+      const st = appState.tests[currentTestIdx];
+      if (st.mode === 'passage') submitPassage(true); else submitTest(true);
     }
 
     function stopTimer() {
@@ -434,22 +505,122 @@
     }
 
     function toggleTimer() {
-      if (currentTestIdx === null || appState.tests[currentTestIdx].submitted) return;
+      if (currentTestIdx === null || isLocked(currentPassageIdx)) return;
+      if (!appState.tests[currentTestIdx].configured) return;
       timerPaused = !timerPaused;
       updateTimerUI();
     }
 
     function updateTimerUI() {
       const st = appState.tests[currentTestIdx];
+      if (!st) return;
       const disp = document.getElementById('timerDisplay');
-      disp.textContent = formatTime(st.timeLeft);
-      if (st.timeLeft <= 300 && !st.submitted) {
-        disp.classList.add('text-rose-600', 'dark:text-rose-400');
+      const scope = document.getElementById('timerScope');
+      const spent = getSpent(st);
+      const limit = st.limit || 0;
+      const locked = isLocked(currentPassageIdx);
+      let warn = false;
+      if (limit > 0) {
+        const left = Math.max(0, limit - spent);
+        disp.textContent = formatTime(left);
+        warn = !locked && left <= (limit >= 600 ? 300 : 60);
       } else {
-        disp.classList.remove('text-rose-600', 'dark:text-rose-400');
+        disp.textContent = formatTime(spent);        // không giới hạn: đếm lên
       }
+      disp.classList.toggle('text-rose-600', warn);
+      disp.classList.toggle('dark:text-rose-400', warn);
+      const label = (st.mode === 'passage' ? 'P' + (currentPassageIdx + 1) : '') + (limit === 0 ? (st.mode === 'passage' ? ' ' : '') + '∞' : '');
+      scope.textContent = label;
+      scope.classList.toggle('hidden', !label);
       document.getElementById('iconPause').classList.toggle('hidden', timerPaused);
       document.getElementById('iconPlay').classList.toggle('hidden', !timerPaused);
+    }
+
+    /* =========================================================================
+       7b. THIẾT LẬP BÀI LÀM (chế độ + thời gian)
+       ========================================================================= */
+    let setup = null;
+
+    function setupPresets(mode) {
+      const base = mode === 'passage' ? [15, 20, 25] : [20, 40, 60];
+      const def = setupDefault(mode);
+      if (!base.includes(def)) base.push(def);
+      return base.sort((a, b) => a - b);
+    }
+    function setupDefault(mode) {
+      return mode === 'passage' ? Math.max(1, Math.round(TEST.durationMin / TEST.passages.length)) : TEST.durationMin;
+    }
+
+    function openSetup() {
+      setup = { mode: 'full', choice: String(setupDefault('full')), custom: '30' };
+      renderSetup();
+    }
+    function setSetupMode(m) {
+      setup.mode = m;
+      setup.choice = String(setupDefault(m));
+      renderSetup();
+    }
+    function setSetupChoice(c) { setup.choice = c; renderSetup(); }
+
+    function renderSetup() {
+      const n = TEST.passages.length;
+      const chip = (val, label) => `<button type="button" onclick="setSetupChoice('${val}')" class="px-3.5 py-1.5 rounded-xl text-sm font-bold border transition ${
+        setup.choice === val ? 'bg-blue-600 text-white border-blue-600 shadow-sm' : 'border-slate-300 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-800'}">${label}</button>`;
+      const modeCard = (m, title, desc) => `<button type="button" onclick="setSetupMode('${m}')" class="text-left p-3.5 rounded-xl border-2 transition ${
+        setup.mode === m ? 'border-blue-600 bg-blue-50 dark:bg-blue-950/40' : 'border-slate-200 dark:border-slate-700 hover:border-blue-300'}">
+          <div class="font-extrabold text-sm mb-1">${title}</div>
+          <div class="text-xs text-slate-500 dark:text-slate-400 leading-snug">${desc}</div></button>`;
+      const presets = setupPresets(setup.mode);
+      openModal(`
+        <div>
+          <h3 class="text-lg font-extrabold text-slate-900 dark:text-white mb-1">Thiết lập bài làm</h3>
+          <p class="text-xs text-slate-500 dark:text-slate-400 mb-4">${TEST.title}</p>
+
+          <div class="text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 mb-2">Chế độ làm bài</div>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 mb-5">
+            ${modeCard('full', 'Cả đề', `Làm liền ${n} passage với một đồng hồ chung, nộp bài một lần.`)}
+            ${modeCard('passage', 'Từng passage', `Làm riêng từng passage, mỗi passage có đồng hồ riêng. Làm xong cả ${n} passage mới hiện điểm.`)}
+          </div>
+
+          <div class="text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 mb-2">${setup.mode === 'passage' ? 'Thời gian cho mỗi passage' : 'Thời gian cho cả đề'}</div>
+          <div class="flex flex-wrap items-center gap-2 mb-2">
+            ${presets.map(m => chip(String(m), m + ' phút')).join('')}
+            ${chip('custom', 'Tùy chọn')}
+            ${chip('inf', 'Không giới hạn')}
+          </div>
+          ${setup.choice === 'custom' ? `
+            <div class="flex items-center gap-2 mt-2">
+              <input id="customMin" type="number" min="1" max="180" value="${setup.custom}" oninput="setup.custom = this.value"
+                class="w-24 px-3 py-1.5 rounded-xl border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800 text-sm font-bold focus:outline-none focus:ring-2 focus:ring-blue-500">
+              <span class="text-sm text-slate-600 dark:text-slate-300">phút${setup.mode === 'passage' ? ' mỗi passage' : ''} (1–180)</span>
+            </div>` : ''}
+          ${setup.choice === 'inf' ? `<p class="text-xs text-slate-500 dark:text-slate-400 mt-2">Đồng hồ sẽ đếm lên để bạn biết mình đã làm bao lâu, không tự nộp bài.</p>` : ''}
+
+          <div class="flex items-center justify-end gap-3 mt-6">
+            <button onclick="exitToLibrary()" class="px-4 py-2 rounded-xl text-sm font-semibold border border-slate-300 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-800 transition">Về danh sách đề</button>
+            <button onclick="startFromSetup()" class="px-5 py-2 rounded-xl text-sm font-bold bg-blue-600 hover:bg-blue-700 text-white shadow-sm transition">Bắt đầu làm bài</button>
+          </div>
+        </div>
+      `);
+    }
+
+    function startFromSetup() {
+      let limit;
+      if (setup.choice === 'inf') limit = 0;
+      else if (setup.choice === 'custom') {
+        const m = parseInt(setup.custom, 10);
+        if (!(m >= 1 && m <= 180)) { showToast('Nhập số phút từ 1 đến 180.'); return; }
+        limit = m * 60;
+      } else limit = parseInt(setup.choice, 10) * 60;
+      const st = appState.tests[currentTestIdx];
+      st.configured = true; st.mode = setup.mode; st.limit = limit;
+      st.spent = 0; st.pspent = {}; st.pdone = {};
+      closeModal();
+      updateHeaderActionButtons();
+      renderPassage();
+      renderFooterNav();
+      startTimer();
+      pushState('autosave');
     }
 
     /* =========================================================================
@@ -484,12 +655,14 @@
       }
 
       renderQuestions(passage);
+      renderHighlights();
     }
 
     function renderQuestions(passage) {
       const container = document.getElementById('questionsContainer');
       const st = appState.tests[currentTestIdx];
       const isSubmitted = st.submitted;
+      const locked = isLocked(currentPassageIdx);
 
       container.innerHTML = passage.groups.map(group => {
         let bodyHtml = '';
@@ -575,7 +748,7 @@
                     ${group.options.map(opt => {
                       const active = val === opt;
                       return `
-                        <button type="button" ${isSubmitted ? 'disabled' : ''} onclick="setAnswer(${item.q}, '${opt}')"
+                        <button type="button" ${locked ? 'disabled' : ''} onclick="setAnswer(${item.q}, '${opt}')"
                           class="px-3 py-1.5 rounded-lg text-xs font-bold border transition ${
                             active
                               ? 'bg-blue-600 text-white border-blue-600 shadow-sm'
@@ -611,7 +784,7 @@
                     <p class="text-sm leading-snug">${item.text}</p>
                   </div>
                   <div class="flex items-center gap-2 shrink-0 pl-8 sm:pl-0">
-                    <select ${isSubmitted ? 'disabled' : ''} onchange="setAnswer(${item.q}, this.value)" class="text-sm font-bold bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-600 rounded-lg px-3 py-1.5 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    <select ${locked ? 'disabled' : ''} onchange="setAnswer(${item.q}, this.value)" class="text-sm font-bold bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-600 rounded-lg px-3 py-1.5 focus:outline-none focus:ring-2 focus:ring-blue-500">
                       <option value="">-- Chọn --</option>
                       ${group.options.map(opt => `<option value="${opt}" ${val === opt ? 'selected' : ''}>${opt}</option>`).join('')}
                     </select>
@@ -643,7 +816,7 @@
                             ? 'bg-blue-50 dark:bg-blue-900/30 border-blue-400 dark:border-blue-600'
                             : 'border-slate-100 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-800/60'
                         }">
-                          <input type="radio" name="mcq_${currentTestIdx}_${item.q}" value="${opt.k}" ${active ? 'checked' : ''} ${isSubmitted ? 'disabled' : ''} onchange="setAnswer(${item.q}, '${opt.k}')" class="mt-1 accent-blue-600">
+                          <input type="radio" name="mcq_${currentTestIdx}_${item.q}" value="${opt.k}" ${active ? 'checked' : ''} ${locked ? 'disabled' : ''} onchange="setAnswer(${item.q}, '${opt.k}')" class="mt-1 accent-blue-600">
                           <span><strong class="mr-1">${opt.k}</strong> ${opt.t}</span>
                         </label>
                       `;
@@ -671,7 +844,7 @@
                         ? 'bg-blue-50 dark:bg-blue-900/30 border-blue-400 dark:border-blue-600'
                         : 'border-slate-100 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-800/60'
                     }">
-                      <input type="checkbox" value="${opt.k}" ${checked ? 'checked' : ''} ${isSubmitted ? 'disabled' : ''} onchange="toggleMulti2(${q1}, ${q2}, '${opt.k}', this)" class="mt-1 accent-blue-600 rounded">
+                      <input type="checkbox" value="${opt.k}" ${checked ? 'checked' : ''} ${locked ? 'disabled' : ''} onchange="toggleMulti2(${q1}, ${q2}, '${opt.k}', this)" class="mt-1 accent-blue-600 rounded">
                       <span><strong class="mr-1">${opt.k}</strong> ${opt.t}</span>
                     </label>
                   `;
@@ -694,6 +867,7 @@
     function replaceInlineInputs(text) {
       const st = appState.tests[currentTestIdx];
       const isSubmitted = st.submitted;
+      const locked = isLocked(currentPassageIdx);
       return text.replace(/\{\{(\d+)\}\}/g, (_, qNum) => {
         const q = parseInt(qNum, 10);
         const val = (st.answers[q] || '').replace(/"/g, '&quot;');
@@ -709,7 +883,7 @@
         }
         return `<span id="q-anchor-${q}" class="inline-flex items-center gap-1 mx-0.5">
           <span class="inline-flex items-center justify-center w-5 h-5 rounded-full bg-blue-600 text-white text-[10px] font-extrabold shrink-0">${q}</span>
-          <input type="text" value="${val}" ${isSubmitted ? 'disabled' : ''} oninput="setAnswer(${q}, this.value, false)" autocomplete="off" spellcheck="false"
+          <input type="text" value="${val}" ${locked ? 'disabled' : ''} oninput="setAnswer(${q}, this.value, false)" autocomplete="off" spellcheck="false"
             class="inline-input text-sm text-slate-900 dark:text-white ${extraClass}" placeholder="......" />
           ${reviewHtml}
         </span>`;
@@ -719,6 +893,7 @@
     function replaceInlineSelects(text, options) {
       const st = appState.tests[currentTestIdx];
       const isSubmitted = st.submitted;
+      const locked = isLocked(currentPassageIdx);
       return text.replace(/\{\{(\d+)\}\}/g, (_, qNum) => {
         const q = parseInt(qNum, 10);
         const val = st.answers[q] || '';
@@ -733,7 +908,7 @@
         }
         return `<span id="q-anchor-${q}" class="inline-flex items-center gap-1 mx-0.5">
           <span class="inline-flex items-center justify-center w-5 h-5 rounded-full bg-blue-600 text-white text-[10px] font-extrabold shrink-0">${q}</span>
-          <select ${isSubmitted ? 'disabled' : ''} onchange="setAnswer(${q}, this.value)" class="text-xs font-bold bg-white dark:bg-slate-900 border-2 ${borderCls} rounded-lg px-2 py-1 focus:outline-none focus:ring-2 focus:ring-blue-500">
+          <select ${locked ? 'disabled' : ''} onchange="setAnswer(${q}, this.value)" class="text-xs font-bold bg-white dark:bg-slate-900 border-2 ${borderCls} rounded-lg px-2 py-1 focus:outline-none focus:ring-2 focus:ring-blue-500">
             <option value="">--</option>
             ${options.map(o => `<option value="${o}" ${val === o ? 'selected' : ''}>${o}</option>`).join('')}
           </select>
@@ -765,7 +940,7 @@
        ========================================================================= */
     function setAnswer(q, val, shouldReRender = true) {
       const st = appState.tests[currentTestIdx];
-      if (st.submitted) return;
+      if (isLocked(currentPassageIdx)) return;
       st.answers[q] = val;
       saveState();
       updateHeaderActionButtons();
@@ -777,7 +952,7 @@
 
     function toggleMulti2(q1, q2, letter, checkbox) {
       const st = appState.tests[currentTestIdx];
-      if (st.submitted) return;
+      if (isLocked(currentPassageIdx)) return;
       let current = [st.answers[q1], st.answers[q2]].filter(Boolean);
       if (checkbox.checked) {
         if (current.length >= 2) {
@@ -804,7 +979,7 @@
         const cls = idx === currentPassageIdx
           ? "px-3 py-1.5 rounded-xl text-xs font-bold bg-blue-600 text-white shadow-sm transition"
           : "px-3 py-1.5 rounded-xl text-xs font-bold bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 transition";
-        return `<button onclick="switchPassage(${idx})" class="${cls}">Passage ${idx + 1}</button>`;
+        return `<button onclick="switchPassage(${idx})" class="${cls}">Passage ${idx + 1}${isPassageDone(idx) ? ' ✓' : ''}</button>`;
       }).join('');
 
       // Render question pills
@@ -877,6 +1052,7 @@
     }
 
     function confirmSubmit() {
+      if (appState.tests[currentTestIdx].mode === 'passage') { confirmSubmitPassage(); return; }
       const answered = countAnswered(currentTestIdx);
       const unanswered = QTOTAL - answered;
       openModal(`
@@ -896,18 +1072,79 @@
       `);
     }
 
+    function passageAnswered(idx) {
+      const p = TEST.passages[idx];
+      const ans = appState.tests[currentTestIdx].answers;
+      let c = 0;
+      for (let q = p.qRange[0]; q <= p.qRange[1]; q++) if (ans[q] && String(ans[q]).trim() !== '') c++;
+      return c;
+    }
+
+    function confirmSubmitPassage() {
+      const idx = currentPassageIdx;
+      const p = TEST.passages[idx];
+      const total = p.qRange[1] - p.qRange[0] + 1;
+      const answered = passageAnswered(idx);
+      const left = passagesLeft() - 1;
+      openModal(`
+        <div class="text-center">
+          <h3 class="text-lg font-extrabold text-slate-900 dark:text-white mb-2">Nộp Passage ${idx + 1}?</h3>
+          <p class="text-sm text-slate-600 dark:text-slate-300 mb-6">
+            Bạn đã trả lời <strong>${answered}/${total}</strong> câu của passage này${answered < total ? ` (còn ${total - answered} câu bỏ trống)` : ''}.
+            Sau khi nộp, passage sẽ bị khóa và không sửa được nữa.
+            ${left > 0 ? `Điểm sẽ hiện khi bạn làm xong cả ${TEST.passages.length} passage (còn <strong>${left}</strong> passage nữa).`
+                       : 'Đây là passage cuối cùng, hệ thống sẽ chấm điểm ngay.'}
+          </p>
+          <div class="flex items-center justify-center gap-3">
+            <button onclick="closeModal()" class="px-4 py-2 rounded-xl text-sm font-semibold border border-slate-300 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-800 transition">Tiếp tục làm</button>
+            <button onclick="submitPassage(false)" class="px-5 py-2 rounded-xl text-sm font-bold bg-blue-600 hover:bg-blue-700 text-white shadow-sm transition">Nộp Passage ${idx + 1}</button>
+          </div>
+        </div>
+      `);
+    }
+
+    function submitPassage(isTimeout = false) {
+      const st = appState.tests[currentTestIdx];
+      const idx = currentPassageIdx;
+      if (isLocked(idx)) return;
+      st.pdone[idx] = true;
+      if (allPassagesDone()) { submitTest(isTimeout); return; }   // passage cuối: chấm cả đề
+      closeModal();
+      renderQuestions(TEST.passages[idx]);
+      renderHighlights();
+      renderFooterNav();
+      updateHeaderActionButtons();
+      updateTimerUI();
+      pushState('submit_passage');
+      const next = TEST.passages.findIndex((_, i) => !st.pdone[i]);
+      const left = passagesLeft();
+      openModal(`
+        <div class="text-center">
+          ${isTimeout ? `<span class="inline-block px-3 py-1 rounded-full text-xs font-bold bg-rose-100 text-rose-700 mb-2">Hết giờ Passage ${idx + 1}</span>` : ''}
+          <h3 class="text-lg font-extrabold text-slate-900 dark:text-white mb-2">Đã nộp Passage ${idx + 1}</h3>
+          <p class="text-sm text-slate-600 dark:text-slate-300 mb-6">Còn <strong>${left}</strong> passage chưa làm. Điểm sẽ hiện sau khi bạn nộp xong tất cả.</p>
+          <div class="flex items-center justify-center gap-3">
+            <button onclick="closeModal()" class="px-4 py-2 rounded-xl text-sm font-semibold border border-slate-300 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-800 transition">Ở lại</button>
+            <button onclick="closeModal(); switchPassage(${next})" class="px-5 py-2 rounded-xl text-sm font-bold bg-blue-600 hover:bg-blue-700 text-white shadow-sm transition">Sang Passage ${next + 1}</button>
+          </div>
+        </div>
+      `);
+    }
+
     function computeResult(isTimeout) {
+      const st = appState.tests[currentTestIdx];
       const byPassage = TEST.passages.map((p, i) => {
         let correct = 0;
         for (let q = p.qRange[0]; q <= p.qRange[1]; q++) if (isQuestionCorrect(currentTestIdx, q)) correct++;
-        return { label: 'Passage ' + (i + 1), correct: correct, total: p.qRange[1] - p.qRange[0] + 1 };
+        return { label: 'Passage ' + (i + 1), correct: correct, total: p.qRange[1] - p.qRange[0] + 1,
+                 seconds: st.mode === 'passage' ? (st.pspent[i] || 0) : null };
       });
       const total = byPassage.reduce((s, p) => s + p.correct, 0);
       return {
         score: total,
         total: QTOTAL,
         band: getBandScore(total),
-        seconds: Math.max(0, durationSec() - appState.tests[currentTestIdx].timeLeft),
+        seconds: totalSpent(st),
         timeout: !!isTimeout,
         byPassage: byPassage
       };
@@ -916,30 +1153,36 @@
     function submitTest(isTimeout = false) {
       stopTimer();
       const st = appState.tests[currentTestIdx];
+      if (st.mode === 'passage') TEST.passages.forEach((_, i) => { st.pdone[i] = true; });
       const result = computeResult(isTimeout);
       st.submitted = true;
       st.score = result.score;
 
       updateHeaderActionButtons();
       renderQuestions(TESTS[currentTestIdx].passages[currentPassageIdx]);
+      renderHighlights();
       renderFooterNav();
+      updateTimerUI();
       openResultModal(isTimeout);
       pushState('submit', result);
     }
 
     function openResultModal(isTimeout = false) {
       const r = computeResult(isTimeout);
+      const st = appState.tests[currentTestIdx];
+      const mmss = s => formatTime(s || 0);
       const passCells = r.byPassage.map(p => `
             <div class="bg-slate-50 dark:bg-slate-800 rounded-xl p-2.5">
               <div class="text-slate-500 dark:text-slate-400">${p.label}</div>
               <div class="font-extrabold text-sm mt-0.5">${p.correct} / ${p.total}</div>
+              ${p.seconds != null ? `<div class="text-[11px] text-slate-500 dark:text-slate-400 mt-0.5">${mmss(p.seconds)}</div>` : ''}
             </div>`).join('');
 
       openModal(`
         <div class="text-center">
-          ${isTimeout ? `<span class="inline-block px-3 py-1 rounded-full text-xs font-bold bg-rose-100 text-rose-700 mb-2">Hết thời gian ${TEST.durationMin} phút!</span>` : ''}
+          ${isTimeout ? `<span class="inline-block px-3 py-1 rounded-full text-xs font-bold bg-rose-100 text-rose-700 mb-2">Hết thời gian!</span>` : ''}
           <h3 class="text-xl font-extrabold text-slate-900 dark:text-white mb-1">Kết quả ${TEST.title}</h3>
-          <p class="text-xs text-slate-500 dark:text-slate-400 mb-5">${TEST.subtitle || ''}</p>
+          <p class="text-xs text-slate-500 dark:text-slate-400 mb-5">${TEST.subtitle || ''}${st.mode === 'passage' ? ' · Làm từng passage' : ''} · Thời gian: ${mmss(r.seconds)}</p>
 
           <div class="grid grid-cols-2 gap-3 mb-5">
             <div class="bg-blue-50 dark:bg-blue-950/40 border border-blue-200 dark:border-blue-800 rounded-2xl p-4">
@@ -1005,54 +1248,153 @@
        ========================================================================= */
     const passageContentEl = document.getElementById('passageContent');
     const hlTooltip = document.getElementById('hlTooltip');
+    const HL_COLORS = ['yellow', 'orange', 'red'];
 
-    document.addEventListener('mouseup', (e) => {
-      if (e.target.closest('#hlTooltip')) return;
-      const sel = window.getSelection();
-      if (!sel || sel.isCollapsed || !sel.rangeCount) {
-        hlTooltip.classList.add('hidden');
-        return;
-      }
-      const range = sel.getRangeAt(0);
-      if (passageContentEl.contains(range.commonAncestorContainer)) {
-        const rect = range.getBoundingClientRect();
-        pendingSelectionRange = range.cloneRange();
-        hlTooltip.style.top = Math.max(10, rect.top - 38) + 'px';
-        hlTooltip.style.left = (rect.left + rect.width / 2) + 'px';
-        hlTooltip.classList.remove('hidden');
-      } else {
-        hlTooltip.classList.add('hidden');
-      }
-    });
-
-    function applyHighlight() {
-      if (!pendingSelectionRange) return;
-      try {
-        const mark = document.createElement('mark');
-        mark.className = 'user-hl';
-        mark.title = 'Bấm để xóa highlight';
-        mark.onclick = function() {
-          const parent = this.parentNode;
-          while (this.firstChild) parent.insertBefore(this.firstChild, this);
-          parent.removeChild(this);
-        };
-        pendingSelectionRange.surroundContents(mark);
-        window.getSelection().removeAllRanges();
-      } catch (err) {
-        showToast("Hãy bôi đen trong cùng một đoạn văn để highlight.");
-      }
-      hlTooltip.classList.add('hidden');
-      pendingSelectionRange = null;
+    // Highlight lưu dưới dạng vùng ký tự {s, e, c} trong văn bản của passage, nên vẽ lại được sau khi đổi passage / tải lại trang
+    function hlStore() {
+      const st = appState.tests[currentTestIdx];
+      if (!st.hl) st.hl = {};
+      if (!st.hl[currentPassageIdx]) st.hl[currentPassageIdx] = [];
+      return st.hl[currentPassageIdx];
     }
 
-    function clearHighlights() {
-      const marks = passageContentEl.querySelectorAll('mark.user-hl');
-      marks.forEach(m => {
+    function textOffset(node, off) {
+      const r = document.createRange();
+      r.selectNodeContents(passageContentEl);
+      r.setEnd(node, off);
+      return r.toString().length;
+    }
+
+    function unwrapMarks() {
+      passageContentEl.querySelectorAll('mark.user-hl').forEach(m => {
         const parent = m.parentNode;
         while (m.firstChild) parent.insertBefore(m.firstChild, m);
         parent.removeChild(m);
       });
+      passageContentEl.normalize();
     }
+
+    function wrapRange(s, e, color, index) {
+      const walker = document.createTreeWalker(passageContentEl, NodeFilter.SHOW_TEXT);
+      const nodes = [];
+      let n;
+      while ((n = walker.nextNode())) nodes.push(n);
+      let pos = 0;
+      for (const node of nodes) {
+        const len = node.nodeValue.length;
+        const a = Math.max(s, pos) - pos;
+        const b = Math.min(e, pos + len) - pos;
+        pos += len;
+        if (b <= a) { if (pos >= e) break; continue; }
+        let target = node;
+        if (a > 0) target = node.splitText(a);
+        if (b - a < target.nodeValue.length) target.splitText(b - a);
+        const mark = document.createElement('mark');
+        mark.className = 'user-hl hl-' + color;
+        mark.dataset.i = String(index);
+        mark.title = 'Bấm để xóa highlight';
+        target.parentNode.insertBefore(mark, target);
+        mark.appendChild(target);
+      }
+    }
+
+    function renderHighlights() {
+      unwrapMarks();
+      hlStore().forEach((h, i) => wrapRange(h.s, h.e, h.c, i));
+    }
+
+    function hideTip() { hlTooltip.style.display = 'none'; }
+
+    function updateTip(ev) {
+      if (ev && ev.target && ev.target.closest && ev.target.closest('#hlTooltip')) return;
+      setTimeout(() => {
+        const sel = window.getSelection();
+        if (!sel || sel.isCollapsed || !sel.rangeCount) { hideTip(); return; }
+        const range = sel.getRangeAt(0);
+        if (passageContentEl.contains(range.commonAncestorContainer)) {
+          const rect = range.getBoundingClientRect();
+          pendingSelectionRange = range.cloneRange();
+          hlTooltip.style.top = Math.max(10, rect.top - 46) + 'px';
+          hlTooltip.style.left = Math.min(window.innerWidth - 110, Math.max(110, rect.left + rect.width / 2)) + 'px';
+          hlTooltip.style.display = 'flex';
+        } else {
+          hideTip();
+        }
+      }, 10);
+    }
+    document.addEventListener('mouseup', updateTip);
+    document.addEventListener('touchend', updateTip);
+    document.addEventListener('keyup', (e) => { if (e.shiftKey) updateTip(e); });
+
+    function applyHighlight(color) {
+      if (!pendingSelectionRange) return;
+      if (!HL_COLORS.includes(color)) color = 'yellow';
+      const r = pendingSelectionRange;
+      pendingSelectionRange = null;
+      hideTip();
+      if (!passageContentEl.contains(r.commonAncestorContainer)) return;
+      let s = textOffset(r.startContainer, r.startOffset);
+      let e = textOffset(r.endContainer, r.endOffset);
+      if (e < s) { const t = s; s = e; e = t; }
+      if (e <= s) return;
+      // Phần chồng lên highlight cũ thì cắt bỏ phần đó, highlight mới đè lên
+      const out = [];
+      hlStore().forEach(h => {
+        if (h.e <= s || h.s >= e) { out.push(h); return; }
+        if (h.s < s) out.push({ s: h.s, e: s, c: h.c });
+        if (h.e > e) out.push({ s: e, e: h.e, c: h.c });
+      });
+      out.push({ s: s, e: e, c: color });
+      out.sort((x, y) => x.s - y.s);
+      appState.tests[currentTestIdx].hl[currentPassageIdx] = out;
+      window.getSelection().removeAllRanges();
+      renderHighlights();
+      saveState();
+    }
+
+    passageContentEl.addEventListener('click', (ev) => {
+      const m = ev.target.closest && ev.target.closest('mark.user-hl');
+      if (!m) return;
+      const sel = window.getSelection();
+      if (sel && !sel.isCollapsed) return;
+      const list = hlStore();
+      const i = parseInt(m.dataset.i, 10);
+      if (!(i >= 0 && i < list.length)) return;
+      list.splice(i, 1);
+      renderHighlights();
+      saveState();
+    });
+
+    function clearHighlights() {
+      appState.tests[currentTestIdx].hl[currentPassageIdx] = [];
+      renderHighlights();
+      saveState();
+    }
+
+    /* =========================================================================
+       11b. THANH KÉO CHIA KHUNG BÀI ĐỌC / CÂU HỎI
+       ========================================================================= */
+    function applySplit() {
+      const v = Math.min(70, Math.max(25, Number(appState.split) || 42));
+      document.documentElement.style.setProperty('--split', v + '%');
+    }
+    (function initSplitter() {
+      const sp = document.getElementById('splitter');
+      if (!sp) return;
+      let drag = false;
+      sp.addEventListener('pointerdown', (e) => { drag = true; sp.setPointerCapture(e.pointerId); document.body.style.userSelect = 'none'; });
+      sp.addEventListener('pointermove', (e) => {
+        if (!drag) return;
+        const box = sp.parentElement.getBoundingClientRect();
+        const pct = ((e.clientX - box.left) / box.width) * 100;
+        appState.split = Math.round(Math.min(70, Math.max(25, pct)) * 10) / 10;
+        applySplit();
+      });
+      const end = () => { if (!drag) return; drag = false; document.body.style.userSelect = ''; saveState(); };
+      sp.addEventListener('pointerup', end);
+      sp.addEventListener('pointercancel', end);
+      sp.addEventListener('dblclick', () => { appState.split = 42; applySplit(); saveState(); });
+    })();
 
     /* =========================================================================
        12. KHỞI CHẠY ỨNG DỤNG
@@ -1075,12 +1417,8 @@
 
       appState.darkMode = !!prefs.darkMode;
       appState.fontSize = prefs.fontSize || 15;
-      appState.tests[0] = Object.assign(freshState(), {
-        answers: saved.answers || {},
-        submitted: !!saved.submitted,
-        timeLeft: typeof saved.timeLeft === 'number' ? saved.timeLeft : durationSec(),
-        score: saved.score == null ? null : saved.score
-      });
+      appState.split = typeof prefs.split === 'number' ? prefs.split : 42;
+      appState.tests[0] = loadSaved(saved);
 
       document.getElementById('logoBadge').textContent = meta.badge || 'O';
       document.getElementById('hdrTitle').textContent = meta.seriesTitle || 'Orange';

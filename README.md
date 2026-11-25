@@ -82,6 +82,13 @@ Giữ cho file nhẹ: một đề một file, ảnh để file riêng và ghi đ
 - Khi đưa lên mạng, hãy chạy sau HTTPS. Cookie được ghi bằng JavaScript nên không có cờ HttpOnly; đây là giới hạn của Streamlit.
 - Chưa có quên mật khẩu qua email. Cần thì thêm sau (cần gửi mail).
 
+## Làm bài Reading
+
+- Khi bấm **Bắt đầu làm**, hộp thiết lập hiện ra: chọn **Cả đề** (một đồng hồ chung) hoặc **Từng passage** (mỗi passage một đồng hồ riêng, nộp riêng, khóa sau khi nộp; **làm xong tất cả passage mới hiện điểm**), và thời gian (preset, tùy chọn 1–180 phút, hoặc không giới hạn: đếm lên).
+- Highlight có 3 màu (vàng, cam, đỏ), lưu theo từng passage nên đổi passage hay tải lại vẫn còn. Bấm vào vùng đã highlight để xóa.
+- Thanh giữa bài đọc và câu hỏi kéo được (bấm đúp để về mặc định); độ rộng được nhớ theo tài khoản.
+- Trạng thái làm bài (`reading_progress.state_json`) gồm: `answers`, `mode`, `limit`, `spent`, `pspent`, `pdone`, `passage`, `hl`. Bản lưu cũ chỉ có `timeLeft` vẫn mở tiếp bình thường.
+
 ## Sao lưu
 
 Sao lưu file `memora.db` (và thư mục `data/` nếu bạn sửa đề).
@@ -94,6 +101,7 @@ Ngữ pháp, Listening, Writing, Speaking mới có trang giữ chỗ, chờ tà
 
 - Bố cục, nút, thẻ, menu thu gọn: `core/ui.py` và `app.py`. Màu nằm ở `LIGHT` / `DARK` đầu `core/ui.py` và `.streamlit/config.toml`.
 - Giao diện sáng/tối: menu ⋮ góc trên phải → Settings → Theme.
+- Sidebar là danh sách phẳng; mục **Reading** mở ra 4 mục con (khai báo trong `data/reading/categories.json`). Khối tài khoản và Đăng xuất nằm cuối sidebar.
 - **Tài khoản quản trị**: khai báo tên đăng nhập quản trị trong Streamlit Cloud → Settings → Secrets, ví dụ
   `ADMIN_USERNAMES = ["phihung"]` (hoặc biến môi trường `MEMORA_ADMINS=phihung`). Tài khoản đó đăng ký bình thường,
   khi đăng nhập sẽ thấy mục **Quản trị** (khóa/mở khóa, đặt lại mật khẩu, xóa tài khoản).

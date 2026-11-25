@@ -136,6 +136,8 @@ def progress_summary(user_id: int) -> dict[str, dict]:
             "submitted": bool(r["submitted"]),
             "answered": sum(1 for v in answers.values() if str(v).strip()),
             "updated_at": r["updated_at"],
+            "mode": st.get("mode"),
+            "pdone": len(st.get("pdone") or {}),
         }
     return out
 

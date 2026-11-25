@@ -4,7 +4,7 @@ import streamlit as st
 from core import catalog as cat_mod
 from core import db, scoring
 from core.reader_component import reader
-from core.reading_nav import close_test, open_test
+from core.reading_nav import close_test, current_category, open_test
 from core.session import current_user
 from core.ui import badge, esc, page_title, progress_bar, type_label
 
@@ -64,7 +64,11 @@ def _test_card(t: dict, progress: dict, last_attempt: dict) -> None:
     if status == "done":
         tag = badge(f"Band {attempt['band']} ({attempt['score']}/{attempt['total']})", "done") if attempt else badge("Đã nộp", "done")
     elif status == "doing":
-        tag = badge(f"Đang làm ({answered}/{t['totalQuestions']})", "doing")
+        p = progress.get(t["id"], {})
+        if p.get("mode") == "passage":
+            tag = badge(f"Đang làm · {p.get('pdone', 0)}/{len(t['passages'])} passage", "doing")
+        else:
+            tag = badge(f"Đang làm ({answered}/{t['totalQuestions']})", "doing")
     else:
         tag = badge("Chưa làm", "todo")
 
@@ -101,7 +105,9 @@ def _matches(t: dict, query: str, status: str, progress: dict) -> bool:
 
 
 def library() -> None:
-    page_title("Reading", "Chọn một bộ đề. Tiến độ và điểm số được lưu theo tài khoản của bạn.")
+    cat = current_category(catalog)
+    page_title(f"Reading · {cat['title']}",
+               cat.get("description") or "Chọn một bộ đề. Tiến độ và điểm số được lưu theo tài khoản của bạn.")
     progress = db.progress_summary(user["id"])
     last_attempt: dict[str, dict] = {}
     for a in db.list_attempts(user["id"], 1000):          # mới nhất trước
@@ -127,41 +133,35 @@ def library() -> None:
     status = c2.segmented_control("Trạng thái", list(FILTERS), default="Tất cả",
                                   label_visibility="collapsed") or "Tất cả"
 
-    categories = catalog["categories"]
-    for tab, cat in zip(st.tabs([c["title"] for c in categories]), categories):
-        with tab:
-            if cat.get("description"):
-                st.markdown(f'<p class="memora-muted" style="margin-top:.75rem">{esc(cat["description"])}</p>',
-                            unsafe_allow_html=True)
-            if not cat["series"]:
-                with st.container(key=f"card-empty-{cat['id']}"):
-                    st.markdown('<div class="memora-empty"><b>Chưa có đề trong mục này</b>'
-                                '<p>Đề mới sẽ xuất hiện ở đây ngay khi được thêm vào.</p></div>',
-                                unsafe_allow_html=True)
-                continue
-            shown = 0
-            for series in cat["series"]:
-                tests = [t for t in series["tests"] if _matches(t, query, status, progress)]
-                if not tests:
-                    continue
-                shown += 1
-                done = sum(1 for t in series["tests"] if _status(t["id"], progress) == "done")
-                st.markdown(
-                    f'<div class="memora-series"><h3>{esc(series["title"])}</h3>'
-                    f'<span>{done}/{len(series["tests"])} đề đã nộp</span></div>',
-                    unsafe_allow_html=True,
-                )
-                if series.get("description"):
-                    st.markdown(f'<p class="memora-series-desc">{esc(series["description"])}</p>', unsafe_allow_html=True)
-                cols = st.columns(2)
-                for i, t in enumerate(tests):
-                    with cols[i % 2]:
-                        _test_card(t, progress, last_attempt)
-            if not shown:
-                with st.container(key=f"card-nomatch-{cat['id']}"):
-                    st.markdown('<div class="memora-empty"><b>Không tìm thấy đề phù hợp</b>'
-                                '<p>Thử bỏ bộ lọc trạng thái hoặc tìm bằng từ khóa khác.</p></div>',
-                                unsafe_allow_html=True)
+    shown = 0
+    if not cat["series"]:
+        with st.container(key=f"card-empty-{cat['id']}"):
+            st.markdown('<div class="memora-empty"><b>Chưa có đề trong mục này</b>'
+                        '<p>Đề mới sẽ xuất hiện ở đây ngay khi được thêm vào.</p></div>',
+                        unsafe_allow_html=True)
+        return
+    for series in cat["series"]:
+        tests = [t for t in series["tests"] if _matches(t, query, status, progress)]
+        if not tests:
+            continue
+        shown += 1
+        done = sum(1 for t in series["tests"] if _status(t["id"], progress) == "done")
+        st.markdown(
+            f'<div class="memora-series"><h3>{esc(series["title"])}</h3>'
+            f'<span>{done}/{len(series["tests"])} đề đã nộp</span></div>',
+            unsafe_allow_html=True,
+        )
+        if series.get("description"):
+            st.markdown(f'<p class="memora-series-desc">{esc(series["description"])}</p>', unsafe_allow_html=True)
+        cols = st.columns(2)
+        for i, t in enumerate(tests):
+            with cols[i % 2]:
+                _test_card(t, progress, last_attempt)
+    if not shown:
+        with st.container(key=f"card-nomatch-{cat['id']}"):
+            st.markdown('<div class="memora-empty"><b>Không tìm thấy đề phù hợp</b>'
+                        '<p>Thử bỏ bộ lọc trạng thái hoặc tìm bằng từ khóa khác.</p></div>',
+                        unsafe_allow_html=True)
 
 
 # --------------------------------------------------------------------- exam
@@ -177,32 +177,38 @@ def _handle_event(val, test: dict) -> None:
 
     uid, tid = user["id"], test["id"]
     event = val.get("event")
+    if event == "cancel":                                   # thoát khỏi hộp thiết lập, chưa bắt đầu làm
+        close_test()
+        st.rerun()
     state = scoring.clean_state(test, val.get("state"))
     existing = db.get_progress(uid, tid)
 
     prefs = val.get("prefs")
     if isinstance(prefs, dict):
-        size = prefs.get("fontSize")
+        size, split = prefs.get("fontSize"), prefs.get("split")
         db.save_prefs(uid, {"darkMode": bool(prefs.get("darkMode")),
-                            "fontSize": min(22, max(13, size)) if isinstance(size, (int, float)) else 15})
+                            "fontSize": min(22, max(13, size)) if isinstance(size, (int, float)) else 15,
+                            "split": min(70, max(25, split)) if isinstance(split, (int, float)) else 42})
 
     if event == "reset":
         db.delete_progress(uid, tid)
     elif existing and existing.get("submitted"):
         pass                                                # đề đã nộp thì khóa cho tới khi làm lại
-    elif event == "submit":
+    elif event == "submit" and scoring.all_passages_done(test, state):
         result = scoring.score_test(test, state["answers"])
         state.update(submitted=True, score=result["score"])
         db.save_progress(uid, tid, state)
         timeout = bool((val.get("result") or {}).get("timeout"))
         db.add_attempt(uid, tid, result["score"], result["total"], result["band"],
-                       test["durationMin"] * 60 - state["timeLeft"],
-                       {"byPassage": result["byPassage"], "timeout": timeout})
+                       scoring.spent_seconds(state),
+                       {"byPassage": result["byPassage"], "timeout": timeout, "mode": state["mode"]})
         st.toast(f"Đã nộp bài · Band {result['band']} ({result['score']}/{result['total']})",
                  icon=":material/check_circle:")
-    elif event in ("autosave", "exit", "prev", "next"):
-        state["submitted"] = False                          # chỉ "submit" mới kết thúc bài
+    elif event in ("autosave", "exit", "prev", "next", "submit", "submit_passage"):
+        state["submitted"] = False                          # chỉ "submit" đủ passage mới kết thúc bài
         db.save_progress(uid, tid, state)
+        if event == "submit_passage":
+            st.toast("Đã nộp passage", icon=":material/check_circle:")
 
     if event == "exit":
         close_test()

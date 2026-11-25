@@ -105,6 +105,22 @@ button[data-baseweb="tab"] { font-weight: 700; }
 .st-key-side_nav [data-testid="stExpander"] summary:hover { background: color-mix(in srgb, currentColor 7%, transparent); }
 .st-key-side_nav [data-testid="stExpanderDetails"] { gap: 2px; padding: 0 0 .25rem .35rem; margin-left: 1.2rem; border-left: 2px solid color-mix(in srgb, currentColor 13%, transparent); }
 .st-key-side_nav [data-testid="stExpanderDetails"] [data-testid="stPageLink-NavLink"] { font-weight: 600; font-size: .93rem; min-height: 36px; }
+/* nút Reading (có mũi tên) + danh sách mục con */
+.st-key-side_nav [data-testid="stBaseButton-tertiary"] { width: 100%; justify-content: flex-start; border-radius: 14px; font-weight: 800;
+  padding: .38rem .8rem; min-height: 40px; text-align: left; }
+[class*="st-key-nav_reading_btn_"] [data-testid="stBaseButton-tertiary"] { position: relative; padding-right: 2.2rem; }
+[class*="st-key-nav_reading_btn_"] [data-testid="stBaseButton-tertiary"]::after { content: ""; position: absolute; right: 1.1rem; top: 50%;
+  width: 7px; height: 7px; margin-top: -6px; border-right: 2px solid currentColor; border-bottom: 2px solid currentColor;
+  transform: rotate(45deg); opacity: .6; transition: transform .15s ease; }
+.st-key-nav_reading_btn_open [data-testid="stBaseButton-tertiary"]::after { transform: rotate(-135deg); margin-top: -2px; }
+.st-key-nav_reading_sub { gap: 2px !important; margin: 0 0 .25rem 1.2rem; padding-left: .35rem; border-left: 2px solid color-mix(in srgb, currentColor 13%, transparent); }
+.st-key-nav_reading_sub [data-testid="stBaseButton-tertiary"] { font-weight: 600; font-size: .93rem; min-height: 36px; }
+.st-key-side_nav [class*="navsub-"][class*="-active"] [data-testid="stBaseButton-tertiary"] { background: var(--m-accent-soft); color: var(--m-accent-text); font-weight: 800; }
+
+/* khối tài khoản + Đăng xuất nằm cuối sidebar */
+[data-testid="stSidebarUserContent"] { display: flex; flex-direction: column; min-height: calc(100vh - 8rem); }
+[data-testid="stSidebarUserContent"] > [data-testid="stVerticalBlock"] { flex: 1 1 auto; }
+.st-key-side_user, [data-testid="stSidebarUserContent"] [data-testid="stVerticalBlock"] > *:has(> .st-key-side_user) { margin-top: auto; }
 .st-key-side_foot { margin-top: .4rem; }
 .st-key-side_foot [data-testid="stCaptionContainer"] { opacity: .6; font-size: .78rem; }
 

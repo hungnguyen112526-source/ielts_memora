@@ -42,17 +42,77 @@ def score_test(test: dict, answers: dict) -> dict:
             "byPassage": by_passage}
 
 
+HL_COLORS = ("yellow", "orange", "red")
+MAX_LIMIT_SEC = 180 * 60
+MAX_HL_PER_PASSAGE = 300
+
+
+def _int(v, lo: int, hi: int, default: int) -> int:
+    if isinstance(v, bool) or not isinstance(v, (int, float)):
+        return default
+    return min(hi, max(lo, int(v)))
+
+
+def _clean_highlights(raw, n_passages: int) -> dict:
+    """{passage: [{s, e, c}]}: vùng ký tự đã highlight, chỉ giữ dữ liệu hợp lệ."""
+    out: dict[str, list] = {}
+    if not isinstance(raw, dict):
+        return out
+    for k, items in raw.items():
+        if not str(k).isdigit() or int(k) >= n_passages or not isinstance(items, list):
+            continue
+        clean = []
+        for h in items[:MAX_HL_PER_PASSAGE]:
+            if not isinstance(h, dict) or h.get("c") not in HL_COLORS:
+                continue
+            s, e = _int(h.get("s"), 0, 10_000_000, -1), _int(h.get("e"), 0, 10_000_000, -1)
+            if 0 <= s < e:
+                clean.append({"s": s, "e": e, "c": h["c"]})
+        out[str(int(k))] = clean
+    return out
+
+
 def clean_state(test: dict, state: dict | None) -> dict:
     """Validate the state object sent by the browser before it is stored."""
     state = state if isinstance(state, dict) else {}
     total = test["totalQuestions"]
+    n_pass = len(test["passages"])
     answers = {}
     raw = state.get("answers") if isinstance(state.get("answers"), dict) else {}
     for k, v in raw.items():
         if str(k).isdigit() and 1 <= int(k) <= total and isinstance(v, str):
             answers[str(int(k))] = v[:200]
-    limit = int(test.get("durationMin", 60)) * 60
-    tl = state.get("timeLeft")
-    time_left = min(limit, max(0, int(tl))) if isinstance(tl, (int, float)) else limit
-    return {"answers": answers, "submitted": bool(state.get("submitted")), "timeLeft": time_left,
-            "score": state.get("score") if isinstance(state.get("score"), int) else None}
+
+    mode = "passage" if state.get("mode") == "passage" else "full"
+    default_limit = int(test.get("durationMin", 60)) * 60
+    limit = _int(state.get("limit"), 0, MAX_LIMIT_SEC, default_limit)      # 0 = không giới hạn
+    cap = limit if limit > 0 else 24 * 3600
+    spent = _int(state.get("spent"), 0, cap, 0)
+    pspent, pdone = {}, {}
+    if isinstance(state.get("pspent"), dict):
+        for k, v in state["pspent"].items():
+            if str(k).isdigit() and int(k) < n_pass:
+                pspent[str(int(k))] = _int(v, 0, cap, 0)
+    if isinstance(state.get("pdone"), dict):
+        for k, v in state["pdone"].items():
+            if str(k).isdigit() and int(k) < n_pass and v:
+                pdone[str(int(k))] = True
+    return {
+        "answers": answers, "submitted": bool(state.get("submitted")),
+        "score": state.get("score") if isinstance(state.get("score"), int) else None,
+        "configured": bool(state.get("configured")), "mode": mode, "limit": limit,
+        "spent": spent, "pspent": pspent, "pdone": pdone,
+        "passage": _int(state.get("passage"), 0, max(0, n_pass - 1), 0),
+        "hl": _clean_highlights(state.get("hl"), n_pass),
+    }
+
+
+def all_passages_done(test: dict, state: dict) -> bool:
+    return state.get("mode") != "passage" or all(str(i) in state.get("pdone", {}) for i in range(len(test["passages"])))
+
+
+def spent_seconds(state: dict) -> int:
+    """Tổng thời gian đã làm: chế độ từng passage thì cộng thời gian của các passage."""
+    if state.get("mode") == "passage":
+        return sum(int(v) for v in (state.get("pspent") or {}).values())
+    return int(state.get("spent") or 0)
