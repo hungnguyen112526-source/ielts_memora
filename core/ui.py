@@ -151,7 +151,7 @@ button[data-baseweb="tab"] { font-weight: 700; }
 .memora-bar i { display: block; height: 100%; background: linear-gradient(90deg, var(--m-accent), var(--m-accent2)); border-radius: 9999px; }
 .memora-series { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; flex-wrap: wrap; margin: 1.6rem 0 .25rem; }
 .memora-series h3 { font-size: 1.15rem; margin: 0; padding: 0; }
-.memora-series span { font-size: .8rem; font-weight: 700; padding: 3px 10px; border-radius: 999px; background: var(--m-accent-soft); color: var(--m-accent-text); }
+.memora-series > span { font-size: .8rem; font-weight: 700; padding: 3px 10px; border-radius: 999px; background: var(--m-accent-soft); color: var(--m-accent-text); }
 .memora-series-desc { opacity: .7; font-size: .88rem; margin: 0 0 .75rem; }
 .memora-table { width: 100%; border-collapse: collapse; font-size: .88rem; }
 .memora-table th { text-align: left; opacity: .65; font-weight: 700; font-size: .78rem; padding: 0 8px 8px; border-bottom: 1px solid var(--m-line); }
@@ -210,8 +210,10 @@ def _is_dark() -> bool:
 
 
 def inject_css() -> None:
-    tokens = DARK if _is_dark() else LIGHT
-    root = ":root{" + "".join(f"--m-{k}:{v};" for k, v in tokens.items()) + "}"
+    """Màu sáng/tối do trình duyệt chọn bằng light-dark() theo color-scheme mà Streamlit đặt cho theme đang hiển thị,
+    nên không còn lệch khi st.context.theme trả về giá trị cũ."""
+    root = ":root{" + "".join(f"--m-{k}:light-dark({LIGHT[k]},{DARK[k]});" for k in LIGHT if k != "shadow") + (
+        "--m-shadow:0 30px 60px -42px light-dark(rgba(30,41,90,.35),rgba(0,0,0,.7));}")
     st.markdown(
         '<style>@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap");'
         + root + "</style>" + CSS,
