@@ -82,6 +82,10 @@ def connect():
 def init_db() -> None:
     with connect() as c:
         c.executescript(SCHEMA)
+        # Nâng cấp DB cũ: thêm cột trạng thái tài khoản (active / blocked)
+        cols = {r["name"] for r in c.execute("PRAGMA table_info(users)")}
+        if "status" not in cols:
+            c.execute("ALTER TABLE users ADD COLUMN status TEXT NOT NULL DEFAULT 'active'")
 
 
 def now() -> int:

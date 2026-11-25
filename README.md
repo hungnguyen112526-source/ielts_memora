@@ -89,3 +89,11 @@ Sao lưu file `memora.db` (và thư mục `data/` nếu bạn sửa đề).
 ## Việc chưa làm
 
 Ngữ pháp, Listening, Writing, Speaking mới có trang giữ chỗ, chờ tài liệu.
+
+## Giao diện và quản trị
+
+- Bố cục, nút, thẻ, menu thu gọn: `core/ui.py` và `app.py`. Màu nằm ở `LIGHT` / `DARK` đầu `core/ui.py` và `.streamlit/config.toml`.
+- Giao diện sáng/tối: menu ⋮ góc trên phải → Settings → Theme.
+- **Tài khoản quản trị**: khai báo tên đăng nhập quản trị trong Streamlit Cloud → Settings → Secrets, ví dụ
+  `ADMIN_USERNAMES = ["phihung"]` (hoặc biến môi trường `MEMORA_ADMINS=phihung`). Tài khoản đó đăng ký bình thường,
+  khi đăng nhập sẽ thấy mục **Quản trị** (khóa/mở khóa, đặt lại mật khẩu, xóa tài khoản).

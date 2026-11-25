@@ -1,6 +1,8 @@
 """Streamlit-side login state: who is signed in, login/register forms, persistent cookie."""
 from __future__ import annotations
 
+import os
+
 import streamlit as st
 
 from . import auth
@@ -11,12 +13,31 @@ COOKIE_NAME = "memora_session"
 
 def _read_cookie() -> str | None:
     try:
-        return st.context.cookies.get(COOKIE_NAME)
+        value = st.context.cookies.get(COOKIE_NAME)
+        return value if isinstance(value, str) else None
     except Exception:          # old Streamlit without st.context, or no request context
         return None
 
 
+def _admin_names() -> list[str]:
+    """Danh sách quản trị: Secrets `ADMIN_USERNAMES` (Streamlit Cloud) hoặc biến môi trường MEMORA_ADMINS (cách nhau bằng dấu phẩy)."""
+    names: list[str] = [n for n in os.environ.get("MEMORA_ADMINS", "").split(",") if n.strip()]
+    try:
+        raw = st.secrets.get("ADMIN_USERNAMES", [])
+        names += [raw] if isinstance(raw, str) else list(raw)
+    except Exception:       # chưa có file secrets
+        pass
+    return names
+
+
 def current_user() -> dict | None:
+    user = _current_user()
+    if user is not None:
+        user["is_admin"] = auth.is_admin(user["username"], _admin_names())
+    return user
+
+
+def _current_user() -> dict | None:
     """Signed-in user for this browser session. After a page refresh the cookie
     token restores the login (Streamlit itself forgets session_state on refresh)."""
     user = st.session_state.get("user")
@@ -62,21 +83,21 @@ def logout() -> None:
 LOGIN_CSS = """
 <style>
 [data-testid="stSidebar"], [data-testid="stSidebarCollapsedControl"], [data-testid="stExpandSidebarButton"] { display: none !important; }
-.stApp { background:
-  radial-gradient(700px 420px at 12% -5%, rgba(37, 99, 235, .13), transparent 70%),
-  radial-gradient(600px 400px at 100% 105%, rgba(37, 99, 235, .09), transparent 70%), #f8fafc; }
-.block-container, [data-testid="stMainBlockContainer"] { padding-top: 4.5rem; }
-.memora-hero { text-align: center; margin-bottom: 1.4rem; }
-.memora-hero .mark { width: 56px; height: 56px; border-radius: 16px; margin: 0 auto 14px; display: block;
-  box-shadow: 0 8px 20px rgba(37, 99, 235, .3); }
-.memora-hero h1 { font-size: 2.1rem; font-weight: 800; letter-spacing: -.025em; margin: 0 0 6px; color: #0f172a; }
-.memora-hero p { color: #64748b; margin: 0; font-size: .98rem; }
-.st-key-card-login { box-shadow: 0 10px 30px rgba(15, 23, 42, .07); padding: 24px 26px 22px; }
-.st-key-card-login button[kind="primary"], .st-key-card-login [data-testid="stFormSubmitButton"] button { width: 100%; padding: .6rem 1rem; }
-.memora-perks { display: flex; justify-content: center; flex-wrap: wrap; gap: 6px 16px; margin-top: 1.1rem;
-  color: #64748b; font-size: .82rem; font-weight: 600; }
+[data-testid="stAppViewContainer"] { background:
+  radial-gradient(700px 420px at 12% -5%, color-mix(in srgb, var(--m-accent) 16%, transparent), transparent 70%),
+  radial-gradient(600px 400px at 100% 105%, color-mix(in srgb, var(--m-accent) 11%, transparent), transparent 70%); }
+.block-container, [data-testid="stMainBlockContainer"] { padding-top: 7vh; max-width: 560px; }
+.memora-hero { text-align: center; margin-bottom: 1.3rem; }
+.memora-hero .mark { width: 64px; height: 64px; border-radius: 20px; margin: 0 auto 14px; display: block;
+  box-shadow: 0 12px 26px -8px color-mix(in srgb, var(--m-accent) 70%, transparent); }
+.memora-hero h1 { font-size: 2rem; font-weight: 800; letter-spacing: -.035em; margin: 0 0 6px; }
+.memora-hero p { opacity: .7; margin: 0; font-size: .96rem; }
+.st-key-card-login { padding: 22px 26px 20px; }
+.st-key-card-login [data-testid="stFormSubmitButton"] button { width: 100%; padding: .5rem 1rem; }
+.memora-perks { display: flex; justify-content: center; flex-wrap: wrap; gap: 6px 16px; margin-top: 1.1rem; opacity: .7; font-size: .82rem; font-weight: 600; }
 .memora-perks span::before { content: ""; display: inline-block; width: 6px; height: 6px; border-radius: 50%;
-  background: #2563eb; margin-right: 7px; vertical-align: middle; }
+  background: var(--m-accent); margin-right: 7px; vertical-align: middle; }
+@media (max-width: 640px) { .block-container, [data-testid="stMainBlockContainer"] { padding-top: 3.6rem; } }
 </style>
 """
 
@@ -97,7 +118,7 @@ def login_view() -> None:
             unsafe_allow_html=True,
         )
         with st.container(key="card-login"):
-            tab_login, tab_register = st.tabs(["Đăng nhập", "Tạo tài khoản"])
+            tab_login, tab_register = st.tabs([":material/login: Đăng nhập", ":material/person_add: Tạo tài khoản"])
 
             with tab_login:
                 with st.form("login_form"):
@@ -111,6 +132,8 @@ def login_view() -> None:
                         st.rerun()
                     else:
                         st.error(msg)
+                st.markdown('<div class="memora-hint">Chưa có tài khoản? Chuyển sang tab <b>Tạo tài khoản</b>, '
+                            'miễn phí và dùng được ngay.</div>', unsafe_allow_html=True)
 
             with tab_register:
                 with st.form("register_form"):

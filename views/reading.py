@@ -6,7 +6,7 @@ from core import db, scoring
 from core.reader_component import reader
 from core.reading_nav import close_test, open_test
 from core.session import current_user
-from core.ui import badge, esc, page_title, type_label
+from core.ui import badge, esc, page_title, progress_bar, type_label
 
 user = current_user()
 catalog = cat_mod.load_catalog()
@@ -15,23 +15,12 @@ SIGNATURE = catalog["signature"]
 # Màn làm bài chiếm trọn chiều cao cửa sổ: bỏ padding của Streamlit, iframe cao bằng màn hình.
 EXAM_CSS = """
 <style>
-.block-container, [data-testid="stMainBlockContainer"] { max-width: 100% !important; padding: 2.5rem .75rem 0 !important; }
+.block-container, [data-testid="stMainBlockContainer"] { max-width: 100% !important; padding: 3.6rem .75rem 0 !important; }
 [data-testid="stVerticalBlock"] { gap: 0 !important; }
-iframe[title*="memora_reader"] { height: calc(100vh - 3.4rem) !important; min-height: 540px;
-  border: 1px solid #e2e8f0; border-radius: 16px; background: #fff; }
+iframe[title*="memora_reader"] { height: calc(100vh - 4.5rem) !important; min-height: 540px;
+  border: 1px solid var(--m-line); border-radius: 20px; background: #fff; }
 </style>
 """
-
-LIBRARY_CSS = """
-<style>
-.memora-series { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; flex-wrap: wrap;
-  margin: 1.5rem 0 .25rem; }
-.memora-series h3 { font-size: 1.15rem; font-weight: 800; margin: 0; padding: 0; color: #0f172a; }
-.memora-series span { font-size: .82rem; font-weight: 700; color: #1d4ed8; background: #eff6ff; padding: 3px 10px; border-radius: 8px; }
-.memora-series-desc { color: #64748b; font-size: .88rem; margin: 0 0 .75rem; }
-</style>
-"""
-
 
 @st.cache_data(show_spinner=False)
 def _cached_test(test_id: str, signature: int) -> dict | None:
@@ -47,31 +36,53 @@ def _status(test_id: str, progress: dict) -> str:
     return "done" if p["submitted"] else "doing"
 
 
+@st.dialog("Chi tiết đề", width="large")
+def _detail_dialog(t: dict, status: str, attempt: dict | None, answered: int) -> None:
+    st.markdown(f'<p class="memora-card-title" style="font-size:1.25rem">{esc(t["title"])}</p>', unsafe_allow_html=True)
+    if t.get("summary"):
+        st.caption(t["summary"])
+    if status == "done" and attempt:
+        st.markdown(badge(f"Đã nộp · Band {attempt['band']} ({attempt['score']}/{attempt['total']})", "done"), unsafe_allow_html=True)
+    elif status == "doing":
+        st.markdown(badge(f"Đang làm · {answered}/{t['totalQuestions']} câu", "doing"), unsafe_allow_html=True)
+        st.markdown(progress_bar(answered, t["totalQuestions"]), unsafe_allow_html=True)
+    plist = "".join(f"<li><b>P{i}</b><span style='white-space:normal'>{esc(x)}</span></li>" for i, x in enumerate(t["passages"], 1))
+    st.markdown(f'<ul class="memora-plist">{plist}</ul>', unsafe_allow_html=True)
+    st.markdown(f'<p class="memora-meta">{t["durationMin"]} phút · {t["totalQuestions"]} câu</p>', unsafe_allow_html=True)
+    if t["questionTypes"]:
+        st.markdown(" ".join(badge(type_label(x)) for x in t["questionTypes"]), unsafe_allow_html=True)
+    label = {"todo": "Bắt đầu làm", "doing": "Làm tiếp", "done": "Xem lại"}[status]
+    if st.button(label, key=f"dlg-open-{t['id']}", type="primary", width="stretch"):
+        open_test(t["id"])
+        st.rerun()
+
+
 def _test_card(t: dict, progress: dict, last_attempt: dict) -> None:
     status = _status(t["id"], progress)
+    attempt = last_attempt.get(t["id"])
+    answered = progress.get(t["id"], {}).get("answered", 0)
     if status == "done":
-        a = last_attempt.get(t["id"])
-        tag = badge(f"Band {a['band']} ({a['score']}/{a['total']})", "done") if a else badge("Đã nộp", "done")
+        tag = badge(f"Band {attempt['band']} ({attempt['score']}/{attempt['total']})", "done") if attempt else badge("Đã nộp", "done")
     elif status == "doing":
-        tag = badge(f"Đang làm ({progress[t['id']]['answered']}/{t['totalQuestions']})", "doing")
+        tag = badge(f"Đang làm ({answered}/{t['totalQuestions']})", "doing")
     else:
         tag = badge("Chưa làm", "todo")
 
     plist = "".join(f"<li><b>P{i}</b><span>{esc(title)}</span></li>" for i, title in enumerate(t["passages"], 1))
-    types = " · ".join(type_label(x) for x in t["questionTypes"])
     with st.container(key=f"card-test-{t['id']}"):
         st.markdown(
             f'<div class="memora-card-head"><p class="memora-card-title">{esc(t["title"])}</p>{tag}</div>'
             f'<ul class="memora-plist">{plist}</ul>',
             unsafe_allow_html=True,
         )
-        left, right = st.columns([1.5, 1], vertical_alignment="center")
-        types_line = f"<br>{esc(types)}" if types else ""
-        left.markdown(f'<p class="memora-meta">{t["durationMin"]} phút · {t["totalQuestions"]} câu{types_line}</p>',
-                      unsafe_allow_html=True)
+        c_meta, c_info, c_go = st.columns([1.1, 1, 1.45], vertical_alignment="center")
+        c_meta.markdown(f'<p class="memora-meta">{t["durationMin"]} phút · {t["totalQuestions"]} câu</p>',
+                        unsafe_allow_html=True)
+        if c_info.button("Chi tiết", key=f"info-{t['id']}", type="tertiary", width="stretch"):
+            _detail_dialog(t, status, attempt, answered)
         label = {"todo": "Bắt đầu làm", "doing": "Làm tiếp", "done": "Xem lại"}[status]
-        if right.button(label, key=f"open-{t['id']}", type="primary" if status != "done" else "secondary",
-                        width="stretch"):
+        if c_go.button(label, key=f"open-{t['id']}", type="primary" if status != "done" else "secondary",
+                       width="stretch"):
             open_test(t["id"])
             st.rerun()
 
@@ -90,12 +101,25 @@ def _matches(t: dict, query: str, status: str, progress: dict) -> bool:
 
 
 def library() -> None:
-    st.markdown(LIBRARY_CSS, unsafe_allow_html=True)
     page_title("Reading", "Chọn một bộ đề. Tiến độ và điểm số được lưu theo tài khoản của bạn.")
     progress = db.progress_summary(user["id"])
     last_attempt: dict[str, dict] = {}
     for a in db.list_attempts(user["id"], 1000):          # mới nhất trước
         last_attempt.setdefault(a["test_id"], a)
+
+    names = {t["id"]: t for c in catalog["categories"] for sr in c["series"] for t in sr["tests"]}
+    resume = sorted((tid for tid, p in progress.items() if not p["submitted"] and tid in names),
+                    key=lambda tid: progress[tid]["updated_at"], reverse=True)
+    if resume:
+        tid = resume[0]
+        with st.container(key="card-resume"):
+            r1, r2 = st.columns([3, 1], vertical_alignment="center")
+            r1.markdown(f'<p class="memora-card-title">Bạn đang làm dở: {esc(names[tid]["title"])}</p>'
+                        f'<p class="memora-meta" style="padding:0">{progress[tid]["answered"]}/{names[tid]["totalQuestions"]} câu đã trả lời</p>',
+                        unsafe_allow_html=True)
+            if r2.button("Làm tiếp", key="resume-top", type="primary", width="stretch"):
+                open_test(tid)
+                st.rerun()
 
     c1, c2 = st.columns([1.2, 1.5], vertical_alignment="center")
     query = c1.text_input("Tìm đề", placeholder="Tìm theo tên bài đọc…", icon=":material/search:",
@@ -174,18 +198,22 @@ def _handle_event(val, test: dict) -> None:
         db.add_attempt(uid, tid, result["score"], result["total"], result["band"],
                        test["durationMin"] * 60 - state["timeLeft"],
                        {"byPassage": result["byPassage"], "timeout": timeout})
+        st.toast(f"Đã nộp bài · Band {result['band']} ({result['score']}/{result['total']})",
+                 icon=":material/check_circle:")
     elif event in ("autosave", "exit", "prev", "next"):
         state["submitted"] = False                          # chỉ "submit" mới kết thúc bài
         db.save_progress(uid, tid, state)
 
     if event == "exit":
         close_test()
+        st.toast("Đã lưu tiến độ", icon=":material/save:")
         st.rerun()
     if event in ("prev", "next"):
         prev_id, next_id = cat_mod.neighbours(catalog, tid)
         target = prev_id if event == "prev" else next_id
         if target:
             open_test(target)
+            st.toast("Đã lưu tiến độ đề trước", icon=":material/save:")
             st.rerun()
 
 
