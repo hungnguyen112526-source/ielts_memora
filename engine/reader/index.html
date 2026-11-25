@@ -812,15 +812,13 @@
             }).join('')}
           </div>`;
         } else if (group.type === 'multi2') {
-          const qs = group.qPair;            // 2 câu (chọn 2) hoặc 3 câu (chọn 3)
-          const [q1, q2] = qs;
-          const need = qs.length;
-          const selected = qs.map(q => st.answers[q]).filter(Boolean);
+          const [q1, q2] = group.qPair;
+          const selected = [st.answers[q1], st.answers[q2]].filter(Boolean);
           bodyHtml = `
             <div id="q-anchor-${q1}" class="p-4 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900">
-              <div id="q-anchor-${q2}" class="flex items-center justify-between mb-3">${qs.slice(2).map(q => `<span id="q-anchor-${q}"></span>`).join('')}
-                <span class="text-xs font-bold text-blue-600 dark:text-blue-400">Đã chọn: ${selected.length}/${need} đáp án (Câu ${qs.join(' & ')})</span>
-                ${isSubmitted ? `<div class="flex gap-1.5">${qs.map(q => renderReviewBadge(q)).join(' ')}</div>` : ''}
+              <div id="q-anchor-${q2}" class="flex items-center justify-between mb-3">
+                <span class="text-xs font-bold text-blue-600 dark:text-blue-400">Đã chọn: ${selected.length}/2 đáp án (Câu ${q1} & ${q2})</span>
+                ${isSubmitted ? `<div class="flex gap-1.5">${renderReviewBadge(q1)} ${renderReviewBadge(q2)}</div>` : ''}
               </div>
               <div class="space-y-2">
                 ${group.options.map(opt => {
@@ -831,7 +829,7 @@
                         ? 'bg-blue-50 dark:bg-blue-900/30 border-blue-400 dark:border-blue-600'
                         : 'border-slate-100 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-800/60'
                     }">
-                      <input type="checkbox" value="${opt.k}" ${checked ? 'checked' : ''} ${locked ? 'disabled' : ''} onchange="toggleMultiN([${qs.join(',')}], '${opt.k}', this)" class="mt-1 accent-blue-600 rounded">
+                      <input type="checkbox" value="${opt.k}" ${checked ? 'checked' : ''} ${locked ? 'disabled' : ''} onchange="toggleMulti2(${q1}, ${q2}, '${opt.k}', this)" class="mt-1 accent-blue-600 rounded">
                       <span><strong class="mr-1">${opt.k}</strong> ${opt.t}</span>
                     </label>
                   `;
@@ -938,14 +936,14 @@
       }
     }
 
-    function toggleMultiN(qs, letter, checkbox) {
+    function toggleMulti2(q1, q2, letter, checkbox) {
       const st = appState.tests[currentTestIdx];
       if (isLocked(currentPassageIdx)) return;
-      let current = qs.map(q => st.answers[q]).filter(Boolean);
+      let current = [st.answers[q1], st.answers[q2]].filter(Boolean);
       if (checkbox.checked) {
-        if (current.length >= qs.length) {
+        if (current.length >= 2) {
           checkbox.checked = false;
-          showToast(`Bạn chỉ được chọn tối đa ${qs.length} đáp án cho câu hỏi này.`);
+          showToast("Bạn chỉ được chọn tối đa 2 đáp án cho câu hỏi này.");
           return;
         }
         current.push(letter);
@@ -953,7 +951,8 @@
         current = current.filter(x => x !== letter);
       }
       current.sort();
-      qs.forEach((q, i) => { st.answers[q] = current[i] || ''; });
+      st.answers[q1] = current[0] || '';
+      st.answers[q2] = current[1] || '';
       saveState();
       updateHeaderActionButtons();
       renderFooterNav();
@@ -1032,14 +1031,13 @@
 
       // Special check for pair questions (e.g. Test 2 Q20 & Q21 in either order)
       if (test.pairQuestions) {
-        for (const entry of test.pairQuestions) {
-          const validSet = entry[entry.length - 1];
-          const qs = entry.slice(0, -1);          // [a, b, valid] hoặc [a, b, c, valid]
-          const i = qs.indexOf(q);
-          if (i !== -1) {
-            const us = qs.map(x => normalizeText(st.answers[x]));
+        for (const [q1, q2, validSet] of test.pairQuestions) {
+          if (q === q1 || q === q2) {
+            const u1 = normalizeText(st.answers[q1]);
+            const u2 = normalizeText(st.answers[q2]);
             const validLower = validSet.map(v => normalizeText(v));
-            return validLower.includes(us[i]) && !us.slice(0, i).includes(us[i]);
+            if (q === q1) return validLower.includes(u1);
+            if (q === q2) return validLower.includes(u2) && u2 !== u1;
           }
         }
       }

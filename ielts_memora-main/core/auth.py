@@ -89,6 +89,9 @@ def authenticate(username: str, password: str) -> tuple[bool, str, dict | None]:
             c.execute("INSERT INTO login_attempts(username, ts) VALUES(?,?)", (username, db.now()))
             return False, "Sai tên đăng nhập hoặc mật khẩu.", None
 
+        if row["status"] == "blocked":
+            return False, "Tài khoản này đã bị khóa. Hãy liên hệ quản trị viên.", None
+
         c.execute("DELETE FROM login_attempts WHERE username=?", (username,))
         return True, "OK", {"id": row["id"], "username": row["username"], "display_name": row["display_name"]}
 
@@ -113,7 +116,7 @@ def user_from_token(token: str | None) -> dict | None:
         row = c.execute(
             """SELECT u.id, u.username, u.display_name
                FROM sessions s JOIN users u ON u.id = s.user_id
-               WHERE s.token_hash=? AND s.expires_at >= ?""",
+               WHERE s.token_hash=? AND s.expires_at >= ? AND u.status = 'active'""",
             (_token_hash(token), db.now()),
         ).fetchone()
     return dict(row) if row else None
@@ -143,3 +146,49 @@ def change_password(user_id: int, old: str, new: str, confirm: str) -> tuple[boo
         )
         c.execute("DELETE FROM sessions WHERE user_id=?", (user_id,))  # sign out everywhere
     return True, "Đã đổi mật khẩu. Các thiết bị khác sẽ phải đăng nhập lại."
+
+
+# ------------------------------------------------------------------- admin
+def is_admin(username: str, admin_names) -> bool:
+    """Quản trị viên = tên đăng nhập nằm trong danh sách khai báo ở Secrets / biến môi trường."""
+    names = {str(n).strip().lower() for n in (admin_names or []) if str(n).strip()}
+    return (username or "").lower() in names
+
+
+def list_users() -> list[dict]:
+    with db.connect() as c:
+        rows = c.execute(
+            """SELECT u.id, u.username, u.display_name, u.status, u.created_at,
+                      (SELECT COUNT(*) FROM reading_attempts a WHERE a.user_id = u.id) AS attempts,
+                      (SELECT MAX(created_at) FROM reading_attempts a WHERE a.user_id = u.id) AS last_attempt
+               FROM users u ORDER BY u.created_at DESC"""
+        ).fetchall()
+    return [dict(r) for r in rows]
+
+
+def set_status(user_id: int, status: str) -> tuple[bool, str]:
+    if status not in ("active", "blocked"):
+        return False, "Trạng thái không hợp lệ."
+    with db.connect() as c:
+        c.execute("UPDATE users SET status=? WHERE id=?", (status, user_id))
+        if status == "blocked":
+            c.execute("DELETE FROM sessions WHERE user_id=?", (user_id,))
+    return True, "Đã khóa tài khoản." if status == "blocked" else "Đã mở khóa tài khoản."
+
+
+def admin_reset_password(user_id: int, new: str) -> tuple[bool, str]:
+    if len(new or "") < 8 or len(new) > 128:
+        return False, "Mật khẩu mới cần từ 8 đến 128 ký tự."
+    salt = secrets.token_bytes(16)
+    with db.connect() as c:
+        c.execute("UPDATE users SET pw_salt=?, pw_hash=?, pw_iters=? WHERE id=?",
+                  (salt.hex(), _hash(new, salt, PBKDF2_ITERS), PBKDF2_ITERS, user_id))
+        c.execute("DELETE FROM sessions WHERE user_id=?", (user_id,))
+        c.execute("DELETE FROM login_attempts WHERE username=(SELECT username FROM users WHERE id=?)", (user_id,))
+    return True, "Đã đặt lại mật khẩu. Người dùng sẽ phải đăng nhập lại."
+
+
+def delete_user(user_id: int) -> tuple[bool, str]:
+    with db.connect() as c:
+        c.execute("DELETE FROM users WHERE id=?", (user_id,))     # bảng liên quan tự xóa theo (ON DELETE CASCADE)
+    return True, "Đã xóa tài khoản và toàn bộ dữ liệu của người đó."

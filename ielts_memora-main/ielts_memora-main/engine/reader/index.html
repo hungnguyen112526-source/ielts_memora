@@ -1,0 +1,1101 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Orange Reader</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts: Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script>
+    window.tailwind = window.tailwind || {};
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+          },
+        }
+      }
+    }
+  </script>
+  <style>
+    /* Tùy chỉnh thanh cuộn gọn gàng và hiệu ứng highlight văn bản */
+    ::-webkit-scrollbar { width: 7px; height: 7px; }
+    ::-webkit-scrollbar-track { background: transparent; }
+    ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 9999px; }
+    .dark ::-webkit-scrollbar-thumb { background: #475569; }
+    mark.user-hl {
+      background-color: #fef08a;
+      color: #1e293b;
+      padding: 0 2px;
+      border-radius: 3px;
+      cursor: pointer;
+    }
+    .dark mark.user-hl {
+      background-color: #ca8a04;
+      color: #ffffff;
+    }
+    .inline-input {
+      border-bottom: 2px solid #94a3b8;
+      background: transparent;
+      padding: 2px 6px;
+      min-width: 110px;
+      max-width: 180px;
+      font-weight: 600;
+      transition: all 0.2s;
+    }
+    .inline-input:focus {
+      outline: none;
+      border-bottom-color: #2563eb;
+      background-color: rgba(37, 99, 235, 0.06);
+    }
+    .dark .inline-input:focus {
+      background-color: rgba(59, 130, 246, 0.15);
+    }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-800 dark:bg-slate-950 dark:text-slate-100 font-sans antialiased h-screen flex flex-col overflow-hidden">
+
+  <!-- ==================== HEADER ==================== -->
+  <header class="bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 px-3 sm:px-5 py-2.5 flex items-center justify-between gap-2 shrink-0 z-20 shadow-sm">
+    <!-- Logo & Test Selector -->
+    <div class="flex items-center gap-2 sm:gap-3 min-w-0">
+      <button id="btnHome" onclick="exitToLibrary()" title="Về danh sách đề" class="flex items-center gap-2 text-left group shrink-0">
+        <div class="w-9 h-9 rounded-xl bg-blue-600 text-white flex items-center justify-center font-extrabold text-sm shadow-sm group-hover:bg-blue-700 transition">
+          <span id="logoBadge">O</span>
+        </div>
+        <div class="hidden md:block">
+          <h1 class="text-sm font-bold leading-tight text-slate-900 dark:text-white"><span id="hdrTitle">Orange</span></h1>
+          <p class="text-[11px] text-slate-500 dark:text-slate-400"><span id="hdrSub">Reading</span></p>
+        </div>
+      </button>
+
+      <button onclick="exitToLibrary()" class="hidden sm:inline-flex items-center gap-1 px-2.5 py-1.5 rounded-lg text-xs sm:text-sm font-semibold border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 transition">
+        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.4" d="M15 19l-7-7 7-7"/></svg>
+        Danh sách đề
+      </button>
+
+      <!-- Test Switcher (visible in test view) -->
+      <div id="headerTestControls" class="hidden flex items-center gap-1.5 sm:gap-2 ml-1 sm:ml-2 pl-2 sm:pl-3 border-l border-slate-200 dark:border-slate-700">
+        <button id="btnPrevTest" onclick="goNeighbour('prev')" title="Đề trước" aria-label="Đề trước" class="p-1.5 rounded-lg border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition disabled:opacity-35 disabled:cursor-not-allowed disabled:hover:bg-transparent">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M15 19l-7-7 7-7"/></svg>
+        </button>
+        <span id="testTitleBadge" class="text-xs sm:text-sm font-semibold px-2.5 py-1 rounded-lg bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700"></span>
+        <button id="btnNextTest" onclick="goNeighbour('next')" title="Đề sau" aria-label="Đề sau" class="p-1.5 rounded-lg border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition disabled:opacity-35 disabled:cursor-not-allowed disabled:hover:bg-transparent">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M9 5l7 7-7 7"/></svg>
+        </button>
+        <span id="answeredBadge" class="hidden sm:inline-flex items-center px-2.5 py-1 rounded-lg text-xs font-semibold bg-blue-50 text-blue-700 dark:bg-blue-900/40 dark:text-blue-300">
+          0 đã làm
+        </span>
+      </div>
+    </div>
+
+    <!-- Center: Timer (visible in test view) -->
+    <div id="timerBar" class="hidden flex items-center gap-1.5 bg-slate-100 dark:bg-slate-800 px-3 py-1.5 rounded-xl border border-slate-200 dark:border-slate-700">
+      <svg class="w-4 h-4 text-blue-600 dark:text-blue-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+      <span id="timerDisplay" class="font-mono font-bold text-sm sm:text-base tracking-tight">60:00</span>
+      <button id="btnToggleTimer" onclick="toggleTimer()" title="Tạm dừng / Tiếp tục" class="ml-1 p-1 rounded-md hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-600 dark:text-slate-300 transition">
+        <svg id="iconPause" class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zM7 8a1 1 0 012 0v4a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v4a1 1 0 102 0V8a1 1 0 00-1-1z" clip-rule="evenodd"/></svg>
+        <svg id="iconPlay" class="w-3.5 h-3.5 hidden" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd"/></svg>
+      </button>
+    </div>
+
+    <!-- Right Controls -->
+    <div class="flex items-center gap-1.5 sm:gap-2">
+      <!-- Font Size & Theme -->
+      <div id="fontControls" class="hidden lg:flex items-center bg-slate-100 dark:bg-slate-800 rounded-lg p-0.5 border border-slate-200 dark:border-slate-700">
+        <button onclick="changeFontSize(-1)" class="px-2 py-1 text-xs font-bold hover:bg-white dark:hover:bg-slate-700 rounded-md transition" title="Giảm cỡ chữ">A-</button>
+        <button onclick="changeFontSize(0)" class="px-2 py-1 text-xs font-bold hover:bg-white dark:hover:bg-slate-700 rounded-md transition" title="Cỡ chữ mặc định">A</button>
+        <button onclick="changeFontSize(1)" class="px-2 py-1 text-xs font-bold hover:bg-white dark:hover:bg-slate-700 rounded-md transition" title="Tăng cỡ chữ">A+</button>
+      </div>
+
+      <button onclick="toggleDarkMode()" class="p-2 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-600 dark:text-slate-300 transition" title="Chế độ Sáng / Tối">
+        <svg id="sunIcon" class="w-4 h-4 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+        <svg id="moonIcon" class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
+      </button>
+
+      <!-- Action Buttons (visible in test view) -->
+      <div id="testActionBtns" class="hidden flex items-center gap-1.5">
+        <button id="btnResetTest" onclick="confirmReset()" class="px-2.5 sm:px-3 py-1.5 rounded-xl text-xs sm:text-sm font-semibold border border-slate-300 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-800 transition">
+          Làm lại
+        </button>
+        <button id="btnSubmitTest" onclick="confirmSubmit()" class="px-3 sm:px-4 py-1.5 rounded-xl text-xs sm:text-sm font-semibold bg-blue-600 hover:bg-blue-700 text-white shadow-sm transition">
+          Nộp bài
+        </button>
+        <button id="btnViewResult" onclick="openResultModal()" class="hidden px-3 sm:px-4 py-1.5 rounded-xl text-xs sm:text-sm font-semibold bg-emerald-600 hover:bg-emerald-700 text-white shadow-sm transition">
+          Xem điểm
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==================== TEST WORKSPACE VIEW ==================== -->
+  <section id="testView" class="hidden flex-1 flex flex-col overflow-hidden">
+    <!-- Mobile View Toggle (Passage / Questions) -->
+    <div class="md:hidden flex border-b border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 shrink-0">
+      <button id="mobTabPassage" onclick="setMobilePane('passage')" class="flex-1 py-2.5 text-sm font-bold text-blue-600 border-b-2 border-blue-600">
+        Bài đọc (Passage)
+      </button>
+      <button id="mobTabQuestions" onclick="setMobilePane('questions')" class="flex-1 py-2.5 text-sm font-semibold text-slate-500 dark:text-slate-400">
+        Câu hỏi (Questions)
+      </button>
+    </div>
+
+    <!-- Split Panes Container -->
+    <div class="flex-1 flex flex-col md:flex-row overflow-hidden relative">
+      <!-- LEFT PANE: READING PASSAGE -->
+      <div id="passagePane" class="w-full md:w-1/2 h-full overflow-y-auto p-4 sm:p-6 lg:p-8 bg-white dark:bg-slate-900 md:border-r border-slate-200 dark:border-slate-800">
+        <div class="max-w-2xl mx-auto">
+          <div class="flex items-center justify-between gap-2 mb-4 pb-3 border-b border-slate-100 dark:border-slate-800">
+            <span id="passageLabel" class="text-xs font-bold uppercase tracking-wider px-2.5 py-1 rounded-lg bg-blue-50 text-blue-700 dark:bg-blue-900/40 dark:text-blue-300">
+              READING PASSAGE 1
+            </span>
+            <div class="flex items-center gap-2">
+              <button onclick="clearHighlights()" class="text-xs font-medium text-slate-500 hover:text-rose-600 dark:text-slate-400 dark:hover:text-rose-400 transition">
+                Xóa highlight
+              </button>
+            </div>
+          </div>
+          <p id="passageInstruction" class="text-xs sm:text-sm italic text-slate-500 dark:text-slate-400 mb-4"></p>
+          <h2 id="passageTitle" class="text-xl sm:text-2xl font-extrabold text-slate-900 dark:text-white mb-2 leading-snug"></h2>
+          <p id="passageSubtitle" class="text-sm sm:text-base font-medium text-slate-600 dark:text-slate-300 mb-5 italic"></p>
+          <article id="passageContent" class="space-y-4 leading-relaxed text-slate-700 dark:text-slate-200 select-text text-[15px]">
+            <!-- Passage paragraphs rendered here -->
+          </article>
+          <div id="passageFootnotes" class="mt-6 pt-4 border-t border-slate-200 dark:border-slate-800 text-xs text-slate-500 dark:text-slate-400 space-y-1"></div>
+        </div>
+      </div>
+
+      <!-- RIGHT PANE: QUESTIONS -->
+      <div id="questionsPane" class="hidden md:block w-full md:w-1/2 h-full overflow-y-auto p-4 sm:p-6 lg:p-8 bg-slate-50 dark:bg-slate-950">
+        <div id="questionsContainer" class="max-w-2xl mx-auto space-y-6 pb-10">
+          <!-- Question groups rendered here -->
+        </div>
+      </div>
+    </div>
+
+    <!-- Floating Highlight Tooltip -->
+    <button id="hlTooltip" onclick="applyHighlight()" class="hidden fixed z-50 bg-slate-900 text-amber-300 text-xs font-bold px-3 py-1.5 rounded-lg shadow-lg flex items-center gap-1.5 hover:bg-slate-800 transition transform -translate-x-1/2">
+      <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20"><path d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z"/></svg>
+      Highlight
+    </button>
+
+    <!-- ==================== FOOTER NAVIGATOR ==================== -->
+    <footer class="bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 px-3 sm:px-5 py-2 shrink-0 z-20">
+      <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-2">
+        <div id="passageTabs" class="flex items-center gap-1.5 shrink-0"></div>
+
+        <!-- 40 Question Pills -->
+        <div id="questionNavPills" class="flex items-center gap-1 overflow-x-auto pb-1 lg:pb-0">
+          <!-- Rendered by JS -->
+        </div>
+      </div>
+    </footer>
+  </section>
+
+  <!-- ==================== CUSTOM MODAL (CONFIRM & RESULT) ==================== -->
+  <div id="modalOverlay" class="hidden fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-sm flex items-center justify-center p-4">
+    <div id="modalBox" class="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 max-w-lg w-full p-6 shadow-2xl transform transition-all">
+      <!-- Dynamic Modal Content -->
+    </div>
+  </div>
+
+  <!-- ==================== APPLICATION SCRIPT & FULL DATA ==================== -->
+  <script>
+    /* =========================================================================
+       1. DỮ LIỆU ĐẦY ĐỦ 4 ĐỀ READING - CAMBRIDGE IELTS 21 (ACADEMIC)
+       ========================================================================= */
+
+    /* =========================================================================
+       DỮ LIỆU & TRẠNG THÁI (nhận từ Streamlit, mỗi lần chỉ 1 đề)
+       ========================================================================= */
+    let TESTS = [];
+    let TEST = null;
+    let QTOTAL = 40;
+    let SESSION_KEY = null;
+
+    let appState = {
+      darkMode: false,
+      fontSize: 15,
+      tests: { 0: { answers: {}, submitted: false, timeLeft: 3600, score: null } }
+    };
+
+    let currentTestIdx = null;
+    let currentPassageIdx = 0;
+    let timerInterval = null;
+    let timerPaused = false;
+    let pendingSelectionRange = null;
+
+    function durationSec() { return (TEST ? TEST.durationMin : 60) * 60; }
+    function freshState() { return { answers: {}, submitted: false, timeLeft: durationSec(), score: null }; }
+
+    /* ---- Giao tiếp với Streamlit (giao thức custom component) ---- */
+    function sendMsg(type, data) {
+      window.parent.postMessage(Object.assign({ isStreamlitMessage: true, type: type }, data || {}), '*');
+    }
+    function setFrameHeight(h) { sendMsg('streamlit:setFrameHeight', { height: h }); }
+
+    let dirty = false;
+    let lastSent = 0;
+
+    function snapshot() {
+      const st = appState.tests[0];
+      return { answers: st.answers, submitted: st.submitted, timeLeft: st.timeLeft, score: st.score };
+    }
+
+    function pushState(event, result) {
+      if (!TEST) return;
+      const payload = {
+        nonce: Date.now() + '-' + Math.random().toString(36).slice(2, 8),
+        event: event,
+        sessionKey: SESSION_KEY,
+        testId: TEST.id,
+        state: snapshot(),
+        prefs: { darkMode: appState.darkMode, fontSize: appState.fontSize }
+      };
+      if (result) payload.result = result;
+      sendMsg('streamlit:setComponentValue', { value: payload, dataType: 'json' });
+      dirty = false;
+      lastSent = Date.now();
+    }
+
+    // Mọi thay đổi chỉ đánh dấu "bẩn"; tự gửi lên server tối đa mỗi ~12 giây.
+    function saveState() { dirty = true; }
+    setInterval(() => { if (dirty && TEST && Date.now() - lastSent > 12000) pushState('autosave'); }, 4000);
+    document.addEventListener('visibilitychange', () => { if (document.hidden && dirty && TEST) pushState('autosave'); });
+
+    function exitToLibrary() {
+      stopTimer();
+      pushState('exit');
+    }
+
+    // Chuyển sang đề trước / đề sau trong cùng bộ (Python lưu tiến độ rồi mở đề mới)
+    let NAV = { prev: false, next: false };
+    function applyNav() {
+      const p = document.getElementById('btnPrevTest');
+      const n = document.getElementById('btnNextTest');
+      if (p) p.disabled = !NAV.prev;
+      if (n) n.disabled = !NAV.next;
+    }
+    function goNeighbour(which) {
+      if (!NAV[which]) return;
+      stopTimer();
+      pushState(which);
+    }
+
+    /* =========================================================================
+       3. CHẾ ĐỘ SÁNG/TỐI & CỠ CHỮ
+       ========================================================================= */
+    function applyTheme() {
+      const html = document.documentElement;
+      const sun = document.getElementById('sunIcon');
+      const moon = document.getElementById('moonIcon');
+      if (appState.darkMode) {
+        html.classList.add('dark');
+        sun.classList.remove('hidden');
+        moon.classList.add('hidden');
+      } else {
+        html.classList.remove('dark');
+        sun.classList.add('hidden');
+        moon.classList.remove('hidden');
+      }
+    }
+
+    function toggleDarkMode() {
+      appState.darkMode = !appState.darkMode;
+      applyTheme();
+      saveState();
+    }
+
+    function changeFontSize(delta) {
+      if (delta === 0) appState.fontSize = 15;
+      else appState.fontSize = Math.min(22, Math.max(13, appState.fontSize + delta * 1.5));
+      const article = document.getElementById('passageContent');
+      if (article) article.style.fontSize = appState.fontSize + 'px';
+      saveState();
+    }
+
+    /* =========================================================================
+       4. QUY ĐỔI ĐIỂM IELTS ACADEMIC READING
+       ========================================================================= */
+    const DEFAULT_BANDS = [[39,"9.0"],[37,"8.5"],[35,"8.0"],[33,"7.5"],[30,"7.0"],[27,"6.5"],[23,"6.0"],[19,"5.5"],[15,"5.0"],[13,"4.5"],[10,"4.0"],[8,"3.5"],[6,"3.0"],[4,"2.5"]];
+    function getBandScore(correct) {
+      const table = (TEST && Array.isArray(TEST.bandTable)) ? TEST.bandTable : DEFAULT_BANDS;
+      for (const [min, band] of table) if (correct >= min) return band;
+      return "2.0";
+    }
+
+    /* =========================================================================
+       5. MỞ ĐỀ & ĐIỀU HƯỚNG PASSAGE
+       ========================================================================= */
+    function countAnswered(testIdx) {
+      const ans = appState.tests[testIdx].answers;
+      let count = 0;
+      for (let i = 1; i <= QTOTAL; i++) {
+        if (ans[i] && String(ans[i]).trim() !== '') count++;
+      }
+      return count;
+    }
+
+    function openTest(testIdx) {
+      currentTestIdx = testIdx;
+      currentPassageIdx = 0;
+      document.getElementById('testView').classList.remove('hidden');
+      document.getElementById('headerTestControls').classList.remove('hidden');
+      document.getElementById('timerBar').classList.remove('hidden');
+      document.getElementById('testActionBtns').classList.remove('hidden');
+      document.getElementById('fontControls').classList.remove('hidden');
+      document.getElementById('testTitleBadge').textContent = TESTS[testIdx].title;
+      updateHeaderActionButtons();
+      renderPassage();
+      renderFooterNav();
+      startTimer();
+    }
+
+    function switchPassage(pIdx) {
+      currentPassageIdx = pIdx;
+      renderPassage();
+      renderFooterNav();
+      document.getElementById('passagePane').scrollTop = 0;
+      document.getElementById('questionsPane').scrollTop = 0;
+    }
+
+    function setMobilePane(pane) {
+      const pPane = document.getElementById('passagePane');
+      const qPane = document.getElementById('questionsPane');
+      const tP = document.getElementById('mobTabPassage');
+      const tQ = document.getElementById('mobTabQuestions');
+      if (pane === 'passage') {
+        pPane.classList.remove('hidden');
+        qPane.classList.add('hidden');
+        tP.className = "flex-1 py-2.5 text-sm font-bold text-blue-600 border-b-2 border-blue-600";
+        tQ.className = "flex-1 py-2.5 text-sm font-semibold text-slate-500 dark:text-slate-400";
+      } else {
+        pPane.classList.add('hidden');
+        qPane.classList.remove('hidden');
+        tQ.className = "flex-1 py-2.5 text-sm font-bold text-blue-600 border-b-2 border-blue-600";
+        tP.className = "flex-1 py-2.5 text-sm font-semibold text-slate-500 dark:text-slate-400";
+      }
+    }
+
+    function updateHeaderActionButtons() {
+      const st = appState.tests[currentTestIdx];
+      document.getElementById('answeredBadge').textContent = `${countAnswered(currentTestIdx)}/${QTOTAL} đã làm`;
+      if (st.submitted) {
+        document.getElementById('btnSubmitTest').classList.add('hidden');
+        document.getElementById('btnViewResult').classList.remove('hidden');
+      } else {
+        document.getElementById('btnSubmitTest').classList.remove('hidden');
+        document.getElementById('btnViewResult').classList.add('hidden');
+      }
+    }
+
+    /* =========================================================================
+       7. ĐỒNG HỒ ĐẾM NGƯỢC
+       ========================================================================= */
+    function formatTime(sec) {
+      const m = Math.floor(sec / 60);
+      const s = sec % 60;
+      return `${String(m).padStart(2, '0')}:${String(s).padStart(2, '0')}`;
+    }
+
+    function startTimer() {
+      stopTimer();
+      timerPaused = false;
+      updateTimerUI();
+      const st = appState.tests[currentTestIdx];
+      if (st.submitted) return;
+
+      timerInterval = setInterval(() => {
+        if (timerPaused || currentTestIdx === null) return;
+        const cur = appState.tests[currentTestIdx];
+        if (cur.submitted) { stopTimer(); return; }
+        if (cur.timeLeft > 0) {
+          cur.timeLeft--;
+          updateTimerUI();
+          if (cur.timeLeft % 5 === 0) saveState();
+        } else {
+          stopTimer();
+          submitTest(true);
+        }
+      }, 1000);
+    }
+
+    function stopTimer() {
+      if (timerInterval) {
+        clearInterval(timerInterval);
+        timerInterval = null;
+      }
+    }
+
+    function toggleTimer() {
+      if (currentTestIdx === null || appState.tests[currentTestIdx].submitted) return;
+      timerPaused = !timerPaused;
+      updateTimerUI();
+    }
+
+    function updateTimerUI() {
+      const st = appState.tests[currentTestIdx];
+      const disp = document.getElementById('timerDisplay');
+      disp.textContent = formatTime(st.timeLeft);
+      if (st.timeLeft <= 300 && !st.submitted) {
+        disp.classList.add('text-rose-600', 'dark:text-rose-400');
+      } else {
+        disp.classList.remove('text-rose-600', 'dark:text-rose-400');
+      }
+      document.getElementById('iconPause').classList.toggle('hidden', timerPaused);
+      document.getElementById('iconPlay').classList.toggle('hidden', !timerPaused);
+    }
+
+    /* =========================================================================
+       8. RENDER BÀI ĐỌC & CÂU HỎI
+       ========================================================================= */
+    function renderPassage() {
+      const test = TESTS[currentTestIdx];
+      const passage = test.passages[currentPassageIdx];
+
+      document.getElementById('passageLabel').textContent = passage.label;
+      document.getElementById('passageInstruction').textContent = passage.instruction;
+      document.getElementById('passageTitle').textContent = passage.title;
+
+      const subEl = document.getElementById('passageSubtitle');
+      if (passage.subtitle) {
+        subEl.textContent = passage.subtitle;
+        subEl.classList.remove('hidden');
+      } else {
+        subEl.classList.add('hidden');
+      }
+
+      const contentEl = document.getElementById('passageContent');
+      contentEl.style.fontSize = appState.fontSize + 'px';
+      contentEl.innerHTML = passage.paragraphs.map(p => `<p>${p}</p>`).join('');
+
+      const fnEl = document.getElementById('passageFootnotes');
+      if (passage.footnotes && passage.footnotes.length > 0) {
+        fnEl.innerHTML = passage.footnotes.map(f => `<p>${f}</p>`).join('');
+        fnEl.classList.remove('hidden');
+      } else {
+        fnEl.classList.add('hidden');
+      }
+
+      renderQuestions(passage);
+    }
+
+    function renderQuestions(passage) {
+      const container = document.getElementById('questionsContainer');
+      const st = appState.tests[currentTestIdx];
+      const isSubmitted = st.submitted;
+
+      container.innerHTML = passage.groups.map(group => {
+        let bodyHtml = '';
+
+        if (group.type === 'notes') {
+          bodyHtml = `
+            <div class="bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700 rounded-xl p-4 sm:p-5 space-y-4">
+              <h4 class="text-center font-extrabold text-base text-slate-900 dark:text-white border-b border-slate-200 dark:border-slate-700 pb-2">${group.boxTitle}</h4>
+              ${group.sections.map(sec => `
+                <div>
+                  <h5 class="font-bold text-sm text-blue-700 dark:text-blue-400 mb-2">${sec.heading}</h5>
+                  <ul class="list-disc pl-5 space-y-2.5 text-sm leading-relaxed">
+                    ${sec.items.map(line => `<li>${replaceInlineInputs(line)}</li>`).join('')}
+                  </ul>
+                </div>
+              `).join('')}
+            </div>
+          `;
+        } else if (group.type === 'table') {
+          bodyHtml = `
+            <div class="overflow-x-auto border border-slate-200 dark:border-slate-700 rounded-xl">
+              <div class="bg-slate-100 dark:bg-slate-800 px-4 py-2.5 font-extrabold text-sm text-center border-b border-slate-200 dark:border-slate-700">${group.boxTitle}</div>
+              <table class="w-full text-sm text-left">
+                <thead class="bg-slate-50 dark:bg-slate-800/80 text-xs uppercase text-slate-600 dark:text-slate-300 border-b border-slate-200 dark:border-slate-700">
+                  <tr>${group.headers.map(h => `<th class="px-3 py-2.5 font-bold">${h}</th>`).join('')}</tr>
+                </thead>
+                <tbody class="divide-y divide-slate-200 dark:divide-slate-700">
+                  ${group.rows.map(row => `
+                    <tr class="bg-white dark:bg-slate-900">
+                      ${row.map(cell => `<td class="px-3 py-3 align-top leading-relaxed">${replaceInlineInputs(cell)}</td>`).join('')}
+                    </tr>
+                  `).join('')}
+                </tbody>
+              </table>
+            </div>
+          `;
+        } else if (group.type === 'flowchart') {
+          bodyHtml = `
+            <div class="space-y-2">
+              <h4 class="text-center font-extrabold text-sm text-slate-900 dark:text-white mb-3">${group.boxTitle}</h4>
+              ${group.steps.map((step, idx) => `
+                <div class="bg-slate-50 dark:bg-slate-800/70 border border-slate-300 dark:border-slate-600 rounded-xl p-3.5 text-sm leading-relaxed text-center">
+                  ${replaceInlineInputs(step)}
+                </div>
+                ${idx < group.steps.length - 1 ? `<div class="flex justify-center text-slate-400"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/></svg></div>` : ''}
+              `).join('')}
+            </div>
+          `;
+        } else if (group.type === 'summary_text') {
+          bodyHtml = `
+            <div class="bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700 rounded-xl p-4 sm:p-5 space-y-3 text-sm leading-relaxed">
+              <h4 class="font-extrabold text-base text-slate-900 dark:text-white mb-1">${group.boxTitle}</h4>
+              ${group.paragraphs.map(p => `<p>${replaceInlineInputs(p)}</p>`).join('')}
+            </div>
+          `;
+        } else if (group.type === 'summary_box') {
+          bodyHtml = `
+            <div class="bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700 rounded-xl p-4 sm:p-5 space-y-3 text-sm leading-relaxed">
+              <h4 class="font-extrabold text-base text-slate-900 dark:text-white mb-1">${group.boxTitle}</h4>
+              ${group.paragraphs.map(p => `<p>${replaceInlineSelects(p, group.options)}</p>`).join('')}
+              <div class="mt-4 pt-3 border-t border-slate-200 dark:border-slate-700 grid grid-cols-1 sm:grid-cols-2 gap-1.5 text-xs">
+                ${group.legend.map(l => `
+                  <div class="flex items-start gap-2 bg-white dark:bg-slate-900 px-2.5 py-1.5 rounded-lg border border-slate-200 dark:border-slate-700">
+                    <span class="font-extrabold text-blue-600 dark:text-blue-400">${l.key}</span>
+                    <span>${l.text}</span>
+                  </div>
+                `).join('')}
+              </div>
+            </div>
+          `;
+        } else if (group.type === 'tfng') {
+          bodyHtml = `<div class="space-y-3">
+            ${group.items.map(item => {
+              const val = st.answers[item.q] || '';
+              const statusHtml = isSubmitted ? renderReviewBadge(item.q) : '';
+              return `
+                <div id="q-anchor-${item.q}" class="p-3.5 rounded-xl border ${getQuestionCardBorder(item.q)} bg-white dark:bg-slate-900 transition">
+                  <div class="flex items-start gap-2.5 mb-2.5">
+                    <span class="w-6 h-6 rounded-lg bg-slate-100 dark:bg-slate-800 text-xs font-extrabold flex items-center justify-center shrink-0 mt-0.5">${item.q}</span>
+                    <p class="text-sm leading-snug flex-1">${item.text}</p>
+                  </div>
+                  <div class="flex flex-wrap items-center gap-2 pl-8">
+                    ${group.options.map(opt => {
+                      const active = val === opt;
+                      return `
+                        <button type="button" ${isSubmitted ? 'disabled' : ''} onclick="setAnswer(${item.q}, '${opt}')"
+                          class="px-3 py-1.5 rounded-lg text-xs font-bold border transition ${
+                            active
+                              ? 'bg-blue-600 text-white border-blue-600 shadow-sm'
+                              : 'bg-slate-50 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border-slate-200 dark:border-slate-700 hover:border-blue-400'
+                          }">
+                          ${opt}
+                        </button>
+                      `;
+                    }).join('')}
+                    ${statusHtml}
+                  </div>
+                </div>
+              `;
+            }).join('')}
+          </div>`;
+        } else if (group.type === 'matching') {
+          const legendHtml = group.legend ? `
+            <div class="mb-4 bg-blue-50/70 dark:bg-blue-950/30 border border-blue-100 dark:border-blue-900/50 rounded-xl p-3.5">
+              ${group.legendTitle ? `<h5 class="text-xs font-extrabold uppercase tracking-wider text-blue-700 dark:text-blue-300 mb-2">${group.legendTitle}</h5>` : ''}
+              <div class="space-y-1.5 text-xs sm:text-sm">
+                ${group.legend.map(l => `<div class="flex gap-2"><span class="font-extrabold text-blue-700 dark:text-blue-400 shrink-0">${l.key}</span><span>${l.text}</span></div>`).join('')}
+              </div>
+            </div>
+          ` : '';
+
+          bodyHtml = legendHtml + `<div class="space-y-2.5">
+            ${group.items.map(item => {
+              const val = st.answers[item.q] || '';
+              return `
+                <div id="q-anchor-${item.q}" class="p-3.5 rounded-xl border ${getQuestionCardBorder(item.q)} bg-white dark:bg-slate-900 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                  <div class="flex items-start gap-2.5">
+                    <span class="w-6 h-6 rounded-lg bg-slate-100 dark:bg-slate-800 text-xs font-extrabold flex items-center justify-center shrink-0 mt-0.5">${item.q}</span>
+                    <p class="text-sm leading-snug">${item.text}</p>
+                  </div>
+                  <div class="flex items-center gap-2 shrink-0 pl-8 sm:pl-0">
+                    <select ${isSubmitted ? 'disabled' : ''} onchange="setAnswer(${item.q}, this.value)" class="text-sm font-bold bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-600 rounded-lg px-3 py-1.5 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                      <option value="">-- Chọn --</option>
+                      ${group.options.map(opt => `<option value="${opt}" ${val === opt ? 'selected' : ''}>${opt}</option>`).join('')}
+                    </select>
+                    ${isSubmitted ? renderReviewBadge(item.q) : ''}
+                  </div>
+                </div>
+              `;
+            }).join('')}
+          </div>`;
+        } else if (group.type === 'mcq') {
+          bodyHtml = `<div class="space-y-4">
+            ${group.items.map(item => {
+              const val = st.answers[item.q] || '';
+              return `
+                <div id="q-anchor-${item.q}" class="p-4 rounded-xl border ${getQuestionCardBorder(item.q)} bg-white dark:bg-slate-900">
+                  <div class="flex items-start justify-between gap-2 mb-3">
+                    <div class="flex items-start gap-2.5">
+                      <span class="w-6 h-6 rounded-lg bg-slate-100 dark:bg-slate-800 text-xs font-extrabold flex items-center justify-center shrink-0 mt-0.5">${item.q}</span>
+                      <p class="text-sm font-semibold leading-snug">${item.text}</p>
+                    </div>
+                    ${isSubmitted ? renderReviewBadge(item.q) : ''}
+                  </div>
+                  <div class="space-y-2 pl-8">
+                    ${item.options.map(opt => {
+                      const active = val === opt.k;
+                      return `
+                        <label class="flex items-start gap-2.5 p-2 rounded-lg border cursor-pointer transition text-sm ${
+                          active
+                            ? 'bg-blue-50 dark:bg-blue-900/30 border-blue-400 dark:border-blue-600'
+                            : 'border-slate-100 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-800/60'
+                        }">
+                          <input type="radio" name="mcq_${currentTestIdx}_${item.q}" value="${opt.k}" ${active ? 'checked' : ''} ${isSubmitted ? 'disabled' : ''} onchange="setAnswer(${item.q}, '${opt.k}')" class="mt-1 accent-blue-600">
+                          <span><strong class="mr-1">${opt.k}</strong> ${opt.t}</span>
+                        </label>
+                      `;
+                    }).join('')}
+                  </div>
+                </div>
+              `;
+            }).join('')}
+          </div>`;
+        } else if (group.type === 'multi2') {
+          const [q1, q2] = group.qPair;
+          const selected = [st.answers[q1], st.answers[q2]].filter(Boolean);
+          bodyHtml = `
+            <div id="q-anchor-${q1}" class="p-4 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900">
+              <div id="q-anchor-${q2}" class="flex items-center justify-between mb-3">
+                <span class="text-xs font-bold text-blue-600 dark:text-blue-400">Đã chọn: ${selected.length}/2 đáp án (Câu ${q1} & ${q2})</span>
+                ${isSubmitted ? `<div class="flex gap-1.5">${renderReviewBadge(q1)} ${renderReviewBadge(q2)}</div>` : ''}
+              </div>
+              <div class="space-y-2">
+                ${group.options.map(opt => {
+                  const checked = selected.includes(opt.k);
+                  return `
+                    <label class="flex items-start gap-2.5 p-2.5 rounded-lg border cursor-pointer transition text-sm ${
+                      checked
+                        ? 'bg-blue-50 dark:bg-blue-900/30 border-blue-400 dark:border-blue-600'
+                        : 'border-slate-100 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-800/60'
+                    }">
+                      <input type="checkbox" value="${opt.k}" ${checked ? 'checked' : ''} ${isSubmitted ? 'disabled' : ''} onchange="toggleMulti2(${q1}, ${q2}, '${opt.k}', this)" class="mt-1 accent-blue-600 rounded">
+                      <span><strong class="mr-1">${opt.k}</strong> ${opt.t}</span>
+                    </label>
+                  `;
+                }).join('')}
+              </div>
+            </div>
+          `;
+        }
+
+        return `
+          <div class="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-4 sm:p-5 shadow-sm">
+            <h3 class="text-base font-extrabold text-slate-900 dark:text-white mb-1">${group.title}</h3>
+            <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400 mb-4">${group.instruction}</p>
+            ${bodyHtml}
+          </div>
+        `;
+      }).join('');
+    }
+
+    function replaceInlineInputs(text) {
+      const st = appState.tests[currentTestIdx];
+      const isSubmitted = st.submitted;
+      return text.replace(/\{\{(\d+)\}\}/g, (_, qNum) => {
+        const q = parseInt(qNum, 10);
+        const val = (st.answers[q] || '').replace(/"/g, '&quot;');
+        let extraClass = '';
+        let reviewHtml = '';
+        if (isSubmitted) {
+          const ok = isQuestionCorrect(currentTestIdx, q);
+          extraClass = ok ? 'border-emerald-500 text-emerald-700 dark:text-emerald-400' : 'border-rose-500 text-rose-600 dark:text-rose-400 line-through';
+          if (!ok) {
+            const correctAns = TESTS[currentTestIdx].answers[q].join(' / ');
+            reviewHtml = `<span class="ml-1 px-1.5 py-0.5 rounded bg-emerald-100 dark:bg-emerald-900/60 text-emerald-800 dark:text-emerald-200 text-xs font-bold">${correctAns}</span>`;
+          }
+        }
+        return `<span id="q-anchor-${q}" class="inline-flex items-center gap-1 mx-0.5">
+          <span class="inline-flex items-center justify-center w-5 h-5 rounded-full bg-blue-600 text-white text-[10px] font-extrabold shrink-0">${q}</span>
+          <input type="text" value="${val}" ${isSubmitted ? 'disabled' : ''} oninput="setAnswer(${q}, this.value, false)" autocomplete="off" spellcheck="false"
+            class="inline-input text-sm text-slate-900 dark:text-white ${extraClass}" placeholder="......" />
+          ${reviewHtml}
+        </span>`;
+      });
+    }
+
+    function replaceInlineSelects(text, options) {
+      const st = appState.tests[currentTestIdx];
+      const isSubmitted = st.submitted;
+      return text.replace(/\{\{(\d+)\}\}/g, (_, qNum) => {
+        const q = parseInt(qNum, 10);
+        const val = st.answers[q] || '';
+        let borderCls = 'border-slate-300 dark:border-slate-600';
+        let reviewHtml = '';
+        if (isSubmitted) {
+          const ok = isQuestionCorrect(currentTestIdx, q);
+          borderCls = ok ? 'border-emerald-500 text-emerald-700 dark:text-emerald-400' : 'border-rose-500 text-rose-600 dark:text-rose-400';
+          if (!ok) {
+            reviewHtml = `<span class="ml-1 px-1.5 py-0.5 rounded bg-emerald-100 dark:bg-emerald-900/60 text-emerald-800 dark:text-emerald-200 text-xs font-bold">${TESTS[currentTestIdx].answers[q][0]}</span>`;
+          }
+        }
+        return `<span id="q-anchor-${q}" class="inline-flex items-center gap-1 mx-0.5">
+          <span class="inline-flex items-center justify-center w-5 h-5 rounded-full bg-blue-600 text-white text-[10px] font-extrabold shrink-0">${q}</span>
+          <select ${isSubmitted ? 'disabled' : ''} onchange="setAnswer(${q}, this.value)" class="text-xs font-bold bg-white dark:bg-slate-900 border-2 ${borderCls} rounded-lg px-2 py-1 focus:outline-none focus:ring-2 focus:ring-blue-500">
+            <option value="">--</option>
+            ${options.map(o => `<option value="${o}" ${val === o ? 'selected' : ''}>${o}</option>`).join('')}
+          </select>
+          ${reviewHtml}
+        </span>`;
+      });
+    }
+
+    function getQuestionCardBorder(q) {
+      const st = appState.tests[currentTestIdx];
+      if (!st.submitted) return 'border-slate-200 dark:border-slate-800';
+      return isQuestionCorrect(currentTestIdx, q)
+        ? 'border-emerald-400 dark:border-emerald-600 bg-emerald-50/30 dark:bg-emerald-950/20'
+        : 'border-rose-400 dark:border-rose-600 bg-rose-50/30 dark:bg-rose-950/20';
+    }
+
+    function renderReviewBadge(q) {
+      const ok = isQuestionCorrect(currentTestIdx, q);
+      if (ok) {
+        return `<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-md text-xs font-bold bg-emerald-100 text-emerald-700 dark:bg-emerald-900/60 dark:text-emerald-300">✓ Đúng</span>`;
+      } else {
+        const ans = TESTS[currentTestIdx].answers[q].join(' / ');
+        return `<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-md text-xs font-bold bg-rose-100 text-rose-700 dark:bg-rose-900/60 dark:text-rose-300">✗ Đáp án: ${ans}</span>`;
+      }
+    }
+
+    /* =========================================================================
+       9. CẬP NHẬT ĐÁP ÁN & ĐIỀU HƯỚNG FOOTER
+       ========================================================================= */
+    function setAnswer(q, val, shouldReRender = true) {
+      const st = appState.tests[currentTestIdx];
+      if (st.submitted) return;
+      st.answers[q] = val;
+      saveState();
+      updateHeaderActionButtons();
+      renderFooterNav();
+      if (shouldReRender) {
+        renderQuestions(TESTS[currentTestIdx].passages[currentPassageIdx]);
+      }
+    }
+
+    function toggleMulti2(q1, q2, letter, checkbox) {
+      const st = appState.tests[currentTestIdx];
+      if (st.submitted) return;
+      let current = [st.answers[q1], st.answers[q2]].filter(Boolean);
+      if (checkbox.checked) {
+        if (current.length >= 2) {
+          checkbox.checked = false;
+          showToast("Bạn chỉ được chọn tối đa 2 đáp án cho câu hỏi này.");
+          return;
+        }
+        current.push(letter);
+      } else {
+        current = current.filter(x => x !== letter);
+      }
+      current.sort();
+      st.answers[q1] = current[0] || '';
+      st.answers[q2] = current[1] || '';
+      saveState();
+      updateHeaderActionButtons();
+      renderFooterNav();
+      renderQuestions(TESTS[currentTestIdx].passages[currentPassageIdx]);
+    }
+
+    function renderFooterNav() {
+      // Passage tabs (số passage lấy từ dữ liệu đề)
+      document.getElementById('passageTabs').innerHTML = TEST.passages.map((p, idx) => {
+        const cls = idx === currentPassageIdx
+          ? "px-3 py-1.5 rounded-xl text-xs font-bold bg-blue-600 text-white shadow-sm transition"
+          : "px-3 py-1.5 rounded-xl text-xs font-bold bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 transition";
+        return `<button onclick="switchPassage(${idx})" class="${cls}">Passage ${idx + 1}</button>`;
+      }).join('');
+
+      // Render question pills
+      const st = appState.tests[currentTestIdx];
+      const pillsEl = document.getElementById('questionNavPills');
+      let html = '';
+      for (let q = 1; q <= QTOTAL; q++) {
+        const hasAns = st.answers[q] && String(st.answers[q]).trim() !== '';
+        let cls = 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 border-slate-200 dark:border-slate-700';
+        if (st.submitted) {
+          cls = isQuestionCorrect(currentTestIdx, q)
+            ? 'bg-emerald-500 text-white border-emerald-600'
+            : 'bg-rose-500 text-white border-rose-600';
+        } else if (hasAns) {
+          cls = 'bg-blue-600 text-white border-blue-600';
+        }
+        html += `<button onclick="jumpToQuestion(${q})" class="w-7 h-7 rounded-lg text-[11px] font-bold border shrink-0 flex items-center justify-center hover:scale-105 transition ${cls}">${q}</button>`;
+      }
+      pillsEl.innerHTML = html;
+    }
+
+    function jumpToQuestion(q) {
+      let targetPassage = TEST.passages.findIndex(p => q >= p.qRange[0] && q <= p.qRange[1]);
+      if (targetPassage < 0) targetPassage = 0;
+      if (targetPassage !== currentPassageIdx) {
+        switchPassage(targetPassage);
+      }
+      // On mobile, switch to questions tab
+      if (window.innerWidth < 768) {
+        setMobilePane('questions');
+      }
+      setTimeout(() => {
+        const el = document.getElementById('q-anchor-' + q);
+        if (el) {
+          el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          el.classList.add('ring-2', 'ring-blue-500', 'rounded-xl');
+          setTimeout(() => el.classList.remove('ring-2', 'ring-blue-500'), 1200);
+        }
+      }, 60);
+    }
+
+    /* =========================================================================
+       10. CHẤM ĐIỂM & MODALS
+       ========================================================================= */
+    function normalizeText(str) {
+      return String(str || '').trim().toLowerCase().replace(/\s+/g, ' ');
+    }
+
+    function isQuestionCorrect(testIdx, q) {
+      const test = TESTS[testIdx];
+      const st = appState.tests[testIdx];
+      const userVal = normalizeText(st.answers[q]);
+      if (!userVal) return false;
+
+      // Special check for pair questions (e.g. Test 2 Q20 & Q21 in either order)
+      if (test.pairQuestions) {
+        for (const [q1, q2, validSet] of test.pairQuestions) {
+          if (q === q1 || q === q2) {
+            const u1 = normalizeText(st.answers[q1]);
+            const u2 = normalizeText(st.answers[q2]);
+            const validLower = validSet.map(v => v.toLowerCase());
+            if (q === q1) return validLower.includes(u1);
+            if (q === q2) return validLower.includes(u2) && u2 !== u1;
+          }
+        }
+      }
+
+      const validAnswers = test.answers[q].map(a => normalizeText(a));
+      return validAnswers.includes(userVal);
+    }
+
+    function confirmSubmit() {
+      const answered = countAnswered(currentTestIdx);
+      const unanswered = QTOTAL - answered;
+      openModal(`
+        <div class="text-center">
+          <div class="w-12 h-12 rounded-2xl bg-blue-100 dark:bg-blue-900/50 text-blue-600 dark:text-blue-400 flex items-center justify-center mx-auto mb-4">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          </div>
+          <h3 class="text-lg font-extrabold text-slate-900 dark:text-white mb-2">Nộp bài ${TESTS[currentTestIdx].title}?</h3>
+          <p class="text-sm text-slate-600 dark:text-slate-300 mb-6">
+            Bạn đã hoàn thành <strong>${answered}/${QTOTAL}</strong> câu hỏi${unanswered > 0 ? ` (còn <strong>${unanswered}</strong> câu bỏ trống)` : ''}. Sau khi nộp, hệ thống sẽ chấm điểm và hiển thị đáp án chi tiết.
+          </p>
+          <div class="flex items-center justify-center gap-3">
+            <button onclick="closeModal()" class="px-4 py-2 rounded-xl text-sm font-semibold border border-slate-300 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-800 transition">Tiếp tục làm</button>
+            <button onclick="submitTest(false)" class="px-5 py-2 rounded-xl text-sm font-bold bg-blue-600 hover:bg-blue-700 text-white shadow-sm transition">Nộp bài ngay</button>
+          </div>
+        </div>
+      `);
+    }
+
+    function computeResult(isTimeout) {
+      const byPassage = TEST.passages.map((p, i) => {
+        let correct = 0;
+        for (let q = p.qRange[0]; q <= p.qRange[1]; q++) if (isQuestionCorrect(currentTestIdx, q)) correct++;
+        return { label: 'Passage ' + (i + 1), correct: correct, total: p.qRange[1] - p.qRange[0] + 1 };
+      });
+      const total = byPassage.reduce((s, p) => s + p.correct, 0);
+      return {
+        score: total,
+        total: QTOTAL,
+        band: getBandScore(total),
+        seconds: Math.max(0, durationSec() - appState.tests[currentTestIdx].timeLeft),
+        timeout: !!isTimeout,
+        byPassage: byPassage
+      };
+    }
+
+    function submitTest(isTimeout = false) {
+      stopTimer();
+      const st = appState.tests[currentTestIdx];
+      const result = computeResult(isTimeout);
+      st.submitted = true;
+      st.score = result.score;
+
+      updateHeaderActionButtons();
+      renderQuestions(TESTS[currentTestIdx].passages[currentPassageIdx]);
+      renderFooterNav();
+      openResultModal(isTimeout);
+      pushState('submit', result);
+    }
+
+    function openResultModal(isTimeout = false) {
+      const r = computeResult(isTimeout);
+      const passCells = r.byPassage.map(p => `
+            <div class="bg-slate-50 dark:bg-slate-800 rounded-xl p-2.5">
+              <div class="text-slate-500 dark:text-slate-400">${p.label}</div>
+              <div class="font-extrabold text-sm mt-0.5">${p.correct} / ${p.total}</div>
+            </div>`).join('');
+
+      openModal(`
+        <div class="text-center">
+          ${isTimeout ? `<span class="inline-block px-3 py-1 rounded-full text-xs font-bold bg-rose-100 text-rose-700 mb-2">Hết thời gian ${TEST.durationMin} phút!</span>` : ''}
+          <h3 class="text-xl font-extrabold text-slate-900 dark:text-white mb-1">Kết quả ${TEST.title}</h3>
+          <p class="text-xs text-slate-500 dark:text-slate-400 mb-5">${TEST.subtitle || ''}</p>
+
+          <div class="grid grid-cols-2 gap-3 mb-5">
+            <div class="bg-blue-50 dark:bg-blue-950/40 border border-blue-200 dark:border-blue-800 rounded-2xl p-4">
+              <div class="text-xs font-semibold text-blue-600 dark:text-blue-400 uppercase">IELTS Band Score</div>
+              <div class="text-4xl font-extrabold text-blue-700 dark:text-blue-300 mt-1">${r.band}</div>
+            </div>
+            <div class="bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-200 dark:border-emerald-800 rounded-2xl p-4">
+              <div class="text-xs font-semibold text-emerald-600 dark:text-emerald-400 uppercase">Số câu đúng</div>
+              <div class="text-4xl font-extrabold text-emerald-700 dark:text-emerald-300 mt-1">${r.score}<span class="text-lg font-bold opacity-70">/${r.total}</span></div>
+            </div>
+          </div>
+
+          <div class="grid gap-2 mb-6 text-xs" style="grid-template-columns: repeat(${r.byPassage.length}, minmax(0, 1fr));">${passCells}
+          </div>
+
+          <div class="flex items-center justify-center gap-3">
+            <button onclick="closeModal()" class="px-5 py-2 rounded-xl text-sm font-bold bg-blue-600 hover:bg-blue-700 text-white shadow-sm transition">Xem chi tiết đáp án</button>
+            <button onclick="closeModal(); exitToLibrary();" class="px-4 py-2 rounded-xl text-sm font-semibold border border-slate-300 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-800 transition">Về danh sách đề</button>
+          </div>
+        </div>
+      `);
+    }
+
+    function confirmReset() {
+      openModal(`
+        <div class="text-center">
+          <h3 class="text-lg font-extrabold text-slate-900 dark:text-white mb-2">Làm lại ${TESTS[currentTestIdx].title}?</h3>
+          <p class="text-sm text-slate-600 dark:text-slate-300 mb-6">Toàn bộ câu trả lời và thời gian của đề này sẽ được đặt lại từ đầu.</p>
+          <div class="flex items-center justify-center gap-3">
+            <button onclick="closeModal()" class="px-4 py-2 rounded-xl text-sm font-semibold border border-slate-300 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-800 transition">Hủy</button>
+            <button onclick="resetCurrentTest()" class="px-5 py-2 rounded-xl text-sm font-bold bg-rose-600 hover:bg-rose-700 text-white shadow-sm transition">Xác nhận làm lại</button>
+          </div>
+        </div>
+      `);
+    }
+
+    function resetCurrentTest() {
+      appState.tests[currentTestIdx] = freshState();
+      pushState('reset');
+      closeModal();
+      openTest(currentTestIdx);
+    }
+
+    function openModal(html) {
+      document.getElementById('modalBox').innerHTML = html;
+      document.getElementById('modalOverlay').classList.remove('hidden');
+    }
+
+    function closeModal() {
+      document.getElementById('modalOverlay').classList.add('hidden');
+    }
+
+    function showToast(msg) {
+      const div = document.createElement('div');
+      div.className = "fixed bottom-16 left-1/2 -translate-x-1/2 z-50 bg-slate-900 text-white text-xs font-semibold px-4 py-2.5 rounded-xl shadow-lg";
+      div.textContent = msg;
+      document.body.appendChild(div);
+      setTimeout(() => div.remove(), 2500);
+    }
+
+    /* =========================================================================
+       11. CÔNG CỤ HIGHLIGHT VĂN BẢN TRÊN BÀI ĐỌC
+       ========================================================================= */
+    const passageContentEl = document.getElementById('passageContent');
+    const hlTooltip = document.getElementById('hlTooltip');
+
+    document.addEventListener('mouseup', (e) => {
+      if (e.target.closest('#hlTooltip')) return;
+      const sel = window.getSelection();
+      if (!sel || sel.isCollapsed || !sel.rangeCount) {
+        hlTooltip.classList.add('hidden');
+        return;
+      }
+      const range = sel.getRangeAt(0);
+      if (passageContentEl.contains(range.commonAncestorContainer)) {
+        const rect = range.getBoundingClientRect();
+        pendingSelectionRange = range.cloneRange();
+        hlTooltip.style.top = Math.max(10, rect.top - 38) + 'px';
+        hlTooltip.style.left = (rect.left + rect.width / 2) + 'px';
+        hlTooltip.classList.remove('hidden');
+      } else {
+        hlTooltip.classList.add('hidden');
+      }
+    });
+
+    function applyHighlight() {
+      if (!pendingSelectionRange) return;
+      try {
+        const mark = document.createElement('mark');
+        mark.className = 'user-hl';
+        mark.title = 'Bấm để xóa highlight';
+        mark.onclick = function() {
+          const parent = this.parentNode;
+          while (this.firstChild) parent.insertBefore(this.firstChild, this);
+          parent.removeChild(this);
+        };
+        pendingSelectionRange.surroundContents(mark);
+        window.getSelection().removeAllRanges();
+      } catch (err) {
+        showToast("Hãy bôi đen trong cùng một đoạn văn để highlight.");
+      }
+      hlTooltip.classList.add('hidden');
+      pendingSelectionRange = null;
+    }
+
+    function clearHighlights() {
+      const marks = passageContentEl.querySelectorAll('mark.user-hl');
+      marks.forEach(m => {
+        const parent = m.parentNode;
+        while (m.firstChild) parent.insertBefore(m.firstChild, m);
+        parent.removeChild(m);
+      });
+    }
+
+    /* =========================================================================
+       12. KHỞI CHẠY ỨNG DỤNG
+       ========================================================================= */
+    function onRender(args) {
+      if (args.height) setFrameHeight(args.height);
+      if (!args.test) return;
+      NAV = Object.assign({ prev: false, next: false }, args.nav || {});
+      applyNav();
+      const key = args.sessionKey || args.test.id;
+      if (key === SESSION_KEY) return;          // Streamlit rerun: giữ nguyên trạng thái đang làm
+      SESSION_KEY = key;
+
+      TEST = args.test;
+      TESTS = [TEST];
+      QTOTAL = TEST.totalQuestions;
+      const saved = args.saved || {};
+      const prefs = args.prefs || {};
+      const meta = args.meta || {};
+
+      appState.darkMode = !!prefs.darkMode;
+      appState.fontSize = prefs.fontSize || 15;
+      appState.tests[0] = Object.assign(freshState(), {
+        answers: saved.answers || {},
+        submitted: !!saved.submitted,
+        timeLeft: typeof saved.timeLeft === 'number' ? saved.timeLeft : durationSec(),
+        score: saved.score == null ? null : saved.score
+      });
+
+      document.getElementById('logoBadge').textContent = meta.badge || 'O';
+      document.getElementById('hdrTitle').textContent = meta.seriesTitle || 'Orange';
+      document.getElementById('hdrSub').textContent = TEST.subtitle || 'Reading';
+      dirty = false;
+      applyTheme();
+      openTest(0);
+    }
+
+    window.addEventListener('message', function (ev) {
+      const d = ev.data;
+      if (d && d.type === 'streamlit:render') onRender(d.args || {});
+    });
+    sendMsg('streamlit:componentReady', { apiVersion: 1 });
+    setFrameHeight(820);
+  </script>
+</body>
+</html>

@@ -55,7 +55,8 @@ CREATE TABLE IF NOT EXISTS reading_attempts (
     band        TEXT NOT NULL,
     seconds     INTEGER NOT NULL,
     detail_json TEXT NOT NULL,
-    created_at  INTEGER NOT NULL
+    created_at  INTEGER NOT NULL,
+    scope       TEXT NOT NULL DEFAULT 'full'
 );
 CREATE INDEX IF NOT EXISTS idx_attempts_user ON reading_attempts(user_id, created_at);
 
@@ -82,6 +83,14 @@ def connect():
 def init_db() -> None:
     with connect() as c:
         c.executescript(SCHEMA)
+        # Nâng cấp DB cũ: thêm cột trạng thái tài khoản (active / blocked)
+        cols = {r["name"] for r in c.execute("PRAGMA table_info(users)")}
+        if "status" not in cols:
+            c.execute("ALTER TABLE users ADD COLUMN status TEXT NOT NULL DEFAULT 'active'")
+        # Nâng cấp DB cũ: lượt làm có phạm vi (full = cả đề, p1..pN = một passage)
+        acols = {r["name"] for r in c.execute("PRAGMA table_info(reading_attempts)")}
+        if "scope" not in acols:
+            c.execute("ALTER TABLE reading_attempts ADD COLUMN scope TEXT NOT NULL DEFAULT 'full'")
 
 
 def now() -> int:
@@ -89,6 +98,16 @@ def now() -> int:
 
 
 # ---------------------------------------------------------------- progress
+def pkey(test_id: str, scope: str = "full") -> str:
+    """Khóa lưu tiến độ: cả đề dùng id đề, làm lẻ một passage thêm hậu tố '#p<n>'."""
+    return test_id if scope in (None, "", "full") else f"{test_id}#{scope}"
+
+
+def split_key(key: str) -> tuple[str, str]:
+    tid, _, scope = key.partition("#")
+    return tid, scope or "full"
+
+
 def get_progress(user_id: int, test_id: str) -> dict | None:
     with connect() as c:
         row = c.execute(
@@ -118,7 +137,7 @@ def delete_progress(user_id: int, test_id: str) -> None:
 
 
 def progress_summary(user_id: int) -> dict[str, dict]:
-    """test_id -> {submitted, answered, updated_at} (cheap, for library cards)."""
+    """pkey -> {submitted, answered, updated_at} (cheap, for library cards)."""
     with connect() as c:
         rows = c.execute(
             "SELECT test_id, state_json, submitted, updated_at FROM reading_progress WHERE user_id=?",
@@ -136,25 +155,34 @@ def progress_summary(user_id: int) -> dict[str, dict]:
     return out
 
 
-def add_attempt(user_id: int, test_id: str, score: int, total: int, band: str,
-                seconds: int, detail: dict) -> None:
+def add_attempt(user_id: int, test_id: str, score: int, total: int, band: str | None,
+                seconds: int, detail: dict, scope: str = "full", created_at: int | None = None) -> None:
     with connect() as c:
         c.execute(
-            """INSERT INTO reading_attempts(user_id,test_id,score,total,band,seconds,detail_json,created_at)
-               VALUES(?,?,?,?,?,?,?,?)""",
-            (user_id, test_id, score, total, band, seconds,
-             json.dumps(detail, ensure_ascii=False), now()),
+            """INSERT INTO reading_attempts(user_id,test_id,score,total,band,seconds,detail_json,created_at,scope)
+               VALUES(?,?,?,?,?,?,?,?,?)""",
+            (user_id, test_id, score, total, band or "", seconds,
+             json.dumps(detail, ensure_ascii=False), created_at or now(), scope),
         )
 
 
 def list_attempts(user_id: int, limit: int = 200) -> list[dict]:
     with connect() as c:
         rows = c.execute(
-            """SELECT id,test_id,score,total,band,seconds,detail_json,created_at
-               FROM reading_attempts WHERE user_id=? ORDER BY created_at DESC LIMIT ?""",
+            """SELECT id,test_id,score,total,band,seconds,detail_json,created_at,scope
+               FROM reading_attempts WHERE user_id=? ORDER BY created_at DESC, id DESC LIMIT ?""",
             (user_id, limit),
         ).fetchall()
-    return [dict(r) for r in rows]
+    out = []
+    for r in rows:
+        a = dict(r)
+        detail = json.loads(a.pop("detail_json") or "{}")
+        a["detail"] = detail
+        # Lượt cũ chưa ghi số câu đã trả lời: coi lượt 0 điểm là lượt trắng
+        answered = detail.get("answered")
+        a["valid"] = (answered > 0) if isinstance(answered, int) else a["score"] > 0
+        out.append(a)
+    return out
 
 
 # ------------------------------------------------------------------- prefs

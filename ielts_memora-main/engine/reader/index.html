@@ -4,41 +4,34 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Orange Reader</title>
-  <!-- Tailwind CSS CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Tailwind đã build sẵn (xem tools/tailwind/build.sh) -->
+  <link rel="stylesheet" href="tailwind.css">
   <!-- Google Fonts: Inter -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <script>
-    window.tailwind = window.tailwind || {};
-    tailwind.config = {
-      darkMode: 'class',
-      theme: {
-        extend: {
-          fontFamily: {
-            sans: ['Inter', 'sans-serif'],
-          },
-        }
-      }
-    }
-  </script>
   <style>
+    html, body { font-family: 'Inter', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; }
     /* Tùy chỉnh thanh cuộn gọn gàng và hiệu ứng highlight văn bản */
     ::-webkit-scrollbar { width: 7px; height: 7px; }
     ::-webkit-scrollbar-track { background: transparent; }
     ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 9999px; }
     .dark ::-webkit-scrollbar-thumb { background: #475569; }
-    mark.user-hl {
-      background-color: #fef08a;
-      color: #1e293b;
-      padding: 0 2px;
-      border-radius: 3px;
-      cursor: pointer;
-    }
-    .dark mark.user-hl {
-      background-color: #ca8a04;
-      color: #ffffff;
+    mark.user-hl { color: #1e293b; padding: 0 1px; border-radius: 3px; cursor: pointer; }
+    mark.hl-yellow { background-color: #fef08a; }
+    mark.hl-orange { background-color: #fdba74; }
+    mark.hl-red    { background-color: #fca5a5; }
+    .dark mark.user-hl { color: #ffffff; }
+    .dark mark.hl-yellow { background-color: #a16207; }
+    .dark mark.hl-orange { background-color: #c2410c; }
+    .dark mark.hl-red    { background-color: #b91c1c; }
+    .hl-dot { width: 20px; height: 20px; border-radius: 9999px; border: 2px solid rgba(255,255,255,.75); transition: transform .12s; }
+    .hl-dot:hover { transform: scale(1.18); }
+    /* Chia đôi màn hình: khung bài đọc kéo được, mặc định hẹp hơn khung câu hỏi */
+    @media (min-width: 768px) {
+      #passagePane { flex: 0 0 var(--split, 42%); width: var(--split, 42%); }
+      #questionsPane { flex: 1 1 0%; width: auto; }
+      #splitter { width: 10px; cursor: col-resize; touch-action: none; }
     }
     .inline-input {
       border-bottom: 2px solid #94a3b8;
@@ -99,6 +92,7 @@
     <div id="timerBar" class="hidden flex items-center gap-1.5 bg-slate-100 dark:bg-slate-800 px-3 py-1.5 rounded-xl border border-slate-200 dark:border-slate-700">
       <svg class="w-4 h-4 text-blue-600 dark:text-blue-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
       <span id="timerDisplay" class="font-mono font-bold text-sm sm:text-base tracking-tight">60:00</span>
+      <span id="timerScope" class="hidden text-[11px] font-bold px-1.5 py-0.5 rounded-md bg-blue-100 text-blue-700 dark:bg-blue-900/50 dark:text-blue-300"></span>
       <button id="btnToggleTimer" onclick="toggleTimer()" title="Tạm dừng / Tiếp tục" class="ml-1 p-1 rounded-md hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-600 dark:text-slate-300 transition">
         <svg id="iconPause" class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zM7 8a1 1 0 012 0v4a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v4a1 1 0 102 0V8a1 1 0 00-1-1z" clip-rule="evenodd"/></svg>
         <svg id="iconPlay" class="w-3.5 h-3.5 hidden" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd"/></svg>
@@ -149,14 +143,14 @@
     <!-- Split Panes Container -->
     <div class="flex-1 flex flex-col md:flex-row overflow-hidden relative">
       <!-- LEFT PANE: READING PASSAGE -->
-      <div id="passagePane" class="w-full md:w-1/2 h-full overflow-y-auto p-4 sm:p-6 lg:p-8 bg-white dark:bg-slate-900 md:border-r border-slate-200 dark:border-slate-800">
-        <div class="max-w-2xl mx-auto">
+      <div id="passagePane" class="w-full min-w-0 h-full overflow-y-auto p-4 sm:p-6 lg:p-8 bg-white dark:bg-slate-900 md:border-r border-slate-200 dark:border-slate-800">
+        <div class="max-w-3xl mx-auto">
           <div class="flex items-center justify-between gap-2 mb-4 pb-3 border-b border-slate-100 dark:border-slate-800">
             <span id="passageLabel" class="text-xs font-bold uppercase tracking-wider px-2.5 py-1 rounded-lg bg-blue-50 text-blue-700 dark:bg-blue-900/40 dark:text-blue-300">
               READING PASSAGE 1
             </span>
             <div class="flex items-center gap-2">
-              <button onclick="clearHighlights()" class="text-xs font-medium text-slate-500 hover:text-rose-600 dark:text-slate-400 dark:hover:text-rose-400 transition">
+              <button onclick="clearHighlights()" title="Xóa toàn bộ highlight của passage này (cả bài đọc và phần đề)" class="text-xs font-medium text-slate-500 hover:text-rose-600 dark:text-slate-400 dark:hover:text-rose-400 transition">
                 Xóa highlight
               </button>
             </div>
@@ -171,19 +165,25 @@
         </div>
       </div>
 
+      <!-- THANH KÉO CHIA KHUNG -->
+      <div id="splitter" title="Kéo để đổi độ rộng (bấm đúp để về mặc định)" class="hidden md:block shrink-0 bg-slate-200 dark:bg-slate-700 hover:bg-blue-400 dark:hover:bg-blue-500 transition-colors"></div>
+
       <!-- RIGHT PANE: QUESTIONS -->
-      <div id="questionsPane" class="hidden md:block w-full md:w-1/2 h-full overflow-y-auto p-4 sm:p-6 lg:p-8 bg-slate-50 dark:bg-slate-950">
-        <div id="questionsContainer" class="max-w-2xl mx-auto space-y-6 pb-10">
+      <div id="questionsPane" class="hidden md:block w-full min-w-0 h-full overflow-y-auto p-4 sm:p-6 lg:p-8 bg-slate-50 dark:bg-slate-950">
+        <div id="questionsContainer" class="w-full mx-auto space-y-6 pb-10 select-text">
           <!-- Question groups rendered here -->
         </div>
       </div>
     </div>
 
     <!-- Floating Highlight Tooltip -->
-    <button id="hlTooltip" onclick="applyHighlight()" class="hidden fixed z-50 bg-slate-900 text-amber-300 text-xs font-bold px-3 py-1.5 rounded-lg shadow-lg flex items-center gap-1.5 hover:bg-slate-800 transition transform -translate-x-1/2">
-      <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20"><path d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z"/></svg>
-      Highlight
-    </button>
+    <div id="hlTooltip" onmousedown="event.preventDefault()" style="display:none"
+         class="fixed z-50 bg-slate-900 text-white text-xs font-bold px-2.5 py-1.5 rounded-xl shadow-lg items-center gap-2 transform -translate-x-1/2">
+      <span class="text-slate-300">Highlight</span>
+      <button type="button" onclick="applyHighlight('yellow')" title="Vàng" aria-label="Highlight vàng" class="hl-dot" style="background:#facc15"></button>
+      <button type="button" onclick="applyHighlight('orange')" title="Cam" aria-label="Highlight cam" class="hl-dot" style="background:#fb923c"></button>
+      <button type="button" onclick="applyHighlight('red')" title="Đỏ" aria-label="Highlight đỏ" class="hl-dot" style="background:#ef4444"></button>
+    </div>
 
     <!-- ==================== FOOTER NAVIGATOR ==================== -->
     <footer class="bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 px-3 sm:px-5 py-2 shrink-0 z-20">
@@ -191,7 +191,7 @@
         <div id="passageTabs" class="flex items-center gap-1.5 shrink-0"></div>
 
         <!-- 40 Question Pills -->
-        <div id="questionNavPills" class="flex items-center gap-1 overflow-x-auto pb-1 lg:pb-0">
+        <div id="questionNavPills" class="flex flex-wrap items-center gap-1 lg:justify-end">
           <!-- Rendered by JS -->
         </div>
       </div>
@@ -216,13 +216,18 @@
        ========================================================================= */
     let TESTS = [];
     let TEST = null;
-    let QTOTAL = 40;
+    let QTOTAL = 40;          // số câu trong phạm vi đang làm
+    let QLO = 1, QHI = 40;    // dải số câu của phạm vi
+    let SCOPE = 'full';       // 'full' (cả đề) hoặc 'p1'..'pN' (làm lẻ một passage)
+    let PIDX = null;          // chỉ số passage khi làm lẻ, null khi làm cả đề
     let SESSION_KEY = null;
 
     let appState = {
       darkMode: false,
       fontSize: 15,
-      tests: { 0: { answers: {}, submitted: false, timeLeft: 3600, score: null } }
+      split: 42,
+      tests: { 0: { answers: {}, submitted: false, score: null, configured: false, limit: 3600,
+                    spent: 0, passage: 0, hl: {} } }
     };
 
     let currentTestIdx = null;
@@ -230,9 +235,51 @@
     let timerInterval = null;
     let timerPaused = false;
     let pendingSelectionRange = null;
+    let tBase = 0, tStart = 0;   // đồng hồ theo mốc thời gian thật, không bị chậm khi tab nền
 
-    function durationSec() { return (TEST ? TEST.durationMin : 60) * 60; }
-    function freshState() { return { answers: {}, submitted: false, timeLeft: durationSec(), score: null }; }
+    function setScope(scope) {
+      const m = /^p(\d+)$/.exec(scope || '');
+      const n = TEST.passages.length;
+      PIDX = (m && +m[1] >= 1 && +m[1] <= n) ? +m[1] - 1 : null;
+      SCOPE = PIDX === null ? 'full' : 'p' + (PIDX + 1);
+      if (PIDX === null) { QLO = 1; QHI = TEST.totalQuestions; }
+      else { QLO = TEST.passages[PIDX].qRange[0]; QHI = TEST.passages[PIDX].qRange[1]; }
+      QTOTAL = QHI - QLO + 1;
+    }
+    function scopePassages() { return PIDX === null ? TEST.passages.map((_, i) => i) : [PIDX]; }
+    function durationSec() {
+      if (!TEST) return 3600;
+      return PIDX === null ? TEST.durationMin * 60 : Math.round(TEST.durationMin / TEST.passages.length) * 60;
+    }
+    function freshState() {
+      return { answers: {}, submitted: false, score: null, configured: false, limit: durationSec(),
+               spent: 0, passage: PIDX === null ? 0 : PIDX, hl: {} };
+    }
+
+    // Đọc trạng thái đã lưu (chịu được bản cũ: chỉ có timeLeft, hoặc chế độ passage cũ có pspent)
+    function loadSaved(saved) {
+      const base = freshState();
+      if (!saved || (saved.answers === undefined && saved.timeLeft === undefined && saved.configured === undefined)) return base;
+      const num = (v, d) => (typeof v === 'number' && isFinite(v) && v >= 0 ? Math.floor(v) : d);
+      const lim = durationSec();
+      if (saved.limit === undefined && typeof saved.timeLeft === 'number') {
+        return Object.assign(base, { answers: saved.answers || {}, submitted: !!saved.submitted,
+          score: saved.score == null ? null : saved.score, configured: true, limit: lim,
+          spent: Math.max(0, lim - Math.floor(saved.timeLeft)) });
+      }
+      let spent = num(saved.spent, 0);
+      if (saved.pspent) spent = Object.values(saved.pspent).reduce((s, v) => s + (num(v, 0)), 0);
+      return Object.assign(base, {
+        answers: saved.answers || {}, submitted: !!saved.submitted, score: saved.score == null ? null : saved.score,
+        configured: saved.configured === undefined ? true : !!saved.configured,
+        limit: num(saved.limit, lim), spent: spent,
+        passage: PIDX === null ? num(saved.passage, 0) : PIDX, hl: saved.hl || {}
+      });
+    }
+
+    function isLocked() { return !!appState.tests[0].submitted; }
+    function getSpent(st) { return st.spent || 0; }
+    function hasAns(v) { return v !== undefined && v !== null && String(v).trim() !== ''; }
 
     /* ---- Giao tiếp với Streamlit (giao thức custom component) ---- */
     function sendMsg(type, data) {
@@ -245,7 +292,8 @@
 
     function snapshot() {
       const st = appState.tests[0];
-      return { answers: st.answers, submitted: st.submitted, timeLeft: st.timeLeft, score: st.score };
+      return { answers: st.answers, submitted: st.submitted, score: st.score, configured: st.configured,
+               limit: st.limit, spent: st.spent, passage: currentPassageIdx, hl: st.hl };
     }
 
     function pushState(event, result) {
@@ -255,8 +303,9 @@
         event: event,
         sessionKey: SESSION_KEY,
         testId: TEST.id,
+        scope: SCOPE,
         state: snapshot(),
-        prefs: { darkMode: appState.darkMode, fontSize: appState.fontSize }
+        prefs: { darkMode: appState.darkMode, fontSize: appState.fontSize, split: appState.split }
       };
       if (result) payload.result = result;
       sendMsg('streamlit:setComponentValue', { value: payload, dataType: 'json' });
@@ -264,14 +313,19 @@
       lastSent = Date.now();
     }
 
-    // Mọi thay đổi chỉ đánh dấu "bẩn"; tự gửi lên server tối đa mỗi ~12 giây.
+    // Mọi thay đổi chỉ đánh dấu "bẩn"; tự gửi lên server tối đa mỗi ~8 giây. Đồng hồ không đánh dấu bẩn.
     function saveState() { dirty = true; }
-    setInterval(() => { if (dirty && TEST && Date.now() - lastSent > 12000) pushState('autosave'); }, 4000);
-    document.addEventListener('visibilitychange', () => { if (document.hidden && dirty && TEST) pushState('autosave'); });
+    setInterval(() => { if (dirty && TEST && Date.now() - lastSent > 8000) pushState('autosave'); }, 3000);
+    document.addEventListener('visibilitychange', () => {
+      if (document.hidden && dirty && TEST) pushState('autosave');
+      else if (!document.hidden) tick();            // quay lại tab: cập nhật đồng hồ ngay
+    });
+    window.addEventListener('pagehide', () => { if (dirty && TEST) pushState('autosave'); });
 
     function exitToLibrary() {
       stopTimer();
-      pushState('exit');
+      // Chưa bấm "Bắt đầu" thì không lưu gì cả
+      pushState(appState.tests[0].configured || appState.tests[0].submitted ? 'exit' : 'cancel');
     }
 
     // Chuyển sang đề trước / đề sau trong cùng bộ (Python lưu tiến độ rồi mở đề mới)
@@ -336,33 +390,39 @@
     function countAnswered(testIdx) {
       const ans = appState.tests[testIdx].answers;
       let count = 0;
-      for (let i = 1; i <= QTOTAL; i++) {
-        if (ans[i] && String(ans[i]).trim() !== '') count++;
-      }
+      for (let i = QLO; i <= QHI; i++) if (hasAns(ans[i])) count++;
       return count;
     }
 
     function openTest(testIdx) {
+      stopTimer();
       currentTestIdx = testIdx;
-      currentPassageIdx = 0;
+      const stOpen = appState.tests[testIdx];
+      currentPassageIdx = PIDX !== null ? PIDX : Math.min(Math.max(0, stOpen.passage || 0), TEST.passages.length - 1);
+      applySplit();
       document.getElementById('testView').classList.remove('hidden');
       document.getElementById('headerTestControls').classList.remove('hidden');
       document.getElementById('timerBar').classList.remove('hidden');
       document.getElementById('testActionBtns').classList.remove('hidden');
       document.getElementById('fontControls').classList.remove('hidden');
-      document.getElementById('testTitleBadge').textContent = TESTS[testIdx].title;
+      document.getElementById('testTitleBadge').textContent = TESTS[testIdx].title + (PIDX !== null ? ' · Passage ' + (PIDX + 1) : '');
       updateHeaderActionButtons();
       renderPassage();
       renderFooterNav();
-      startTimer();
+      if (!stOpen.configured && !stOpen.submitted) openSetup(); else startTimer();
     }
 
     function switchPassage(pIdx) {
+      if (PIDX !== null && pIdx !== PIDX) return;       // làm lẻ: chỉ có một passage
       currentPassageIdx = pIdx;
+      appState.tests[currentTestIdx].passage = pIdx;
+      saveState();
+      hideTip();
       renderPassage();
       renderFooterNav();
       document.getElementById('passagePane').scrollTop = 0;
       document.getElementById('questionsPane').scrollTop = 0;
+      updateHeaderActionButtons();
     }
 
     function setMobilePane(pane) {
@@ -386,13 +446,16 @@
     function updateHeaderActionButtons() {
       const st = appState.tests[currentTestIdx];
       document.getElementById('answeredBadge').textContent = `${countAnswered(currentTestIdx)}/${QTOTAL} đã làm`;
+      const sub = document.getElementById('btnSubmitTest');
+      const view = document.getElementById('btnViewResult');
       if (st.submitted) {
-        document.getElementById('btnSubmitTest').classList.add('hidden');
-        document.getElementById('btnViewResult').classList.remove('hidden');
-      } else {
-        document.getElementById('btnSubmitTest').classList.remove('hidden');
-        document.getElementById('btnViewResult').classList.add('hidden');
+        sub.classList.add('hidden');
+        view.classList.remove('hidden');
+        return;
       }
+      view.classList.add('hidden');
+      sub.textContent = PIDX === null ? 'Nộp bài' : 'Nộp Passage ' + (PIDX + 1);
+      sub.classList.remove('hidden');
     }
 
     /* =========================================================================
@@ -407,24 +470,26 @@
     function startTimer() {
       stopTimer();
       timerPaused = false;
-      updateTimerUI();
       const st = appState.tests[currentTestIdx];
-      if (st.submitted) return;
-
-      timerInterval = setInterval(() => {
-        if (timerPaused || currentTestIdx === null) return;
-        const cur = appState.tests[currentTestIdx];
-        if (cur.submitted) { stopTimer(); return; }
-        if (cur.timeLeft > 0) {
-          cur.timeLeft--;
-          updateTimerUI();
-          if (cur.timeLeft % 5 === 0) saveState();
-        } else {
-          stopTimer();
-          submitTest(true);
-        }
-      }, 1000);
+      updateTimerUI();
+      if (st.submitted || !st.configured) return;
+      tBase = st.spent || 0;
+      tStart = Date.now();
+      timerInterval = setInterval(tick, 500);
     }
+
+    // Tính theo mốc Date.now(): tab chạy nền bị trình duyệt làm chậm timer cũng không làm lệch thời gian.
+    function tick() {
+      if (timerPaused || currentTestIdx === null || !timerInterval) return;
+      const st = appState.tests[currentTestIdx];
+      if (st.submitted || !st.configured) return;
+      let spent = tBase + Math.floor((Date.now() - tStart) / 1000);
+      if (st.limit > 0) spent = Math.min(spent, st.limit);
+      if (spent !== st.spent) { st.spent = spent; updateTimerUI(); }
+      if (st.limit > 0 && spent >= st.limit) onTimeUp();
+    }
+
+    function onTimeUp() { submitTest(true); }
 
     function stopTimer() {
       if (timerInterval) {
@@ -434,22 +499,113 @@
     }
 
     function toggleTimer() {
-      if (currentTestIdx === null || appState.tests[currentTestIdx].submitted) return;
-      timerPaused = !timerPaused;
+      if (currentTestIdx === null || isLocked()) return;
+      const st = appState.tests[currentTestIdx];
+      if (!st.configured) return;
+      if (!timerPaused) {
+        tick();
+        timerPaused = true;
+      } else {
+        tBase = st.spent || 0;
+        tStart = Date.now();
+        timerPaused = false;
+      }
       updateTimerUI();
     }
 
     function updateTimerUI() {
       const st = appState.tests[currentTestIdx];
+      if (!st) return;
       const disp = document.getElementById('timerDisplay');
-      disp.textContent = formatTime(st.timeLeft);
-      if (st.timeLeft <= 300 && !st.submitted) {
-        disp.classList.add('text-rose-600', 'dark:text-rose-400');
+      const scope = document.getElementById('timerScope');
+      const spent = getSpent(st);
+      const limit = st.limit || 0;
+      const locked = isLocked();
+      let warn = false;
+      if (limit > 0) {
+        const left = Math.max(0, limit - spent);
+        disp.textContent = formatTime(left);
+        warn = !locked && left <= (limit >= 600 ? 300 : 60);
       } else {
-        disp.classList.remove('text-rose-600', 'dark:text-rose-400');
+        disp.textContent = formatTime(spent);        // không giới hạn: đếm lên
       }
+      disp.classList.toggle('text-rose-600', warn);
+      disp.classList.toggle('dark:text-rose-400', warn);
+      const label = (PIDX !== null ? 'P' + (PIDX + 1) : '') + (limit === 0 ? (PIDX !== null ? ' ' : '') + '∞' : '');
+      scope.textContent = label;
+      scope.classList.toggle('hidden', !label);
       document.getElementById('iconPause').classList.toggle('hidden', timerPaused);
       document.getElementById('iconPlay').classList.toggle('hidden', !timerPaused);
+    }
+
+    /* =========================================================================
+       7b. THIẾT LẬP BÀI LÀM (thời gian; phạm vi do thư viện đề chọn)
+       ========================================================================= */
+    let setup = null;
+
+    function setupDefault() { return Math.round(durationSec() / 60); }
+    function setupPresets() {
+      const base = PIDX === null ? [20, 40, 60] : [10, 15, 20, 25];
+      const def = setupDefault();
+      if (!base.includes(def)) base.push(def);
+      return base.sort((a, b) => a - b);
+    }
+
+    function openSetup() {
+      setup = { choice: String(setupDefault()), custom: '30' };
+      renderSetup();
+    }
+    function setSetupChoice(c) { setup.choice = c; renderSetup(); }
+
+    function renderSetup() {
+      const chip = (val, label) => `<button type="button" onclick="setSetupChoice('${val}')" class="px-3.5 py-1.5 rounded-xl text-sm font-bold border transition ${
+        setup.choice === val ? 'bg-blue-600 text-white border-blue-600 shadow-sm' : 'border-slate-300 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-800'}">${label}</button>`;
+      const presets = setupPresets();
+      const scopeText = PIDX === null ? `Cả đề · ${TEST.passages.length} passage · ${QTOTAL} câu` : `Passage ${PIDX + 1} · ${QTOTAL} câu`;
+      openModal(`
+        <div>
+          <h3 class="text-lg font-extrabold text-slate-900 dark:text-white mb-1">Thiết lập bài làm</h3>
+          <p class="text-xs text-slate-500 dark:text-slate-400 mb-1">${TEST.title}</p>
+          <p class="inline-block text-xs font-bold px-2.5 py-1 rounded-lg bg-blue-50 text-blue-700 dark:bg-blue-900/40 dark:text-blue-300 mb-5">${scopeText}</p>
+
+          <div class="text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 mb-2">${PIDX === null ? 'Thời gian cho cả đề' : 'Thời gian cho passage này'}</div>
+          <div class="flex flex-wrap items-center gap-2 mb-2">
+            ${presets.map(m => chip(String(m), m + ' phút')).join('')}
+            ${chip('custom', 'Tùy chọn')}
+            ${chip('inf', 'Không giới hạn')}
+          </div>
+          ${setup.choice === 'custom' ? `
+            <div class="flex items-center gap-2 mt-2">
+              <input id="customMin" type="number" min="1" max="180" value="${setup.custom}" oninput="setup.custom = this.value"
+                class="w-24 px-3 py-1.5 rounded-xl border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800 text-sm font-bold focus:outline-none focus:ring-2 focus:ring-blue-500">
+              <span class="text-sm text-slate-600 dark:text-slate-300">phút (1–180)</span>
+            </div>` : ''}
+          ${setup.choice === 'inf' ? `<p class="text-xs text-slate-500 dark:text-slate-400 mt-2">Đồng hồ sẽ đếm lên để bạn biết mình đã làm bao lâu, không tự nộp bài.</p>` : ''}
+
+          <div class="flex items-center justify-end gap-3 mt-6">
+            <button onclick="exitToLibrary()" class="px-4 py-2 rounded-xl text-sm font-semibold border border-slate-300 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-800 transition">Về danh sách đề</button>
+            <button onclick="startFromSetup()" class="px-5 py-2 rounded-xl text-sm font-bold bg-blue-600 hover:bg-blue-700 text-white shadow-sm transition">Bắt đầu làm bài</button>
+          </div>
+        </div>
+      `);
+    }
+
+    function startFromSetup() {
+      let limit;
+      if (setup.choice === 'inf') limit = 0;
+      else if (setup.choice === 'custom') {
+        const m = parseInt(setup.custom, 10);
+        if (!(m >= 1 && m <= 180)) { showToast('Nhập số phút từ 1 đến 180.'); return; }
+        limit = m * 60;
+      } else limit = parseInt(setup.choice, 10) * 60;
+      const st = appState.tests[currentTestIdx];
+      st.configured = true; st.limit = limit; st.spent = 0;
+      closeModal();
+      updateHeaderActionButtons();
+      renderPassage();
+      renderFooterNav();
+      startTimer();
+      pushState('autosave');
     }
 
     /* =========================================================================
@@ -484,12 +640,14 @@
       }
 
       renderQuestions(passage);
+      renderHighlights();
     }
 
     function renderQuestions(passage) {
       const container = document.getElementById('questionsContainer');
       const st = appState.tests[currentTestIdx];
       const isSubmitted = st.submitted;
+      const locked = isLocked(currentPassageIdx);
 
       container.innerHTML = passage.groups.map(group => {
         let bodyHtml = '';
@@ -575,7 +733,7 @@
                     ${group.options.map(opt => {
                       const active = val === opt;
                       return `
-                        <button type="button" ${isSubmitted ? 'disabled' : ''} onclick="setAnswer(${item.q}, '${opt}')"
+                        <button type="button" ${locked ? 'disabled' : ''} onclick="setAnswer(${item.q}, '${opt}')"
                           class="px-3 py-1.5 rounded-lg text-xs font-bold border transition ${
                             active
                               ? 'bg-blue-600 text-white border-blue-600 shadow-sm'
@@ -611,7 +769,7 @@
                     <p class="text-sm leading-snug">${item.text}</p>
                   </div>
                   <div class="flex items-center gap-2 shrink-0 pl-8 sm:pl-0">
-                    <select ${isSubmitted ? 'disabled' : ''} onchange="setAnswer(${item.q}, this.value)" class="text-sm font-bold bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-600 rounded-lg px-3 py-1.5 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    <select ${locked ? 'disabled' : ''} onchange="setAnswer(${item.q}, this.value)" class="text-sm font-bold bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-600 rounded-lg px-3 py-1.5 focus:outline-none focus:ring-2 focus:ring-blue-500">
                       <option value="">-- Chọn --</option>
                       ${group.options.map(opt => `<option value="${opt}" ${val === opt ? 'selected' : ''}>${opt}</option>`).join('')}
                     </select>
@@ -643,7 +801,7 @@
                             ? 'bg-blue-50 dark:bg-blue-900/30 border-blue-400 dark:border-blue-600'
                             : 'border-slate-100 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-800/60'
                         }">
-                          <input type="radio" name="mcq_${currentTestIdx}_${item.q}" value="${opt.k}" ${active ? 'checked' : ''} ${isSubmitted ? 'disabled' : ''} onchange="setAnswer(${item.q}, '${opt.k}')" class="mt-1 accent-blue-600">
+                          <input type="radio" name="mcq_${currentTestIdx}_${item.q}" value="${opt.k}" ${active ? 'checked' : ''} ${locked ? 'disabled' : ''} onchange="setAnswer(${item.q}, '${opt.k}')" class="mt-1 accent-blue-600">
                           <span><strong class="mr-1">${opt.k}</strong> ${opt.t}</span>
                         </label>
                       `;
@@ -654,13 +812,15 @@
             }).join('')}
           </div>`;
         } else if (group.type === 'multi2') {
-          const [q1, q2] = group.qPair;
-          const selected = [st.answers[q1], st.answers[q2]].filter(Boolean);
+          const qs = group.qPair;            // 2 câu (chọn 2) hoặc 3 câu (chọn 3)
+          const [q1, q2] = qs;
+          const need = qs.length;
+          const selected = qs.map(q => st.answers[q]).filter(Boolean);
           bodyHtml = `
             <div id="q-anchor-${q1}" class="p-4 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900">
-              <div id="q-anchor-${q2}" class="flex items-center justify-between mb-3">
-                <span class="text-xs font-bold text-blue-600 dark:text-blue-400">Đã chọn: ${selected.length}/2 đáp án (Câu ${q1} & ${q2})</span>
-                ${isSubmitted ? `<div class="flex gap-1.5">${renderReviewBadge(q1)} ${renderReviewBadge(q2)}</div>` : ''}
+              <div id="q-anchor-${q2}" class="flex items-center justify-between mb-3">${qs.slice(2).map(q => `<span id="q-anchor-${q}"></span>`).join('')}
+                <span class="text-xs font-bold text-blue-600 dark:text-blue-400">Đã chọn: ${selected.length}/${need} đáp án (Câu ${qs.join(' & ')})</span>
+                ${isSubmitted ? `<div class="flex gap-1.5">${qs.map(q => renderReviewBadge(q)).join(' ')}</div>` : ''}
               </div>
               <div class="space-y-2">
                 ${group.options.map(opt => {
@@ -671,7 +831,7 @@
                         ? 'bg-blue-50 dark:bg-blue-900/30 border-blue-400 dark:border-blue-600'
                         : 'border-slate-100 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-800/60'
                     }">
-                      <input type="checkbox" value="${opt.k}" ${checked ? 'checked' : ''} ${isSubmitted ? 'disabled' : ''} onchange="toggleMulti2(${q1}, ${q2}, '${opt.k}', this)" class="mt-1 accent-blue-600 rounded">
+                      <input type="checkbox" value="${opt.k}" ${checked ? 'checked' : ''} ${locked ? 'disabled' : ''} onchange="toggleMultiN([${qs.join(',')}], '${opt.k}', this)" class="mt-1 accent-blue-600 rounded">
                       <span><strong class="mr-1">${opt.k}</strong> ${opt.t}</span>
                     </label>
                   `;
@@ -689,11 +849,13 @@
           </div>
         `;
       }).join('');
+      if (typeof renderRootHighlights === 'function') renderRootHighlights(HL_ROOTS[1]);   // dựng lại highlight của phần đề
     }
 
     function replaceInlineInputs(text) {
       const st = appState.tests[currentTestIdx];
       const isSubmitted = st.submitted;
+      const locked = isLocked(currentPassageIdx);
       return text.replace(/\{\{(\d+)\}\}/g, (_, qNum) => {
         const q = parseInt(qNum, 10);
         const val = (st.answers[q] || '').replace(/"/g, '&quot;');
@@ -709,7 +871,7 @@
         }
         return `<span id="q-anchor-${q}" class="inline-flex items-center gap-1 mx-0.5">
           <span class="inline-flex items-center justify-center w-5 h-5 rounded-full bg-blue-600 text-white text-[10px] font-extrabold shrink-0">${q}</span>
-          <input type="text" value="${val}" ${isSubmitted ? 'disabled' : ''} oninput="setAnswer(${q}, this.value, false)" autocomplete="off" spellcheck="false"
+          <input type="text" value="${val}" ${locked ? 'disabled' : ''} oninput="setAnswer(${q}, this.value, false)" autocomplete="off" spellcheck="false"
             class="inline-input text-sm text-slate-900 dark:text-white ${extraClass}" placeholder="......" />
           ${reviewHtml}
         </span>`;
@@ -719,6 +881,7 @@
     function replaceInlineSelects(text, options) {
       const st = appState.tests[currentTestIdx];
       const isSubmitted = st.submitted;
+      const locked = isLocked(currentPassageIdx);
       return text.replace(/\{\{(\d+)\}\}/g, (_, qNum) => {
         const q = parseInt(qNum, 10);
         const val = st.answers[q] || '';
@@ -733,7 +896,7 @@
         }
         return `<span id="q-anchor-${q}" class="inline-flex items-center gap-1 mx-0.5">
           <span class="inline-flex items-center justify-center w-5 h-5 rounded-full bg-blue-600 text-white text-[10px] font-extrabold shrink-0">${q}</span>
-          <select ${isSubmitted ? 'disabled' : ''} onchange="setAnswer(${q}, this.value)" class="text-xs font-bold bg-white dark:bg-slate-900 border-2 ${borderCls} rounded-lg px-2 py-1 focus:outline-none focus:ring-2 focus:ring-blue-500">
+          <select ${locked ? 'disabled' : ''} onchange="setAnswer(${q}, this.value)" class="text-xs font-bold bg-white dark:bg-slate-900 border-2 ${borderCls} rounded-lg px-2 py-1 focus:outline-none focus:ring-2 focus:ring-blue-500">
             <option value="">--</option>
             ${options.map(o => `<option value="${o}" ${val === o ? 'selected' : ''}>${o}</option>`).join('')}
           </select>
@@ -765,7 +928,7 @@
        ========================================================================= */
     function setAnswer(q, val, shouldReRender = true) {
       const st = appState.tests[currentTestIdx];
-      if (st.submitted) return;
+      if (isLocked(currentPassageIdx)) return;
       st.answers[q] = val;
       saveState();
       updateHeaderActionButtons();
@@ -775,14 +938,14 @@
       }
     }
 
-    function toggleMulti2(q1, q2, letter, checkbox) {
+    function toggleMultiN(qs, letter, checkbox) {
       const st = appState.tests[currentTestIdx];
-      if (st.submitted) return;
-      let current = [st.answers[q1], st.answers[q2]].filter(Boolean);
+      if (isLocked(currentPassageIdx)) return;
+      let current = qs.map(q => st.answers[q]).filter(Boolean);
       if (checkbox.checked) {
-        if (current.length >= 2) {
+        if (current.length >= qs.length) {
           checkbox.checked = false;
-          showToast("Bạn chỉ được chọn tối đa 2 đáp án cho câu hỏi này.");
+          showToast(`Bạn chỉ được chọn tối đa ${qs.length} đáp án cho câu hỏi này.`);
           return;
         }
         current.push(letter);
@@ -790,8 +953,7 @@
         current = current.filter(x => x !== letter);
       }
       current.sort();
-      st.answers[q1] = current[0] || '';
-      st.answers[q2] = current[1] || '';
+      qs.forEach((q, i) => { st.answers[q] = current[i] || ''; });
       saveState();
       updateHeaderActionButtons();
       renderFooterNav();
@@ -799,31 +961,37 @@
     }
 
     function renderFooterNav() {
-      // Passage tabs (số passage lấy từ dữ liệu đề)
-      document.getElementById('passageTabs').innerHTML = TEST.passages.map((p, idx) => {
-        const cls = idx === currentPassageIdx
-          ? "px-3 py-1.5 rounded-xl text-xs font-bold bg-blue-600 text-white shadow-sm transition"
-          : "px-3 py-1.5 rounded-xl text-xs font-bold bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 transition";
-        return `<button onclick="switchPassage(${idx})" class="${cls}">Passage ${idx + 1}</button>`;
-      }).join('');
-
-      // Render question pills
       const st = appState.tests[currentTestIdx];
-      const pillsEl = document.getElementById('questionNavPills');
+      const tabsEl = document.getElementById('passageTabs');
+      if (PIDX === null) {
+        tabsEl.innerHTML = TEST.passages.map((p, idx) => {
+          let c = 0;
+          for (let q = p.qRange[0]; q <= p.qRange[1]; q++) if (hasAns(st.answers[q])) c++;
+          const cls = idx === currentPassageIdx
+            ? "px-3 py-1.5 rounded-xl text-xs font-bold bg-blue-600 text-white shadow-sm transition"
+            : "px-3 py-1.5 rounded-xl text-xs font-bold bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 transition";
+          return `<button onclick="switchPassage(${idx})" class="${cls}">Passage ${idx + 1} <span class="font-semibold opacity-75">${c}/${p.qRange[1] - p.qRange[0] + 1}</span></button>`;
+        }).join('');
+      } else {
+        tabsEl.innerHTML = `<span class="px-3 py-1.5 rounded-xl text-xs font-bold bg-blue-600 text-white shadow-sm">Passage ${PIDX + 1} · làm lẻ</span>`;
+      }
+
+      // Chỉ hiện các ô số của passage đang làm (gọn, không tràn hàng)
+      const [lo, hi] = TEST.passages[currentPassageIdx].qRange;
       let html = '';
-      for (let q = 1; q <= QTOTAL; q++) {
-        const hasAns = st.answers[q] && String(st.answers[q]).trim() !== '';
+      for (let q = lo; q <= hi; q++) {
+        const answered = hasAns(st.answers[q]);
         let cls = 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 border-slate-200 dark:border-slate-700';
         if (st.submitted) {
           cls = isQuestionCorrect(currentTestIdx, q)
             ? 'bg-emerald-500 text-white border-emerald-600'
             : 'bg-rose-500 text-white border-rose-600';
-        } else if (hasAns) {
+        } else if (answered) {
           cls = 'bg-blue-600 text-white border-blue-600';
         }
-        html += `<button onclick="jumpToQuestion(${q})" class="w-7 h-7 rounded-lg text-[11px] font-bold border shrink-0 flex items-center justify-center hover:scale-105 transition ${cls}">${q}</button>`;
+        html += `<button onclick="jumpToQuestion(${q})" class="w-8 h-8 rounded-lg text-xs font-bold border shrink-0 flex items-center justify-center hover:scale-105 transition ${cls}">${q}</button>`;
       }
-      pillsEl.innerHTML = html;
+      document.getElementById('questionNavPills').innerHTML = html;
     }
 
     function jumpToQuestion(q) {
@@ -850,7 +1018,10 @@
        10. CHẤM ĐIỂM & MODALS
        ========================================================================= */
     function normalizeText(str) {
-      return String(str || '').trim().toLowerCase().replace(/\s+/g, ' ');
+      // Khớp core/scoring.normalize: không phân biệt hoa/thường, gạch nối = khoảng trắng, bỏ dấu câu ở hai đầu
+      return String(str === null || str === undefined ? '' : str).toLowerCase()
+        .replace(/[\u2010-\u2015\u2212-]/g, ' ').replace(/\s+/g, ' ').trim()
+        .replace(/^[\s.,;:!?"'\u201c\u201d\u2018\u2019]+|[\s.,;:!?"'\u201c\u201d\u2018\u2019]+$/g, '');
     }
 
     function isQuestionCorrect(testIdx, q) {
@@ -861,13 +1032,14 @@
 
       // Special check for pair questions (e.g. Test 2 Q20 & Q21 in either order)
       if (test.pairQuestions) {
-        for (const [q1, q2, validSet] of test.pairQuestions) {
-          if (q === q1 || q === q2) {
-            const u1 = normalizeText(st.answers[q1]);
-            const u2 = normalizeText(st.answers[q2]);
-            const validLower = validSet.map(v => v.toLowerCase());
-            if (q === q1) return validLower.includes(u1);
-            if (q === q2) return validLower.includes(u2) && u2 !== u1;
+        for (const entry of test.pairQuestions) {
+          const validSet = entry[entry.length - 1];
+          const qs = entry.slice(0, -1);          // [a, b, valid] hoặc [a, b, c, valid]
+          const i = qs.indexOf(q);
+          if (i !== -1) {
+            const us = qs.map(x => normalizeText(st.answers[x]));
+            const validLower = validSet.map(v => normalizeText(v));
+            return validLower.includes(us[i]) && !us.slice(0, i).includes(us[i]);
           }
         }
       }
@@ -879,14 +1051,16 @@
     function confirmSubmit() {
       const answered = countAnswered(currentTestIdx);
       const unanswered = QTOTAL - answered;
+      const what = PIDX === null ? TESTS[currentTestIdx].title : 'Passage ' + (PIDX + 1);
       openModal(`
         <div class="text-center">
           <div class="w-12 h-12 rounded-2xl bg-blue-100 dark:bg-blue-900/50 text-blue-600 dark:text-blue-400 flex items-center justify-center mx-auto mb-4">
             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
           </div>
-          <h3 class="text-lg font-extrabold text-slate-900 dark:text-white mb-2">Nộp bài ${TESTS[currentTestIdx].title}?</h3>
+          <h3 class="text-lg font-extrabold text-slate-900 dark:text-white mb-2">Nộp ${what}?</h3>
           <p class="text-sm text-slate-600 dark:text-slate-300 mb-6">
             Bạn đã hoàn thành <strong>${answered}/${QTOTAL}</strong> câu hỏi${unanswered > 0 ? ` (còn <strong>${unanswered}</strong> câu bỏ trống)` : ''}. Sau khi nộp, hệ thống sẽ chấm điểm và hiển thị đáp án chi tiết.
+            ${answered === 0 ? '<br><span class="text-rose-600 dark:text-rose-400 font-semibold">Chưa có câu nào được trả lời, lượt này sẽ không được tính vào thống kê.</span>' : ''}
           </p>
           <div class="flex items-center justify-center gap-3">
             <button onclick="closeModal()" class="px-4 py-2 rounded-xl text-sm font-semibold border border-slate-300 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-800 transition">Tiếp tục làm</button>
@@ -897,7 +1071,9 @@
     }
 
     function computeResult(isTimeout) {
-      const byPassage = TEST.passages.map((p, i) => {
+      const st = appState.tests[currentTestIdx];
+      const byPassage = scopePassages().map(i => {
+        const p = TEST.passages[i];
         let correct = 0;
         for (let q = p.qRange[0]; q <= p.qRange[1]; q++) if (isQuestionCorrect(currentTestIdx, q)) correct++;
         return { label: 'Passage ' + (i + 1), correct: correct, total: p.qRange[1] - p.qRange[0] + 1 };
@@ -906,9 +1082,10 @@
       return {
         score: total,
         total: QTOTAL,
-        band: getBandScore(total),
-        seconds: Math.max(0, durationSec() - appState.tests[currentTestIdx].timeLeft),
+        band: PIDX === null ? getBandScore(total) : null,   // passage lẻ không quy band
+        seconds: getSpent(st),
         timeout: !!isTimeout,
+        scope: SCOPE,
         byPassage: byPassage
       };
     }
@@ -916,44 +1093,57 @@
     function submitTest(isTimeout = false) {
       stopTimer();
       const st = appState.tests[currentTestIdx];
+      if (st.submitted) return;
       const result = computeResult(isTimeout);
       st.submitted = true;
       st.score = result.score;
 
       updateHeaderActionButtons();
       renderQuestions(TESTS[currentTestIdx].passages[currentPassageIdx]);
+      renderHighlights();
       renderFooterNav();
+      updateTimerUI();
       openResultModal(isTimeout);
       pushState('submit', result);
     }
 
     function openResultModal(isTimeout = false) {
       const r = computeResult(isTimeout);
-      const passCells = r.byPassage.map(p => `
+      const mmss = s => formatTime(s || 0);
+      const pct = r.total ? Math.round(r.score / r.total * 100) : 0;
+      const passCells = r.byPassage.length > 1 ? `
+          <div class="grid gap-2 mb-6 text-xs" style="grid-template-columns: repeat(${r.byPassage.length}, minmax(0, 1fr));">${
+            r.byPassage.map(p => `
             <div class="bg-slate-50 dark:bg-slate-800 rounded-xl p-2.5">
               <div class="text-slate-500 dark:text-slate-400">${p.label}</div>
               <div class="font-extrabold text-sm mt-0.5">${p.correct} / ${p.total}</div>
-            </div>`).join('');
-
-      openModal(`
-        <div class="text-center">
-          ${isTimeout ? `<span class="inline-block px-3 py-1 rounded-full text-xs font-bold bg-rose-100 text-rose-700 mb-2">Hết thời gian ${TEST.durationMin} phút!</span>` : ''}
-          <h3 class="text-xl font-extrabold text-slate-900 dark:text-white mb-1">Kết quả ${TEST.title}</h3>
-          <p class="text-xs text-slate-500 dark:text-slate-400 mb-5">${TEST.subtitle || ''}</p>
-
-          <div class="grid grid-cols-2 gap-3 mb-5">
+            </div>`).join('')}
+          </div>` : '<div class="mb-6"></div>';
+      const leftCard = PIDX === null ? `
             <div class="bg-blue-50 dark:bg-blue-950/40 border border-blue-200 dark:border-blue-800 rounded-2xl p-4">
               <div class="text-xs font-semibold text-blue-600 dark:text-blue-400 uppercase">IELTS Band Score</div>
               <div class="text-4xl font-extrabold text-blue-700 dark:text-blue-300 mt-1">${r.band}</div>
-            </div>
+            </div>` : `
+            <div class="bg-blue-50 dark:bg-blue-950/40 border border-blue-200 dark:border-blue-800 rounded-2xl p-4">
+              <div class="text-xs font-semibold text-blue-600 dark:text-blue-400 uppercase">Độ chính xác</div>
+              <div class="text-4xl font-extrabold text-blue-700 dark:text-blue-300 mt-1">${pct}<span class="text-lg font-bold opacity-70">%</span></div>
+            </div>`;
+
+      openModal(`
+        <div class="text-center">
+          ${isTimeout ? `<span class="inline-block px-3 py-1 rounded-full text-xs font-bold bg-rose-100 text-rose-700 mb-2">Hết thời gian!</span>` : ''}
+          <h3 class="text-xl font-extrabold text-slate-900 dark:text-white mb-1">Kết quả ${TEST.title}${PIDX !== null ? ' · Passage ' + (PIDX + 1) : ''}</h3>
+          <p class="text-xs text-slate-500 dark:text-slate-400 mb-5">${TEST.subtitle || ''} · Thời gian: ${mmss(r.seconds)}</p>
+
+          <div class="grid grid-cols-2 gap-3 mb-5">
+            ${leftCard}
             <div class="bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-200 dark:border-emerald-800 rounded-2xl p-4">
               <div class="text-xs font-semibold text-emerald-600 dark:text-emerald-400 uppercase">Số câu đúng</div>
               <div class="text-4xl font-extrabold text-emerald-700 dark:text-emerald-300 mt-1">${r.score}<span class="text-lg font-bold opacity-70">/${r.total}</span></div>
             </div>
           </div>
 
-          <div class="grid gap-2 mb-6 text-xs" style="grid-template-columns: repeat(${r.byPassage.length}, minmax(0, 1fr));">${passCells}
-          </div>
+          ${passCells}
 
           <div class="flex items-center justify-center gap-3">
             <button onclick="closeModal()" class="px-5 py-2 rounded-xl text-sm font-bold bg-blue-600 hover:bg-blue-700 text-white shadow-sm transition">Xem chi tiết đáp án</button>
@@ -966,8 +1156,8 @@
     function confirmReset() {
       openModal(`
         <div class="text-center">
-          <h3 class="text-lg font-extrabold text-slate-900 dark:text-white mb-2">Làm lại ${TESTS[currentTestIdx].title}?</h3>
-          <p class="text-sm text-slate-600 dark:text-slate-300 mb-6">Toàn bộ câu trả lời và thời gian của đề này sẽ được đặt lại từ đầu.</p>
+          <h3 class="text-lg font-extrabold text-slate-900 dark:text-white mb-2">Làm lại ${TESTS[currentTestIdx].title}${PIDX !== null ? ' · Passage ' + (PIDX + 1) : ''}?</h3>
+          <p class="text-sm text-slate-600 dark:text-slate-300 mb-6">Toàn bộ câu trả lời và thời gian của ${PIDX === null ? 'đề' : 'passage'} này sẽ được đặt lại từ đầu.</p>
           <div class="flex items-center justify-center gap-3">
             <button onclick="closeModal()" class="px-4 py-2 rounded-xl text-sm font-semibold border border-slate-300 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-800 transition">Hủy</button>
             <button onclick="resetCurrentTest()" class="px-5 py-2 rounded-xl text-sm font-bold bg-rose-600 hover:bg-rose-700 text-white shadow-sm transition">Xác nhận làm lại</button>
@@ -1004,55 +1194,198 @@
        11. CÔNG CỤ HIGHLIGHT VĂN BẢN TRÊN BÀI ĐỌC
        ========================================================================= */
     const passageContentEl = document.getElementById('passageContent');
+    const questionsEl = document.getElementById('questionsContainer');
     const hlTooltip = document.getElementById('hlTooltip');
+    const HL_COLORS = ['yellow', 'orange', 'red'];
 
-    document.addEventListener('mouseup', (e) => {
-      if (e.target.closest('#hlTooltip')) return;
-      const sel = window.getSelection();
-      if (!sel || sel.isCollapsed || !sel.rangeCount) {
-        hlTooltip.classList.add('hidden');
-        return;
-      }
-      const range = sel.getRangeAt(0);
-      if (passageContentEl.contains(range.commonAncestorContainer)) {
-        const rect = range.getBoundingClientRect();
-        pendingSelectionRange = range.cloneRange();
-        hlTooltip.style.top = Math.max(10, rect.top - 38) + 'px';
-        hlTooltip.style.left = (rect.left + rect.width / 2) + 'px';
-        hlTooltip.classList.remove('hidden');
-      } else {
-        hlTooltip.classList.add('hidden');
-      }
-    });
+    // Highlight được cả bài đọc lẫn phần đề (câu hỏi, hướng dẫn, bảng, ghi chú...).
+    // Mỗi vùng có khóa riêng trong st.hl: "0", "1"... cho bài đọc; "q0", "q1"... cho phần đề của passage đó.
+    const HL_ROOTS = [
+      { el: passageContentEl, key: () => String(currentPassageIdx) },
+      { el: questionsEl,      key: () => 'q' + currentPassageIdx },
+    ];
+    const HL_SKIP = 'select, option, textarea, button, script, style, input';
 
-    function applyHighlight() {
-      if (!pendingSelectionRange) return;
-      try {
-        const mark = document.createElement('mark');
-        mark.className = 'user-hl';
-        mark.title = 'Bấm để xóa highlight';
-        mark.onclick = function() {
-          const parent = this.parentNode;
-          while (this.firstChild) parent.insertBefore(this.firstChild, this);
-          parent.removeChild(this);
-        };
-        pendingSelectionRange.surroundContents(mark);
-        window.getSelection().removeAllRanges();
-      } catch (err) {
-        showToast("Hãy bôi đen trong cùng một đoạn văn để highlight.");
-      }
-      hlTooltip.classList.add('hidden');
-      pendingSelectionRange = null;
+    // Highlight lưu dưới dạng vùng ký tự {s, e, c} trong văn bản của vùng, nên vẽ lại được sau khi đổi passage / làm mới đề / tải lại trang
+    function hlStore(root) {
+      const st = appState.tests[currentTestIdx];
+      if (!st.hl) st.hl = {};
+      const k = root.key();
+      if (!st.hl[k]) st.hl[k] = [];
+      return st.hl[k];
     }
 
-    function clearHighlights() {
-      const marks = passageContentEl.querySelectorAll('mark.user-hl');
-      marks.forEach(m => {
+    // Các nút chữ có thể highlight (bỏ qua ô chọn, nút bấm, ô nhập)
+    function hlTextNodes(rootEl) {
+      const walker = document.createTreeWalker(rootEl, NodeFilter.SHOW_TEXT, {
+        acceptNode: (n) => (n.parentElement && n.parentElement.closest(HL_SKIP))
+          ? NodeFilter.FILTER_REJECT : NodeFilter.FILTER_ACCEPT,
+      });
+      const nodes = [];
+      let n;
+      while ((n = walker.nextNode())) nodes.push(n);
+      return nodes;
+    }
+
+    function textOffset(rootEl, node, off) {
+      const r = document.createRange();
+      r.setStart(rootEl, 0);
+      r.setEnd(node, off);
+      let pos = 0;
+      for (const t of hlTextNodes(rootEl)) {
+        if (t === node) return pos + off;
+        if (r.comparePoint(t, t.nodeValue.length) > 0) break;     // nút này nằm sau điểm chọn
+        pos += t.nodeValue.length;
+      }
+      return pos;
+    }
+
+    function unwrapMarks(rootEl) {
+      rootEl.querySelectorAll('mark.user-hl').forEach(m => {
         const parent = m.parentNode;
         while (m.firstChild) parent.insertBefore(m.firstChild, m);
         parent.removeChild(m);
       });
+      rootEl.normalize();
     }
+
+    function wrapRange(rootEl, s, e, color, index) {
+      const nodes = hlTextNodes(rootEl);
+      let pos = 0;
+      for (const node of nodes) {
+        const len = node.nodeValue.length;
+        const a = Math.max(s, pos) - pos;
+        const b = Math.min(e, pos + len) - pos;
+        pos += len;
+        if (b <= a) { if (pos >= e) break; continue; }
+        if (!node.nodeValue.slice(a, b).trim()) continue;          // đoạn toàn khoảng trắng (giữa các thẻ) thì bỏ qua
+        let target = node;
+        if (a > 0) target = node.splitText(a);
+        if (b - a < target.nodeValue.length) target.splitText(b - a);
+        const mark = document.createElement('mark');
+        mark.className = 'user-hl hl-' + color;
+        mark.dataset.i = String(index);
+        mark.title = 'Bấm để xóa highlight';
+        target.parentNode.insertBefore(mark, target);
+        mark.appendChild(target);
+      }
+    }
+
+    function renderRootHighlights(root) {
+      unwrapMarks(root.el);
+      hlStore(root).forEach((h, i) => wrapRange(root.el, h.s, h.e, h.c, i));
+    }
+
+    function renderHighlights() { HL_ROOTS.forEach(renderRootHighlights); }
+
+    function hideTip() { hlTooltip.style.display = 'none'; }
+
+    function rootOf(node) { return HL_ROOTS.find(r => r.el.contains(node)) || null; }
+
+    let pendingRoot = null;
+
+    function updateTip(ev) {
+      if (ev && ev.target && ev.target.closest && ev.target.closest('#hlTooltip')) return;
+      setTimeout(() => {
+        const sel = window.getSelection();
+        if (!sel || sel.isCollapsed || !sel.rangeCount) { hideTip(); return; }
+        const range = sel.getRangeAt(0);
+        const root = rootOf(range.commonAncestorContainer);
+        if (root) {
+          const rect = range.getBoundingClientRect();
+          pendingSelectionRange = range.cloneRange();
+          pendingRoot = root;
+          hlTooltip.style.top = Math.max(10, rect.top - 46) + 'px';
+          hlTooltip.style.left = Math.min(window.innerWidth - 110, Math.max(110, rect.left + rect.width / 2)) + 'px';
+          hlTooltip.style.display = 'flex';
+        } else {
+          hideTip();
+        }
+      }, 10);
+    }
+    document.addEventListener('mouseup', updateTip);
+    document.addEventListener('touchend', updateTip);
+    document.addEventListener('keyup', (e) => { if (e.shiftKey) updateTip(e); });
+
+    function applyHighlight(color) {
+      if (!pendingSelectionRange || !pendingRoot) return;
+      if (!HL_COLORS.includes(color)) color = 'yellow';
+      const r = pendingSelectionRange, root = pendingRoot;
+      pendingSelectionRange = null; pendingRoot = null;
+      hideTip();
+      if (!root.el.contains(r.commonAncestorContainer)) return;
+      let s = textOffset(root.el, r.startContainer, r.startOffset);
+      let e = textOffset(root.el, r.endContainer, r.endOffset);
+      if (e < s) { const t = s; s = e; e = t; }
+      if (e <= s) return;
+      // Phần chồng lên highlight cũ thì cắt bỏ phần đó, highlight mới đè lên
+      const out = [];
+      hlStore(root).forEach(h => {
+        if (h.e <= s || h.s >= e) { out.push(h); return; }
+        if (h.s < s) out.push({ s: h.s, e: s, c: h.c });
+        if (h.e > e) out.push({ s: e, e: h.e, c: h.c });
+      });
+      out.push({ s: s, e: e, c: color });
+      out.sort((x, y) => x.s - y.s);
+      appState.tests[currentTestIdx].hl[root.key()] = out;
+      window.getSelection().removeAllRanges();
+      renderRootHighlights(root);
+      saveState();
+    }
+
+    // Bấm vào chữ đã highlight để xóa. Dùng capture để không kích hoạt nhầm đáp án khi chữ nằm trong nhãn chọn.
+    HL_ROOTS.forEach(root => {
+      root.el.addEventListener('click', (ev) => {
+        const sel = window.getSelection();
+        const selecting = sel && !sel.isCollapsed;
+        const m = ev.target.closest && ev.target.closest('mark.user-hl');
+        if (selecting) {
+          // vừa bôi đen xong trong nhãn đáp án: đừng để nhãn tự chọn đáp án
+          if (ev.target.closest && ev.target.closest('label')) ev.preventDefault();
+          return;
+        }
+        if (!m) return;
+        const list = hlStore(root);
+        const i = parseInt(m.dataset.i, 10);
+        if (!(i >= 0 && i < list.length)) return;
+        ev.preventDefault();
+        ev.stopPropagation();
+        list.splice(i, 1);
+        renderRootHighlights(root);
+        saveState();
+      }, true);
+    });
+
+    function clearHighlights() {
+      HL_ROOTS.forEach(root => { appState.tests[currentTestIdx].hl[root.key()] = []; });
+      renderHighlights();
+      saveState();
+    }
+
+    /* =========================================================================
+       11b. THANH KÉO CHIA KHUNG BÀI ĐỌC / CÂU HỎI
+       ========================================================================= */
+    function applySplit() {
+      const v = Math.min(70, Math.max(25, Number(appState.split) || 42));
+      document.documentElement.style.setProperty('--split', v + '%');
+    }
+    (function initSplitter() {
+      const sp = document.getElementById('splitter');
+      if (!sp) return;
+      let drag = false;
+      sp.addEventListener('pointerdown', (e) => { drag = true; sp.setPointerCapture(e.pointerId); document.body.style.userSelect = 'none'; });
+      sp.addEventListener('pointermove', (e) => {
+        if (!drag) return;
+        const box = sp.parentElement.getBoundingClientRect();
+        const pct = ((e.clientX - box.left) / box.width) * 100;
+        appState.split = Math.round(Math.min(70, Math.max(25, pct)) * 10) / 10;
+        applySplit();
+      });
+      const end = () => { if (!drag) return; drag = false; document.body.style.userSelect = ''; saveState(); };
+      sp.addEventListener('pointerup', end);
+      sp.addEventListener('pointercancel', end);
+      sp.addEventListener('dblclick', () => { appState.split = 42; applySplit(); saveState(); });
+    })();
 
     /* =========================================================================
        12. KHỞI CHẠY ỨNG DỤNG
@@ -1068,19 +1401,16 @@
 
       TEST = args.test;
       TESTS = [TEST];
-      QTOTAL = TEST.totalQuestions;
+      setScope(args.scope);
       const saved = args.saved || {};
       const prefs = args.prefs || {};
       const meta = args.meta || {};
 
-      appState.darkMode = !!prefs.darkMode;
+      // Chưa từng chọn sáng/tối thì theo giao diện của Streamlit
+      appState.darkMode = typeof prefs.darkMode === 'boolean' ? prefs.darkMode : args.theme === 'dark';
       appState.fontSize = prefs.fontSize || 15;
-      appState.tests[0] = Object.assign(freshState(), {
-        answers: saved.answers || {},
-        submitted: !!saved.submitted,
-        timeLeft: typeof saved.timeLeft === 'number' ? saved.timeLeft : durationSec(),
-        score: saved.score == null ? null : saved.score
-      });
+      appState.split = typeof prefs.split === 'number' ? prefs.split : 42;
+      appState.tests[0] = loadSaved(saved);
 
       document.getElementById('logoBadge').textContent = meta.badge || 'O';
       document.getElementById('hdrTitle').textContent = meta.seriesTitle || 'Orange';
