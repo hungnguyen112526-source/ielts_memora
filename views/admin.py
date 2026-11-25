@@ -2,10 +2,14 @@
 from datetime import datetime
 from zoneinfo import ZoneInfo
 
+import os
+import sqlite3
+import tempfile
+
 import pandas as pd
 import streamlit as st
 
-from core import auth
+from core import auth, db
 from core.session import current_user
 from core.ui import kpi_row, page_title, section
 
@@ -69,3 +73,27 @@ with st.container(key="card-user-actions"):
                 ok, msg = auth.delete_user(target["id"])
                 st.toast(msg, icon=":material/check_circle:")
                 st.rerun()
+
+
+def _backup_bytes() -> bytes:
+    """Bản sao nhất quán của memora.db (dùng cơ chế backup của SQLite, an toàn khi đang có người dùng)."""
+    fd, tmp = tempfile.mkstemp(suffix=".db")
+    os.close(fd)
+    try:
+        src, dst = sqlite3.connect(db.DB_PATH), sqlite3.connect(tmp)
+        try:
+            src.backup(dst)
+        finally:
+            dst.close()
+            src.close()
+        with open(tmp, "rb") as f:
+            return f.read()
+    finally:
+        os.unlink(tmp)
+
+
+section("Sao lưu")
+with st.container(key="card-backup"):
+    st.caption("Streamlit Cloud có thể xóa file dữ liệu khi khởi động lại app, hãy tải bản sao lưu định kỳ.")
+    st.download_button("Tải bản sao lưu (memora.db)", data=_backup_bytes(), file_name="memora-backup.db",
+                       mime="application/octet-stream", icon=":material/download:")

@@ -86,7 +86,7 @@ LOGIN_CSS = """
 [data-testid="stAppViewContainer"] { background:
   radial-gradient(700px 420px at 12% -5%, color-mix(in srgb, var(--m-accent) 16%, transparent), transparent 70%),
   radial-gradient(600px 400px at 100% 105%, color-mix(in srgb, var(--m-accent) 11%, transparent), transparent 70%); }
-.block-container, [data-testid="stMainBlockContainer"] { padding-top: 7vh; max-width: 560px; }
+.block-container, [data-testid="stMainBlockContainer"] { padding-top: 7vh; max-width: 460px; }
 .memora-hero { text-align: center; margin-bottom: 1.3rem; }
 .memora-hero .mark { width: 64px; height: 64px; border-radius: 20px; margin: 0 auto 14px; display: block;
   box-shadow: 0 12px 26px -8px color-mix(in srgb, var(--m-accent) 70%, transparent); }
@@ -109,8 +109,7 @@ MARK_SVG = ("data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' v
 def login_view() -> None:
     """Login / register screen (shown by app.py whenever nobody is signed in)."""
     st.markdown(LOGIN_CSS, unsafe_allow_html=True)
-    _, mid, _ = st.columns([1, 1.5, 1])
-    with mid:
+    with st.container():
         st.markdown(
             f'<div class="memora-hero"><img class="mark" src="{MARK_SVG}" alt="">'
             '<h1>IELTS Memora</h1>'

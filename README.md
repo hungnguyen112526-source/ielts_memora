@@ -12,7 +12,7 @@ streamlit run app.py
 Lần đầu mở web, bấm **Tạo tài khoản**. Dữ liệu người dùng nằm trong file `memora.db` (SQLite, tự tạo).
 Muốn đặt file ở chỗ khác: `MEMORA_DB=/duong/dan/memora.db streamlit run app.py`.
 
-Giao diện làm bài dùng Tailwind CSS và font Inter tải từ CDN, nên máy người dùng cần có internet.
+Giao diện làm bài dùng Tailwind CSS đã build sẵn (`engine/reader/tailwind.css`) và font Inter từ Google Fonts (không tải được thì dùng font hệ thống). Sửa class trong `engine/reader/index.html` thì chạy lại `tools/tailwind/build.sh` (cần Node).
 
 Giao diện chung (màu, thẻ, sidebar, đăng nhập) nằm trong `core/ui.py` và `.streamlit/config.toml`; logo ở `assets/`. Màn làm bài chiếm trọn chiều cao cửa sổ, các nút Danh sách đề / Đề trước / Đề sau nằm ngay trong header của engine. Yêu cầu Streamlit từ 1.52.
 
@@ -26,12 +26,14 @@ core/
   auth.py               Đăng ký, đăng nhập, phiên, đổi mật khẩu
   session.py            Trạng thái đăng nhập trong Streamlit + cookie ghi nhớ
   catalog.py            Danh mục đề (tự quét thư mục data/)
-  scoring.py            Chấm điểm + quy đổi band (chạy ở server)
+  scoring.py            Chấm điểm (cả đề / một passage) + quy đổi band (chạy ở server)
+  migrate.py            Nâng cấp dữ liệu cũ (chế độ passage tuần tự đã bỏ), tự chạy khi khởi động
   reader_component.py   Nối Streamlit với engine làm bài
 engine/reader/          Engine làm bài (giao diện từ cam21: chia đôi, highlight, timer…)
 engine/cookie_bridge/   Component vô hình để ghi cookie đăng nhập
 data/reading/           Dữ liệu đề (xem bên dưới)
-tools/                  validate.py, build_catalog.py
+tools/                  validate.py, build_catalog.py, tailwind/ (build CSS cho engine)
+tests/                  pytest: chấm điểm, migration (python -m pytest tests)
 ```
 
 ## Thêm đề Reading
@@ -84,14 +86,17 @@ Giữ cho file nhẹ: một đề một file, ảnh để file riêng và ghi đ
 
 ## Làm bài Reading
 
-- Khi bấm **Bắt đầu làm**, hộp thiết lập hiện ra: chọn **Cả đề** (một đồng hồ chung) hoặc **Từng passage** (mỗi passage một đồng hồ riêng, nộp riêng, khóa sau khi nộp; **làm xong tất cả passage mới hiện điểm**), và thời gian (preset, tùy chọn 1–180 phút, hoặc không giới hạn: đếm lên).
+- Mỗi đề làm được **cả đề** (đồng hồ chung, nộp một lần, có band) hoặc **từng passage lẻ** (nút P1/P2/P3 trên thẻ đề): chỉ hiện passage đó, đồng hồ riêng (mặc định bằng thời gian đề chia số passage), nộp là chấm ngay, hiện số câu đúng và độ chính xác. Passage lẻ **không quy band**. Mỗi passage lẻ có tiến độ và lịch sử riêng, không ảnh hưởng điểm cả đề.
+- Khi bấm làm, hộp thiết lập hiện ra để chọn thời gian (preset, tùy chọn 1–180 phút, hoặc không giới hạn: đếm lên). Đồng hồ tính theo giờ thật nên không chậm khi chuyển tab.
+- Nộp bài trắng (0 câu trả lời) không được ghi vào thống kê.
 - Highlight có 3 màu (vàng, cam, đỏ), lưu theo từng passage nên đổi passage hay tải lại vẫn còn. Bấm vào vùng đã highlight để xóa.
 - Thanh giữa bài đọc và câu hỏi kéo được (bấm đúp để về mặc định); độ rộng được nhớ theo tài khoản.
-- Trạng thái làm bài (`reading_progress.state_json`) gồm: `answers`, `mode`, `limit`, `spent`, `pspent`, `pdone`, `passage`, `hl`. Bản lưu cũ chỉ có `timeLeft` vẫn mở tiếp bình thường.
+- Trạng thái làm bài (`reading_progress.state_json`) gồm: `answers`, `scope`, `limit`, `spent`, `passage`, `hl`. Khóa lưu: `<id đề>` cho cả đề, `<id đề>#p<n>` cho passage lẻ. Lượt làm (`reading_attempts`) có cột `scope` (`full`, `p1`..`pN`). Bản lưu cũ (chế độ passage tuần tự, hoặc chỉ có `timeLeft`) được chuyển tự động.
+- Chấm điểm bỏ dấu câu ở hai đầu và coi gạch nối như khoảng trắng (`Mining.` = `mining`, `well-being` = `well being`).
 
 ## Sao lưu
 
-Sao lưu file `memora.db` (và thư mục `data/` nếu bạn sửa đề).
+Sao lưu file `memora.db` (và thư mục `data/` nếu bạn sửa đề). Trang **Quản trị** có nút tải bản sao lưu. Lưu ý: trên Streamlit Community Cloud ổ đĩa là tạm, file `memora.db` có thể mất khi app khởi động lại, hãy tải sao lưu thường xuyên hoặc đặt `MEMORA_DB` trỏ tới ổ đĩa bền.
 
 ## Việc chưa làm
 

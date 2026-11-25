@@ -16,8 +16,10 @@ def current_category(catalog: dict) -> dict:
     return cats[0]
 
 
-def open_test(test_id: str) -> None:
+def open_test(test_id: str, scope: str = "full") -> None:
+    """Mở đề. scope = "full" (cả đề) hoặc "p1".."pN" (chỉ làm passage đó)."""
     st.session_state["reading_test"] = test_id
+    st.session_state["reading_scope"] = scope
     st.session_state["reading_opens"] = st.session_state.get("reading_opens", 0) + 1
     entry = cat_mod.find_test_entry(cat_mod.load_catalog(), test_id)
     if entry:

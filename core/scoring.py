@@ -2,13 +2,37 @@
 score we store never depends on what the browser reports."""
 from __future__ import annotations
 
+import re
+
 DEFAULT_BANDS = [(39, "9.0"), (37, "8.5"), (35, "8.0"), (33, "7.5"), (30, "7.0"), (27, "6.5"),
                  (23, "6.0"), (19, "5.5"), (15, "5.0"), (13, "4.5"), (10, "4.0"), (8, "3.5"),
                  (6, "3.0"), (4, "2.5")]
 
 
+_DASH = re.compile(r"[\u2010-\u2015\u2212-]")
+_EDGE = ".,;:!?\"'\u201c\u201d\u2018\u2019 "
+
+
 def normalize(value) -> str:
-    return " ".join(str("" if value is None else value).strip().lower().split())
+    """Khớp với normalizeText trong engine: không phân biệt hoa/thường, gạch nối = khoảng trắng,
+    bỏ dấu câu ở hai đầu ("Mining." == "mining", "well-being" == "well being")."""
+    s = _DASH.sub(" ", str("" if value is None else value).lower())
+    return " ".join(s.split()).strip(_EDGE)
+
+
+# ------------------------------------------------------------------ phạm vi
+def parse_scope(test: dict, scope) -> tuple[str, int | None]:
+    """'full' (cả đề) hoặc 'p1'..'pN' (làm lẻ một passage) -> (scope chuẩn hóa, chỉ số passage hoặc None)."""
+    m = re.fullmatch(r"p(\d+)", str(scope or ""))
+    if m and 1 <= int(m.group(1)) <= len(test["passages"]):
+        n = int(m.group(1))
+        return f"p{n}", n - 1
+    return "full", None
+
+
+def scope_range(test: dict, scope) -> tuple[int, int]:
+    _, idx = parse_scope(test, scope)
+    return (1, test["totalQuestions"]) if idx is None else tuple(test["passages"][idx]["qRange"])
 
 
 def is_correct(test: dict, answers: dict, q: int) -> bool:
@@ -17,9 +41,9 @@ def is_correct(test: dict, answers: dict, q: int) -> bool:
         return False
     for a, b, valid in test.get("pairQuestions", []):
         if q in (a, b):
-            valid_lower = [v.lower() for v in valid]
+            valid_norm = [normalize(v) for v in valid]
             u1, u2 = normalize(answers.get(str(a))), normalize(answers.get(str(b)))
-            return u1 in valid_lower if q == a else (u2 in valid_lower and u2 != u1)
+            return u1 in valid_norm if q == a else (u2 in valid_norm and u2 != u1)
     return user in [normalize(x) for x in test["answers"][str(q)]]
 
 
@@ -31,15 +55,29 @@ def band_for(test: dict, score: int) -> str:
     return "2.0"
 
 
-def score_test(test: dict, answers: dict) -> dict:
+def score_scope(test: dict, answers: dict, scope="full") -> dict:
+    """Chấm cả đề hoặc một passage. Band chỉ có nghĩa khi làm đủ cả đề, passage lẻ thì band = None."""
+    scope, idx = parse_scope(test, scope)
     by_passage = []
-    for i, p in enumerate(test["passages"], 1):
+    for i, p in enumerate(test["passages"]):
+        if idx is not None and i != idx:
+            continue
         lo, hi = p["qRange"]
         correct = sum(is_correct(test, answers, q) for q in range(lo, hi + 1))
-        by_passage.append({"label": f"Passage {i}", "correct": correct, "total": hi - lo + 1})
+        by_passage.append({"label": f"Passage {i + 1}", "correct": correct, "total": hi - lo + 1})
     score = sum(p["correct"] for p in by_passage)
-    return {"score": score, "total": test["totalQuestions"], "band": band_for(test, score),
-            "byPassage": by_passage}
+    total = sum(p["total"] for p in by_passage)
+    return {"score": score, "total": total, "scope": scope,
+            "band": band_for(test, score) if scope == "full" else None, "byPassage": by_passage}
+
+
+def score_test(test: dict, answers: dict) -> dict:
+    return score_scope(test, answers, "full")
+
+
+def answered_count(test: dict, answers: dict, scope="full") -> int:
+    lo, hi = scope_range(test, scope)
+    return sum(1 for q in range(lo, hi + 1) if normalize(answers.get(str(q))))
 
 
 HL_COLORS = ("yellow", "orange", "red")
@@ -72,47 +110,30 @@ def _clean_highlights(raw, n_passages: int) -> dict:
     return out
 
 
-def clean_state(test: dict, state: dict | None) -> dict:
+def clean_state(test: dict, state: dict | None, scope="full") -> dict:
     """Validate the state object sent by the browser before it is stored."""
+    scope, pidx = parse_scope(test, scope)
+    lo, hi = scope_range(test, scope)
     state = state if isinstance(state, dict) else {}
-    total = test["totalQuestions"]
     n_pass = len(test["passages"])
     answers = {}
     raw = state.get("answers") if isinstance(state.get("answers"), dict) else {}
     for k, v in raw.items():
-        if str(k).isdigit() and 1 <= int(k) <= total and isinstance(v, str):
+        if str(k).isdigit() and lo <= int(k) <= hi and isinstance(v, str):
             answers[str(int(k))] = v[:200]
 
-    mode = "passage" if state.get("mode") == "passage" else "full"
-    default_limit = int(test.get("durationMin", 60)) * 60
+    default_limit = (int(test.get("durationMin", 60)) * 60 if pidx is None
+                     else round(int(test.get("durationMin", 60)) / n_pass) * 60)
     limit = _int(state.get("limit"), 0, MAX_LIMIT_SEC, default_limit)      # 0 = không giới hạn
     cap = limit if limit > 0 else 24 * 3600
-    spent = _int(state.get("spent"), 0, cap, 0)
-    pspent, pdone = {}, {}
-    if isinstance(state.get("pspent"), dict):
-        for k, v in state["pspent"].items():
-            if str(k).isdigit() and int(k) < n_pass:
-                pspent[str(int(k))] = _int(v, 0, cap, 0)
-    if isinstance(state.get("pdone"), dict):
-        for k, v in state["pdone"].items():
-            if str(k).isdigit() and int(k) < n_pass and v:
-                pdone[str(int(k))] = True
+    hl = _clean_highlights(state.get("hl"), n_pass)
+    if pidx is not None:
+        hl = {k: v for k, v in hl.items() if int(k) == pidx}
     return {
         "answers": answers, "submitted": bool(state.get("submitted")),
         "score": state.get("score") if isinstance(state.get("score"), int) else None,
-        "configured": bool(state.get("configured")), "mode": mode, "limit": limit,
-        "spent": spent, "pspent": pspent, "pdone": pdone,
-        "passage": _int(state.get("passage"), 0, max(0, n_pass - 1), 0),
-        "hl": _clean_highlights(state.get("hl"), n_pass),
+        "configured": bool(state.get("configured")), "scope": scope, "limit": limit,
+        "spent": _int(state.get("spent"), 0, cap, 0),
+        "passage": pidx if pidx is not None else _int(state.get("passage"), 0, max(0, n_pass - 1), 0),
+        "hl": hl,
     }
-
-
-def all_passages_done(test: dict, state: dict) -> bool:
-    return state.get("mode") != "passage" or all(str(i) in state.get("pdone", {}) for i in range(len(test["passages"])))
-
-
-def spent_seconds(state: dict) -> int:
-    """Tổng thời gian đã làm: chế độ từng passage thì cộng thời gian của các passage."""
-    if state.get("mode") == "passage":
-        return sum(int(v) for v in (state.get("pspent") or {}).values())
-    return int(state.get("spent") or 0)

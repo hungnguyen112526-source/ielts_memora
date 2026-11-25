@@ -230,11 +230,11 @@ def section(title: str, note: str = "") -> None:
     st.markdown(f'<div class="memora-section">{esc(title)}</div>', unsafe_allow_html=True)
 
 
-def kpi_row(items: list[tuple[str, str, str | None]]) -> None:
+def kpi_row(items: list[tuple[str, str, str | None]], prefix: str = "") -> None:
     """items: (nhãn, giá trị, ghi chú hiện khi rê chuột) → một hàng thẻ số."""
     cols = st.columns(len(items))
     for i, (col, (label, value, note)) in enumerate(zip(cols, items)):
-        with col.container(key=f"card-kpi-{i}"):
+        with col.container(key=f"card-kpi-{prefix}{i}"):
             st.metric(label, value, help=note)
 
 

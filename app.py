@@ -9,7 +9,7 @@ from pathlib import Path
 import streamlit as st
 
 from core import catalog as cat_mod
-from core import db
+from core import db, migrate
 from core.reading_nav import close_test, current_category
 from core.session import current_user, login_view, logout, sync_cookie
 from core.ui import inject_css
@@ -23,6 +23,7 @@ st.set_page_config(page_title="IELTS Memora", page_icon=str(ASSETS / "icon.svg")
 @st.cache_resource
 def _init_db() -> bool:
     db.init_db()
+    migrate.run()
     return True
 
 

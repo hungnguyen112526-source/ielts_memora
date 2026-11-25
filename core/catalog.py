@@ -63,6 +63,7 @@ def build_catalog() -> dict:
                         "totalQuestions": t["totalQuestions"],
                         "questionTypes": t.get("questionTypes", []),
                         "passages": [p["title"] for p in t["passages"]],
+                        "qRanges": [p["qRange"] for p in t["passages"]],
                     })
                 series["tests"] = tests
                 cat["series"].append(series)

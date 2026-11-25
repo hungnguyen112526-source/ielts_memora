@@ -4,26 +4,14 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Orange Reader</title>
-  <!-- Tailwind CSS CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Tailwind đã build sẵn (xem tools/tailwind/build.sh) -->
+  <link rel="stylesheet" href="tailwind.css">
   <!-- Google Fonts: Inter -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <script>
-    window.tailwind = window.tailwind || {};
-    tailwind.config = {
-      darkMode: 'class',
-      theme: {
-        extend: {
-          fontFamily: {
-            sans: ['Inter', 'sans-serif'],
-          },
-        }
-      }
-    }
-  </script>
   <style>
+    html, body { font-family: 'Inter', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; }
     /* Tùy chỉnh thanh cuộn gọn gàng và hiệu ứng highlight văn bản */
     ::-webkit-scrollbar { width: 7px; height: 7px; }
     ::-webkit-scrollbar-track { background: transparent; }
@@ -228,15 +216,18 @@
        ========================================================================= */
     let TESTS = [];
     let TEST = null;
-    let QTOTAL = 40;
+    let QTOTAL = 40;          // số câu trong phạm vi đang làm
+    let QLO = 1, QHI = 40;    // dải số câu của phạm vi
+    let SCOPE = 'full';       // 'full' (cả đề) hoặc 'p1'..'pN' (làm lẻ một passage)
+    let PIDX = null;          // chỉ số passage khi làm lẻ, null khi làm cả đề
     let SESSION_KEY = null;
 
     let appState = {
       darkMode: false,
       fontSize: 15,
       split: 42,
-      tests: { 0: { answers: {}, submitted: false, score: null, configured: false, mode: 'full', limit: 3600,
-                    spent: 0, pspent: {}, pdone: {}, passage: 0, hl: {} } }
+      tests: { 0: { answers: {}, submitted: false, score: null, configured: false, limit: 3600,
+                    spent: 0, passage: 0, hl: {} } }
     };
 
     let currentTestIdx = null;
@@ -244,43 +235,51 @@
     let timerInterval = null;
     let timerPaused = false;
     let pendingSelectionRange = null;
+    let tBase = 0, tStart = 0;   // đồng hồ theo mốc thời gian thật, không bị chậm khi tab nền
 
-    function durationSec() { return (TEST ? TEST.durationMin : 60) * 60; }
+    function setScope(scope) {
+      const m = /^p(\d+)$/.exec(scope || '');
+      const n = TEST.passages.length;
+      PIDX = (m && +m[1] >= 1 && +m[1] <= n) ? +m[1] - 1 : null;
+      SCOPE = PIDX === null ? 'full' : 'p' + (PIDX + 1);
+      if (PIDX === null) { QLO = 1; QHI = TEST.totalQuestions; }
+      else { QLO = TEST.passages[PIDX].qRange[0]; QHI = TEST.passages[PIDX].qRange[1]; }
+      QTOTAL = QHI - QLO + 1;
+    }
+    function scopePassages() { return PIDX === null ? TEST.passages.map((_, i) => i) : [PIDX]; }
+    function durationSec() {
+      if (!TEST) return 3600;
+      return PIDX === null ? TEST.durationMin * 60 : Math.round(TEST.durationMin / TEST.passages.length) * 60;
+    }
     function freshState() {
-      return { answers: {}, submitted: false, score: null, configured: false, mode: 'full', limit: durationSec(),
-               spent: 0, pspent: {}, pdone: {}, passage: 0, hl: {} };
+      return { answers: {}, submitted: false, score: null, configured: false, limit: durationSec(),
+               spent: 0, passage: PIDX === null ? 0 : PIDX, hl: {} };
     }
 
-    // Đọc trạng thái đã lưu (kể cả bản cũ chỉ có timeLeft)
+    // Đọc trạng thái đã lưu (chịu được bản cũ: chỉ có timeLeft, hoặc chế độ passage cũ có pspent)
     function loadSaved(saved) {
       const base = freshState();
-      if (!saved || (saved.mode === undefined && saved.answers === undefined && saved.timeLeft === undefined)) return base;
+      if (!saved || (saved.answers === undefined && saved.timeLeft === undefined && saved.configured === undefined)) return base;
       const num = (v, d) => (typeof v === 'number' && isFinite(v) && v >= 0 ? Math.floor(v) : d);
-      if (saved.mode) {
-        return Object.assign(base, {
-          answers: saved.answers || {}, submitted: !!saved.submitted, score: saved.score == null ? null : saved.score,
-          configured: !!saved.configured, mode: saved.mode === 'passage' ? 'passage' : 'full',
-          limit: num(saved.limit, durationSec()), spent: num(saved.spent, 0),
-          pspent: saved.pspent || {}, pdone: saved.pdone || {}, passage: num(saved.passage, 0), hl: saved.hl || {}
-        });
-      }
       const lim = durationSec();
+      if (saved.limit === undefined && typeof saved.timeLeft === 'number') {
+        return Object.assign(base, { answers: saved.answers || {}, submitted: !!saved.submitted,
+          score: saved.score == null ? null : saved.score, configured: true, limit: lim,
+          spent: Math.max(0, lim - Math.floor(saved.timeLeft)) });
+      }
+      let spent = num(saved.spent, 0);
+      if (saved.pspent) spent = Object.values(saved.pspent).reduce((s, v) => s + (num(v, 0)), 0);
       return Object.assign(base, {
         answers: saved.answers || {}, submitted: !!saved.submitted, score: saved.score == null ? null : saved.score,
-        configured: true, mode: 'full', limit: lim,
-        spent: typeof saved.timeLeft === 'number' ? Math.max(0, lim - Math.floor(saved.timeLeft)) : 0
+        configured: saved.configured === undefined ? true : !!saved.configured,
+        limit: num(saved.limit, lim), spent: spent,
+        passage: PIDX === null ? num(saved.passage, 0) : PIDX, hl: saved.hl || {}
       });
     }
 
-    function isPassageDone(idx) { const st = appState.tests[0]; return !!(st.pdone && st.pdone[idx]); }
-    function isLocked(idx) { return !!appState.tests[0].submitted || isPassageDone(idx); }
-    function allPassagesDone() { const st = appState.tests[0]; return TEST.passages.every((_, i) => !!st.pdone[i]); }
-    function passagesLeft() { const st = appState.tests[0]; return TEST.passages.filter((_, i) => !st.pdone[i]).length; }
-    function getSpent(st) { return st.mode === 'passage' ? (st.pspent[currentPassageIdx] || 0) : (st.spent || 0); }
-    function setSpent(st, v) { if (st.mode === 'passage') st.pspent[currentPassageIdx] = v; else st.spent = v; }
-    function totalSpent(st) {
-      return st.mode === 'passage' ? Object.values(st.pspent || {}).reduce((s, v) => s + (v || 0), 0) : (st.spent || 0);
-    }
+    function isLocked() { return !!appState.tests[0].submitted; }
+    function getSpent(st) { return st.spent || 0; }
+    function hasAns(v) { return v !== undefined && v !== null && String(v).trim() !== ''; }
 
     /* ---- Giao tiếp với Streamlit (giao thức custom component) ---- */
     function sendMsg(type, data) {
@@ -293,8 +292,8 @@
 
     function snapshot() {
       const st = appState.tests[0];
-      return { answers: st.answers, submitted: st.submitted, score: st.score, configured: st.configured, mode: st.mode,
-               limit: st.limit, spent: st.spent, pspent: st.pspent, pdone: st.pdone, passage: currentPassageIdx, hl: st.hl };
+      return { answers: st.answers, submitted: st.submitted, score: st.score, configured: st.configured,
+               limit: st.limit, spent: st.spent, passage: currentPassageIdx, hl: st.hl };
     }
 
     function pushState(event, result) {
@@ -304,6 +303,7 @@
         event: event,
         sessionKey: SESSION_KEY,
         testId: TEST.id,
+        scope: SCOPE,
         state: snapshot(),
         prefs: { darkMode: appState.darkMode, fontSize: appState.fontSize, split: appState.split }
       };
@@ -313,10 +313,14 @@
       lastSent = Date.now();
     }
 
-    // Mọi thay đổi chỉ đánh dấu "bẩn"; tự gửi lên server tối đa mỗi ~12 giây.
+    // Mọi thay đổi chỉ đánh dấu "bẩn"; tự gửi lên server tối đa mỗi ~8 giây. Đồng hồ không đánh dấu bẩn.
     function saveState() { dirty = true; }
-    setInterval(() => { if (dirty && TEST && Date.now() - lastSent > 12000) pushState('autosave'); }, 4000);
-    document.addEventListener('visibilitychange', () => { if (document.hidden && dirty && TEST) pushState('autosave'); });
+    setInterval(() => { if (dirty && TEST && Date.now() - lastSent > 8000) pushState('autosave'); }, 3000);
+    document.addEventListener('visibilitychange', () => {
+      if (document.hidden && dirty && TEST) pushState('autosave');
+      else if (!document.hidden) tick();            // quay lại tab: cập nhật đồng hồ ngay
+    });
+    window.addEventListener('pagehide', () => { if (dirty && TEST) pushState('autosave'); });
 
     function exitToLibrary() {
       stopTimer();
@@ -386,9 +390,7 @@
     function countAnswered(testIdx) {
       const ans = appState.tests[testIdx].answers;
       let count = 0;
-      for (let i = 1; i <= QTOTAL; i++) {
-        if (ans[i] && String(ans[i]).trim() !== '') count++;
-      }
+      for (let i = QLO; i <= QHI; i++) if (hasAns(ans[i])) count++;
       return count;
     }
 
@@ -396,14 +398,14 @@
       stopTimer();
       currentTestIdx = testIdx;
       const stOpen = appState.tests[testIdx];
-      currentPassageIdx = Math.min(Math.max(0, stOpen.passage || 0), TEST.passages.length - 1);
+      currentPassageIdx = PIDX !== null ? PIDX : Math.min(Math.max(0, stOpen.passage || 0), TEST.passages.length - 1);
       applySplit();
       document.getElementById('testView').classList.remove('hidden');
       document.getElementById('headerTestControls').classList.remove('hidden');
       document.getElementById('timerBar').classList.remove('hidden');
       document.getElementById('testActionBtns').classList.remove('hidden');
       document.getElementById('fontControls').classList.remove('hidden');
-      document.getElementById('testTitleBadge').textContent = TESTS[testIdx].title;
+      document.getElementById('testTitleBadge').textContent = TESTS[testIdx].title + (PIDX !== null ? ' · Passage ' + (PIDX + 1) : '');
       updateHeaderActionButtons();
       renderPassage();
       renderFooterNav();
@@ -411,6 +413,7 @@
     }
 
     function switchPassage(pIdx) {
+      if (PIDX !== null && pIdx !== PIDX) return;       // làm lẻ: chỉ có một passage
       currentPassageIdx = pIdx;
       appState.tests[currentTestIdx].passage = pIdx;
       saveState();
@@ -420,7 +423,6 @@
       document.getElementById('passagePane').scrollTop = 0;
       document.getElementById('questionsPane').scrollTop = 0;
       updateHeaderActionButtons();
-      updateTimerUI();
     }
 
     function setMobilePane(pane) {
@@ -452,12 +454,7 @@
         return;
       }
       view.classList.add('hidden');
-      if (st.mode === 'passage') {
-        if (isPassageDone(currentPassageIdx)) { sub.classList.add('hidden'); return; }
-        sub.textContent = 'Nộp Passage ' + (currentPassageIdx + 1);
-      } else {
-        sub.textContent = 'Nộp bài';
-      }
+      sub.textContent = PIDX === null ? 'Nộp bài' : 'Nộp Passage ' + (PIDX + 1);
       sub.classList.remove('hidden');
     }
 
@@ -473,29 +470,26 @@
     function startTimer() {
       stopTimer();
       timerPaused = false;
-      updateTimerUI();
       const st = appState.tests[currentTestIdx];
+      updateTimerUI();
       if (st.submitted || !st.configured) return;
-      timerInterval = setInterval(tick, 1000);
+      tBase = st.spent || 0;
+      tStart = Date.now();
+      timerInterval = setInterval(tick, 500);
     }
 
+    // Tính theo mốc Date.now(): tab chạy nền bị trình duyệt làm chậm timer cũng không làm lệch thời gian.
     function tick() {
-      if (timerPaused || currentTestIdx === null) return;
+      if (timerPaused || currentTestIdx === null || !timerInterval) return;
       const st = appState.tests[currentTestIdx];
       if (st.submitted || !st.configured) return;
-      if (isLocked(currentPassageIdx)) { updateTimerUI(); return; }   // passage đã nộp: đồng hồ đứng yên
-      const spent = getSpent(st);
-      if (st.limit > 0 && spent >= st.limit) { onTimeUp(); return; }
-      setSpent(st, spent + 1);
-      updateTimerUI();
-      if ((spent + 1) % 5 === 0) saveState();
-      if (st.limit > 0 && spent + 1 >= st.limit) onTimeUp();
+      let spent = tBase + Math.floor((Date.now() - tStart) / 1000);
+      if (st.limit > 0) spent = Math.min(spent, st.limit);
+      if (spent !== st.spent) { st.spent = spent; updateTimerUI(); }
+      if (st.limit > 0 && spent >= st.limit) onTimeUp();
     }
 
-    function onTimeUp() {
-      const st = appState.tests[currentTestIdx];
-      if (st.mode === 'passage') submitPassage(true); else submitTest(true);
-    }
+    function onTimeUp() { submitTest(true); }
 
     function stopTimer() {
       if (timerInterval) {
@@ -505,9 +499,17 @@
     }
 
     function toggleTimer() {
-      if (currentTestIdx === null || isLocked(currentPassageIdx)) return;
-      if (!appState.tests[currentTestIdx].configured) return;
-      timerPaused = !timerPaused;
+      if (currentTestIdx === null || isLocked()) return;
+      const st = appState.tests[currentTestIdx];
+      if (!st.configured) return;
+      if (!timerPaused) {
+        tick();
+        timerPaused = true;
+      } else {
+        tBase = st.spent || 0;
+        tStart = Date.now();
+        timerPaused = false;
+      }
       updateTimerUI();
     }
 
@@ -518,7 +520,7 @@
       const scope = document.getElementById('timerScope');
       const spent = getSpent(st);
       const limit = st.limit || 0;
-      const locked = isLocked(currentPassageIdx);
+      const locked = isLocked();
       let warn = false;
       if (limit > 0) {
         const left = Math.max(0, limit - spent);
@@ -529,7 +531,7 @@
       }
       disp.classList.toggle('text-rose-600', warn);
       disp.classList.toggle('dark:text-rose-400', warn);
-      const label = (st.mode === 'passage' ? 'P' + (currentPassageIdx + 1) : '') + (limit === 0 ? (st.mode === 'passage' ? ' ' : '') + '∞' : '');
+      const label = (PIDX !== null ? 'P' + (PIDX + 1) : '') + (limit === 0 ? (PIDX !== null ? ' ' : '') + '∞' : '');
       scope.textContent = label;
       scope.classList.toggle('hidden', !label);
       document.getElementById('iconPause').classList.toggle('hidden', timerPaused);
@@ -537,52 +539,36 @@
     }
 
     /* =========================================================================
-       7b. THIẾT LẬP BÀI LÀM (chế độ + thời gian)
+       7b. THIẾT LẬP BÀI LÀM (thời gian; phạm vi do thư viện đề chọn)
        ========================================================================= */
     let setup = null;
 
-    function setupPresets(mode) {
-      const base = mode === 'passage' ? [15, 20, 25] : [20, 40, 60];
-      const def = setupDefault(mode);
+    function setupDefault() { return Math.round(durationSec() / 60); }
+    function setupPresets() {
+      const base = PIDX === null ? [20, 40, 60] : [10, 15, 20, 25];
+      const def = setupDefault();
       if (!base.includes(def)) base.push(def);
       return base.sort((a, b) => a - b);
     }
-    function setupDefault(mode) {
-      return mode === 'passage' ? Math.max(1, Math.round(TEST.durationMin / TEST.passages.length)) : TEST.durationMin;
-    }
 
     function openSetup() {
-      setup = { mode: 'full', choice: String(setupDefault('full')), custom: '30' };
-      renderSetup();
-    }
-    function setSetupMode(m) {
-      setup.mode = m;
-      setup.choice = String(setupDefault(m));
+      setup = { choice: String(setupDefault()), custom: '30' };
       renderSetup();
     }
     function setSetupChoice(c) { setup.choice = c; renderSetup(); }
 
     function renderSetup() {
-      const n = TEST.passages.length;
       const chip = (val, label) => `<button type="button" onclick="setSetupChoice('${val}')" class="px-3.5 py-1.5 rounded-xl text-sm font-bold border transition ${
         setup.choice === val ? 'bg-blue-600 text-white border-blue-600 shadow-sm' : 'border-slate-300 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-800'}">${label}</button>`;
-      const modeCard = (m, title, desc) => `<button type="button" onclick="setSetupMode('${m}')" class="text-left p-3.5 rounded-xl border-2 transition ${
-        setup.mode === m ? 'border-blue-600 bg-blue-50 dark:bg-blue-950/40' : 'border-slate-200 dark:border-slate-700 hover:border-blue-300'}">
-          <div class="font-extrabold text-sm mb-1">${title}</div>
-          <div class="text-xs text-slate-500 dark:text-slate-400 leading-snug">${desc}</div></button>`;
-      const presets = setupPresets(setup.mode);
+      const presets = setupPresets();
+      const scopeText = PIDX === null ? `Cả đề · ${TEST.passages.length} passage · ${QTOTAL} câu` : `Passage ${PIDX + 1} · ${QTOTAL} câu`;
       openModal(`
         <div>
           <h3 class="text-lg font-extrabold text-slate-900 dark:text-white mb-1">Thiết lập bài làm</h3>
-          <p class="text-xs text-slate-500 dark:text-slate-400 mb-4">${TEST.title}</p>
+          <p class="text-xs text-slate-500 dark:text-slate-400 mb-1">${TEST.title}</p>
+          <p class="inline-block text-xs font-bold px-2.5 py-1 rounded-lg bg-blue-50 text-blue-700 dark:bg-blue-900/40 dark:text-blue-300 mb-5">${scopeText}</p>
 
-          <div class="text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 mb-2">Chế độ làm bài</div>
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 mb-5">
-            ${modeCard('full', 'Cả đề', `Làm liền ${n} passage với một đồng hồ chung, nộp bài một lần.`)}
-            ${modeCard('passage', 'Từng passage', `Làm riêng từng passage, mỗi passage có đồng hồ riêng. Làm xong cả ${n} passage mới hiện điểm.`)}
-          </div>
-
-          <div class="text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 mb-2">${setup.mode === 'passage' ? 'Thời gian cho mỗi passage' : 'Thời gian cho cả đề'}</div>
+          <div class="text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 mb-2">${PIDX === null ? 'Thời gian cho cả đề' : 'Thời gian cho passage này'}</div>
           <div class="flex flex-wrap items-center gap-2 mb-2">
             ${presets.map(m => chip(String(m), m + ' phút')).join('')}
             ${chip('custom', 'Tùy chọn')}
@@ -592,7 +578,7 @@
             <div class="flex items-center gap-2 mt-2">
               <input id="customMin" type="number" min="1" max="180" value="${setup.custom}" oninput="setup.custom = this.value"
                 class="w-24 px-3 py-1.5 rounded-xl border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800 text-sm font-bold focus:outline-none focus:ring-2 focus:ring-blue-500">
-              <span class="text-sm text-slate-600 dark:text-slate-300">phút${setup.mode === 'passage' ? ' mỗi passage' : ''} (1–180)</span>
+              <span class="text-sm text-slate-600 dark:text-slate-300">phút (1–180)</span>
             </div>` : ''}
           ${setup.choice === 'inf' ? `<p class="text-xs text-slate-500 dark:text-slate-400 mt-2">Đồng hồ sẽ đếm lên để bạn biết mình đã làm bao lâu, không tự nộp bài.</p>` : ''}
 
@@ -613,8 +599,7 @@
         limit = m * 60;
       } else limit = parseInt(setup.choice, 10) * 60;
       const st = appState.tests[currentTestIdx];
-      st.configured = true; st.mode = setup.mode; st.limit = limit;
-      st.spent = 0; st.pspent = {}; st.pdone = {};
+      st.configured = true; st.limit = limit; st.spent = 0;
       closeModal();
       updateHeaderActionButtons();
       renderPassage();
@@ -974,31 +959,37 @@
     }
 
     function renderFooterNav() {
-      // Passage tabs (số passage lấy từ dữ liệu đề)
-      document.getElementById('passageTabs').innerHTML = TEST.passages.map((p, idx) => {
-        const cls = idx === currentPassageIdx
-          ? "px-3 py-1.5 rounded-xl text-xs font-bold bg-blue-600 text-white shadow-sm transition"
-          : "px-3 py-1.5 rounded-xl text-xs font-bold bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 transition";
-        return `<button onclick="switchPassage(${idx})" class="${cls}">Passage ${idx + 1}${isPassageDone(idx) ? ' ✓' : ''}</button>`;
-      }).join('');
-
-      // Render question pills
       const st = appState.tests[currentTestIdx];
-      const pillsEl = document.getElementById('questionNavPills');
+      const tabsEl = document.getElementById('passageTabs');
+      if (PIDX === null) {
+        tabsEl.innerHTML = TEST.passages.map((p, idx) => {
+          let c = 0;
+          for (let q = p.qRange[0]; q <= p.qRange[1]; q++) if (hasAns(st.answers[q])) c++;
+          const cls = idx === currentPassageIdx
+            ? "px-3 py-1.5 rounded-xl text-xs font-bold bg-blue-600 text-white shadow-sm transition"
+            : "px-3 py-1.5 rounded-xl text-xs font-bold bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 transition";
+          return `<button onclick="switchPassage(${idx})" class="${cls}">Passage ${idx + 1} <span class="font-semibold opacity-75">${c}/${p.qRange[1] - p.qRange[0] + 1}</span></button>`;
+        }).join('');
+      } else {
+        tabsEl.innerHTML = `<span class="px-3 py-1.5 rounded-xl text-xs font-bold bg-blue-600 text-white shadow-sm">Passage ${PIDX + 1} · làm lẻ</span>`;
+      }
+
+      // Chỉ hiện các ô số của passage đang làm (gọn, không tràn hàng)
+      const [lo, hi] = TEST.passages[currentPassageIdx].qRange;
       let html = '';
-      for (let q = 1; q <= QTOTAL; q++) {
-        const hasAns = st.answers[q] && String(st.answers[q]).trim() !== '';
+      for (let q = lo; q <= hi; q++) {
+        const answered = hasAns(st.answers[q]);
         let cls = 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 border-slate-200 dark:border-slate-700';
         if (st.submitted) {
           cls = isQuestionCorrect(currentTestIdx, q)
             ? 'bg-emerald-500 text-white border-emerald-600'
             : 'bg-rose-500 text-white border-rose-600';
-        } else if (hasAns) {
+        } else if (answered) {
           cls = 'bg-blue-600 text-white border-blue-600';
         }
-        html += `<button onclick="jumpToQuestion(${q})" class="w-7 h-7 rounded-lg text-[11px] font-bold border shrink-0 flex items-center justify-center hover:scale-105 transition ${cls}">${q}</button>`;
+        html += `<button onclick="jumpToQuestion(${q})" class="w-8 h-8 rounded-lg text-xs font-bold border shrink-0 flex items-center justify-center hover:scale-105 transition ${cls}">${q}</button>`;
       }
-      pillsEl.innerHTML = html;
+      document.getElementById('questionNavPills').innerHTML = html;
     }
 
     function jumpToQuestion(q) {
@@ -1025,7 +1016,10 @@
        10. CHẤM ĐIỂM & MODALS
        ========================================================================= */
     function normalizeText(str) {
-      return String(str || '').trim().toLowerCase().replace(/\s+/g, ' ');
+      // Khớp core/scoring.normalize: không phân biệt hoa/thường, gạch nối = khoảng trắng, bỏ dấu câu ở hai đầu
+      return String(str === null || str === undefined ? '' : str).toLowerCase()
+        .replace(/[\u2010-\u2015\u2212-]/g, ' ').replace(/\s+/g, ' ').trim()
+        .replace(/^[\s.,;:!?"'\u201c\u201d\u2018\u2019]+|[\s.,;:!?"'\u201c\u201d\u2018\u2019]+$/g, '');
     }
 
     function isQuestionCorrect(testIdx, q) {
@@ -1040,7 +1034,7 @@
           if (q === q1 || q === q2) {
             const u1 = normalizeText(st.answers[q1]);
             const u2 = normalizeText(st.answers[q2]);
-            const validLower = validSet.map(v => v.toLowerCase());
+            const validLower = validSet.map(v => normalizeText(v));
             if (q === q1) return validLower.includes(u1);
             if (q === q2) return validLower.includes(u2) && u2 !== u1;
           }
@@ -1052,17 +1046,18 @@
     }
 
     function confirmSubmit() {
-      if (appState.tests[currentTestIdx].mode === 'passage') { confirmSubmitPassage(); return; }
       const answered = countAnswered(currentTestIdx);
       const unanswered = QTOTAL - answered;
+      const what = PIDX === null ? TESTS[currentTestIdx].title : 'Passage ' + (PIDX + 1);
       openModal(`
         <div class="text-center">
           <div class="w-12 h-12 rounded-2xl bg-blue-100 dark:bg-blue-900/50 text-blue-600 dark:text-blue-400 flex items-center justify-center mx-auto mb-4">
             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
           </div>
-          <h3 class="text-lg font-extrabold text-slate-900 dark:text-white mb-2">Nộp bài ${TESTS[currentTestIdx].title}?</h3>
+          <h3 class="text-lg font-extrabold text-slate-900 dark:text-white mb-2">Nộp ${what}?</h3>
           <p class="text-sm text-slate-600 dark:text-slate-300 mb-6">
             Bạn đã hoàn thành <strong>${answered}/${QTOTAL}</strong> câu hỏi${unanswered > 0 ? ` (còn <strong>${unanswered}</strong> câu bỏ trống)` : ''}. Sau khi nộp, hệ thống sẽ chấm điểm và hiển thị đáp án chi tiết.
+            ${answered === 0 ? '<br><span class="text-rose-600 dark:text-rose-400 font-semibold">Chưa có câu nào được trả lời, lượt này sẽ không được tính vào thống kê.</span>' : ''}
           </p>
           <div class="flex items-center justify-center gap-3">
             <button onclick="closeModal()" class="px-4 py-2 rounded-xl text-sm font-semibold border border-slate-300 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-800 transition">Tiếp tục làm</button>
@@ -1072,80 +1067,22 @@
       `);
     }
 
-    function passageAnswered(idx) {
-      const p = TEST.passages[idx];
-      const ans = appState.tests[currentTestIdx].answers;
-      let c = 0;
-      for (let q = p.qRange[0]; q <= p.qRange[1]; q++) if (ans[q] && String(ans[q]).trim() !== '') c++;
-      return c;
-    }
-
-    function confirmSubmitPassage() {
-      const idx = currentPassageIdx;
-      const p = TEST.passages[idx];
-      const total = p.qRange[1] - p.qRange[0] + 1;
-      const answered = passageAnswered(idx);
-      const left = passagesLeft() - 1;
-      openModal(`
-        <div class="text-center">
-          <h3 class="text-lg font-extrabold text-slate-900 dark:text-white mb-2">Nộp Passage ${idx + 1}?</h3>
-          <p class="text-sm text-slate-600 dark:text-slate-300 mb-6">
-            Bạn đã trả lời <strong>${answered}/${total}</strong> câu của passage này${answered < total ? ` (còn ${total - answered} câu bỏ trống)` : ''}.
-            Sau khi nộp, passage sẽ bị khóa và không sửa được nữa.
-            ${left > 0 ? `Điểm sẽ hiện khi bạn làm xong cả ${TEST.passages.length} passage (còn <strong>${left}</strong> passage nữa).`
-                       : 'Đây là passage cuối cùng, hệ thống sẽ chấm điểm ngay.'}
-          </p>
-          <div class="flex items-center justify-center gap-3">
-            <button onclick="closeModal()" class="px-4 py-2 rounded-xl text-sm font-semibold border border-slate-300 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-800 transition">Tiếp tục làm</button>
-            <button onclick="submitPassage(false)" class="px-5 py-2 rounded-xl text-sm font-bold bg-blue-600 hover:bg-blue-700 text-white shadow-sm transition">Nộp Passage ${idx + 1}</button>
-          </div>
-        </div>
-      `);
-    }
-
-    function submitPassage(isTimeout = false) {
-      const st = appState.tests[currentTestIdx];
-      const idx = currentPassageIdx;
-      if (isLocked(idx)) return;
-      st.pdone[idx] = true;
-      if (allPassagesDone()) { submitTest(isTimeout); return; }   // passage cuối: chấm cả đề
-      closeModal();
-      renderQuestions(TEST.passages[idx]);
-      renderHighlights();
-      renderFooterNav();
-      updateHeaderActionButtons();
-      updateTimerUI();
-      pushState('submit_passage');
-      const next = TEST.passages.findIndex((_, i) => !st.pdone[i]);
-      const left = passagesLeft();
-      openModal(`
-        <div class="text-center">
-          ${isTimeout ? `<span class="inline-block px-3 py-1 rounded-full text-xs font-bold bg-rose-100 text-rose-700 mb-2">Hết giờ Passage ${idx + 1}</span>` : ''}
-          <h3 class="text-lg font-extrabold text-slate-900 dark:text-white mb-2">Đã nộp Passage ${idx + 1}</h3>
-          <p class="text-sm text-slate-600 dark:text-slate-300 mb-6">Còn <strong>${left}</strong> passage chưa làm. Điểm sẽ hiện sau khi bạn nộp xong tất cả.</p>
-          <div class="flex items-center justify-center gap-3">
-            <button onclick="closeModal()" class="px-4 py-2 rounded-xl text-sm font-semibold border border-slate-300 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-800 transition">Ở lại</button>
-            <button onclick="closeModal(); switchPassage(${next})" class="px-5 py-2 rounded-xl text-sm font-bold bg-blue-600 hover:bg-blue-700 text-white shadow-sm transition">Sang Passage ${next + 1}</button>
-          </div>
-        </div>
-      `);
-    }
-
     function computeResult(isTimeout) {
       const st = appState.tests[currentTestIdx];
-      const byPassage = TEST.passages.map((p, i) => {
+      const byPassage = scopePassages().map(i => {
+        const p = TEST.passages[i];
         let correct = 0;
         for (let q = p.qRange[0]; q <= p.qRange[1]; q++) if (isQuestionCorrect(currentTestIdx, q)) correct++;
-        return { label: 'Passage ' + (i + 1), correct: correct, total: p.qRange[1] - p.qRange[0] + 1,
-                 seconds: st.mode === 'passage' ? (st.pspent[i] || 0) : null };
+        return { label: 'Passage ' + (i + 1), correct: correct, total: p.qRange[1] - p.qRange[0] + 1 };
       });
       const total = byPassage.reduce((s, p) => s + p.correct, 0);
       return {
         score: total,
         total: QTOTAL,
-        band: getBandScore(total),
-        seconds: totalSpent(st),
+        band: PIDX === null ? getBandScore(total) : null,   // passage lẻ không quy band
+        seconds: getSpent(st),
         timeout: !!isTimeout,
+        scope: SCOPE,
         byPassage: byPassage
       };
     }
@@ -1153,7 +1090,7 @@
     function submitTest(isTimeout = false) {
       stopTimer();
       const st = appState.tests[currentTestIdx];
-      if (st.mode === 'passage') TEST.passages.forEach((_, i) => { st.pdone[i] = true; });
+      if (st.submitted) return;
       const result = computeResult(isTimeout);
       st.submitted = true;
       st.score = result.score;
@@ -1169,34 +1106,41 @@
 
     function openResultModal(isTimeout = false) {
       const r = computeResult(isTimeout);
-      const st = appState.tests[currentTestIdx];
       const mmss = s => formatTime(s || 0);
-      const passCells = r.byPassage.map(p => `
+      const pct = r.total ? Math.round(r.score / r.total * 100) : 0;
+      const passCells = r.byPassage.length > 1 ? `
+          <div class="grid gap-2 mb-6 text-xs" style="grid-template-columns: repeat(${r.byPassage.length}, minmax(0, 1fr));">${
+            r.byPassage.map(p => `
             <div class="bg-slate-50 dark:bg-slate-800 rounded-xl p-2.5">
               <div class="text-slate-500 dark:text-slate-400">${p.label}</div>
               <div class="font-extrabold text-sm mt-0.5">${p.correct} / ${p.total}</div>
-              ${p.seconds != null ? `<div class="text-[11px] text-slate-500 dark:text-slate-400 mt-0.5">${mmss(p.seconds)}</div>` : ''}
-            </div>`).join('');
+            </div>`).join('')}
+          </div>` : '<div class="mb-6"></div>';
+      const leftCard = PIDX === null ? `
+            <div class="bg-blue-50 dark:bg-blue-950/40 border border-blue-200 dark:border-blue-800 rounded-2xl p-4">
+              <div class="text-xs font-semibold text-blue-600 dark:text-blue-400 uppercase">IELTS Band Score</div>
+              <div class="text-4xl font-extrabold text-blue-700 dark:text-blue-300 mt-1">${r.band}</div>
+            </div>` : `
+            <div class="bg-blue-50 dark:bg-blue-950/40 border border-blue-200 dark:border-blue-800 rounded-2xl p-4">
+              <div class="text-xs font-semibold text-blue-600 dark:text-blue-400 uppercase">Độ chính xác</div>
+              <div class="text-4xl font-extrabold text-blue-700 dark:text-blue-300 mt-1">${pct}<span class="text-lg font-bold opacity-70">%</span></div>
+            </div>`;
 
       openModal(`
         <div class="text-center">
           ${isTimeout ? `<span class="inline-block px-3 py-1 rounded-full text-xs font-bold bg-rose-100 text-rose-700 mb-2">Hết thời gian!</span>` : ''}
-          <h3 class="text-xl font-extrabold text-slate-900 dark:text-white mb-1">Kết quả ${TEST.title}</h3>
-          <p class="text-xs text-slate-500 dark:text-slate-400 mb-5">${TEST.subtitle || ''}${st.mode === 'passage' ? ' · Làm từng passage' : ''} · Thời gian: ${mmss(r.seconds)}</p>
+          <h3 class="text-xl font-extrabold text-slate-900 dark:text-white mb-1">Kết quả ${TEST.title}${PIDX !== null ? ' · Passage ' + (PIDX + 1) : ''}</h3>
+          <p class="text-xs text-slate-500 dark:text-slate-400 mb-5">${TEST.subtitle || ''} · Thời gian: ${mmss(r.seconds)}</p>
 
           <div class="grid grid-cols-2 gap-3 mb-5">
-            <div class="bg-blue-50 dark:bg-blue-950/40 border border-blue-200 dark:border-blue-800 rounded-2xl p-4">
-              <div class="text-xs font-semibold text-blue-600 dark:text-blue-400 uppercase">IELTS Band Score</div>
-              <div class="text-4xl font-extrabold text-blue-700 dark:text-blue-300 mt-1">${r.band}</div>
-            </div>
+            ${leftCard}
             <div class="bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-200 dark:border-emerald-800 rounded-2xl p-4">
               <div class="text-xs font-semibold text-emerald-600 dark:text-emerald-400 uppercase">Số câu đúng</div>
               <div class="text-4xl font-extrabold text-emerald-700 dark:text-emerald-300 mt-1">${r.score}<span class="text-lg font-bold opacity-70">/${r.total}</span></div>
             </div>
           </div>
 
-          <div class="grid gap-2 mb-6 text-xs" style="grid-template-columns: repeat(${r.byPassage.length}, minmax(0, 1fr));">${passCells}
-          </div>
+          ${passCells}
 
           <div class="flex items-center justify-center gap-3">
             <button onclick="closeModal()" class="px-5 py-2 rounded-xl text-sm font-bold bg-blue-600 hover:bg-blue-700 text-white shadow-sm transition">Xem chi tiết đáp án</button>
@@ -1209,8 +1153,8 @@
     function confirmReset() {
       openModal(`
         <div class="text-center">
-          <h3 class="text-lg font-extrabold text-slate-900 dark:text-white mb-2">Làm lại ${TESTS[currentTestIdx].title}?</h3>
-          <p class="text-sm text-slate-600 dark:text-slate-300 mb-6">Toàn bộ câu trả lời và thời gian của đề này sẽ được đặt lại từ đầu.</p>
+          <h3 class="text-lg font-extrabold text-slate-900 dark:text-white mb-2">Làm lại ${TESTS[currentTestIdx].title}${PIDX !== null ? ' · Passage ' + (PIDX + 1) : ''}?</h3>
+          <p class="text-sm text-slate-600 dark:text-slate-300 mb-6">Toàn bộ câu trả lời và thời gian của ${PIDX === null ? 'đề' : 'passage'} này sẽ được đặt lại từ đầu.</p>
           <div class="flex items-center justify-center gap-3">
             <button onclick="closeModal()" class="px-4 py-2 rounded-xl text-sm font-semibold border border-slate-300 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-800 transition">Hủy</button>
             <button onclick="resetCurrentTest()" class="px-5 py-2 rounded-xl text-sm font-bold bg-rose-600 hover:bg-rose-700 text-white shadow-sm transition">Xác nhận làm lại</button>
@@ -1410,12 +1354,13 @@
 
       TEST = args.test;
       TESTS = [TEST];
-      QTOTAL = TEST.totalQuestions;
+      setScope(args.scope);
       const saved = args.saved || {};
       const prefs = args.prefs || {};
       const meta = args.meta || {};
 
-      appState.darkMode = !!prefs.darkMode;
+      // Chưa từng chọn sáng/tối thì theo giao diện của Streamlit
+      appState.darkMode = typeof prefs.darkMode === 'boolean' ? prefs.darkMode : args.theme === 'dark';
       appState.fontSize = prefs.fontSize || 15;
       appState.split = typeof prefs.split === 'number' ? prefs.split : 42;
       appState.tests[0] = loadSaved(saved);

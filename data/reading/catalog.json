@@ -1,6 +1,6 @@
 {
- "generated": 1795561377,
- "signature": 150841010137381,
+ "generated": 1795567993,
+ "signature": 234596655412813,
  "categories": [
   {
    "id": "band_4_5",
@@ -49,6 +49,20 @@
         "The Davies Sisters",
         "Why we need silence",
         "Book review: The World of Sugar by Ulbe Bosma"
+       ],
+       "qRanges": [
+        [
+         1,
+         13
+        ],
+        [
+         14,
+         26
+        ],
+        [
+         27,
+         40
+        ]
        ]
       },
       {
@@ -72,6 +86,20 @@
         "Do animals dream?",
         "Mapungubwe",
         "Artificial Intelligence"
+       ],
+       "qRanges": [
+        [
+         1,
+         13
+        ],
+        [
+         14,
+         26
+        ],
+        [
+         27,
+         40
+        ]
        ]
       },
       {
@@ -92,6 +120,20 @@
         "Saving the saiga",
         "The problems of getting around the city of Dar es Salaam",
         "Rethinking the Past"
+       ],
+       "qRanges": [
+        [
+         1,
+         13
+        ],
+        [
+         14,
+         26
+        ],
+        [
+         27,
+         40
+        ]
        ]
       },
       {
@@ -113,6 +155,20 @@
         "The problems and benefits created by the spread of the water hyacinth in Kenya",
         "How could multilingualism benefit India's poorest schoolchildren?",
         "The Globemakers: The Curious Story of an Ancient Craft"
+       ],
+       "qRanges": [
+        [
+         1,
+         13
+        ],
+        [
+         14,
+         26
+        ],
+        [
+         27,
+         40
+        ]
        ]
       }
      ]
