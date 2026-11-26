@@ -65,3 +65,14 @@ def test_clean_state_keeps_question_highlights():
     assert st["hl"] == {"0": [{"s": 1, "e": 5, "c": "yellow"}], "q1": [{"s": 2, "e": 9, "c": "red"}], "1": []}
     st = scoring.clean_state(t, {"hl": hl}, "p2")
     assert set(st["hl"]) == {"q1", "1"}
+
+
+def test_pair_questions_with_three_answers():
+    t = {"answers": {"24": ["A"], "25": ["C"], "26": ["E"]}, "pairQuestions": [[24, 25, 26, ["A", "C", "E"]]]}
+    # thứ tự nào cũng đúng
+    assert all(scoring.is_correct(t, {"24": "E", "25": "A", "26": "C"}, q) for q in (24, 25, 26))
+    # chọn trùng một đáp án chỉ tính một lần
+    got = [scoring.is_correct(t, {"24": "A", "25": "A", "26": "C"}, q) for q in (24, 25, 26)]
+    assert got == [True, False, True]
+    # đáp án ngoài danh sách thì sai
+    assert not scoring.is_correct(t, {"24": "B", "25": "C", "26": "E"}, 24)
