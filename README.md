@@ -45,8 +45,14 @@ data/reading/<mục>/<bộ>/series.json        # {"id","title","description","ba
 data/reading/<mục>/<bộ>/test-<số>.json
 ```
 
-`<mục>` là một trong `band_4_5`, `band_5_6_5`, `orange`, `vol` (mục **Recent Actual Test**, giữ tên thư mục `vol`; khai báo trong `data/reading/categories.json`).
+`<mục>` là một trong `band_4_5`, `band_5_6_5`, `orange`, `vol` (khai báo trong `data/reading/categories.json`).
 Ví dụ bộ có sẵn: `data/reading/orange/orange-21/`.
+
+**Band 4–5.0 và Band 5–6.5 chia theo chủ đề**: mỗi chủ đề là một "bộ" (thư mục) có sẵn `series.json`:
+`education`, `environment`, `work-careers`, `government-criminal-justice`, `science-technology`, `health`, `entertainment`,
+`society-culture`, `economics`, `other-topics`, `travel-transportation`. Thêm đề vào đúng thư mục chủ đề, ví dụ
+`data/reading/band_4_5/education/test-1.json` với `"category": "band_4_5"`, `"series": "education"`. Trang Reading của hai mục này có
+ô **Chọn chủ đề** (kèm số đề). Bật/tắt bằng `"filterByTopic": true` trong `categories.json`.
 
 Danh mục tự cập nhật khi bạn thêm, sửa hoặc xóa file, không cần sửa code. Trước khi dùng, chạy:
 
@@ -67,10 +73,10 @@ Công cụ này kiểm tra thiếu đáp án, câu bị sót hoặc dư, id trù
 | `bandTable` | (tuỳ chọn) bảng quy đổi riêng, ví dụ `[[10,"5.0"],[5,"4.0"]]`, mặc định là bảng Academic 40 câu |
 | `passages[]` | `label`, `title`, `paragraphs`, `groups[]`, `qRange` (câu đầu, câu cuối) |
 | `answers` | `{"1": ["mining"], "8": ["TRUE"], ...}`, mỗi câu có thể có nhiều đáp án chấp nhận |
-| `pairQuestions` | (tuỳ chọn) nhóm câu chọn 2, 3 hoặc 4 đáp án, thứ tự nào cũng đúng: `[20, 21, ["B","D"]]` hoặc `[24, 25, 26, ["A","C","E"]]` |
+| `pairQuestions` | (tuỳ chọn) cặp câu chọn 2 đáp án, thứ tự nào cũng đúng |
 
 Chỗ điền từ viết là `{{số câu}}` trong văn bản. Các dạng câu hỏi hiện có:
-`tfng`, `mcq`, `multi2` (chọn 2/3/4 đáp án, khai báo bằng `qPair`), `matching`, `notes`, `summary_box`, `summary_text`, `table`, `flowchart`.
+`tfng`, `mcq`, `multi2`, `matching`, `notes`, `summary_box`, `summary_text`, `table`, `flowchart`.
 Muốn thêm dạng mới, thêm một nhánh render trong `renderQuestions` của `engine/reader/index.html` và tên dạng vào `KNOWN_TYPES` trong `tools/validate.py`.
 
 Giữ cho file nhẹ: một đề một file, ảnh để file riêng và ghi đường dẫn, không nhúng base64.

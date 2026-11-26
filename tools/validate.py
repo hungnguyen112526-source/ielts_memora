@@ -96,11 +96,9 @@ def validate_test(path: Path, seen_ids: set[str]) -> list[str]:
     if prev_end != total:
         errs.append(f"các passage kết thúc ở câu {prev_end}, nhưng totalQuestions = {total}")
 
-    for entry in t.get("pairQuestions", []):
-        *qs, _valid = entry
-        for x in qs:
-            if str(x) not in answers:
-                errs.append(f"pairQuestions {qs} không có đáp án câu {x}")
+    for a, b, valid in t.get("pairQuestions", []):
+        if str(a) not in answers or str(b) not in answers:
+            errs.append(f"pairQuestions {a},{b} không có đáp án")
     return errs
 
 

@@ -153,20 +153,32 @@ def library() -> None:
                 open_test(tid, scope)
                 st.rerun()
 
-    c1, c2 = st.columns([1.2, 1.5], vertical_alignment="center")
+    by_topic = bool(cat.get("filterByTopic")) and bool(cat["series"])       # Band 4–5.0 / 5–6.5: mỗi "bộ" là một chủ đề
+    if by_topic:
+        c1, c3, c2 = st.columns([1.1, 1.0, 1.5], vertical_alignment="center")
+    else:
+        c1, c2 = st.columns([1.2, 1.5], vertical_alignment="center")
     query = c1.text_input("Tìm đề", placeholder="Tìm theo tên bài đọc…", icon=":material/search:",
                           label_visibility="collapsed").strip()
+    topic = None
+    if by_topic:
+        counts = {s["id"]: len(s["tests"]) for s in cat["series"]}
+        titles = {s["id"]: s["title"] for s in cat["series"]}
+        topic = c3.selectbox("Chủ đề", ["", *titles], key=f"topic-{cat['id']}", label_visibility="collapsed",
+                             format_func=lambda k: "Tất cả chủ đề" if not k else f"{titles[k]} ({counts[k]})") or None
     status = c2.segmented_control("Trạng thái", list(FILTERS), default="Tất cả",
                                   label_visibility="collapsed") or "Tất cả"
 
     shown = 0
-    if not cat["series"]:
+    if not any(s["tests"] for s in cat["series"]):
         with st.container(key=f"card-empty-{cat['id']}"):
             st.markdown('<div class="memora-empty"><b>Chưa có đề trong mục này</b>'
                         '<p>Đề mới sẽ xuất hiện ở đây ngay khi được thêm vào.</p></div>',
                         unsafe_allow_html=True)
         return
     for series in cat["series"]:
+        if topic and series["id"] != topic:
+            continue
         tests = [t for t in series["tests"] if _matches(t, query, status, progress)]
         if not tests:
             continue
@@ -186,7 +198,7 @@ def library() -> None:
     if not shown:
         with st.container(key=f"card-nomatch-{cat['id']}"):
             st.markdown('<div class="memora-empty"><b>Không tìm thấy đề phù hợp</b>'
-                        '<p>Thử bỏ bộ lọc trạng thái hoặc tìm bằng từ khóa khác.</p></div>',
+                        '<p>Thử đổi chủ đề, bỏ bộ lọc trạng thái hoặc tìm bằng từ khóa khác.</p></div>',
                         unsafe_allow_html=True)
 
 

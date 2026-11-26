@@ -38,7 +38,7 @@ READING_PAGE = "views/reading.py"
 
 
 def reading_nav(cur) -> None:
-    """Mục Reading ở sidebar: bấm để mở/đóng danh sách 4 mục con (Band 4–5.0, Band 5–6.5, Orange, Recent Actual Test)."""
+    """Mục Reading ở sidebar: bấm để mở/đóng danh sách 4 mục con (Band 4–5.0, Band 5–6.5, Orange, Vol)."""
     catalog = cat_mod.load_catalog()
     on_reading = cur == "reading"
     flag = st.session_state.get("nav_reading_open")

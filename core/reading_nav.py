@@ -11,7 +11,7 @@ def current_category(catalog: dict) -> dict:
         if c["id"] == wanted:
             return c
     for c in cats:
-        if c["series"]:
+        if any(sr["tests"] for sr in c["series"]):
             return c
     return cats[0]
 

@@ -94,11 +94,14 @@ LOGIN_CSS = """
 .memora-hero p { opacity: .7; margin: 0; font-size: .96rem; }
 .st-key-card-login { padding: 26px 30px 24px; border-radius: 28px; backdrop-filter: blur(6px);
   box-shadow: 0 40px 80px -48px color-mix(in srgb, var(--m-accent) 55%, transparent), var(--m-shadow); }
-.st-key-card-login [data-baseweb="tab-list"] { gap: 0; margin-bottom: 1.1rem; }
-.st-key-card-login button[data-baseweb="tab"] { flex: 1 1 0; justify-content: center; padding: .65rem .5rem; }
+.st-key-card-login [data-testid="stButtonGroup"], .st-key-card-login [data-testid="stButtonGroup"] [role="radiogroup"],
+.st-key-card-login [data-testid="stButtonGroup"] [role="group"] { width: 100%; display: flex; }
+.st-key-card-login [data-testid="stButtonGroup"] button { flex: 1 1 0; justify-content: center; min-height: 42px; font-weight: 700; }
+.st-key-card-login [data-testid="stButtonGroup"] { margin-bottom: 1.1rem; }
 .st-key-card-login [data-testid="stTextInput"] { margin-bottom: .15rem; }
 .st-key-card-login [data-testid="stFormSubmitButton"], .st-key-card-login [data-testid="stFormSubmitButton"] button { width: 100%; }
-.st-key-card-login [data-testid="stFormSubmitButton"] button { min-height: 46px; font-size: 1rem; margin-top: .3rem; }
+.st-key-card-login [data-testid="stFormSubmitButton"] button { min-height: 48px; font-size: 1rem; margin-top: .4rem; border-radius: 14px; }
+.st-key-card-login [data-testid="stForm"] { border: 0; padding: 0; }
 .st-key-card-login [data-testid="stAlert"] { border-radius: 14px; }
 .memora-hint { text-align: center; border: 0; background: color-mix(in srgb, currentColor 5%, transparent); border-radius: 14px;
   padding: .65rem .9rem; font-size: .85rem; opacity: .85; margin-top: 1rem; }
@@ -125,9 +128,10 @@ def login_view() -> None:
             unsafe_allow_html=True,
         )
         with st.container(key="card-login"):
-            tab_login, tab_register = st.tabs([":material/login: Đăng nhập", ":material/person_add: Tạo tài khoản"])
+            mode = st.segmented_control("Chế độ", ["Đăng nhập", "Tạo tài khoản"], default="Đăng nhập",
+                                        key="auth_mode", label_visibility="collapsed") or "Đăng nhập"
 
-            with tab_login:
+            if mode == "Đăng nhập":
                 with st.form("login_form"):
                     username = st.text_input("Tên đăng nhập", autocomplete="username")
                     password = st.text_input("Mật khẩu", type="password", autocomplete="current-password")
@@ -139,10 +143,8 @@ def login_view() -> None:
                         st.rerun()
                     else:
                         st.error(msg)
-                st.markdown('<div class="memora-hint">Chưa có tài khoản? Chuyển sang tab <b>Tạo tài khoản</b>, '
-                            'miễn phí và dùng được ngay.</div>', unsafe_allow_html=True)
 
-            with tab_register:
+            else:
                 with st.form("register_form"):
                     r_user = st.text_input("Tên đăng nhập", help="3–30 ký tự: chữ, số, _ hoặc .", key="reg_user")
                     r_name = st.text_input("Tên hiển thị", key="reg_name")
