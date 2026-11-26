@@ -1,0 +1,532 @@
+{
+ "schema": 1,
+ "id": "band-4-5-education-test-7",
+ "series": "education",
+ "category": "band_4_5",
+ "title": "Curriculum, Dropouts & Life Skills (Set 2)",
+ "summary": "Breadth or Depth in the Curriculum • Compulsory Schooling and Dropouts • Teaching Life Skills",
+ "subtitle": "Band 4.0–5.0 · Education",
+ "module": "academic",
+ "durationMin": 60,
+ "totalQuestions": 40,
+ "questionTypes": [
+  "notes",
+  "tfng",
+  "mcq",
+  "matching"
+ ],
+ "passages": [
+  {
+   "label": "READING PASSAGE 1",
+   "instruction": "You should spend about 20 minutes on Questions 1-13, which are based on Reading Passage 1 below.",
+   "title": "Breadth or Depth in the School Curriculum?",
+   "subtitle": "Comparing wide high school programmes with early specialisation",
+   "paragraphs": [
+    "Around the world, high schools disagree on how many subjects older teenagers should study. When designing a national curriculum, governments usually choose between two main ideas: depth or breadth. In Britain, sixteen-year-olds often drop most subjects and specialise in just three areas. By contrast, students in Ireland, Canada, and South Korea study seven or eight subjects until they finish school at eighteen.",
+    "Supporters of early specialisation say that studying fewer subjects lets teenagers build in-depth knowledge. For example, a student who wants to become a chemist or a doctor can focus full time on biology, chemistry, and mathematics. Teachers also notice that students enjoy classes more when they can drop subjects they dislike and spend energy on their favourite topics.",
+    "On the other hand, supporters of a wide timetable argue that sixteen is too young to narrow down a future career. Keeping core subjects—such as mathematics, reading, and a second language—compulsory until eighteen gives young people a well-rounded education. Today, many exciting jobs mix different fields: a video game creator needs both computer coding and visual drawing, while a green energy planner needs science and clear writing.",
+    "There is also a lively debate about history and the arts compared with STEM subjects. Because governments want strong economies, they often spend more money on computing, engineering, and physics, leaving painting, theatre, and history with fewer classroom hours. However, history teachers argue that knowing the past helps citizens make wise voting choices, while art teachers stress that creative lessons train imagination and fresh problem-solving.",
+    "To get the best of both systems, many modern schools now offer balanced diplomas like the International Baccalaureate. Students choose six subjects from science, languages, arts, and humanities—studying three at an advanced level and three at a regular level—plus an extended essay. Many parents welcome this mixed approach because it builds deep skills without closing doors too early."
+   ],
+   "groups": [
+    {
+     "title": "Questions 1-7",
+     "instruction": "Complete the notes below. Choose <strong>ONE WORD ONLY</strong> from the passage for each answer.",
+     "type": "notes",
+     "boxTitle": "Debating the High School Curriculum",
+     "sections": [
+      {
+       "heading": "Early specialisation",
+       "items": [
+        "Allows future doctors or a future {{1}} to concentrate on science and maths.",
+        "Students enjoy lessons more because they focus their {{2}} on subjects they like."
+       ]
+      },
+      {
+       "heading": "Broad timetable",
+       "items": [
+        "Creating video games combines coding with visual {{3}}.",
+        "A green energy planner uses both science and clear {{4}}."
+       ]
+      },
+      {
+       "heading": "History and arts vs. STEM",
+       "items": [
+        "Understanding history helps adults make sensible {{5}} decisions.",
+        "Art lessons strengthen creative problem-solving and {{6}}."
+       ]
+      },
+      {
+       "heading": "Balanced diplomas",
+       "items": [
+        "Students take six subjects and also write an extended {{7}}."
+       ]
+      }
+     ]
+    },
+    {
+     "title": "Questions 8-13",
+     "instruction": "Do the following statements agree with the information given in Reading Passage 1? Choose <strong>TRUE</strong>, <strong>FALSE</strong> or <strong>NOT GIVEN</strong>.",
+     "type": "tfng",
+     "options": [
+      "TRUE",
+      "FALSE",
+      "NOT GIVEN"
+     ],
+     "items": [
+      {
+       "q": 8,
+       "text": "High school students in Ireland usually study more subjects at age 17 than students in Britain."
+      },
+      {
+       "q": 9,
+       "text": "Supporters of a wide timetable think age 16 is the ideal age to choose one career path."
+      },
+      {
+       "q": 10,
+       "text": "Canadian teenagers spend more hours learning second languages than South Korean teenagers."
+      },
+      {
+       "q": 11,
+       "text": "Governments often give more funding to physics and computing than to theatre and painting."
+      },
+      {
+       "q": 12,
+       "text": "In the International Baccalaureate programme, all six subjects must be studied at the advanced level."
+      },
+      {
+       "q": 13,
+       "text": "Most teachers find it harder to teach the International Baccalaureate than national diplomas."
+      }
+     ]
+    }
+   ],
+   "qRange": [
+    1,
+    13
+   ]
+  },
+  {
+   "label": "READING PASSAGE 2",
+   "instruction": "You should spend about 20 minutes on Questions 14-26, which are based on Reading Passage 2 below.",
+   "title": "Compulsory Schooling and School Dropouts",
+   "subtitle": "How laws, vocational training, and adult literacy centres reduce early school leaving",
+   "paragraphs": [
+    "Fifty years ago, leaving school at age 15 or 16 was completely normal because factories, farms, and shops needed plenty of young workers. Today, machines do much of that simple work, so teenagers without certificates struggle to find steady jobs. In response, countries such as England and parts of Australia have raised the legal school-leaving age to 18. Leaders hope that extra education will support social mobility, helping children from poor backgrounds move into better-paid work.",
+    "Even with stronger laws, thousands of teenagers still drop out every year. Usually, leaving school is not a sudden decision. Students show clear warning signs first, especially frequent truancy—skipping school without a good excuse—and falling test marks. Studies show that vulnerable teenagers who face family illness, unstable housing, or reading difficulties are at the highest risk of quitting early.",
+    "Dropping out creates serious problems in adulthood. Many early leavers struggle with low adult literacy, making it difficult to read rental letters, check bank bills, or follow safety signs at work. Over a lifetime, adults without basic qualifications earn much less money and are more likely to need government housing or health support.",
+    "Many teachers point out that forcing bored teenagers to sit in standard exam classes until 18 rarely solves the problem. Instead, unhappy students may cause classroom noise or simply stop turning up. Education experts say raising the age limit only works when schools create a strong vocational pathway starting at age 16. By learning practical trades such as hospitality, car mechanics, or graphic design, hands-on learners stay interested and gain real job skills.",
+    "Early care from school staff also makes a huge difference. In Norway, special support teams check attendance every week; when a student starts missing days, a youth worker visits the home to listen and solve issues like bullying or transport costs rather than fining the parents. For people who left school years ago, free adult literacy centres inside public libraries now offer friendly evening classes so anyone can build reading skills and apply for better jobs."
+   ],
+   "groups": [
+    {
+     "title": "Questions 14-18",
+     "instruction": "Do the following statements agree with the information given in Reading Passage 2? Choose <strong>TRUE</strong>, <strong>FALSE</strong> or <strong>NOT GIVEN</strong>.",
+     "type": "tfng",
+     "options": [
+      "TRUE",
+      "FALSE",
+      "NOT GIVEN"
+     ],
+     "items": [
+      {
+       "q": 14,
+       "text": "Half a century ago, it was common for teenagers to leave school at 15 or 16 for work."
+      },
+      {
+       "q": 15,
+       "text": "Australia raised its school-leaving age earlier than England did."
+      },
+      {
+       "q": 16,
+       "text": "Most teenagers who drop out of school show no warning signs before they leave."
+      },
+      {
+       "q": 17,
+       "text": "Teachers agree that keeping bored teenagers in traditional exam classes is the easiest way to stop dropouts."
+      },
+      {
+       "q": 18,
+       "text": "In Norway, youth workers visit families to find solutions rather than giving parents fines."
+      }
+     ]
+    },
+    {
+     "title": "Questions 19-26",
+     "instruction": "Complete the notes below. Choose <strong>ONE WORD ONLY</strong> from the passage for each answer.",
+     "type": "notes",
+     "boxTitle": "Tackling Early School Leaving",
+     "sections": [
+      {
+       "heading": "Signs and risks",
+       "items": [
+        "Warning signs include lower test marks and regular {{19}}.",
+        "Vulnerable youth may deal with reading difficulties, unstable housing, or family {{20}}."
+       ]
+      },
+      {
+       "heading": "Effects in adulthood",
+       "items": [
+        "Weak adult literacy makes it hard to check bank {{21}} or read rental letters.",
+        "Early leavers earn less and may need state health or {{22}} support."
+       ]
+      },
+      {
+       "heading": "Vocational options",
+       "items": [
+        "Practical courses from age 16 include car mechanics, graphic design, and {{23}}."
+       ]
+      },
+      {
+       "heading": "Early support in Norway",
+       "items": [
+        "Home visits help families deal with bullying or {{24}} costs."
+       ]
+      },
+      {
+       "heading": "Support for adults",
+       "items": [
+        "Free literacy centres are located inside public {{25}}.",
+        "Friendly {{26}} classes help adults improve reading and find better jobs."
+       ]
+      }
+     ]
+    }
+   ],
+   "qRange": [
+    14,
+    26
+   ]
+  },
+  {
+   "label": "READING PASSAGE 3",
+   "instruction": "You should spend about 20 minutes on Questions 27-40, which are based on Reading Passage 3 below.",
+   "title": "Teaching Life Skills in Schools",
+   "subtitle": "Should high schools teach money management, volunteering, and family care?",
+   "paragraphs": [
+    "When young people graduate from high school, many can name historical kings or balance chemistry formulas, yet have no idea how to pay an electricity bill, spot an online scam, or cook simple vegetable soup. Because of this gap, parents and employers around the world are asking schools to spend more time teaching practical life skills.",
+    "Financial literacy is the skill people request most often. Today, eighteen-year-olds receive credit card adverts on their phones and can borrow money with just two clicks. Without basic money training, young adults can quickly fall into painful debt. Pilot programmes in New Zealand and Britain found that teenagers who practise making a monthly budget and comparing savings accounts handle their money much more safely after leaving school.",
+    "Another popular idea is building civic responsibility through community service. In several Canadian provinces and Japanese schools, teenagers spend time helping at animal shelters, cleaning local parks, or reading to older citizens. Supporters say these hands-on projects are powerful tools for character building, helping students develop kindness, patience, and pride in their neighbourhood far better than classroom speeches can.",
+    "Some reformers also propose teaching basic parenting skills and child care to older teenagers. They point out that caring for a baby requires knowledge about healthy food, sleep routines, and calm communication, yet almost no school covers these topics. Critics, however, argue that every culture raises children differently, so family life should be taught by parents rather than school staff.",
+    "Adding life skills to schools also brings real difficulties. Most school timetables are already packed with exam subjects, and teachers feel heavy pressure to raise reading and maths scores. Asking busy language teachers to run finance or repair workshops without extra training could lead to weak lessons. Some students also treat forced volunteering like a boring chore if they have no choice in the project.",
+    "Even with these challenges, I believe schools should not ignore everyday skills. Schools do not need to cut core subjects; instead, they can include household budgeting inside maths lessons and invite local cooks, nurses, or bank workers as guest speakers. Passing exams opens university doors, but practical life skills help young people live safely and happily once they step into the adult world."
+   ],
+   "groups": [
+    {
+     "title": "Questions 27-30",
+     "instruction": "Choose the correct letter, <strong>A, B, C or D</strong>.",
+     "type": "mcq",
+     "items": [
+      {
+       "q": 27,
+       "text": "Why does the writer mention historical kings and chemistry formulas in paragraph 1?",
+       "options": [
+        {
+         "k": "A",
+         "t": "To show that history and chemistry are useless subjects"
+        },
+        {
+         "k": "B",
+         "t": "To contrast academic exam knowledge with missing everyday skills"
+        },
+        {
+         "k": "C",
+         "t": "To argue that school exams are much easier today than before"
+        },
+        {
+         "k": "D",
+         "t": "To explain why young people enjoy online shopping"
+        }
+       ]
+      },
+      {
+       "q": 28,
+       "text": "Why do critics oppose teaching parenting skills in schools, according to paragraph 4?",
+       "options": [
+        {
+         "k": "A",
+         "t": "Teenagers are not interested in healthy food or sleep routines."
+        },
+        {
+         "k": "B",
+         "t": "Different cultures raise children in different ways, making it a family matter."
+        },
+        {
+         "k": "C",
+         "t": "Most schools already run compulsory baby-care classes."
+        },
+        {
+         "k": "D",
+         "t": "Parents want schools to spend more time on animal shelters instead."
+        }
+       ]
+      },
+      {
+       "q": 29,
+       "text": "What problem with mandatory volunteering is mentioned in paragraph 5?",
+       "options": [
+        {
+         "k": "A",
+         "t": "Local parks do not need help from high school students."
+        },
+        {
+         "k": "B",
+         "t": "Students may see it as a dull chore if they cannot choose their activity."
+        },
+        {
+         "k": "C",
+         "t": "Animal shelters charge schools high fees for student visits."
+        },
+        {
+         "k": "D",
+         "t": "Language teachers refuse to take part in weekend projects."
+        }
+       ]
+      },
+      {
+       "q": 30,
+       "text": "What practical suggestion does the writer make in the final paragraph?",
+       "options": [
+        {
+         "k": "A",
+         "t": "Replacing maths exams with cooking tests"
+        },
+        {
+         "k": "B",
+         "t": "Adding two extra years to high school for life-skill training"
+        },
+        {
+         "k": "C",
+         "t": "Weaving budgeting into maths classes and inviting local workers to speak"
+        },
+        {
+         "k": "D",
+         "t": "Leaving all financial education to phone apps"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "title": "Questions 31-34",
+     "instruction": "Complete each sentence with the correct ending, A-F, below. Write the correct letter, A-F.",
+     "type": "matching",
+     "options": [
+      "A",
+      "B",
+      "C",
+      "D",
+      "E",
+      "F"
+     ],
+     "items": [
+      {
+       "q": 31,
+       "text": "Eighteen-year-olds seeing credit card ads on their phones..."
+      },
+      {
+       "q": 32,
+       "text": "Teenagers in British and New Zealand pilot courses..."
+      },
+      {
+       "q": 33,
+       "text": "High school students in parts of Canada and Japan..."
+      },
+      {
+       "q": 34,
+       "text": "Busy language teachers asked to run finance workshops..."
+      }
+     ],
+     "legend": [
+      {
+       "key": "A",
+       "text": "manage their money more carefully after finishing school."
+      },
+      {
+       "key": "B",
+       "text": "can fall into debt quickly without basic financial knowledge."
+      },
+      {
+       "key": "C",
+       "text": "may teach weak lessons if they are not given extra training."
+      },
+      {
+       "key": "D",
+       "text": "help older citizens and care for animals in their communities."
+      },
+      {
+       "key": "E",
+       "text": "prefer classroom speeches to hands-on volunteering."
+      },
+      {
+       "key": "F",
+       "text": "earn higher grades in chemistry and history."
+      }
+     ]
+    },
+    {
+     "title": "Questions 35-40",
+     "instruction": "Do the following statements agree with the views of the writer in Reading Passage 3? Choose <strong>YES</strong>, <strong>NO</strong> or <strong>NOT GIVEN</strong>.",
+     "type": "tfng",
+     "options": [
+      "YES",
+      "NO",
+      "NOT GIVEN"
+     ],
+     "items": [
+      {
+       "q": 35,
+       "text": "Financial literacy is the life skill that people ask schools to teach most frequently."
+      },
+      {
+       "q": 36,
+       "text": "Classroom speeches build patience and kindness more effectively than hands-on community service."
+      },
+      {
+       "q": 37,
+       "text": "Japanese students do more park clean-up work than Canadian students."
+      },
+      {
+       "q": 38,
+       "text": "Most teachers today have plenty of spare hours in their school timetables."
+      },
+      {
+       "q": 39,
+       "text": "Local bank workers are paid by governments when they visit schools as guest speakers."
+      },
+      {
+       "q": 40,
+       "text": "Schools should teach practical life skills alongside core academic subjects."
+      }
+     ]
+    }
+   ],
+   "qRange": [
+    27,
+    40
+   ]
+  }
+ ],
+ "answers": {
+  "1": [
+   "chemist"
+  ],
+  "2": [
+   "energy"
+  ],
+  "3": [
+   "drawing"
+  ],
+  "4": [
+   "writing"
+  ],
+  "5": [
+   "voting"
+  ],
+  "6": [
+   "imagination"
+  ],
+  "7": [
+   "essay"
+  ],
+  "8": [
+   "TRUE"
+  ],
+  "9": [
+   "FALSE"
+  ],
+  "10": [
+   "NOT GIVEN"
+  ],
+  "11": [
+   "TRUE"
+  ],
+  "12": [
+   "FALSE"
+  ],
+  "13": [
+   "NOT GIVEN"
+  ],
+  "14": [
+   "TRUE"
+  ],
+  "15": [
+   "NOT GIVEN"
+  ],
+  "16": [
+   "FALSE"
+  ],
+  "17": [
+   "FALSE"
+  ],
+  "18": [
+   "TRUE"
+  ],
+  "19": [
+   "truancy"
+  ],
+  "20": [
+   "illness"
+  ],
+  "21": [
+   "bills"
+  ],
+  "22": [
+   "housing"
+  ],
+  "23": [
+   "hospitality"
+  ],
+  "24": [
+   "transport"
+  ],
+  "25": [
+   "libraries"
+  ],
+  "26": [
+   "evening"
+  ],
+  "27": [
+   "B"
+  ],
+  "28": [
+   "B"
+  ],
+  "29": [
+   "B"
+  ],
+  "30": [
+   "C"
+  ],
+  "31": [
+   "B"
+  ],
+  "32": [
+   "A"
+  ],
+  "33": [
+   "D"
+  ],
+  "34": [
+   "C"
+  ],
+  "35": [
+   "YES"
+  ],
+  "36": [
+   "NO"
+  ],
+  "37": [
+   "NOT GIVEN"
+  ],
+  "38": [
+   "NO"
+  ],
+  "39": [
+   "NOT GIVEN"
+  ],
+  "40": [
+   "YES"
+  ]
+ }
+}

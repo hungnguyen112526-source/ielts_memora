@@ -1,0 +1,547 @@
+{
+ "schema": 1,
+ "id": "band-4-5-education-test-5",
+ "series": "education",
+ "category": "band_4_5",
+ "title": "Funding, Study Abroad & Online Learning (Set 2)",
+ "summary": "Publicly Funded Higher Education • Studying Abroad vs Brain Drain • Online Learning",
+ "subtitle": "Band 4.0–5.0 · Education",
+ "module": "academic",
+ "durationMin": 60,
+ "totalQuestions": 40,
+ "questionTypes": [
+  "notes",
+  "tfng",
+  "matching",
+  "summary_text",
+  "mcq",
+  "summary_box"
+ ],
+ "passages": [
+  {
+   "label": "READING PASSAGE 1",
+   "instruction": "You should spend about 20 minutes on Questions 1-13, which are based on Reading Passage 1 below.",
+   "title": "Should Higher Education Be Publicly Funded?",
+   "subtitle": "Looking at free university systems, student loans, and government funding",
+   "paragraphs": [
+    "Every year, millions of high school students dream of going to university. However, the cost of a degree has risen sharply in many countries, creating a heavy financial burden for families. While nations such as Denmark and Scotland offer free university places to local students, countries like Canada and New Zealand ask students to pay tuition fees with help from government loans.",
+    "People who support government funding believe that university should be open to everyone, not only the rich. When tuition is free, young people from poor families get equal access to careers in medicine, teaching, and engineering. Supporters also argue that university graduates usually earn higher wages than non-graduates. Because higher earners pay more income tax, the government eventually gets its money back through extra tax revenue.",
+    "On the other hand, critics say that free university education is very expensive for a country to run. Universities need modern classrooms, fast computers, and trained professors, all of which cost large amounts of public money. If a government spends too much on higher education, it may have less money for public hospitals, roads, and primary schools. Critics also note that in some countries, free university spaces mostly help students from comfortable families who already attended good high schools.",
+    "In countries that charge tuition fees, students often borrow money through national loan schemes. They do not have to pay anything while they are studying; instead, they start paying back the loan after they find a well-paid job. Even so, many young adults worry that they will accumulate debt that takes twenty years to clear. Some students even avoid university completely because they are afraid of owing money.",
+    "Today, families also think carefully about the return on investment of a degree—that is, whether the future benefits are worth the cost. Because not every graduate finds a high-paying office job right away, many education advisers now recommend a fair compromise. They suggest that wealthy families should pay reasonable tuition fees, while the government provides full scholarships and housing grants to students who truly need financial help."
+   ],
+   "groups": [
+    {
+     "title": "Questions 1-7",
+     "instruction": "Complete the notes below. Choose <strong>ONE WORD ONLY</strong> from the passage for each answer.",
+     "type": "notes",
+     "boxTitle": "Who Should Pay for University?",
+     "sections": [
+      {
+       "heading": "Benefits of free university",
+       "items": [
+        "Gives students from low-income families equal access to fields like teaching, engineering, and {{1}}.",
+        "Graduates earn more and pay back the state through higher tax {{2}}."
+       ]
+      },
+      {
+       "heading": "Problems with free university",
+       "items": [
+        "Universities need public money for modern rooms, computers, and skilled {{3}}.",
+        "Spending too much on universities could leave less funding for roads, primary schools, and {{4}}."
+       ]
+      },
+      {
+       "heading": "Tuition fees and student loans",
+       "items": [
+        "Students only start repaying loans after getting a well-paid {{5}}.",
+        "Graduates may accumulate {{6}} that takes two decades to pay off."
+       ]
+      },
+      {
+       "heading": "A fair compromise",
+       "items": [
+        "Provide scholarships and {{7}} grants to students who need financial support."
+       ]
+      }
+     ]
+    },
+    {
+     "title": "Questions 8-13",
+     "instruction": "Do the following statements agree with the information given in Reading Passage 1? Choose <strong>TRUE</strong>, <strong>FALSE</strong> or <strong>NOT GIVEN</strong>.",
+     "type": "tfng",
+     "options": [
+      "TRUE",
+      "FALSE",
+      "NOT GIVEN"
+     ],
+     "items": [
+      {
+       "q": 8,
+       "text": "Local students in Denmark and Scotland do not have to pay tuition fees for university."
+      },
+      {
+       "q": 9,
+       "text": "Canadian universities charge higher tuition fees than universities in New Zealand."
+      },
+      {
+       "q": 10,
+       "text": "People with university degrees generally earn less than people who do not go to university."
+      },
+      {
+       "q": 11,
+       "text": "Under national loan schemes, students must repay half of their loan while they are still studying."
+      },
+      {
+       "q": 12,
+       "text": "Fear of debt stops some young people from going to university."
+      },
+      {
+       "q": 13,
+       "text": "Most wealthy families refuse to pay tuition fees under the compromise system."
+      }
+     ]
+    }
+   ],
+   "qRange": [
+    1,
+    13
+   ]
+  },
+  {
+   "label": "READING PASSAGE 2",
+   "instruction": "You should spend about 20 minutes on Questions 14-26, which are based on Reading Passage 2 below.",
+   "title": "Studying Abroad: Personal Growth or Brain Drain?",
+   "subtitle": "How student exchanges and overseas work placements affect individuals and countries",
+   "paragraphs": [
+    "<strong>A</strong> More young people than ever before are travelling overseas to study at university, join a semester exchange, or complete a work placement. Parents and teachers often encourage this choice because living abroad can broaden horizons and give students memories that last a lifetime. Around the world, universities now sign exchange agreements so students can spend six months or a year at a partner campus.",
+    "<strong>B</strong> Dr. Nadia Hassan, an education researcher in Jordan, has interviewed hundreds of exchange students. She explains that daily cultural exposure helps young adults grow faster than they would at home. 'When students move to a new country, they have to adapt to different food, transport systems, and classroom habits,' she says. 'Learning to solve small daily problems on their own makes them much more confident and open-minded.'",
+    "<strong>C</strong> Work placements in foreign companies are also becoming very popular. Liam O'Connor, a hiring manager at an international hotel group in Ireland, says students who complete an overseas placement have a clear advantage when applying for jobs. 'They learn strong cross-cultural communication skills,' he explains. 'They know how to listen politely to customers and teammates from different backgrounds, which is essential in modern business.'",
+    "<strong>D</strong> However, studying abroad also has a serious downside for many developing nations. When top students leave home for foreign universities and decide never to return, this creates skilled migration—often called 'brain drain'. Home countries lose talented doctors, nurses, and engineers after paying for their early school education, making it harder for local towns and clinics to grow.",
+    "<strong>E</strong> Dr. Joseph Kato, an economics lecturer in Uganda, notes that rich countries often make it easy for foreign graduates to stay and work after finishing their degrees. 'It is hard for small economies to compete with high foreign salaries,' he says. However, Kato believes stopping students from studying abroad is not the answer. Instead, he wants home governments to build better workplaces and offer fair pay so graduates feel excited to come back.",
+    "<strong>F</strong> Fortunately, not every graduate stays overseas forever. Mei Chen, a software consultant who studied and worked in Britain for six years before returning to Malaysia, says her time abroad helped her start a local tech company. 'I brought back modern management ideas and contacts with European clients,' she explains. When graduates return or share knowledge online, studying abroad can benefit both the student and their home country."
+   ],
+   "groups": [
+    {
+     "title": "Questions 14-17",
+     "instruction": "Reading Passage 2 has six sections, A-F. Which section contains the following information? Choose the correct letter, <strong>A-F</strong>.",
+     "type": "matching",
+     "options": [
+      "A",
+      "B",
+      "C",
+      "D",
+      "E",
+      "F"
+     ],
+     "items": [
+      {
+       "q": 14,
+       "text": "an example of a returning graduate who used foreign experience to launch a business at home"
+      },
+      {
+       "q": 15,
+       "text": "a mention of university agreements that let students study abroad for part of a degree"
+      },
+      {
+       "q": 16,
+       "text": "the types of key workers that developing nations lose through brain drain"
+      },
+      {
+       "q": 17,
+       "text": "an explanation of why employers value students who have worked overseas"
+      }
+     ]
+    },
+    {
+     "title": "Questions 18-21",
+     "instruction": "Complete the summary below. Choose <strong>ONE WORD ONLY</strong> from the passage for each answer.",
+     "type": "summary_text",
+     "boxTitle": "Understanding Brain Drain and Returning Talent",
+     "paragraphs": [
+      "When skilled graduates choose to stay abroad permanently, developing countries suffer from brain drain. Losing professionals such as doctors and engineers makes it difficult for local {{18}} and towns to develop. According to Dr. Joseph Kato, smaller economies struggle to match high foreign {{19}}. Rather than banning overseas study, he recommends improving local pay and {{20}}. Meanwhile, Mei Chen's story shows that graduates who return can bring back useful management ideas and foreign {{21}}."
+     ]
+    },
+    {
+     "title": "Questions 22-26",
+     "instruction": "Look at the following statements (Questions 22-26) and the list of people below. Match each statement with the correct person, A, B, C or D. NB You may use any letter more than once.",
+     "type": "matching",
+     "options": [
+      "A",
+      "B",
+      "C",
+      "D"
+     ],
+     "items": [
+      {
+       "q": 22,
+       "text": "Solving small everyday issues alone abroad helps students gain confidence."
+      },
+      {
+       "q": 23,
+       "text": "Preventing young people from travelling overseas to study is the wrong solution."
+      },
+      {
+       "q": 24,
+       "text": "Students who do work placements abroad communicate better with people from diverse cultures."
+      },
+      {
+       "q": 25,
+       "text": "Working in another country for several years provided useful ideas for opening a new firm at home."
+      },
+      {
+       "q": 26,
+       "text": "Students abroad must adjust to unfamiliar meals, travel systems, and study routines."
+      }
+     ],
+     "legendTitle": "List of People",
+     "legend": [
+      {
+       "key": "A",
+       "text": "Dr. Nadia Hassan"
+      },
+      {
+       "key": "B",
+       "text": "Liam O'Connor"
+      },
+      {
+       "key": "C",
+       "text": "Dr. Joseph Kato"
+      },
+      {
+       "key": "D",
+       "text": "Mei Chen"
+      }
+     ]
+    }
+   ],
+   "qRange": [
+    14,
+    26
+   ]
+  },
+  {
+   "label": "READING PASSAGE 3",
+   "instruction": "You should spend about 20 minutes on Questions 27-40, which are based on Reading Passage 3 below.",
+   "title": "The Rise of Online Learning",
+   "subtitle": "Comparing online and face-to-face lessons—and imagining the classroom of 2050",
+   "paragraphs": [
+    "Ten or fifteen years ago, most people thought real learning only happened inside a brick school or university building. Online classes were seen as second best. Today, millions of students around the world take digital courses on laptops and tablets. This fast growth has led teachers and parents to ask an exciting question: what will schools and universities look like in 2050?",
+    "The biggest advantage of online education is accessibility. People living in small villages, busy parents, and workers with full-time jobs can study from home at any hour of the day. Modern learning apps have also improved a lot. Instead of just reading dull text on a screen, students can watch short videos, take quick quizzes, and join interactive group chats. Learners who do not understand a difficult maths rule can pause and replay the lesson until everything is clear.",
+    "However, online learning is not easy for everyone. One major problem is the digital divide—the gap between people who have good technology and people who do not. To study well online, a student needs a reliable computer, fast Wi-Fi, and a quiet desk. Many poor families share one smartphone between several children or live in areas with weak internet signals, which puts their children at an unfair disadvantage.",
+    "Another challenge is self-discipline. In an online course, there is no teacher standing beside the desk to check whether a student is paying attention. It is very easy to check social media, play games, or put off homework until the last minute. Studies show that many students who sign up for free online courses stop watching after only two or three weeks because they lose focus.",
+    "Furthermore, traditional face-to-face classrooms offer human benefits that screens cannot fully replace. In a real room, a teacher can quickly see from a student's face when they feel confused or upset. Students also build close friendships during lunch breaks and learn teamwork through lively classroom discussions. Feeling part of a real school community keeps young people happy and motivated.",
+    "For these reasons, I do not believe that physical schools will disappear by 2050. Instead, the classroom of the future will probably combine the best parts of both worlds. Students may watch short online lectures and practise vocabulary at home, then meet face-to-face at school for science experiments, debates, and personal support from teachers. Technology is a wonderful tool, but human connection remains at the heart of good education."
+   ],
+   "groups": [
+    {
+     "title": "Questions 27-30",
+     "instruction": "Choose the correct letter, <strong>A, B, C or D</strong>.",
+     "type": "mcq",
+     "items": [
+      {
+       "q": 27,
+       "text": "What does the writer say about online classes in the first paragraph?",
+       "options": [
+        {
+         "k": "A",
+         "t": "They used to be viewed as less valuable than classroom learning."
+        },
+        {
+         "k": "B",
+         "t": "They are mostly taken by primary school children today."
+        },
+        {
+         "k": "C",
+         "t": "They have already forced many brick universities to close."
+        },
+        {
+         "k": "D",
+         "t": "They were invented specifically to prepare for the year 2050."
+        }
+       ]
+      },
+      {
+       "q": 28,
+       "text": "According to the second paragraph, how can online lessons help a student who finds maths hard?",
+       "options": [
+        {
+         "k": "A",
+         "t": "By removing difficult maths rules from the course"
+        },
+        {
+         "k": "B",
+         "t": "By allowing the student to stop and watch the explanation again"
+        },
+        {
+         "k": "C",
+         "t": "By sending a private teacher to the student's village"
+        },
+        {
+         "k": "D",
+         "t": "By replacing videos with longer printed textbooks"
+        }
+       ]
+      },
+      {
+       "q": 29,
+       "text": "Why do many learners quit free online courses after a few weeks, according to paragraph 4?",
+       "options": [
+        {
+         "k": "A",
+         "t": "The websites stop working after two weeks."
+        },
+        {
+         "k": "B",
+         "t": "The homework is too easy for older students."
+        },
+        {
+         "k": "C",
+         "t": "They get distracted and lose concentration without a teacher nearby."
+        },
+        {
+         "k": "D",
+         "t": "They prefer paying for expensive university classes."
+        }
+       ]
+      },
+      {
+       "q": 30,
+       "text": "What does the writer predict about schools in 2050 in the final paragraph?",
+       "options": [
+        {
+         "k": "A",
+         "t": "All school buildings will be replaced by home study."
+        },
+        {
+         "k": "B",
+         "t": "Teachers will no longer be needed for science experiments."
+        },
+        {
+         "k": "C",
+         "t": "Education will mix online study at home with in-person school activities."
+        },
+        {
+         "k": "D",
+         "t": "Students will only meet face-to-face during summer holidays."
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "title": "Questions 31-36",
+     "instruction": "Complete the summary using the list of words and phrases, <strong>A-I</strong>, below.",
+     "type": "summary_box",
+     "boxTitle": "Problems with Studying Only Online",
+     "legend": [
+      {
+       "key": "A",
+       "text": "personal discipline"
+      },
+      {
+       "key": "B",
+       "text": "quiet desk"
+      },
+      {
+       "key": "C",
+       "text": "digital divide"
+      },
+      {
+       "key": "D",
+       "text": "close friendships"
+      },
+      {
+       "key": "E",
+       "text": "student confusion"
+      },
+      {
+       "key": "F",
+       "text": "in-person classrooms"
+      },
+      {
+       "key": "G",
+       "text": "cheaper tablets"
+      },
+      {
+       "key": "H",
+       "text": "strict exams"
+      },
+      {
+       "key": "I",
+       "text": "free lunches"
+      }
+     ],
+     "options": [
+      "A",
+      "B",
+      "C",
+      "D",
+      "E",
+      "F",
+      "G",
+      "H",
+      "I"
+     ],
+     "paragraphs": [
+      "Despite its convenience, online study has clear limits. Because of the {{31}}, poorer households often lack fast Wi-Fi or a {{32}} for studying. In addition, learning alone at home requires strong {{33}} to resist distractions like games and social media. By contrast, {{34}} allow teachers to spot {{35}} by looking at students' expressions, while breaks and group talks build real {{36}}."
+     ]
+    },
+    {
+     "title": "Questions 37-40",
+     "instruction": "Do the following statements agree with the views of the writer in Reading Passage 3? Choose <strong>YES</strong>, <strong>NO</strong> or <strong>NOT GIVEN</strong>.",
+     "type": "tfng",
+     "options": [
+      "YES",
+      "NO",
+      "NOT GIVEN"
+     ],
+     "items": [
+      {
+       "q": 37,
+       "text": "Online courses make it easier for people with full-time jobs to continue learning."
+      },
+      {
+       "q": 38,
+       "text": "Tablets are better for online studying than desktop computers."
+      },
+      {
+       "q": 39,
+       "text": "Physical school buildings will completely disappear by the year 2050."
+      },
+      {
+       "q": 40,
+       "text": "Human connection will always remain an essential part of good education."
+      }
+     ]
+    }
+   ],
+   "qRange": [
+    27,
+    40
+   ]
+  }
+ ],
+ "answers": {
+  "1": [
+   "medicine"
+  ],
+  "2": [
+   "revenue"
+  ],
+  "3": [
+   "professors"
+  ],
+  "4": [
+   "hospitals"
+  ],
+  "5": [
+   "job"
+  ],
+  "6": [
+   "debt"
+  ],
+  "7": [
+   "housing"
+  ],
+  "8": [
+   "TRUE"
+  ],
+  "9": [
+   "NOT GIVEN"
+  ],
+  "10": [
+   "FALSE"
+  ],
+  "11": [
+   "FALSE"
+  ],
+  "12": [
+   "TRUE"
+  ],
+  "13": [
+   "NOT GIVEN"
+  ],
+  "14": [
+   "F"
+  ],
+  "15": [
+   "A"
+  ],
+  "16": [
+   "D"
+  ],
+  "17": [
+   "C"
+  ],
+  "18": [
+   "clinics"
+  ],
+  "19": [
+   "salaries"
+  ],
+  "20": [
+   "workplaces"
+  ],
+  "21": [
+   "clients"
+  ],
+  "22": [
+   "A"
+  ],
+  "23": [
+   "C"
+  ],
+  "24": [
+   "B"
+  ],
+  "25": [
+   "D"
+  ],
+  "26": [
+   "A"
+  ],
+  "27": [
+   "A"
+  ],
+  "28": [
+   "B"
+  ],
+  "29": [
+   "C"
+  ],
+  "30": [
+   "C"
+  ],
+  "31": [
+   "C"
+  ],
+  "32": [
+   "B"
+  ],
+  "33": [
+   "A"
+  ],
+  "34": [
+   "F"
+  ],
+  "35": [
+   "E"
+  ],
+  "36": [
+   "D"
+  ],
+  "37": [
+   "YES"
+  ],
+  "38": [
+   "NOT GIVEN"
+  ],
+  "39": [
+   "NO"
+  ],
+  "40": [
+   "YES"
+  ]
+ }
+}

@@ -87,17 +87,17 @@ LOGIN_CSS = """
   radial-gradient(700px 420px at 12% -5%, color-mix(in srgb, var(--m-accent) 16%, transparent), transparent 70%),
   radial-gradient(600px 400px at 100% 105%, color-mix(in srgb, var(--m-accent) 11%, transparent), transparent 70%); }
 .block-container, [data-testid="stMainBlockContainer"] { padding-top: 7vh; max-width: 480px; }
-.memora-hero { text-align: center; margin-bottom: 1.3rem; }
-.memora-hero .mark { width: 64px; height: 64px; border-radius: 20px; margin: 0 auto 14px; display: block;
+.memora-hero { text-align: center; margin: .2rem 0 1.1rem; }
+.memora-hero .mark { width: 68px; height: 68px; border-radius: 20px; margin: 0 auto 14px; display: block;
   box-shadow: 0 12px 26px -8px color-mix(in srgb, var(--m-accent) 70%, transparent); }
-.memora-hero h1 { font-size: 2rem; font-weight: 800; letter-spacing: -.035em; margin: 0 0 6px; }
-.memora-hero p { opacity: .7; margin: 0; font-size: .96rem; }
-.st-key-card-login { padding: 26px 30px 24px; border-radius: 28px; backdrop-filter: blur(6px);
+.memora-hero h1 { font-size: 1.7rem; font-weight: 700; letter-spacing: -.02em; line-height: 1.25; margin: 0 0 6px; padding: 0; }
+.memora-hero p { opacity: .68; margin: 0; font-size: .92rem; line-height: 1.5; }
+.st-key-card-login { padding: 30px 32px 26px; border-radius: 26px; background: var(--m-card); border: 1px solid var(--m-line);
   box-shadow: 0 40px 80px -48px color-mix(in srgb, var(--m-accent) 55%, transparent), var(--m-shadow); }
-.st-key-card-login [data-testid="stButtonGroup"], .st-key-card-login [data-testid="stButtonGroup"] [role="radiogroup"],
-.st-key-card-login [data-testid="stButtonGroup"] [role="group"] { width: 100%; display: flex; }
-.st-key-card-login [data-testid="stButtonGroup"] button { flex: 1 1 0; justify-content: center; min-height: 42px; font-weight: 700; }
-.st-key-card-login [data-testid="stButtonGroup"] { margin-bottom: 1.1rem; }
+.st-key-card-login [data-baseweb="tab-list"] { gap: 0; width: 100%; border-bottom: 1px solid var(--m-line); }
+.st-key-card-login [data-baseweb="tab"] { flex: 1 1 0; justify-content: center; padding: .6rem .5rem; height: auto; }
+.st-key-card-login [data-baseweb="tab"] p { font-weight: 600; font-size: .95rem; white-space: nowrap; }
+.st-key-card-login [data-baseweb="tab-panel"] { padding-top: 1.1rem; }
 .st-key-card-login [data-testid="stTextInput"] { margin-bottom: .15rem; }
 .st-key-card-login [data-testid="stFormSubmitButton"], .st-key-card-login [data-testid="stFormSubmitButton"] button { width: 100%; }
 .st-key-card-login [data-testid="stFormSubmitButton"] button { min-height: 48px; font-size: 1rem; margin-top: .4rem; border-radius: 14px; }
@@ -121,17 +121,16 @@ def login_view() -> None:
     """Login / register screen (shown by app.py whenever nobody is signed in)."""
     st.markdown(LOGIN_CSS, unsafe_allow_html=True)
     with st.container():
-        st.markdown(
-            f'<div class="memora-hero"><img class="mark" src="{MARK_SVG}" alt="">'
-            '<h1>IELTS Memora</h1>'
-            '<p>Đăng nhập để lưu tiến độ và điểm số của bạn.</p></div>',
-            unsafe_allow_html=True,
-        )
         with st.container(key="card-login"):
-            mode = st.segmented_control("Chế độ", ["Đăng nhập", "Tạo tài khoản"], default="Đăng nhập",
-                                        key="auth_mode", label_visibility="collapsed") or "Đăng nhập"
+            st.markdown(
+                f'<div class="memora-hero"><img class="mark" src="{MARK_SVG}" alt="">'
+                '<h1>IELTS Memora</h1>'
+                '<p>Đăng nhập để lưu tiến độ và điểm số của bạn.</p></div>',
+                unsafe_allow_html=True,
+            )
+            tab_login, tab_reg = st.tabs(["Đăng nhập", "Tạo tài khoản"])
 
-            if mode == "Đăng nhập":
+            with tab_login:
                 with st.form("login_form"):
                     username = st.text_input("Tên đăng nhập", autocomplete="username")
                     password = st.text_input("Mật khẩu", type="password", autocomplete="current-password")
@@ -144,7 +143,7 @@ def login_view() -> None:
                     else:
                         st.error(msg)
 
-            else:
+            with tab_reg:
                 with st.form("register_form"):
                     r_user = st.text_input("Tên đăng nhập", help="3–30 ký tự: chữ, số, _ hoặc .", key="reg_user")
                     r_name = st.text_input("Tên hiển thị", key="reg_name")

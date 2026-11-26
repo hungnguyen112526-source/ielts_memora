@@ -1,0 +1,624 @@
+{
+ "schema": 1,
+ "id": "band-4-5-education-test-8",
+ "series": "education",
+ "category": "band_4_5",
+ "title": "Family, Sport & Success (Set 2)",
+ "summary": "Family, Media and Peers • Elite Sport vs Grassroots • Education and Success",
+ "subtitle": "Band 4.0–5.0 · Education",
+ "module": "academic",
+ "durationMin": 60,
+ "totalQuestions": 40,
+ "questionTypes": [
+  "tfng",
+  "flowchart",
+  "notes",
+  "summary_box",
+  "mcq"
+ ],
+ "passages": [
+  {
+   "label": "READING PASSAGE 1",
+   "instruction": "You should spend about 20 minutes on Questions 1-13, which are based on Reading Passage 1 below.",
+   "title": "Family, Media and Peers: What Shapes a Child?",
+   "subtitle": "Understanding the combined impact of home life, television, and friends",
+   "paragraphs": [
+    "Parents often wonder what shapes their child's character the most. In early childhood, family upbringing plays the largest part. Before children even start kindergarten, parents and grandparents act as their main role model. Young kids copy how adults speak at the dinner table, how they share with neighbours, and how they stay calm when things go wrong.",
+    "Once children enter school, however, outside factors quickly gain strong influence. Classmates and close friends—called peers—become very important in daily life. During the teenage years, wanting to belong to a group often leads to peer pressure, where young people copy their friends' fashion, slang, or hobbies. While adults usually think of bad peer pressure like breaking school rules, friends can also be a positive force, encouraging teens to practise football, read books, or study harder for exams.",
+    "Daily exposure to media, especially television, video platforms, and social apps, also shapes young minds. Good children's TV shows and nature documentaries can teach new vocabulary, animal facts, and kindness to others. On the other hand, watching violent cartoons late at night or scrolling through edited online photos can cause poor sleep, restless behaviour, and unhappy feelings about one's appearance.",
+    "Since families cannot hide screens forever, child experts suggest a practical three-step family media plan. First, parents should create device-free zones, such as keeping tablets and TVs out of bedrooms and away from the dinner table. Second, adults should practise co-viewing shows, sitting with children to enjoy key television programmes together. Third, parents should start honest talks about adverts and edited online pictures so kids learn not to believe everything on a screen.",
+    "Overall, experts agree that family, friends, and television work together rather than separately. Children who feel safe and respected at home usually pick kinder friend groups and ask their parents for advice when they see something confusing online. Even in a digital world, caring parents remain a child's strongest anchor."
+   ],
+   "groups": [
+    {
+     "title": "Questions 1-7",
+     "instruction": "Do the following statements agree with the information given in Reading Passage 1? Choose <strong>TRUE</strong>, <strong>FALSE</strong> or <strong>NOT GIVEN</strong>.",
+     "type": "tfng",
+     "options": [
+      "TRUE",
+      "FALSE",
+      "NOT GIVEN"
+     ],
+     "items": [
+      {
+       "q": 1,
+       "text": "Young children begin copying adult habits before they attend kindergarten."
+      },
+      {
+       "q": 2,
+       "text": "Grandparents are usually better role models for children than parents are."
+      },
+      {
+       "q": 3,
+       "text": "Peer pressure among teenagers only leads to negative behaviour like breaking school rules."
+      },
+      {
+       "q": 4,
+       "text": "Nature documentaries on television can help children learn facts about animals."
+      },
+      {
+       "q": 5,
+       "text": "Social apps are more harmful to children's sleep than late-night television cartoons."
+      },
+      {
+       "q": 6,
+       "text": "Child experts advise families to remove all televisions and smartphones from the house forever."
+      },
+      {
+       "q": 7,
+       "text": "Children from supportive homes tend to choose nicer friends."
+      }
+     ]
+    },
+    {
+     "title": "Questions 8-10",
+     "instruction": "Complete the flow-chart below. Choose <strong>NO MORE THAN TWO WORDS</strong> from the passage for each answer.",
+     "type": "flowchart",
+     "boxTitle": "Three-Step Family Media Plan",
+     "steps": [
+      "Step 1: Set up {{8}} (keep screens away from bedrooms and meal tables).",
+      "Step 2: Try {{9}} by watching important TV programmes with children.",
+      "Step 3: Hold {{10}} about ads and altered pictures on screens."
+     ]
+    },
+    {
+     "title": "Questions 11-13",
+     "instruction": "Complete the notes below. Choose <strong>ONE WORD ONLY</strong> from the passage for each answer.",
+     "type": "notes",
+     "boxTitle": "Media Risks and Family Support",
+     "sections": [
+      {
+       "heading": "Drawbacks of media",
+       "items": [
+        "Watching violent {{11}} late at night can affect sleep.",
+        "Edited online photos can make young people unhappy with their {{12}}."
+       ]
+      },
+      {
+       "heading": "Family role",
+       "items": [
+        "Caring parents act as a child's strongest {{13}} in the digital age."
+       ]
+      }
+     ]
+    }
+   ],
+   "qRange": [
+    1,
+    13
+   ]
+  },
+  {
+   "label": "READING PASSAGE 2",
+   "instruction": "You should spend about 20 minutes on Questions 14-26, which are based on Reading Passage 2 below.",
+   "title": "Elite Sport Funding vs. Grassroots Participation",
+   "subtitle": "Should public money build Olympic champions or neighbourhood sports centres?",
+   "paragraphs": [
+    "Whenever a national team wins a major cup or an Olympic gold medal, streets fill with cheering fans. Yet after the party ends, politicians face a hard question about public spending. With limited tax money, should governments spend millions training a few elite athletes for world competitions, or should they invest in everyday sports for all citizens?",
+    "People who support elite sport funding say global medals create deep national pride and bring strangers together. They also praise structured talent development programmes—which pay for full-time trainers, sports doctors, and modern stadiums—because famous winners become role models. Supporters believe that watching local stars win on television encourages thousands of children to join sports clubs.",
+    "However, public health researchers question whether this excitement lasts long. Studies carried out two years after big sports tournaments often find that daily exercise among ordinary adults stays almost the same. Meanwhile, childhood and adult obesity is rising fast, creating heavy bills for public clinics. Critics feel it is unfair to spend millions on a handful of medal winners while local swimming pools are shutting down.",
+    "For this reason, health experts urge leaders to put more money into grassroots participation. Building safe bicycle lanes, free park gyms, and clean neighbourhood facilities allows busy parents, older citizens, and beginners to stay active close to home. Even simple daily walks or weekend football games can lower heart problems and save hospitals huge amounts of money.",
+    "People also debate how seriously young children should take competitive sport. Hoping for future professional contracts, some families sign nine-year-olds up to train for fifteen hours every week in just one sport. Although serious training teaches focus and teamwork, doctors warn that pushing growing bodies too hard often causes knee injuries and stress, making many kids quit sport altogether by age fifteen.",
+    "In truth, elite sport and community sport do not need to fight each other. Top athletes bring joy to a country, while neighbourhood fitness protects national health. Smart governments should guarantee steady funding for school playgrounds and community centres alongside elite academies—because every future champion starts out as an ordinary child playing in a local park."
+   ],
+   "groups": [
+    {
+     "title": "Questions 14-19",
+     "instruction": "Complete the summary using the list of words and phrases, <strong>A-J</strong>, below.",
+     "type": "summary_box",
+     "boxTitle": "Balancing Elite and Community Sports Budgets",
+     "legend": [
+      {
+       "key": "A",
+       "text": "heart illness"
+      },
+      {
+       "key": "B",
+       "text": "weight problems"
+      },
+      {
+       "key": "C",
+       "text": "tax money"
+      },
+      {
+       "key": "D",
+       "text": "sports clubs"
+      },
+      {
+       "key": "E",
+       "text": "local spaces"
+      },
+      {
+       "key": "F",
+       "text": "national unity"
+      },
+      {
+       "key": "G",
+       "text": "ticket sales"
+      },
+      {
+       "key": "H",
+       "text": "television ads"
+      },
+      {
+       "key": "I",
+       "text": "knee pain"
+      },
+      {
+       "key": "J",
+       "text": "school exams"
+      }
+     ],
+     "options": [
+      "A",
+      "B",
+      "C",
+      "D",
+      "E",
+      "F",
+      "G",
+      "H",
+      "I",
+      "J"
+     ],
+     "paragraphs": [
+      "Governments must decide how to share {{14}} between top athletes and everyday fitness. Supporters of elite funding argue that international wins build {{15}} and inspire children to join {{16}}. Yet health researchers point out that general activity rarely improves long-term, while growing {{17}} adds heavy costs to clinics. They therefore favour spending on {{18}} like bicycle lanes and local pools, which help prevent {{19}} across the population."
+     ]
+    },
+    {
+     "title": "Questions 20-23",
+     "instruction": "Do the following statements agree with the views of the writer in Reading Passage 2? Choose <strong>YES</strong>, <strong>NO</strong> or <strong>NOT GIVEN</strong>.",
+     "type": "tfng",
+     "options": [
+      "YES",
+      "NO",
+      "NOT GIVEN"
+     ],
+     "items": [
+      {
+       "q": 20,
+       "text": "Research shows that big sports tournaments lead to lasting increases in adult exercise."
+      },
+      {
+       "q": 21,
+       "text": "Older citizens prefer walking in parks rather than riding bicycles."
+      },
+      {
+       "q": 22,
+       "text": "Intense single-sport training for nine-year-olds can cause injuries and make them stop playing sport."
+      },
+      {
+       "q": 23,
+       "text": "Governments should stop funding elite academies completely in order to protect local parks."
+      }
+     ]
+    },
+    {
+     "title": "Questions 24-26",
+     "instruction": "Choose the correct letter, <strong>A, B, C or D</strong>.",
+     "type": "mcq",
+     "items": [
+      {
+       "q": 24,
+       "text": "What is included in elite talent development programmes in paragraph 2?",
+       "options": [
+        {
+         "k": "A",
+         "t": "Full-time trainers, sports doctors, and modern stadiums"
+        },
+        {
+         "k": "B",
+         "t": "Free park gyms and neighbourhood bicycle lanes"
+        },
+        {
+         "k": "C",
+         "t": "Weekend football leagues for busy parents"
+        },
+        {
+         "k": "D",
+         "t": "Public clinics for treating childhood obesity"
+        }
+       ]
+      },
+      {
+       "q": 25,
+       "text": "Why do some families push nine-year-olds to train fifteen hours a week, according to paragraph 5?",
+       "options": [
+        {
+         "k": "A",
+         "t": "Doctors told them children need fifteen hours of exercise weekly."
+        },
+        {
+         "k": "B",
+         "t": "They hope their children will win future professional contracts."
+        },
+        {
+         "k": "C",
+         "t": "Local schools require intensive training in one sport."
+        },
+        {
+         "k": "D",
+         "t": "It is cheaper than joining a neighbourhood swimming pool."
+        }
+       ]
+      },
+      {
+       "q": 26,
+       "text": "What point is the writer making at the end of the final paragraph?",
+       "options": [
+        {
+         "k": "A",
+         "t": "Community parks are where future sporting champions begin."
+        },
+        {
+         "k": "B",
+         "t": "School playgrounds are more expensive to build than stadiums."
+        },
+        {
+         "k": "C",
+         "t": "Professional athletes should pay for local sports centres."
+        },
+        {
+         "k": "D",
+         "t": "Children should not watch Olympic competitions on television."
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "qRange": [
+    14,
+    26
+   ]
+  },
+  {
+   "label": "READING PASSAGE 3",
+   "instruction": "You should spend about 20 minutes on Questions 27-40, which are based on Reading Passage 3 below.",
+   "title": "Education and Success in Modern Society",
+   "subtitle": "Why determination and lifelong learning matter as much as a university degree",
+   "paragraphs": [
+    "Fifty years ago, most families believed there was one clear road to success: work hard at school, earn strong university qualifications, and take a safe job in a big firm. A university diploma did not only bring a good income; it also gave graduates high social status and pride in their community. Today, however, career advisers say that old rule no longer tells the whole story.",
+    "One big reason for this change is that university degrees are far more common now. When only a small share of young people went to university, a degree made an applicant stand out immediately. Today, in many nations, almost half of school leavers earn a diploma. As a result, having a degree alone does not promise a senior job, and many graduates start in entry-level roles that once required only a high school certificate.",
+    "At the same time, the digital economy has created exciting chances for entrepreneurship. With a laptop and a good idea, creative people can run an online bakery, offer freelance graphic design, or sell handmade crafts to buyers worldwide without needing huge bank loans. Many respected business founders succeeded without finishing university, showing that paper certificates are not the only proof of ability.",
+    "When researchers study successful people across all walks of life—from restaurant owners to scientists—one personal quality appears again and again: determination. Building a business or learning a hard skill brings plenty of mistakes and closed doors. People who keep trying, learn from failure, and stay patient often achieve far more than clever students who quit at the first obstacle.",
+    "Another key requirement for success today is lifelong learning. Because new software and smart machines change workplaces every few years, knowledge gained at age twenty-two quickly becomes old. Thriving workers keep learning throughout adulthood by taking short evening workshops, reading industry guides, and earning small online certificates—whether they have a university degree or not.",
+    "Of course, university education is still very important. Future doctors, architects, and scientists truly need formal degrees, and college life teaches valuable thinking skills. Yet modern society is wisely adopting a wider view of success: real achievement comes not just from a diploma on the wall, but from curiosity, effort, and the willingness to keep growing."
+   ],
+   "groups": [
+    {
+     "title": "Questions 27-32",
+     "instruction": "Complete the summary using the list of words and phrases, <strong>A-J</strong>, below.",
+     "type": "summary_box",
+     "boxTitle": "Rethinking Success in Today's Economy",
+     "legend": [
+      {
+       "key": "A",
+       "text": "new technologies"
+      },
+      {
+       "key": "B",
+       "text": "starting businesses"
+      },
+      {
+       "key": "C",
+       "text": "university diplomas"
+      },
+      {
+       "key": "D",
+       "text": "ongoing study"
+      },
+      {
+       "key": "E",
+       "text": "steady determination"
+      },
+      {
+       "key": "F",
+       "text": "high status"
+      },
+      {
+       "key": "G",
+       "text": "bank loans"
+      },
+      {
+       "key": "H",
+       "text": "free tuition"
+      },
+      {
+       "key": "I",
+       "text": "long holidays"
+      },
+      {
+       "key": "J",
+       "text": "office buildings"
+      }
+     ],
+     "options": [
+      "A",
+      "B",
+      "C",
+      "D",
+      "E",
+      "F",
+      "G",
+      "H",
+      "I",
+      "J"
+     ],
+     "paragraphs": [
+      "Half a century ago, a university degree reliably brought steady income and {{27}}. Nowadays, because so many young adults hold {{28}}, a diploma no longer guarantees a top post. Meanwhile, digital tools have encouraged {{29}}, letting creative people start firms with little startup cash. Studies show that {{30}} during tough setbacks often matters more than raw cleverness. Because {{31}} constantly reshape jobs, successful adults also commit to {{32}} throughout their lives."
+     ]
+    },
+    {
+     "title": "Questions 33-36",
+     "instruction": "Do the following statements agree with the views of the writer in Reading Passage 3? Choose <strong>YES</strong>, <strong>NO</strong> or <strong>NOT GIVEN</strong>.",
+     "type": "tfng",
+     "options": [
+      "YES",
+      "NO",
+      "NOT GIVEN"
+     ],
+     "items": [
+      {
+       "q": 33,
+       "text": "A university degree makes an applicant stand out less today than it did fifty years ago."
+      },
+      {
+       "q": 34,
+       "text": "Online bakeries earn more profit than freelance graphic designers."
+      },
+      {
+       "q": 35,
+       "text": "What a student learns at age twenty-two usually stays up to date until they retire."
+      },
+      {
+       "q": 36,
+       "text": "Most architects believe evening workshops are more useful than university degrees."
+      }
+     ]
+    },
+    {
+     "title": "Questions 37-40",
+     "instruction": "Choose the correct letter, <strong>A, B, C or D</strong>.",
+     "type": "mcq",
+     "items": [
+      {
+       "q": 37,
+       "text": "Why does the writer mention that many graduates start in entry-level jobs once held by high school leavers in paragraph 2?",
+       "options": [
+        {
+         "k": "A",
+         "t": "To show that a degree alone no longer guarantees a top position"
+        },
+        {
+         "k": "B",
+         "t": "To prove that high school certificates are harder to earn than degrees"
+        },
+        {
+         "k": "C",
+         "t": "To argue that universities should stop accepting half of school leavers"
+        },
+        {
+         "k": "D",
+         "t": "To suggest that big firms no longer hire young people"
+        }
+       ]
+      },
+      {
+       "q": 38,
+       "text": "What do successful founders without university degrees show, according to paragraph 3?",
+       "options": [
+        {
+         "k": "A",
+         "t": "Bank loans are essential for launching an online shop."
+        },
+        {
+         "k": "B",
+         "t": "Formal diplomas are not the only evidence of talent."
+        },
+        {
+         "k": "C",
+         "t": "Everyone should leave university early to start a craft shop."
+        },
+        {
+         "k": "D",
+         "t": "Universities do not teach useful laptop skills."
+        }
+       ]
+      },
+      {
+       "q": 39,
+       "text": "According to paragraph 5, how do thriving workers practise lifelong learning?",
+       "options": [
+        {
+         "k": "A",
+         "t": "By returning to full-time university every five years"
+        },
+        {
+         "k": "B",
+         "t": "By attending evening workshops, reading guides, and taking short online courses"
+        },
+        {
+         "k": "C",
+         "t": "By avoiding workplaces that use smart machines"
+        },
+        {
+         "k": "D",
+         "t": "By working only in small family businesses"
+        }
+       ]
+      },
+      {
+       "q": 40,
+       "text": "What is the writer's conclusion about university education in paragraph 6?",
+       "options": [
+        {
+         "k": "A",
+         "t": "It is no longer needed in the digital economy."
+        },
+        {
+         "k": "B",
+         "t": "It is only helpful for people who want high social status."
+        },
+        {
+         "k": "C",
+         "t": "It remains very valuable, though success also depends on effort and ongoing growth."
+        },
+        {
+         "k": "D",
+         "t": "It is less useful than starting an online bakery."
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "qRange": [
+    27,
+    40
+   ]
+  }
+ ],
+ "answers": {
+  "1": [
+   "TRUE"
+  ],
+  "2": [
+   "NOT GIVEN"
+  ],
+  "3": [
+   "FALSE"
+  ],
+  "4": [
+   "TRUE"
+  ],
+  "5": [
+   "NOT GIVEN"
+  ],
+  "6": [
+   "FALSE"
+  ],
+  "7": [
+   "TRUE"
+  ],
+  "8": [
+   "device-free zones"
+  ],
+  "9": [
+   "co-viewing shows"
+  ],
+  "10": [
+   "honest talks"
+  ],
+  "11": [
+   "cartoons"
+  ],
+  "12": [
+   "appearance"
+  ],
+  "13": [
+   "anchor"
+  ],
+  "14": [
+   "C"
+  ],
+  "15": [
+   "F"
+  ],
+  "16": [
+   "D"
+  ],
+  "17": [
+   "B"
+  ],
+  "18": [
+   "E"
+  ],
+  "19": [
+   "A"
+  ],
+  "20": [
+   "NO"
+  ],
+  "21": [
+   "NOT GIVEN"
+  ],
+  "22": [
+   "YES"
+  ],
+  "23": [
+   "NO"
+  ],
+  "24": [
+   "A"
+  ],
+  "25": [
+   "B"
+  ],
+  "26": [
+   "A"
+  ],
+  "27": [
+   "F"
+  ],
+  "28": [
+   "C"
+  ],
+  "29": [
+   "B"
+  ],
+  "30": [
+   "E"
+  ],
+  "31": [
+   "A"
+  ],
+  "32": [
+   "D"
+  ],
+  "33": [
+   "YES"
+  ],
+  "34": [
+   "NOT GIVEN"
+  ],
+  "35": [
+   "NO"
+  ],
+  "36": [
+   "NOT GIVEN"
+  ],
+  "37": [
+   "A"
+  ],
+  "38": [
+   "B"
+  ],
+  "39": [
+   "B"
+  ],
+  "40": [
+   "C"
+  ]
+ }
+}

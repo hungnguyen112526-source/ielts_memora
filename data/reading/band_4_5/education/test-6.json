@@ -1,0 +1,560 @@
+{
+ "schema": 1,
+ "id": "band-4-5-education-test-6",
+ "series": "education",
+ "category": "band_4_5",
+ "title": "Skills, Science & Parental Pressure (Set 2)",
+ "summary": "Academic Knowledge vs Employability • Why Fewer Students Choose Science • Parental Pressure",
+ "subtitle": "Band 4.0–5.0 · Education",
+ "module": "academic",
+ "durationMin": 60,
+ "totalQuestions": 40,
+ "questionTypes": [
+  "table",
+  "tfng",
+  "matching",
+  "multi2",
+  "summary_text",
+  "mcq",
+  "summary_box"
+ ],
+ "passages": [
+  {
+   "label": "READING PASSAGE 1",
+   "instruction": "You should spend about 20 minutes on Questions 1-13, which are based on Reading Passage 1 below.",
+   "title": "Academic Knowledge vs. Employability Skills",
+   "subtitle": "How vocational colleges and universities prepare young people for the labour market",
+   "paragraphs": [
+    "For many generations, universities focused mostly on academic study. Courses were largely theoretical, meaning students spent their years reading classic books, attending lectures, and writing research papers. However, today's labour market moves fast, and many business owners complain that young graduates are not job-ready when they arrive at their first office.",
+    "When companies interview young applicants, they look closely for two sets of skills. First, they want practical skills, such as building websites, checking budgets, or using modern design tools. Second, they value soft skills like clear speaking, working calmly in teams, and managing time well. Many managers say a candidate with good soft skills can quickly learn company rules, even without top university grades.",
+    "Because of this demand, vocational schools are growing in popularity. Unlike traditional universities, vocational programmes train students directly for real jobs such as bakery chef, solar panel installer, dental assistant, or IT technician. Learners spend most of their week practising in training kitchens, clinics, or garages, and many receive job offers before they even finish their final term.",
+    "Still, defenders of university education warn that schools should not drop academic subjects. Studying history, science, or economics teaches people how to ask smart questions, check reliable facts, and solve unfamiliar problems. While a specific software tool might be replaced in three years, clear thinking stays useful across many different careers.",
+    "Today, many countries are trying to blend the best parts of both paths. In Austria and Switzerland, dual-training programmes let students spend part of the week in college classes and the rest of the week working at a local business for a monthly wage. Meanwhile, more universities are adding short workplace projects and career coaching so students graduate with both deep knowledge and real experience."
+   ],
+   "groups": [
+    {
+     "title": "Questions 1-5",
+     "instruction": "Complete the table below. Choose <strong>ONE WORD ONLY</strong> from the passage for each answer.",
+     "type": "table",
+     "boxTitle": "Paths to Preparing for Work",
+     "headers": [
+      "Education type",
+      "Main style of learning",
+      "Example or key advantage"
+     ],
+     "rows": [
+      [
+       "Traditional universities",
+       "• Mainly {{1}} study using books, lectures, and papers<br>• Teaches students to check reliable {{2}} and think clearly",
+       ""
+      ],
+      [
+       "Vocational schools",
+       "• Practises in garages, clinics, or training {{3}}",
+       ""
+      ],
+      [
+       "Dual-training programmes",
+       "• Students work at a local business while earning a monthly {{4}}",
+       ""
+      ],
+      [
+       "Modern universities",
+       "• Adds workplace projects and career {{5}} to degrees",
+       ""
+      ]
+     ]
+    },
+    {
+     "title": "Questions 6-13",
+     "instruction": "Do the following statements agree with the information given in Reading Passage 1? Choose <strong>TRUE</strong>, <strong>FALSE</strong> or <strong>NOT GIVEN</strong>.",
+     "type": "tfng",
+     "options": [
+      "TRUE",
+      "FALSE",
+      "NOT GIVEN"
+     ],
+     "items": [
+      {
+       "q": 6,
+       "text": "Many business owners feel that new university graduates are fully prepared for office work on day one."
+      },
+      {
+       "q": 7,
+       "text": "Building websites is mentioned in the passage as an example of a practical skill."
+      },
+      {
+       "q": 8,
+       "text": "Some managers think candidates with strong soft skills can learn workplace rules quickly."
+      },
+      {
+       "q": 9,
+       "text": "Dental assistants earn higher salaries than bakery chefs after finishing vocational school."
+      },
+      {
+       "q": 10,
+       "text": "Many students in vocational schools get job offers before completing their final term."
+      },
+      {
+       "q": 11,
+       "text": "Specific software tools usually remain unchanged for several decades."
+      },
+      {
+       "q": 12,
+       "text": "Austria has more vocational students than Switzerland."
+      },
+      {
+       "q": 13,
+       "text": "Modern universities have completely stopped teaching academic subjects like history and economics."
+      }
+     ]
+    }
+   ],
+   "qRange": [
+    1,
+    13
+   ]
+  },
+  {
+   "label": "READING PASSAGE 2",
+   "instruction": "You should spend about 20 minutes on Questions 14-26, which are based on Reading Passage 2 below.",
+   "title": "Why Fewer Students Choose Science",
+   "subtitle": "Exploring the STEM shortage, career choices, and ways to inspire young scientists",
+   "paragraphs": [
+    "<strong>A</strong> Modern life depends heavily on technological advancement, from clean wind power to life-saving hospital equipment. Yet in many countries, universities are worried because fewer teenagers are applying for STEM courses—science, technology, engineering, and mathematics. Business groups warn that this shortage of skilled graduates could slow down new inventions and make it hard to repair essential power and water systems.",
+    "<strong>B</strong> Why are students turning away from science? One common reason is that subjects like physics and chemistry are perceived as difficult. Many secondary schools do not have modern laboratory gear, so teenagers spend most lessons copying long notes and memorising complex rules. Students who want high final grades for university often drop science and pick subjects they feel more confident passing.",
+    "<strong>C</strong> Another reason is the promise of faster money in other industries. Many students picture scientific work as quiet, slow, and poorly paid. As a result, young people who are strong at mathematics often choose lucrative careers in banking, digital marketing, or law instead, believing these jobs offer quicker promotions and higher starting pay.",
+    "<strong>D</strong> Gender choices also make the STEM gap bigger. Although teenage girls often get top scores in school science and maths exams, far fewer women choose university degrees in robotics, software coding, or civil engineering. Researchers note two key reasons for this: old social habits still suggest that technical machines are mainly for boys, and school textbooks rarely include stories about famous female inventors.",
+    "<strong>E</strong> Luckily, schools can change how students feel about science. When teachers replace boring note-copying with fun science fairs, coding clubs, and team challenges—like building a small solar boat or testing local rainwater—students become much more curious. Seeing how science helps protect animals or keep people healthy makes lessons feel meaningful.",
+    "<strong>F</strong> Governments and tech firms are also helping outside the classroom. Some regions pay extra bonuses to recruit qualified physics teachers for small towns, while engineering groups run free weekend camps where teenage girls meet friendly women engineers. With better teaching and fairer pay, more students may choose to build the technology of the future."
+   ],
+   "groups": [
+    {
+     "title": "Questions 14-19",
+     "instruction": "Reading Passage 2 has six sections, A-F. Which section contains the following information? Choose the correct letter, <strong>A-F</strong>.",
+     "type": "matching",
+     "options": [
+      "A",
+      "B",
+      "C",
+      "D",
+      "E",
+      "F"
+     ],
+     "items": [
+      {
+       "q": 14,
+       "text": "financial incentives used to attract physics teachers to smaller communities"
+      },
+      {
+       "q": 15,
+       "text": "the lack of up-to-date lab equipment in many secondary schools"
+      },
+      {
+       "q": 16,
+       "text": "practical school events that make science lessons more interesting for teenagers"
+      },
+      {
+       "q": 17,
+       "text": "a warning about how fewer engineers could affect basic power and water networks"
+      },
+      {
+       "q": 18,
+       "text": "the high-paying industries that attract mathematically skilled students away from science"
+      },
+      {
+       "q": 19,
+       "text": "the fact that teenage girls perform well in school maths and science tests"
+      }
+     ]
+    },
+    {
+     "title": "Questions 20-21",
+     "instruction": "Choose <strong>TWO</strong> letters, <strong>A-E</strong>. Which TWO reasons do researchers give for why fewer women study subjects like robotics and civil engineering?",
+     "type": "multi2",
+     "qPair": [
+      20,
+      21
+     ],
+     "options": [
+      {
+       "k": "A",
+       "t": "Teenage girls usually get lower marks in high school science."
+      },
+      {
+       "k": "B",
+       "t": "Old cultural ideas still link machines and technical work with boys."
+      },
+      {
+       "k": "C",
+       "t": "Engineering universities charge higher fees to female students."
+      },
+      {
+       "k": "D",
+       "t": "School books seldom mention well-known women inventors."
+      },
+      {
+       "k": "E",
+       "t": "Girls are not interested in weekend coding camps."
+      }
+     ]
+    },
+    {
+     "title": "Questions 22-26",
+     "instruction": "Complete the summary below. Choose <strong>ONE WORD ONLY</strong> from the passage for each answer.",
+     "type": "summary_text",
+     "boxTitle": "Why Students Avoid Science and How Schools Can Respond",
+     "paragraphs": [
+      "Many teenagers avoid physics and chemistry because poor lab equipment forces them to copy notes and memorise difficult {{22}}. Others who enjoy maths choose jobs in law or {{23}} because they expect faster {{24}} and better pay. To spark curiosity, schools can hold science {{25}} and group projects such as testing local {{26}} or making solar boats."
+     ]
+    }
+   ],
+   "qRange": [
+    14,
+    26
+   ]
+  },
+  {
+   "label": "READING PASSAGE 3",
+   "instruction": "You should spend about 20 minutes on Questions 27-40, which are based on Reading Passage 3 below.",
+   "title": "Parental Pressure and Children's Mental Health",
+   "subtitle": "Why scheduled activities should not replace unstructured free play",
+   "paragraphs": [
+    "In many cities today, a ten-year-old's weekly diary looks busier than an office manager's. Right after school finishes, children rush from maths coaching to violin practice, chess club, and swimming lessons. Loving parents arrange these tight schedules because they worry about future jobs and want to give their children every possible advantage.",
+    "Setting high expectations can actually help children succeed. Education studies show that when parents take an interest in homework and cheer their children on, students try harder and feel proud of their progress. The problem begins when encouragement turns into heavy academic pressure. If parents scold children for every B grade or compare them constantly with top classmates, learning stops feeling joyful and starts feeling frightening.",
+    "Child counsellors warn that constant stress damages mental health. Increasingly, young teenagers visit clinics with headaches, poor sleep, and burnout—feeling completely tired and empty from nonstop work. Heavy criticism can also hurt a child's self-esteem. Instead of becoming brave learners, worried kids become scared of looking foolish, so they stop asking questions or trying hard tasks.",
+    "At the same time, busy after-school schedules have pushed out free play. Decades ago, kids rode bikes with friends, built treehouses, and made up street games without adults watching every move. Today, many parents worry that unscheduled afternoons are a waste of time and prefer organised classes that hand out medals and certificates.",
+    "Dr. Anna Novak, a family counsellor in Prague, believes losing free play is a big mistake. 'Unstructured play is how children grow into well-rounded people,' she says. 'When kids invent games without a coach, they learn to share, solve small fights, and bounce back when they lose.' Free time also gives tired young minds a chance to rest and discover personal hobbies.",
+    "Of course, parents should still guide their children and care about schoolwork. However, families need a healthier balance. Celebrating steady effort, keeping at least one afternoon a week completely free, and letting children choose their own hobbies can protect young minds. A calm, happy child is much more ready for future success than a stressed perfectionist."
+   ],
+   "groups": [
+    {
+     "title": "Questions 27-29",
+     "instruction": "Choose the correct letter, <strong>A, B, C or D</strong>.",
+     "type": "mcq",
+     "items": [
+      {
+       "q": 27,
+       "text": "Why does the writer compare a ten-year-old's diary to an office manager's in paragraph 1?",
+       "options": [
+        {
+         "k": "A",
+         "t": "To show that children are learning business skills at school"
+        },
+        {
+         "k": "B",
+         "t": "To highlight how packed modern children's after-school schedules have become"
+        },
+        {
+         "k": "C",
+         "t": "To suggest that office managers have too much free time"
+        },
+        {
+         "k": "D",
+         "t": "To explain why children prefer swimming to maths coaching"
+        }
+       ]
+      },
+      {
+       "q": 28,
+       "text": "According to paragraph 3, what happens to worried children whose self-esteem is damaged?",
+       "options": [
+        {
+         "k": "A",
+         "t": "They study longer hours to impress their teachers."
+        },
+        {
+         "k": "B",
+         "t": "They avoid asking questions and shy away from difficult tasks."
+        },
+        {
+         "k": "C",
+         "t": "They join more competitive sports clubs after school."
+        },
+        {
+         "k": "D",
+         "t": "They spend more time helping their classmates with homework."
+        }
+       ]
+      },
+      {
+       "q": 29,
+       "text": "Why do many parents prefer organised classes over free play in paragraph 4?",
+       "options": [
+        {
+         "k": "A",
+         "t": "They believe unscheduled time is wasted and prefer classes with clear awards."
+        },
+        {
+         "k": "B",
+         "t": "Children no longer know how to ride bikes safely."
+        },
+        {
+         "k": "C",
+         "t": "School teachers ask parents to sign children up for violin and chess."
+        },
+        {
+         "k": "D",
+         "t": "Organised classes are cheaper than buying outdoor toys."
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "title": "Questions 30-35",
+     "instruction": "Complete the summary using the list of words and phrases, <strong>A-I</strong>, below.",
+     "type": "summary_box",
+     "boxTitle": "Protecting Children from Stress and Burnout",
+     "legend": [
+      {
+       "key": "A",
+       "text": "small arguments"
+      },
+      {
+       "key": "B",
+       "text": "self-confidence"
+      },
+      {
+       "key": "C",
+       "text": "free time"
+      },
+      {
+       "key": "D",
+       "text": "consistent effort"
+      },
+      {
+       "key": "E",
+       "text": "unstructured play"
+      },
+      {
+       "key": "F",
+       "text": "total exhaustion"
+      },
+      {
+       "key": "G",
+       "text": "extra homework"
+      },
+      {
+       "key": "H",
+       "text": "strict grades"
+      },
+      {
+       "key": "I",
+       "text": "music lessons"
+      }
+     ],
+     "options": [
+      "A",
+      "B",
+      "C",
+      "D",
+      "E",
+      "F",
+      "G",
+      "H",
+      "I"
+     ],
+     "paragraphs": [
+      "When parental support turns into strict academic pressure, young people may suffer from headaches, poor sleep, and {{30}}. Harsh criticism also damages their {{31}}. According to Dr. Anna Novak, protecting {{32}} helps children become balanced adults. Without adults directing every game, kids learn to share, settle {{33}}, and handle defeat. The writer advises parents to praise {{34}} and leave regular {{35}} in the weekly routine."
+     ]
+    },
+    {
+     "title": "Questions 36-39",
+     "instruction": "Do the following statements agree with the views of the writer in Reading Passage 3? Choose <strong>YES</strong>, <strong>NO</strong> or <strong>NOT GIVEN</strong>.",
+     "type": "tfng",
+     "options": [
+      "YES",
+      "NO",
+      "NOT GIVEN"
+     ],
+     "items": [
+      {
+       "q": 36,
+       "text": "Showing interest in a child's homework can encourage them to work harder."
+      },
+      {
+       "q": 37,
+       "text": "Dr. Anna Novak recommends that children stop playing chess and musical instruments."
+      },
+      {
+       "q": 38,
+       "text": "Having unscheduled time helps children rest and find out what hobbies they personally enjoy."
+      },
+      {
+       "q": 39,
+       "text": "Parents should stop caring about their children's schoolwork to keep them calm."
+      }
+     ]
+    },
+    {
+     "title": "Question 40",
+     "instruction": "Choose the correct letter, <strong>A, B, C or D</strong>.",
+     "type": "mcq",
+     "items": [
+      {
+       "q": 40,
+       "text": "What would be the best subtitle for Reading Passage 3?",
+       "options": [
+        {
+         "k": "A",
+         "t": "Why every child should join at least four after-school clubs"
+        },
+        {
+         "k": "B",
+         "t": "Finding a healthy balance between parental support, study, and free play"
+        },
+        {
+         "k": "C",
+         "t": "Why schools should ban exams for students under fifteen"
+        },
+        {
+         "k": "D",
+         "t": "How parents can choose the best maths tutor for their child"
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "qRange": [
+    27,
+    40
+   ]
+  }
+ ],
+ "answers": {
+  "1": [
+   "theoretical"
+  ],
+  "2": [
+   "facts"
+  ],
+  "3": [
+   "kitchens"
+  ],
+  "4": [
+   "wage"
+  ],
+  "5": [
+   "coaching"
+  ],
+  "6": [
+   "FALSE"
+  ],
+  "7": [
+   "TRUE"
+  ],
+  "8": [
+   "TRUE"
+  ],
+  "9": [
+   "NOT GIVEN"
+  ],
+  "10": [
+   "TRUE"
+  ],
+  "11": [
+   "FALSE"
+  ],
+  "12": [
+   "NOT GIVEN"
+  ],
+  "13": [
+   "FALSE"
+  ],
+  "14": [
+   "F"
+  ],
+  "15": [
+   "B"
+  ],
+  "16": [
+   "E"
+  ],
+  "17": [
+   "A"
+  ],
+  "18": [
+   "C"
+  ],
+  "19": [
+   "D"
+  ],
+  "20": [
+   "B",
+   "D"
+  ],
+  "21": [
+   "B",
+   "D"
+  ],
+  "22": [
+   "rules"
+  ],
+  "23": [
+   "banking"
+  ],
+  "24": [
+   "promotions"
+  ],
+  "25": [
+   "fairs"
+  ],
+  "26": [
+   "rainwater"
+  ],
+  "27": [
+   "B"
+  ],
+  "28": [
+   "B"
+  ],
+  "29": [
+   "A"
+  ],
+  "30": [
+   "F"
+  ],
+  "31": [
+   "B"
+  ],
+  "32": [
+   "E"
+  ],
+  "33": [
+   "A"
+  ],
+  "34": [
+   "D"
+  ],
+  "35": [
+   "C"
+  ],
+  "36": [
+   "YES"
+  ],
+  "37": [
+   "NOT GIVEN"
+  ],
+  "38": [
+   "YES"
+  ],
+  "39": [
+   "NO"
+  ],
+  "40": [
+   "B"
+  ]
+ },
+ "pairQuestions": [
+  [
+   20,
+   21,
+   [
+    "B",
+    "D"
+   ]
+  ]
+ ]
+}

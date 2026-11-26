@@ -1,6 +1,6 @@
 {
- "generated": 1795678184,
- "signature": 74756866846911,
+ "generated": 1795679411,
+ "signature": 22490334686034,
  "categories": [
   {
    "id": "band_4_5",
@@ -127,6 +127,148 @@
        "id": "band-4-5-education-test-4",
        "file": "band_4_5/education/test-4.json",
        "title": "Youth, Sport & Success",
+       "summary": "Family, Media and Peers • Elite Sport vs Grassroots • Education and Success",
+       "module": "academic",
+       "durationMin": 60,
+       "totalQuestions": 40,
+       "questionTypes": [
+        "tfng",
+        "flowchart",
+        "notes",
+        "summary_box",
+        "mcq"
+       ],
+       "passages": [
+        "Family, Media and Peers: What Shapes a Child?",
+        "Elite Sport Funding vs. Grassroots Participation",
+        "Education and Success in Modern Society"
+       ],
+       "qRanges": [
+        [
+         1,
+         13
+        ],
+        [
+         14,
+         26
+        ],
+        [
+         27,
+         40
+        ]
+       ]
+      },
+      {
+       "id": "band-4-5-education-test-5",
+       "file": "band_4_5/education/test-5.json",
+       "title": "Funding, Study Abroad & Online Learning (Set 2)",
+       "summary": "Publicly Funded Higher Education • Studying Abroad vs Brain Drain • Online Learning",
+       "module": "academic",
+       "durationMin": 60,
+       "totalQuestions": 40,
+       "questionTypes": [
+        "notes",
+        "tfng",
+        "matching",
+        "summary_text",
+        "mcq",
+        "summary_box"
+       ],
+       "passages": [
+        "Should Higher Education Be Publicly Funded?",
+        "Studying Abroad: Personal Growth or Brain Drain?",
+        "The Rise of Online Learning"
+       ],
+       "qRanges": [
+        [
+         1,
+         13
+        ],
+        [
+         14,
+         26
+        ],
+        [
+         27,
+         40
+        ]
+       ]
+      },
+      {
+       "id": "band-4-5-education-test-6",
+       "file": "band_4_5/education/test-6.json",
+       "title": "Skills, Science & Parental Pressure (Set 2)",
+       "summary": "Academic Knowledge vs Employability • Why Fewer Students Choose Science • Parental Pressure",
+       "module": "academic",
+       "durationMin": 60,
+       "totalQuestions": 40,
+       "questionTypes": [
+        "table",
+        "tfng",
+        "matching",
+        "multi2",
+        "summary_text",
+        "mcq",
+        "summary_box"
+       ],
+       "passages": [
+        "Academic Knowledge vs. Employability Skills",
+        "Why Fewer Students Choose Science",
+        "Parental Pressure and Children's Mental Health"
+       ],
+       "qRanges": [
+        [
+         1,
+         13
+        ],
+        [
+         14,
+         26
+        ],
+        [
+         27,
+         40
+        ]
+       ]
+      },
+      {
+       "id": "band-4-5-education-test-7",
+       "file": "band_4_5/education/test-7.json",
+       "title": "Curriculum, Dropouts & Life Skills (Set 2)",
+       "summary": "Breadth or Depth in the Curriculum • Compulsory Schooling and Dropouts • Teaching Life Skills",
+       "module": "academic",
+       "durationMin": 60,
+       "totalQuestions": 40,
+       "questionTypes": [
+        "notes",
+        "tfng",
+        "mcq",
+        "matching"
+       ],
+       "passages": [
+        "Breadth or Depth in the School Curriculum?",
+        "Compulsory Schooling and School Dropouts",
+        "Teaching Life Skills in Schools"
+       ],
+       "qRanges": [
+        [
+         1,
+         13
+        ],
+        [
+         14,
+         26
+        ],
+        [
+         27,
+         40
+        ]
+       ]
+      },
+      {
+       "id": "band-4-5-education-test-8",
+       "file": "band_4_5/education/test-8.json",
+       "title": "Family, Sport & Success (Set 2)",
        "summary": "Family, Media and Peers • Elite Sport vs Grassroots • Education and Success",
        "module": "academic",
        "durationMin": 60,
