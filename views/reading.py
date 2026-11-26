@@ -263,14 +263,14 @@ def _handle_event(val, test: dict, scope: str) -> None:
                             "answers": state["answers"]}, scope=scope)
         label = f"Band {result['band']} ({result['score']}/{result['total']})" if result["band"] \
             else f"{result['score']}/{result['total']} câu đúng"
-        st.toast(f"Đã nộp bài · {label}", icon=":material/check_circle:")
+        st.toast(f"Đã nộp bài · {label}", icon="✅")
     elif event in ("autosave", "exit", "prev", "next"):
         state["submitted"] = False
         db.save_progress(uid, pk, state)
 
     if event == "exit":
         close_test()
-        st.toast("Đã lưu tiến độ", icon=":material/save:")
+        st.toast("Đã lưu tiến độ", icon="💾")
         st.rerun()
     if event in ("prev", "next"):
         prev_id, next_id = cat_mod.neighbours(catalog, tid)
@@ -279,7 +279,7 @@ def _handle_event(val, test: dict, scope: str) -> None:
             entry = cat_mod.find_test_entry(catalog, target)
             target_scope = scope if scope == "full" or int(scope[1:]) <= len(entry["passages"]) else "full"
             open_test(target, target_scope)
-            st.toast("Đã lưu tiến độ đề trước", icon=":material/save:")
+            st.toast("Đã lưu tiến độ đề trước", icon="💾")
             st.rerun()
 
 

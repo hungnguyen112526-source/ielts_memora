@@ -31,7 +31,7 @@ with st.container(key="card-password"):
             token = auth.create_session(user["id"])
             st.session_state["_session_token"] = token
             st.session_state["_cookie_token"] = token
-            st.toast(msg, icon=":material/check_circle:")
+            st.toast(msg, icon="✅")
             st.success(msg)
         else:
             st.error(msg)
