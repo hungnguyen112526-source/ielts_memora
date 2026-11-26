@@ -3,6 +3,7 @@ from datetime import datetime
 from zoneinfo import ZoneInfo
 
 import os
+import json
 import sqlite3
 import tempfile
 
@@ -92,8 +93,16 @@ def _backup_bytes() -> bytes:
         os.unlink(tmp)
 
 
-section("Sao lưu")
+section("Lưu trữ và sao lưu")
 with st.container(key="card-backup"):
-    st.caption("Streamlit Cloud có thể xóa file dữ liệu khi khởi động lại app, hãy tải bản sao lưu định kỳ.")
-    st.download_button("Tải bản sao lưu (memora.db)", data=_backup_bytes(), file_name="memora-backup.db",
-                       mime="application/octet-stream", icon=":material/download:")
+    if db.backend() == "postgres":
+        st.success("Dữ liệu đang lưu ở PostgreSQL bên ngoài, không bị mất khi app khởi động lại.", icon=":material/cloud_done:")
+        st.caption("Bạn vẫn có thể tải thêm một bản sao lưu JSON (mật khẩu chỉ ở dạng băm).")
+        st.download_button("Tải bản sao lưu (JSON)",
+                           data=json.dumps(db.export_all(), ensure_ascii=False, indent=1).encode("utf-8"),
+                           file_name="memora-backup.json", mime="application/json", icon=":material/download:")
+    else:
+        st.warning("Đang dùng SQLite (file trên ổ đĩa tạm). Trên Streamlit Cloud, dữ liệu sẽ MẤT khi app khởi động lại. "
+                   "Hãy đặt `DATABASE_URL` trong Secrets để lưu bền (xem README, mục Lưu dữ liệu bền).", icon=":material/warning:")
+        st.download_button("Tải bản sao lưu (memora.db)", data=_backup_bytes(), file_name="memora-backup.db",
+                           mime="application/octet-stream", icon=":material/download:")

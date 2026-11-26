@@ -154,25 +154,41 @@ def library() -> None:
                 st.rerun()
 
     by_topic = bool(cat.get("filterByTopic")) and bool(cat["series"])       # Band 4–5.0 / 5–6.5: mỗi "bộ" là một chủ đề
-    if by_topic:
-        c1, c3, c2 = st.columns([1.1, 1.0, 1.5], vertical_alignment="center")
-    else:
-        c1, c2 = st.columns([1.2, 1.5], vertical_alignment="center")
+    c1, c2 = st.columns([1.2, 1.5], vertical_alignment="center")
     query = c1.text_input("Tìm đề", placeholder="Tìm theo tên bài đọc…", icon=":material/search:",
                           label_visibility="collapsed").strip()
-    topic = None
-    if by_topic:
-        counts = {s["id"]: len(s["tests"]) for s in cat["series"]}
-        titles = {s["id"]: s["title"] for s in cat["series"]}
-        topic = c3.selectbox("Chủ đề", ["", *titles], key=f"topic-{cat['id']}", label_visibility="collapsed",
-                             format_func=lambda k: "Tất cả chủ đề" if not k else f"{titles[k]} ({counts[k]})") or None
     status = c2.segmented_control("Trạng thái", list(FILTERS), default="Tất cả",
                                   label_visibility="collapsed") or "Tất cả"
 
+    topic = None
+    topic_title = ""
+    if by_topic:
+        tkey = f"topic-{cat['id']}"
+        topic = st.session_state.get(tkey) or None
+        if topic not in {s["id"] for s in cat["series"]}:
+            topic = None
+        total_n = sum(len(s["tests"]) for s in cat["series"])
+        tiles = [("", "Tất cả chủ đề", total_n)] + [(s["id"], s["title"], len(s["tests"])) for s in cat["series"]]
+
+        def _pick(value: str, key: str = tkey) -> None:
+            st.session_state[key] = value
+
+        st.markdown('<p class="memora-meta" style="padding:.2rem 0 .1rem;font-weight:700">Chọn chủ đề</p>', unsafe_allow_html=True)
+        with st.container(key=f"topic-grid-{cat['id']}"):
+            for row_start in range(0, len(tiles), 3):
+                cols = st.columns(3)
+                for col, (sid, title, n) in zip(cols, tiles[row_start:row_start + 3]):
+                    col.button(f"{title} ({n})", key=f"{tkey}-{sid or 'all'}", width="stretch",
+                               type="primary" if (topic or "") == sid else "secondary",
+                               on_click=_pick, args=(sid,))
+        topic_title = next((s["title"] for s in cat["series"] if s["id"] == topic), "")
+
     shown = 0
-    if not any(s["tests"] for s in cat["series"]):
+    scope_tests = [t for s in cat["series"] if not topic or s["id"] == topic for t in s["tests"]]
+    if not scope_tests:
+        what = f"chủ đề {topic_title}" if topic_title else "mục này"
         with st.container(key=f"card-empty-{cat['id']}"):
-            st.markdown('<div class="memora-empty"><b>Chưa có đề trong mục này</b>'
+            st.markdown(f'<div class="memora-empty"><b>Chưa có đề trong {esc(what)}</b>'
                         '<p>Đề mới sẽ xuất hiện ở đây ngay khi được thêm vào.</p></div>',
                         unsafe_allow_html=True)
         return

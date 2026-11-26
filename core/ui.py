@@ -43,42 +43,51 @@ h1, h2, h3 { font-weight: 800 !important; letter-spacing: -.03em !important; }
 [data-testid="stExpander"] details { border-radius: 18px; }
 [data-testid="stDataFrame"] { border-radius: 16px; overflow: hidden; }
 
-/* ---------- nút: chính (xanh) / phụ (viền) / nhẹ (rê chuột mới hiện nền) ---------- */
-[data-testid^="stBaseButton-"] { border-radius: 999px !important; font-weight: 700; letter-spacing: -.01em; min-height: 40px;
-  padding: .25rem 1.1rem; transition: background-color .15s ease, border-color .15s ease, box-shadow .15s ease, transform .15s ease; }
-[data-testid^="stBaseButton-"]:active { transform: scale(.98); }
+/* ---------- nút: chính (xanh) / phụ (nền thẻ + viền) / nhẹ (rê chuột mới hiện nền) ---------- */
+[data-testid^="stBaseButton-"] { border-radius: 12px !important; font-weight: 700; letter-spacing: -.01em; min-height: 42px;
+  padding: .3rem 1.1rem; font-size: .94rem; line-height: 1.25;
+  transition: background-color .15s ease, border-color .15s ease, box-shadow .15s ease, transform .15s ease; }
+[data-testid^="stBaseButton-"]:active { transform: scale(.985); }
+[data-testid^="stBaseButton-"]:focus-visible { outline: 3px solid color-mix(in srgb, var(--m-accent) 35%, transparent); outline-offset: 1px; }
 [data-testid^="stBaseButton-"]:disabled { opacity: .45; cursor: not-allowed; box-shadow: none !important; }
 [data-testid="stBaseButton-secondary"], [data-testid="stBaseButton-secondaryFormSubmit"] {
-  background: transparent; border: 1px solid color-mix(in srgb, currentColor 20%, transparent); }
+  background: var(--m-card); color: inherit; border: 1px solid var(--m-line); box-shadow: 0 1px 2px color-mix(in srgb, currentColor 8%, transparent); }
 [data-testid="stBaseButton-secondary"]:hover:not(:disabled), [data-testid="stBaseButton-secondaryFormSubmit"]:hover:not(:disabled) {
-  background: var(--m-accent-soft); border-color: color-mix(in srgb, var(--m-accent) 60%, transparent); color: inherit; }
+  background: var(--m-accent-soft); border-color: color-mix(in srgb, var(--m-accent) 55%, transparent); color: var(--m-accent-text);
+  box-shadow: 0 4px 12px -6px color-mix(in srgb, var(--m-accent) 60%, transparent); }
 [data-testid="stBaseButton-primary"], [data-testid="stBaseButton-primaryFormSubmit"] {
-  background: linear-gradient(135deg, var(--m-accent), #3b82f6) !important; color: #fff !important; border: 0 !important;
-  box-shadow: 0 10px 22px -10px color-mix(in srgb, var(--m-accent) 85%, transparent); }
+  background: linear-gradient(180deg, color-mix(in srgb, var(--m-accent) 88%, #fff), var(--m-accent)) !important; color: #fff !important; border: 0 !important;
+  box-shadow: 0 6px 16px -8px color-mix(in srgb, var(--m-accent) 90%, transparent), inset 0 1px 0 rgba(255,255,255,.18); }
 [data-testid="stBaseButton-primary"]:hover:not(:disabled), [data-testid="stBaseButton-primaryFormSubmit"]:hover:not(:disabled) {
-  filter: brightness(1.08); transform: translateY(-1px); }
-[data-testid="stBaseButton-tertiary"] { background: transparent; border: 0; min-height: 36px; padding: .2rem .6rem; }
+  filter: brightness(1.07); transform: translateY(-1px); box-shadow: 0 10px 20px -10px color-mix(in srgb, var(--m-accent) 95%, transparent); }
+[data-testid="stBaseButton-tertiary"] { background: transparent; border: 0; min-height: 36px; padding: .2rem .6rem; box-shadow: none; }
 [data-testid="stBaseButton-tertiary"]:hover:not(:disabled) { background: color-mix(in srgb, currentColor 9%, transparent); color: inherit; }
 
 /* ---------- nút chọn (segmented control): một thanh liền, ô đang chọn tô xanh ---------- */
 [data-testid="stButtonGroup"] [role="radiogroup"], [data-testid="stButtonGroup"] [role="group"] {
-  display: inline-flex; flex-wrap: nowrap; gap: 2px !important; padding: 3px; border-radius: 999px;
-  background: color-mix(in srgb, currentColor 7%, transparent); border: 1px solid color-mix(in srgb, currentColor 8%, transparent); }
+  display: inline-flex; flex-wrap: nowrap; gap: 2px !important; padding: 4px; border-radius: 14px;
+  background: color-mix(in srgb, currentColor 6%, transparent); border: 1px solid var(--m-line); }
 [data-testid="stButtonGroup"] button[data-variant="segmented_control"] { border: 0 !important; background: transparent !important;
-  box-shadow: none !important; border-radius: 999px !important; min-height: 32px !important; padding: 0 .95rem !important;
+  box-shadow: none !important; border-radius: 10px !important; min-height: 34px !important; padding: 0 1rem !important;
   font-weight: 700; color: inherit !important; }
-[data-testid="stButtonGroup"] button[data-variant="segmented_control"]:hover:not([data-selected="true"]) { background: color-mix(in srgb, currentColor 10%, transparent) !important; }
+[data-testid="stButtonGroup"] button[data-variant="segmented_control"]:hover:not([data-selected="true"]) { background: color-mix(in srgb, currentColor 9%, transparent) !important; }
 [data-testid="stButtonGroup"] button[data-variant="segmented_control"][data-selected="true"],
 [data-testid="stButtonGroup"] button[data-variant="segmented_control"][aria-checked="true"] {
-  background: linear-gradient(135deg, var(--m-accent), #3b82f6) !important; color: #fff !important;
-  box-shadow: 0 6px 14px -6px color-mix(in srgb, var(--m-accent) 90%, transparent) !important; }
+  background: var(--m-accent) !important; color: #fff !important;
+  box-shadow: 0 4px 12px -5px color-mix(in srgb, var(--m-accent) 90%, transparent) !important; }
 [data-testid="stButtonGroup"] button[data-variant="segmented_control"] p { color: inherit !important; }
+
+/* ---------- lưới chọn chủ đề (Reading) ---------- */
+[class*="st-key-topic-grid"] [data-testid^="stBaseButton-"] { min-height: 46px; justify-content: flex-start; text-align: left; padding: .4rem .9rem;
+  font-weight: 700; font-size: .9rem; white-space: normal; }
+[class*="st-key-topic-grid"] [data-testid^="stBaseButton-"] > * { text-align: left; justify-content: flex-start; }
+[class*="st-key-topic-grid"] [data-testid="stHorizontalBlock"] { gap: .6rem; }
 
 /* ---------- ô nhập, tab ---------- */
 [data-testid="stTextInput"] [data-baseweb="input"] { border-radius: 14px; min-height: 46px; overflow: hidden; }
 [data-testid="stTextInput"] label p { font-weight: 700; font-size: .88rem; }
 [data-testid="stTextInput"] [data-baseweb="input"]:focus-within { border-color: var(--m-accent) !important; box-shadow: 0 0 0 3px color-mix(in srgb, var(--m-accent) 20%, transparent); }
-[data-testid="stSelectbox"] [data-baseweb="select"] > div { border-radius: 16px; }
+[data-testid="stSelectbox"] [data-baseweb="select"] > div { border-radius: 14px; }
 [data-testid="stForm"] { border: 0; padding: 0; }
 input:-webkit-autofill { -webkit-box-shadow: 0 0 0 40px var(--m-card) inset !important; -webkit-text-fill-color: var(--m-text) !important; }
 button[data-baseweb="tab"] { font-weight: 700; }

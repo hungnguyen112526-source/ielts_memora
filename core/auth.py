@@ -5,7 +5,6 @@ import hashlib
 import hmac
 import re
 import secrets
-import sqlite3
 
 from . import db
 
@@ -52,13 +51,13 @@ def register(username: str, display_name: str, password: str, confirm: str) -> t
     salt = secrets.token_bytes(16)
     try:
         with db.connect() as c:
-            cur = c.execute(
+            new_id = c.insert_id(
                 "INSERT INTO users(username, display_name, pw_salt, pw_hash, pw_iters, created_at) VALUES(?,?,?,?,?,?)",
                 (username, display_name.strip(), salt.hex(), _hash(password, salt, PBKDF2_ITERS),
                  PBKDF2_ITERS, db.now()),
             )
-            return True, "Tạo tài khoản thành công.", cur.lastrowid
-    except sqlite3.IntegrityError:
+            return True, "Tạo tài khoản thành công.", new_id
+    except db.IntegrityError:
         return False, "Tên đăng nhập này đã có người dùng.", None
 
 
@@ -66,7 +65,7 @@ def register(username: str, display_name: str, password: str, confirm: str) -> t
 def _recent_failures(c, username: str) -> int:
     since = db.now() - FAIL_WINDOW_SEC
     return c.execute(
-        "SELECT COUNT(*) FROM login_attempts WHERE username=? AND ts>=?", (username, since)
+        "SELECT COUNT(*) FROM login_attempts WHERE lower(username)=lower(?) AND ts>=?", (username, since)
     ).fetchone()[0]
 
 
@@ -76,7 +75,7 @@ def authenticate(username: str, password: str) -> tuple[bool, str, dict | None]:
         if _recent_failures(c, username) >= MAX_FAILS:
             return False, "Đăng nhập sai quá nhiều lần. Vui lòng thử lại sau 10 phút.", None
 
-        row = c.execute("SELECT * FROM users WHERE username=?", (username,)).fetchone()
+        row = c.execute("SELECT * FROM users WHERE lower(username)=lower(?)", (username,)).fetchone()
         if row is None:
             # Burn the same CPU time so response time does not reveal whether the user exists.
             _hash(password or "", b"\x00" * 16, PBKDF2_ITERS)
@@ -92,7 +91,7 @@ def authenticate(username: str, password: str) -> tuple[bool, str, dict | None]:
         if row["status"] == "blocked":
             return False, "Tài khoản này đã bị khóa. Hãy liên hệ quản trị viên.", None
 
-        c.execute("DELETE FROM login_attempts WHERE username=?", (username,))
+        c.execute("DELETE FROM login_attempts WHERE lower(username)=lower(?)", (username,))
         return True, "OK", {"id": row["id"], "username": row["username"], "display_name": row["display_name"]}
 
 
@@ -184,7 +183,7 @@ def admin_reset_password(user_id: int, new: str) -> tuple[bool, str]:
         c.execute("UPDATE users SET pw_salt=?, pw_hash=?, pw_iters=? WHERE id=?",
                   (salt.hex(), _hash(new, salt, PBKDF2_ITERS), PBKDF2_ITERS, user_id))
         c.execute("DELETE FROM sessions WHERE user_id=?", (user_id,))
-        c.execute("DELETE FROM login_attempts WHERE username=(SELECT username FROM users WHERE id=?)", (user_id,))
+        c.execute("DELETE FROM login_attempts WHERE lower(username)=(SELECT lower(username) FROM users WHERE id=?)", (user_id,))
     return True, "Đã đặt lại mật khẩu. Người dùng sẽ phải đăng nhập lại."
 
 

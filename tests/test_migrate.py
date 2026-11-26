@@ -8,6 +8,8 @@ sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 def test_legacy_passage_mode_is_converted(tmp_path, monkeypatch):
     monkeypatch.setenv("MEMORA_DB", str(tmp_path / "t.db"))
     from core import db, migrate
+    monkeypatch.setattr(db, "DB_PATH", tmp_path / "t.db")
+    monkeypatch.delenv("DATABASE_URL", raising=False)
     db.init_db()
     with db.connect() as c:
         c.execute("INSERT INTO users(username,display_name,pw_salt,pw_hash,pw_iters,created_at) VALUES('u','U','s','h',1,1)")
