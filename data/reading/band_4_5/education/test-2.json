@@ -1,0 +1,556 @@
+{
+ "schema": 1,
+ "id": "band-4-5-education-test-2",
+ "series": "education",
+ "category": "band_4_5",
+ "title": "Education, Skills & Pressure",
+ "summary": "Academic Knowledge vs Employability • Why Fewer Students Choose Science • Parental Pressure",
+ "subtitle": "Band 4.0–5.0 · Education",
+ "module": "academic",
+ "durationMin": 60,
+ "totalQuestions": 40,
+ "questionTypes": [
+  "table",
+  "tfng",
+  "matching",
+  "multi2",
+  "summary_text",
+  "mcq",
+  "summary_box"
+ ],
+ "passages": [
+  {
+   "label": "READING PASSAGE 1",
+   "instruction": "You should spend about 20 minutes on Questions 1-13, which are based on Reading Passage 1 below.",
+   "title": "Academic Knowledge vs. Employability Skills",
+   "subtitle": "Should universities focus more on preparing students to be job-ready?",
+   "paragraphs": [
+    "In the past, the main goal of a university was to give students deep academic knowledge. Most courses were very theoretical, meaning students spent most of their time reading books, listening to lectures, and writing long essays. Today, however, the modern labour market is changing quickly, and many employers say that traditional degrees are no longer enough on their own.",
+    "When managers hire new workers, they want graduates who are job-ready from their very first week. According to a recent business survey, companies often look for two main types of abilities. The first type is practical skills, such as using modern software, analysing data, or operating technical equipment. The second type is soft skills, which include clear communication, teamwork, and solving problems under pressure.",
+    "Because of these changes, there is a growing debate about vocational training compared with traditional university degrees. Vocational colleges focus directly on specific trades, such as plumbing, nursing, hospitality, or car repair. Students in vocational programmes spend a large part of their week in workshops or real workplaces, so they often find work very quickly after finishing their course.",
+    "On the other hand, supporters of traditional universities argue that academic study is still extremely valuable. Learning how to think carefully, check facts, and understand complex ideas helps people adapt when technology changes. A computer programme that is popular today might be outdated in five years, but strong thinking skills remain useful for an entire career.",
+    "Many universities are now trying to combine both approaches. For example, business and engineering departments increasingly include paid internships, group projects with local firms, and career workshops in their degree programmes. In countries like Germany, dual-study courses allow students to spend half their time in university classrooms and the other half working inside a company.",
+    "Education experts believe this mixed approach gives young people the best start. By teaching both strong subject knowledge and real-world abilities, universities and vocational colleges can help graduates succeed in a competitive economy."
+   ],
+   "groups": [
+    {
+     "title": "Questions 1-5",
+     "instruction": "Complete the table below. Choose <strong>ONE WORD ONLY</strong> from the passage for each answer.",
+     "type": "table",
+     "boxTitle": "Different Approaches to Higher Education",
+     "headers": [
+      "Type of education",
+      "Main focus",
+      "Key benefit or feature"
+     ],
+     "rows": [
+      [
+       "Traditional university courses",
+       "• Mostly {{1}} study, involving books, lectures, and essays<br>• Builds strong thinking skills that stay useful for a whole {{2}}",
+       ""
+      ],
+      [
+       "Vocational colleges",
+       "• Focuses on specific trades like plumbing, car repair, and {{3}}<br>• Students train in real workplaces or {{4}}",
+       ""
+      ],
+      [
+       "Dual-study courses in Germany",
+       "• Combines university lessons with work inside a {{5}}",
+       ""
+      ]
+     ]
+    },
+    {
+     "title": "Questions 6-13",
+     "instruction": "Do the following statements agree with the information given in Reading Passage 1? Choose <strong>TRUE</strong>, <strong>FALSE</strong> or <strong>NOT GIVEN</strong>.",
+     "type": "tfng",
+     "options": [
+      "TRUE",
+      "FALSE",
+      "NOT GIVEN"
+     ],
+     "items": [
+      {
+       "q": 6,
+       "text": "Many employers today believe that a traditional university degree alone is not enough."
+      },
+      {
+       "q": 7,
+       "text": "Operating technical equipment is given as an example of a soft skill."
+      },
+      {
+       "q": 8,
+       "text": "Most managers prefer to hire workers who have studied in a foreign country."
+      },
+      {
+       "q": 9,
+       "text": "Students who complete vocational courses often get jobs very quickly."
+      },
+      {
+       "q": 10,
+       "text": "Vocational colleges are always cheaper to attend than traditional universities."
+      },
+      {
+       "q": 11,
+       "text": "Supporters of traditional universities say that specific computer software stays useful forever."
+      },
+      {
+       "q": 12,
+       "text": "Some university departments now include paid internships in their courses."
+      },
+      {
+       "q": 13,
+       "text": "Germany was the first country in Europe to create dual-study university programmes."
+      }
+     ]
+    }
+   ],
+   "qRange": [
+    1,
+    13
+   ]
+  },
+  {
+   "label": "READING PASSAGE 2",
+   "instruction": "You should spend about 20 minutes on Questions 14-26, which are based on Reading Passage 2 below.",
+   "title": "Why Fewer Students Choose Science",
+   "subtitle": "Understanding the decline in STEM enrolment and the gender gap in laboratories",
+   "paragraphs": [
+    "<strong>A</strong> Across many developed countries, universities are reporting a worrying trend: fewer young people are choosing to study science, technology, engineering, and mathematics, often called STEM subjects. At the same time, governments warn that rapid technological advancement in clean energy, medicine, and digital systems has created a serious shortage of trained scientists and engineers.",
+    "<strong>B</strong> One major reason for this decline is how science is taught at school. Physics and chemistry are often perceived as difficult because students have to memorise long lists of formulas and pass strict exams. When teenagers think they might get lower grades in science than in arts or business, they often choose easier subjects to protect their exam results.",
+    "<strong>C</strong> Money and career image also play a big role. Many young people believe that working in a laboratory is lonely and poorly paid. Instead, they are attracted to lucrative careers in finance, marketing, or media, where they think they can earn high salaries faster. Even students who enjoy science at school sometimes switch to business degrees because they want clearer paths to management roles.",
+    "<strong>D</strong> Another important factor is gender choice. Although girls often perform just as well as boys in high school science exams, far fewer women go on to study physics, computer science, or mechanical engineering at university. Researchers say old stereotypes—such as the idea that engineering is a 'man's job'—still influence young women's decisions. In addition, the lack of visible female scientists in textbooks and television programmes makes it harder for girls to picture themselves in these fields.",
+    "<strong>E</strong> Some schools are now changing their lessons to make science more exciting. Instead of only reading from textbooks, students take part in hands-on experiments, robotics competitions, and visits to local tech factories. Teachers report that when students see how science solves real-world problems, such as cleaning polluted rivers or building solar cars, their interest grows immediately.",
+    "<strong>F</strong> Governments and companies are also stepping in to help. Several nations now offer special grants for students who choose STEM degrees, as well as mentoring clubs that pair female high school students with women engineers. Experts believe that by making science more welcoming and showing its real impact on society, more students will choose to become the innovators of tomorrow."
+   ],
+   "groups": [
+    {
+     "title": "Questions 14-19",
+     "instruction": "Reading Passage 2 has six sections, A-F. Which section contains the following information? Choose the correct letter, <strong>A-F</strong>.",
+     "type": "matching",
+     "options": [
+      "A",
+      "B",
+      "C",
+      "D",
+      "E",
+      "F"
+     ],
+     "items": [
+      {
+       "q": 14,
+       "text": "examples of financial and social programmes designed to encourage more STEM students"
+      },
+      {
+       "q": 15,
+       "text": "the reason why students avoid science to keep their school exam scores high"
+      },
+      {
+       "q": 16,
+       "text": "a mention of industries where new technology requires more scientific workers"
+      },
+      {
+       "q": 17,
+       "text": "interactive school activities that help teenagers enjoy learning science"
+      },
+      {
+       "q": 18,
+       "text": "a comparison of how well boys and girls do in science tests at school"
+      },
+      {
+       "q": 19,
+       "text": "a negative belief about what daily life in a science laboratory is like"
+      }
+     ]
+    },
+    {
+     "title": "Questions 20-21",
+     "instruction": "Choose <strong>TWO</strong> letters, <strong>A-E</strong>. Which TWO reasons are given for why fewer women study subjects like physics and engineering at university?",
+     "type": "multi2",
+     "qPair": [
+      20,
+      21
+     ],
+     "options": [
+      {
+       "k": "A",
+       "t": "Girls receive lower grades in high school science exams than boys."
+      },
+      {
+       "k": "B",
+       "t": "Traditional ideas about which jobs suit men and women still affect choices."
+      },
+      {
+       "k": "C",
+       "t": "Universities do not allow women to join robotics competitions."
+      },
+      {
+       "k": "D",
+       "t": "Female scientists are rarely shown in school books and on TV."
+      },
+      {
+       "k": "E",
+       "t": "Women prefer to work in local tech factories rather than universities."
+      }
+     ]
+    },
+    {
+     "title": "Questions 22-26",
+     "instruction": "Complete the summary below. Choose <strong>ONE WORD ONLY</strong> from the passage for each answer.",
+     "type": "summary_text",
+     "boxTitle": "Reasons for the Decline in Science and Solutions",
+     "paragraphs": [
+      "Many students feel that science subjects are too hard because they must remember many {{22}} for strict exams. Others prefer jobs in fields such as marketing or {{23}} because they believe these offer higher pay and faster routes to {{24}} positions. To improve this situation, some schools now organise experiments and visits to local {{25}} so students can see practical uses of science, such as building solar cars or cleaning dirty {{26}}."
+     ]
+    }
+   ],
+   "qRange": [
+    14,
+    26
+   ]
+  },
+  {
+   "label": "READING PASSAGE 3",
+   "instruction": "You should spend about 20 minutes on Questions 27-40, which are based on Reading Passage 3 below.",
+   "title": "Parental Pressure and Children's Mental Health",
+   "subtitle": "Finding the balance between structured achievement and free play",
+   "paragraphs": [
+    "Every parent wants their child to have a bright and secure future. In today's competitive world, many mothers and fathers believe that the best way to protect their children is to push them to succeed at school from a very early age. As a result, modern childhood often looks like a busy work schedule, filled with extra tutoring, music lessons, and sports training.",
+    "Having high expectations is not always a bad thing. Research shows that when parents care about schoolwork and encourage their children to try hard, students usually perform better in class. However, psychologists warn that there is a big difference between healthy support and constant academic pressure. When parents accept nothing less than top marks, children begin to feel that their value as a person depends only on their exam scores.",
+    "Over time, too much pressure can seriously harm a child's mental health. Doctors are seeing more young teenagers suffering from anxiety, sleep problems, and emotional burnout—a state of extreme tiredness and loss of motivation that used to be seen mainly in overworked adults. When children fail to meet strict targets, their self-esteem can drop sharply, making them afraid to try new challenges in case they make a mistake.",
+    "Another growing concern is the loss of free play. In the past, children spent hours after school playing games outdoors with neighbours and inventing their own rules. Today, many parents pack every afternoon with scheduled activities because they worry that unstructured time is wasted time. Yet child development experts strongly disagree with this view.",
+    "According to Dr. Hannah Lindholm, a child psychologist, unstructured play is essential for raising a well-rounded individual. 'When kids play freely without adults directing every minute, they learn how to be creative, settle arguments with friends, and manage boredom on their own,' she explains. Without free time to relax and explore their own interests, children may lose their natural curiosity.",
+    "Parents do not need to give up on ambition for their children, but they should rethink how they measure success. Praising effort rather than only perfect grades, allowing time for rest, and listening to what a child actually enjoys can reduce stress at home. In the long run, a happy and confident child is far more likely to thrive than an exhausted one."
+   ],
+   "groups": [
+    {
+     "title": "Questions 27-29",
+     "instruction": "Choose the correct letter, <strong>A, B, C or D</strong>.",
+     "type": "mcq",
+     "items": [
+      {
+       "q": 27,
+       "text": "What is the writer doing in the first paragraph?",
+       "options": [
+        {
+         "k": "A",
+         "t": "Criticising schools for giving children too much homework"
+        },
+        {
+         "k": "B",
+         "t": "Describing why many modern children have very busy daily routines"
+        },
+        {
+         "k": "C",
+         "t": "Explaining why music lessons are more useful than sports training"
+        },
+        {
+         "k": "D",
+         "t": "Comparing parenting styles in different countries"
+        }
+       ]
+      },
+      {
+       "q": 28,
+       "text": "In the second paragraph, what danger does the writer identify when parents only accept top marks?",
+       "options": [
+        {
+         "k": "A",
+         "t": "Children may start cheating in school exams."
+        },
+        {
+         "k": "B",
+         "t": "Children may think their personal worth is tied only to grades."
+        },
+        {
+         "k": "C",
+         "t": "Parents may stop helping children with their schoolwork."
+        },
+        {
+         "k": "D",
+         "t": "Teachers may give lower grades to stressed students."
+        }
+       ]
+      },
+      {
+       "q": 29,
+       "text": "In the fourth paragraph, why do many parents fill their children's afternoons with scheduled activities?",
+       "options": [
+        {
+         "k": "A",
+         "t": "They believe free time without a plan is not productive."
+        },
+        {
+         "k": "B",
+         "t": "They think outdoor games with neighbours are unsafe."
+        },
+        {
+         "k": "C",
+         "t": "Their children ask for more organised clubs after school."
+        },
+        {
+         "k": "D",
+         "t": "Child development experts recommended longer schedules."
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "title": "Questions 30-35",
+     "instruction": "Complete the summary using the list of words and phrases, <strong>A-I</strong>, below.",
+     "type": "summary_box",
+     "boxTitle": "Effects of Pressure and the Value of Free Play",
+     "legend": [
+      {
+       "key": "A",
+       "text": "disagreements"
+      },
+      {
+       "key": "B",
+       "text": "hard work"
+      },
+      {
+       "key": "C",
+       "text": "confidence"
+      },
+      {
+       "key": "D",
+       "text": "extreme exhaustion"
+      },
+      {
+       "key": "E",
+       "text": "unstructured play"
+      },
+      {
+       "key": "F",
+       "text": "creativity"
+      },
+      {
+       "key": "G",
+       "text": "strict rules"
+      },
+      {
+       "key": "H",
+       "text": "higher salaries"
+      },
+      {
+       "key": "I",
+       "text": "extra tutoring"
+      }
+     ],
+     "options": [
+      "A",
+      "B",
+      "C",
+      "D",
+      "E",
+      "F",
+      "G",
+      "H",
+      "I"
+     ],
+     "paragraphs": [
+      "Too much academic pressure can lead to serious health issues in teenagers, including anxiety, poor sleep, and {{30}}. When children cannot reach difficult goals, they may lose {{31}} and become scared of making errors. Experts like Dr. Hannah Lindholm stress that {{32}} is vital for healthy development. Without adults controlling every activity, children build {{33}} and learn to solve {{34}} with their friends. Finally, the writer advises parents to praise {{35}} instead of focusing only on top exam results."
+     ]
+    },
+    {
+     "title": "Questions 36-39",
+     "instruction": "Do the following statements agree with the views of the writer in Reading Passage 3? Choose <strong>YES</strong>, <strong>NO</strong> or <strong>NOT GIVEN</strong>.",
+     "type": "tfng",
+     "options": [
+      "YES",
+      "NO",
+      "NOT GIVEN"
+     ],
+     "items": [
+      {
+       "q": 36,
+       "text": "Encouraging children to work hard at school can have positive academic results."
+      },
+      {
+       "q": 37,
+       "text": "Emotional burnout has always been more common in children than in adults."
+      },
+      {
+       "q": 38,
+       "text": "Dr. Hannah Lindholm believes children should spend at least two hours playing outdoors every day."
+      },
+      {
+       "q": 39,
+       "text": "Parents must stop having any ambitions for their children if they want them to be happy."
+      }
+     ]
+    },
+    {
+     "title": "Question 40",
+     "instruction": "Choose the correct letter, <strong>A, B, C or D</strong>.",
+     "type": "mcq",
+     "items": [
+      {
+       "q": 40,
+       "text": "What would be the most suitable subtitle for Reading Passage 3?",
+       "options": [
+        {
+         "k": "A",
+         "t": "Why schools should abolish all exams for young children"
+        },
+        {
+         "k": "B",
+         "t": "How balanced parenting supports both success and mental wellbeing"
+        },
+        {
+         "k": "C",
+         "t": "Why sports training is harmful to teenage health"
+        },
+        {
+         "k": "D",
+         "t": "How to design a strict after-school study schedule"
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "qRange": [
+    27,
+    40
+   ]
+  }
+ ],
+ "answers": {
+  "1": [
+   "theoretical"
+  ],
+  "2": [
+   "career"
+  ],
+  "3": [
+   "nursing"
+  ],
+  "4": [
+   "workshops"
+  ],
+  "5": [
+   "company"
+  ],
+  "6": [
+   "TRUE"
+  ],
+  "7": [
+   "FALSE"
+  ],
+  "8": [
+   "NOT GIVEN"
+  ],
+  "9": [
+   "TRUE"
+  ],
+  "10": [
+   "NOT GIVEN"
+  ],
+  "11": [
+   "FALSE"
+  ],
+  "12": [
+   "TRUE"
+  ],
+  "13": [
+   "NOT GIVEN"
+  ],
+  "14": [
+   "F"
+  ],
+  "15": [
+   "B"
+  ],
+  "16": [
+   "A"
+  ],
+  "17": [
+   "E"
+  ],
+  "18": [
+   "D"
+  ],
+  "19": [
+   "C"
+  ],
+  "20": [
+   "B",
+   "D"
+  ],
+  "21": [
+   "B",
+   "D"
+  ],
+  "22": [
+   "formulas"
+  ],
+  "23": [
+   "finance"
+  ],
+  "24": [
+   "management"
+  ],
+  "25": [
+   "factories"
+  ],
+  "26": [
+   "rivers"
+  ],
+  "27": [
+   "B"
+  ],
+  "28": [
+   "B"
+  ],
+  "29": [
+   "A"
+  ],
+  "30": [
+   "D"
+  ],
+  "31": [
+   "C"
+  ],
+  "32": [
+   "E"
+  ],
+  "33": [
+   "F"
+  ],
+  "34": [
+   "A"
+  ],
+  "35": [
+   "B"
+  ],
+  "36": [
+   "YES"
+  ],
+  "37": [
+   "NO"
+  ],
+  "38": [
+   "NOT GIVEN"
+  ],
+  "39": [
+   "NO"
+  ],
+  "40": [
+   "B"
+  ]
+ },
+ "pairQuestions": [
+  [
+   20,
+   21,
+   [
+    "B",
+    "D"
+   ]
+  ]
+ ]
+}

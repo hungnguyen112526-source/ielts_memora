@@ -1,0 +1,529 @@
+{
+ "schema": 1,
+ "id": "band-4-5-education-test-3",
+ "series": "education",
+ "category": "band_4_5",
+ "title": "School Curriculum & Life Skills",
+ "summary": "Breadth or Depth in the Curriculum • Compulsory Schooling and Dropouts • Teaching Life Skills",
+ "subtitle": "Band 4.0–5.0 · Education",
+ "module": "academic",
+ "durationMin": 60,
+ "totalQuestions": 40,
+ "questionTypes": [
+  "notes",
+  "tfng",
+  "mcq",
+  "matching"
+ ],
+ "passages": [
+  {
+   "label": "READING PASSAGE 1",
+   "instruction": "You should spend about 20 minutes on Questions 1-13, which are based on Reading Passage 1 below.",
+   "title": "Breadth or Depth in the School Curriculum?",
+   "subtitle": "Should teenagers study a wide range of subjects or focus early on one area?",
+   "paragraphs": [
+    "When planning a national school curriculum, education leaders must make an important decision: should teenagers study many different subjects, or should they focus deeply on just a few? Different countries answer this question in very different ways, and each system has its own strengths and weaknesses.",
+    "In countries like England, students aged 16 typically specialise in only three or four subjects for their final two years of high school, known as A-levels. Supporters of this narrow approach argue that it allows students to gain in-depth knowledge of the subjects they love most. It also prepares them well for specific university courses such as medicine or architecture, where strong early training is helpful.",
+    "By contrast, countries such as the United States, France, and Japan prefer a broad model. Teenagers continue studying core subjects like mathematics, literature, and foreign languages alongside science, history, and arts right up until they finish school at 18. Educators who support this model believe it provides a well-rounded education and keeps career choices open for longer, since many 16-year-olds do not yet know what job they want.",
+    "Within this debate, there is also disagreement over which subjects deserve the most classroom hours. Many governments strongly promote science and technology subjects because they see them as engines of economic growth. As a result, subjects such as history, art, and music sometimes receive less funding and fewer teaching hours.",
+    "However, historians and artists warn that cutting creative and cultural subjects is a mistake. History teaches young people how societies change and helps them think critically about news and politics. Meanwhile, art and music encourage imagination and design thinking—qualities that even top technology companies look for when creating new products.",
+    "Today, a growing number of international schools use programmes like the International Baccalaureate (IB), which asks students to study six subjects across both sciences and humanities, with three at a higher level and three at a standard level. Many teachers see this as a smart way to offer both breadth and depth."
+   ],
+   "groups": [
+    {
+     "title": "Questions 1-7",
+     "instruction": "Complete the notes below. Choose <strong>ONE WORD ONLY</strong> from the passage for each answer.",
+     "type": "notes",
+     "boxTitle": "Comparing School Curriculum Models",
+     "sections": [
+      {
+       "heading": "Narrow model (e.g. England)",
+       "items": [
+        "Students aged 16 study three or four subjects to gain in-depth {{1}}.",
+        "Useful preparation for university degrees such as medicine or {{2}}."
+       ]
+      },
+      {
+       "heading": "Broad model (e.g. US, France, Japan)",
+       "items": [
+        "Students study core subjects including maths, foreign languages, and {{3}} until age 18.",
+        "Keeps {{4}} options open for students who are still undecided."
+       ]
+      },
+      {
+       "heading": "Subject priorities",
+       "items": [
+        "Governments favour science and technology to boost economic {{5}}.",
+        "Studying history helps students evaluate politics and {{6}} carefully."
+       ]
+      },
+      {
+       "heading": "Mixed model (IB)",
+       "items": [
+        "Requires students to take {{7}} subjects covering sciences and humanities."
+       ]
+      }
+     ]
+    },
+    {
+     "title": "Questions 8-13",
+     "instruction": "Do the following statements agree with the information given in Reading Passage 1? Choose <strong>TRUE</strong>, <strong>FALSE</strong> or <strong>NOT GIVEN</strong>.",
+     "type": "tfng",
+     "options": [
+      "TRUE",
+      "FALSE",
+      "NOT GIVEN"
+     ],
+     "items": [
+      {
+       "q": 8,
+       "text": "Most countries follow the exact same rules when designing their high school curriculum."
+      },
+      {
+       "q": 9,
+       "text": "In England, A-level courses last for two years."
+      },
+      {
+       "q": 10,
+       "text": "Japanese students spend more hours studying mathematics than French students do."
+      },
+      {
+       "q": 11,
+       "text": "Art and music classes sometimes receive less money than science subjects."
+      },
+      {
+       "q": 12,
+       "text": "Leading technology companies have no interest in creative skills like design thinking."
+      },
+      {
+       "q": 13,
+       "text": "The International Baccalaureate programme is more expensive for schools to run than A-levels."
+      }
+     ]
+    }
+   ],
+   "qRange": [
+    1,
+    13
+   ]
+  },
+  {
+   "label": "READING PASSAGE 2",
+   "instruction": "You should spend about 20 minutes on Questions 14-26, which are based on Reading Passage 2 below.",
+   "title": "Compulsory Schooling and School Dropouts",
+   "subtitle": "Can raising the school-leaving age keep vulnerable teenagers in education?",
+   "paragraphs": [
+    "In the past, many teenagers left school at 14 or 16 to work in factories or on farms. Today, however, unskilled jobs are disappearing, and several countries have raised the legal school-leaving age to 18. Governments hope that keeping young people in education for longer will reduce unemployment and improve social mobility, giving children from poorer families a better chance to earn higher incomes as adults.",
+    "Despite these laws, dropping out of school remains a serious problem worldwide. Before students formally leave school, they often show early warning signs, such as regular truancy—missing classes without permission—and falling grades. Research shows that teenagers from vulnerable backgrounds, including those dealing with family poverty, bullying, or learning difficulties, are much more likely to leave school without basic qualifications.",
+    "Leaving school early can have long-lasting effects. One major consequence is low adult literacy. Adults who struggle to read contracts, fill out job applications, or understand medical instructions face daily challenges and often get stuck in temporary, low-paid work. In addition, countries with high dropout rates spend more public money on welfare support.",
+    "Simply forcing unhappy teenagers to sit in academic classrooms until age 18 does not always work. Teachers report that when students feel bored or behind in lessons, they may disrupt the class or stop attending altogether. Therefore, many education experts argue that raising the school-leaving age only succeeds if schools offer flexible choices.",
+    "One effective solution is creating a strong vocational pathway from age 16. Instead of studying only academic textbooks, teenagers can stay in education by training to become chefs, electricians, or computer technicians. In the Netherlands, a national programme also tracks absences daily. When a student misses school without a valid reason, a local counsellor contacts the family quickly to offer support rather than punishment.",
+    "For people who have already left school early, second-chance learning is equally important. Community centres and evening colleges now run free adult literacy classes and online certificate courses. By helping both teenagers and adults return to learning, societies can ensure that an early mistake does not close the door to a better future."
+   ],
+   "groups": [
+    {
+     "title": "Questions 14-18",
+     "instruction": "Do the following statements agree with the information given in Reading Passage 2? Choose <strong>TRUE</strong>, <strong>FALSE</strong> or <strong>NOT GIVEN</strong>.",
+     "type": "tfng",
+     "options": [
+      "TRUE",
+      "FALSE",
+      "NOT GIVEN"
+     ],
+     "items": [
+      {
+       "q": 14,
+       "text": "There are now fewer unskilled jobs available than there were in the past."
+      },
+      {
+       "q": 15,
+       "text": "Raising the school-leaving age to 18 has completely stopped school dropouts in all countries."
+      },
+      {
+       "q": 16,
+       "text": "Boys are twice as likely to commit truancy as girls."
+      },
+      {
+       "q": 17,
+       "text": "Making reluctant students stay in purely academic lessons until 18 is always successful."
+      },
+      {
+       "q": 18,
+       "text": "In the Netherlands, families whose children miss school are immediately given a large fine."
+      }
+     ]
+    },
+    {
+     "title": "Questions 19-26",
+     "instruction": "Complete the notes below. Choose <strong>ONE WORD ONLY</strong> from the passage for each answer.",
+     "type": "notes",
+     "boxTitle": "Causes, Effects, and Solutions to School Dropouts",
+     "sections": [
+      {
+       "heading": "Risk factors",
+       "items": [
+        "Early warning signs include poor grades and frequent {{19}}.",
+        "Students affected by poverty, learning difficulties, or {{20}} are more likely to drop out."
+       ]
+      },
+      {
+       "heading": "Effects of leaving early",
+       "items": [
+        "Low adult literacy makes it hard to read contracts, medical advice, or job {{21}}.",
+        "Governments face higher spending on {{22}} support."
+       ]
+      },
+      {
+       "heading": "Solutions for teenagers",
+       "items": [
+        "Offer a vocational pathway training students as electricians, technicians, or {{23}}.",
+        "In the Netherlands, a local {{24}} reaches out to families after unexplained absences."
+       ]
+      },
+      {
+       "heading": "Second-chance options for adults",
+       "items": [
+        "Free adult literacy lessons are offered at evening colleges and {{25}} centres.",
+        "Adults can also take online {{26}} courses to return to learning."
+       ]
+      }
+     ]
+    }
+   ],
+   "qRange": [
+    14,
+    26
+   ]
+  },
+  {
+   "label": "READING PASSAGE 3",
+   "instruction": "You should spend about 20 minutes on Questions 27-40, which are based on Reading Passage 3 below.",
+   "title": "Teaching Life Skills in Schools",
+   "subtitle": "Why practical lessons in finance, community service, and parenting matter",
+   "paragraphs": [
+    "Ask most adults what they wish they had learned at school, and few will say more algebra. Instead, many complain that they left school knowing how to pass exams, yet having no idea how to manage a bank account, pay taxes, or cook a healthy meal. Because of this gap, there is growing support for adding practical life skills to the standard school timetable.",
+    "One of the most widely recommended subjects is financial literacy. Young adults today face easy access to credit cards, online shopping, and student loans, which can quickly lead to debt if they are not careful. Teaching teenagers how to make a monthly budget, understand interest rates, and save for emergencies can prevent serious financial mistakes later in life.",
+    "Beyond money management, many educators believe schools should also teach civic responsibility through community service. In countries such as Canada and Singapore, high school students are required to complete a set number of volunteer hours—such as helping elderly neighbours, planting trees, or assisting at local food banks—before graduating. Supporters argue that these hands-on experiences are excellent for character building, teaching empathy and teamwork in a way that textbooks cannot.",
+    "Some experts even suggest introducing basic parenting skills and relationship classes for older teenagers. Since most young people will one day raise children or care for family members, learning about child nutrition, communication, and patience could strengthen future families. Critics, however, feel that parenting is a private matter that should be learned at home rather than taught by school teachers.",
+    "Indeed, adding life skills to schools is not without challenges. Teachers already have crowded schedules and strict national tests to prepare for. If schools add new lessons on cooking, finance, and volunteering, some parents worry there will be less time left for reading, maths, and science. Furthermore, teachers themselves may need extra training to teach financial or practical topics accurately.",
+    "In my view, schools do not need to replace academic subjects with life skills; rather, they can weave them together. Maths classes can include real-life budgeting problems, while one afternoon a month can be dedicated to local volunteering. Preparing students for exams is important, but preparing them to live independent, responsible adult lives is the true purpose of education."
+   ],
+   "groups": [
+    {
+     "title": "Questions 27-30",
+     "instruction": "Choose the correct letter, <strong>A, B, C or D</strong>.",
+     "type": "mcq",
+     "items": [
+      {
+       "q": 27,
+       "text": "What point does the writer make in the first paragraph?",
+       "options": [
+        {
+         "k": "A",
+         "t": "Adults believe algebra is the most useful subject they learned at school."
+        },
+        {
+         "k": "B",
+         "t": "Many people feel school did not teach them enough everyday skills."
+        },
+        {
+         "k": "C",
+         "t": "School exams have become much easier than in the past."
+        },
+        {
+         "k": "D",
+         "t": "Most schools have already added tax lessons to their timetables."
+        }
+       ]
+      },
+      {
+       "q": 28,
+       "text": "According to the third paragraph, why do supporters value community service for students?",
+       "options": [
+        {
+         "k": "A",
+         "t": "It helps students earn money before they finish high school."
+        },
+        {
+         "k": "B",
+         "t": "It builds empathy and teamwork through real-life action."
+        },
+        {
+         "k": "C",
+         "t": "It replaces the need for students to buy textbooks."
+        },
+        {
+         "k": "D",
+         "t": "It allows students to avoid taking final graduation exams."
+        }
+       ]
+      },
+      {
+       "q": 29,
+       "text": "What practical difficulty is mentioned in the fifth paragraph?",
+       "options": [
+        {
+         "k": "A",
+         "t": "Teenagers refuse to attend cooking and volunteering classes."
+        },
+        {
+         "k": "B",
+         "t": "Schools have limited time and teachers may lack specialist training."
+        },
+        {
+         "k": "C",
+         "t": "Local food banks do not have enough work for student volunteers."
+        },
+        {
+         "k": "D",
+         "t": "National governments have banned financial lessons in schools."
+        }
+       ]
+      },
+      {
+       "q": 30,
+       "text": "What solution does the writer recommend in the final paragraph?",
+       "options": [
+        {
+         "k": "A",
+         "t": "Removing traditional academic subjects from high schools"
+        },
+        {
+         "k": "B",
+         "t": "Integrating practical skills into existing lessons and schedules"
+        },
+        {
+         "k": "C",
+         "t": "Making parents fully responsible for teaching maths and finance"
+        },
+        {
+         "k": "D",
+         "t": "Extending the school year by an extra month for volunteering"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "title": "Questions 31-34",
+     "instruction": "Complete each sentence with the correct ending, A-F, below. Write the correct letter, A-F.",
+     "type": "matching",
+     "options": [
+      "A",
+      "B",
+      "C",
+      "D",
+      "E",
+      "F"
+     ],
+     "items": [
+      {
+       "q": 31,
+       "text": "Young adults using credit cards and loans..."
+      },
+      {
+       "q": 32,
+       "text": "High school students in Canada and Singapore..."
+      },
+      {
+       "q": 33,
+       "text": "Critics of parenting classes in schools..."
+      },
+      {
+       "q": 34,
+       "text": "Some parents worried about adding new life-skill lessons..."
+      }
+     ],
+     "legend": [
+      {
+       "key": "A",
+       "text": "must complete volunteer work before they can graduate."
+      },
+      {
+       "key": "B",
+       "text": "can easily fall into debt without basic money skills."
+      },
+      {
+       "key": "C",
+       "text": "should be taught only by university professors."
+      },
+      {
+       "key": "D",
+       "text": "believe family skills belong at home rather than in classrooms."
+      },
+      {
+       "key": "E",
+       "text": "fear that core academic subjects might lose classroom time."
+      },
+      {
+       "key": "F",
+       "text": "prefer online shopping to managing a bank account."
+      }
+     ]
+    },
+    {
+     "title": "Questions 35-40",
+     "instruction": "Do the following statements agree with the views of the writer in Reading Passage 3? Choose <strong>YES</strong>, <strong>NO</strong> or <strong>NOT GIVEN</strong>.",
+     "type": "tfng",
+     "options": [
+      "YES",
+      "NO",
+      "NOT GIVEN"
+     ],
+     "items": [
+      {
+       "q": 35,
+       "text": "Learning about interest rates and budgeting at school can help young people avoid money problems later."
+      },
+      {
+       "q": 36,
+       "text": "Canadian students complete more hours of community service than Singaporean students."
+      },
+      {
+       "q": 37,
+       "text": "Textbooks are the most effective way to teach empathy and teamwork."
+      },
+      {
+       "q": 38,
+       "text": "Most teachers already have enough free time to add several new subjects to their week."
+      },
+      {
+       "q": 39,
+       "text": "Students who learn cooking at school eat less fast food as adults."
+      },
+      {
+       "q": 40,
+       "text": "The main goal of education should be to help students become independent and responsible adults."
+      }
+     ]
+    }
+   ],
+   "qRange": [
+    27,
+    40
+   ]
+  }
+ ],
+ "answers": {
+  "1": [
+   "knowledge"
+  ],
+  "2": [
+   "architecture"
+  ],
+  "3": [
+   "literature"
+  ],
+  "4": [
+   "career"
+  ],
+  "5": [
+   "growth"
+  ],
+  "6": [
+   "news"
+  ],
+  "7": [
+   "six"
+  ],
+  "8": [
+   "FALSE"
+  ],
+  "9": [
+   "TRUE"
+  ],
+  "10": [
+   "NOT GIVEN"
+  ],
+  "11": [
+   "TRUE"
+  ],
+  "12": [
+   "FALSE"
+  ],
+  "13": [
+   "NOT GIVEN"
+  ],
+  "14": [
+   "TRUE"
+  ],
+  "15": [
+   "FALSE"
+  ],
+  "16": [
+   "NOT GIVEN"
+  ],
+  "17": [
+   "FALSE"
+  ],
+  "18": [
+   "FALSE"
+  ],
+  "19": [
+   "truancy"
+  ],
+  "20": [
+   "bullying"
+  ],
+  "21": [
+   "applications"
+  ],
+  "22": [
+   "welfare"
+  ],
+  "23": [
+   "chefs"
+  ],
+  "24": [
+   "counsellor"
+  ],
+  "25": [
+   "community"
+  ],
+  "26": [
+   "certificate"
+  ],
+  "27": [
+   "B"
+  ],
+  "28": [
+   "B"
+  ],
+  "29": [
+   "B"
+  ],
+  "30": [
+   "B"
+  ],
+  "31": [
+   "B"
+  ],
+  "32": [
+   "A"
+  ],
+  "33": [
+   "D"
+  ],
+  "34": [
+   "E"
+  ],
+  "35": [
+   "YES"
+  ],
+  "36": [
+   "NOT GIVEN"
+  ],
+  "37": [
+   "NO"
+  ],
+  "38": [
+   "NO"
+  ],
+  "39": [
+   "NOT GIVEN"
+  ],
+  "40": [
+   "YES"
+  ]
+ }
+}

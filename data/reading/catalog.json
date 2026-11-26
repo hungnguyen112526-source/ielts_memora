@@ -1,6 +1,6 @@
 {
- "generated": 1795664050,
- "signature": 120535534775140,
+ "generated": 1795665930,
+ "signature": 68690675899187,
  "categories": [
   {
    "id": "band_4_5",
@@ -36,6 +36,112 @@
         "Why Do People Go to University?",
         "Studying in Another Country",
         "Who Pays for University?"
+       ],
+       "qRanges": [
+        [
+         1,
+         13
+        ],
+        [
+         14,
+         26
+        ],
+        [
+         27,
+         40
+        ]
+       ]
+      },
+      {
+       "id": "band-4-5-education-test-2",
+       "file": "band_4_5/education/test-2.json",
+       "title": "Education, Skills & Pressure",
+       "summary": "Academic Knowledge vs Employability • Why Fewer Students Choose Science • Parental Pressure",
+       "module": "academic",
+       "durationMin": 60,
+       "totalQuestions": 40,
+       "questionTypes": [
+        "table",
+        "tfng",
+        "matching",
+        "multi2",
+        "summary_text",
+        "mcq",
+        "summary_box"
+       ],
+       "passages": [
+        "Academic Knowledge vs. Employability Skills",
+        "Why Fewer Students Choose Science",
+        "Parental Pressure and Children's Mental Health"
+       ],
+       "qRanges": [
+        [
+         1,
+         13
+        ],
+        [
+         14,
+         26
+        ],
+        [
+         27,
+         40
+        ]
+       ]
+      },
+      {
+       "id": "band-4-5-education-test-3",
+       "file": "band_4_5/education/test-3.json",
+       "title": "School Curriculum & Life Skills",
+       "summary": "Breadth or Depth in the Curriculum • Compulsory Schooling and Dropouts • Teaching Life Skills",
+       "module": "academic",
+       "durationMin": 60,
+       "totalQuestions": 40,
+       "questionTypes": [
+        "notes",
+        "tfng",
+        "mcq",
+        "matching"
+       ],
+       "passages": [
+        "Breadth or Depth in the School Curriculum?",
+        "Compulsory Schooling and School Dropouts",
+        "Teaching Life Skills in Schools"
+       ],
+       "qRanges": [
+        [
+         1,
+         13
+        ],
+        [
+         14,
+         26
+        ],
+        [
+         27,
+         40
+        ]
+       ]
+      },
+      {
+       "id": "band-4-5-education-test-4",
+       "file": "band_4_5/education/test-4.json",
+       "title": "Youth, Sport & Success",
+       "summary": "Family, Media and Peers • Elite Sport vs Grassroots • Education and Success",
+       "module": "academic",
+       "durationMin": 60,
+       "totalQuestions": 40,
+       "questionTypes": [
+        "tfng",
+        "flowchart",
+        "notes",
+        "summary_box",
+        "mcq"
+       ],
+       "passages": [
+        "Family, Media and Peers: What Shapes a Child?",
+        "Elite Sport Funding vs. Grassroots Participation",
+        "Education and Success in Modern Society"
        ],
        "qRanges": [
         [
