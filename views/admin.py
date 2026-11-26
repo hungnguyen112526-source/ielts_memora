@@ -60,7 +60,7 @@ with st.container(key="card-user-actions"):
             if st.button("Mở khóa" if blocked else "Khóa tài khoản", icon=":material/lock_open:" if blocked else ":material/lock:",
                          width="stretch", key="adm_toggle"):
                 ok, msg = auth.set_status(target["id"], "active" if blocked else "blocked")
-                st.toast(msg, icon=":material/check_circle:")
+                st.toast(msg, icon="✅")
                 st.rerun()
         with c2:
             new_pw = st.text_input("Mật khẩu mới", type="password", key="adm_pw", label_visibility="collapsed",
@@ -72,7 +72,7 @@ with st.container(key="card-user-actions"):
             confirm = st.checkbox(f"Xác nhận xóa '{target['username']}'", key="adm_confirm")
             if st.button("Xóa tài khoản", icon=":material/delete:", width="stretch", disabled=not confirm, key="adm_delete"):
                 ok, msg = auth.delete_user(target["id"])
-                st.toast(msg, icon=":material/check_circle:")
+                st.toast(msg, icon="✅")
                 st.rerun()
 
 
@@ -96,13 +96,13 @@ def _backup_bytes() -> bytes:
 section("Lưu trữ và sao lưu")
 with st.container(key="card-backup"):
     if db.backend() == "postgres":
-        st.success("Dữ liệu đang lưu ở PostgreSQL bên ngoài, không bị mất khi app khởi động lại.", icon=":material/cloud_done:")
+        st.success("Dữ liệu đang lưu ở PostgreSQL bên ngoài, không bị mất khi app khởi động lại.", icon="✅")
         st.caption("Bạn vẫn có thể tải thêm một bản sao lưu JSON (mật khẩu chỉ ở dạng băm).")
         st.download_button("Tải bản sao lưu (JSON)",
                            data=json.dumps(db.export_all(), ensure_ascii=False, indent=1).encode("utf-8"),
                            file_name="memora-backup.json", mime="application/json", icon=":material/download:")
     else:
         st.warning("Đang dùng SQLite (file trên ổ đĩa tạm). Trên Streamlit Cloud, dữ liệu sẽ MẤT khi app khởi động lại. "
-                   "Hãy đặt `DATABASE_URL` trong Secrets để lưu bền (xem README, mục Lưu dữ liệu bền).", icon=":material/warning:")
+                   "Hãy đặt `DATABASE_URL` trong Secrets để lưu bền (xem README, mục Lưu dữ liệu bền).", icon="⚠️")
         st.download_button("Tải bản sao lưu (memora.db)", data=_backup_bytes(), file_name="memora-backup.db",
                            mime="application/octet-stream", icon=":material/download:")
