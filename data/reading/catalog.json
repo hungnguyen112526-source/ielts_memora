@@ -1,6 +1,6 @@
 {
- "generated": 1795663116,
- "signature": 41580709180587,
+ "generated": 1795663508,
+ "signature": 111893000612483,
  "categories": [
   {
    "id": "band_4_5",
@@ -15,7 +15,44 @@
      "description": "Chủ đề Education.",
      "badge": "EDU",
      "order": 1,
-     "tests": []
+     "tests": [
+      {
+       "id": "band-4-5-education-test-1",
+       "file": "band_4_5/education/test-1.json",
+       "title": "University Life & Higher Education",
+       "summary": "Why Do People Go to University? • Studying in Another Country • Who Pays for University?",
+       "module": "academic",
+       "durationMin": 60,
+       "totalQuestions": 40,
+       "questionTypes": [
+        "notes",
+        "tfng",
+        "matching",
+        "summary_text",
+        "mcq",
+        "summary_box"
+       ],
+       "passages": [
+        "Why Do People Go to University?",
+        "Studying in Another Country",
+        "Who Pays for University?"
+       ],
+       "qRanges": [
+        [
+         1,
+         13
+        ],
+        [
+         14,
+         26
+        ],
+        [
+         27,
+         40
+        ]
+       ]
+      }
+     ]
     },
     {
      "id": "environment",

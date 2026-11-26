@@ -1,0 +1,543 @@
+{
+ "schema": 1,
+ "id": "band-4-5-education-test-1",
+ "series": "education",
+ "category": "band_4_5",
+ "title": "University Life & Higher Education",
+ "summary": "Why Do People Go to University? • Studying in Another Country • Who Pays for University?",
+ "subtitle": "Band 4.0–5.0 · Education",
+ "module": "academic",
+ "durationMin": 60,
+ "totalQuestions": 40,
+ "questionTypes": [
+  "notes",
+  "tfng",
+  "matching",
+  "summary_text",
+  "mcq",
+  "summary_box"
+ ],
+ "passages": [
+  {
+   "label": "READING PASSAGE 1",
+   "instruction": "You should spend about 20 minutes on Questions 1-13, which are based on Reading Passage 1 below.",
+   "title": "Why Do People Go to University?",
+   "subtitle": "Exploring the value of a degree and alternative paths to a successful career",
+   "paragraphs": [
+    "For many decades, going to university has been seen by parents and teachers as the main key to a successful life. After finishing high school, millions of young people around the world choose to spend three or four years studying for a university degree. The most common reason is to get better job opportunities. Many companies still ask for a university qualification before they will even invite a person to an interview.",
+    "In addition to getting a good job, people with a degree often earn a higher salary than people who start working straight after school. According to a recent report in the UK, university graduates earn an average of 20 percent more over their lifetime. For professions such as medicine, law, and engineering, a degree is not just helpful; it is a legal requirement. Without it, a person cannot legally work in those fields.",
+    "However, money and work are not the only reasons to study at university. Many students go because they have a strong interest in a specific subject and want to gain deeper knowledge. University libraries, laboratories, and experienced professors give students the chance to explore ideas in detail. Students also develop important soft skills, such as teamwork, time management, and critical thinking, which are useful in any future career.",
+    "University life also offers valuable social benefits. Moving away from home allows young adults to meet people from different cities and backgrounds. Joining student clubs, sports teams, or volunteer groups helps them build lasting friendships and a professional network that may support them later in life.",
+    "Despite these advantages, more young people today are asking whether university is really the best choice for everyone. In recent years, starting work or joining an apprenticeship straight after high school has become much more popular. Apprenticeships allow young people to learn practical skills on the job while earning a wage at the same time.",
+    "Some major technology and retail companies have even removed the need for a degree for many of their roles. Instead, they look at a candidate's experience, portfolio, and attitude. While a university education remains a strong path to success for many, experts agree that it is no longer the only way to build a rewarding career."
+   ],
+   "groups": [
+    {
+     "title": "Questions 1-7",
+     "instruction": "Complete the notes below. Choose <strong>ONE WORD ONLY</strong> from the passage for each answer.",
+     "type": "notes",
+     "boxTitle": "Going to University vs. Starting Work",
+     "sections": [
+      {
+       "heading": "Reasons for choosing university",
+       "items": [
+        "Many employers require a university {{1}} before offering an interview.",
+        "Graduates generally earn a higher {{2}} than people who start work after school.",
+        "A degree is legally required for professions like engineering, law, and {{3}}."
+       ]
+      },
+      {
+       "heading": "Academic and social benefits",
+       "items": [
+        "Students can gain deeper {{4}} in a subject that interests them.",
+        "Joining clubs and sports teams helps students make friends and build a professional {{5}}."
+       ]
+      },
+      {
+       "heading": "Alternatives to university",
+       "items": [
+        "Apprenticeships let young people learn practical skills while earning a {{6}}.",
+        "Some large companies focus on a candidate's experience, portfolio, and {{7}} instead of a degree."
+       ]
+      }
+     ]
+    },
+    {
+     "title": "Questions 8-13",
+     "instruction": "Do the following statements agree with the information given in Reading Passage 1? Choose <strong>TRUE</strong>, <strong>FALSE</strong>, or <strong>NOT GIVEN</strong>.",
+     "type": "tfng",
+     "options": [
+      "TRUE",
+      "FALSE",
+      "NOT GIVEN"
+     ],
+     "items": [
+      {
+       "q": 8,
+       "text": "Many university students spend three or four years studying for their degree."
+      },
+      {
+       "q": 9,
+       "text": "In the UK, university graduates always earn at least 20 percent more than non-graduates every year."
+      },
+      {
+       "q": 10,
+       "text": "University professors are required to help students find their first job after graduation."
+      },
+      {
+       "q": 11,
+       "text": "Moving away to university gives young people the chance to meet others from varied backgrounds."
+      },
+      {
+       "q": 12,
+       "text": "Apprenticeships have become less popular with school leavers in recent years."
+      },
+      {
+       "q": 13,
+       "text": "Technology companies pay higher wages to apprentices than retail companies do."
+      }
+     ]
+    }
+   ],
+   "qRange": [
+    1,
+    13
+   ]
+  },
+  {
+   "label": "READING PASSAGE 2",
+   "instruction": "You should spend about 20 minutes on Questions 14-26, which are based on Reading Passage 2 below.",
+   "title": "Studying in Another Country",
+   "subtitle": "The rewards and realities of international education and student exchange programmes",
+   "paragraphs": [
+    "<strong>A</strong> Every year, millions of students leave their home countries to take part in university courses or short-term student exchange programmes abroad. Studying in another country has become a common goal for young people who want to experience a new culture and improve their future career prospects. Universities around the world actively encourage this trend by offering international scholarships and partner programmes.",
+    "<strong>B</strong> According to Dr. Maya Patel, an education adviser in London, one of the greatest benefits of studying abroad is personal growth. 'When students move to a foreign city on their own, they have to manage their own budget, cook their own meals, and solve everyday problems,' she says. 'This forces them to become much more independent in a very short time.' She also notes that employers value international students because they can adapt quickly to unfamiliar situations.",
+    "<strong>C</strong> However, living far from home is not always easy. Tomoki Sato, a Japanese student who spent a year on an exchange programme in Australia, explains that the first few months were tough. 'Even though I studied English for years at school, I still faced a serious language barrier when people spoke fast or used local slang,' he remembers. 'I also felt very homesick during holidays and missed my family's cooking.' Fortunately, joining a local hiking club helped him make friends and feel more comfortable.",
+    "<strong>D</strong> Financial pressure is another major concern for international students. Apart from university fees, students must plan carefully for living costs such as rent, transport, and food, which can be much higher in major cities like London, New York, or Sydney. Elena Rossi, a financial counsellor at an international college, advises students to research local prices before they travel. 'Many students are surprised by how expensive accommodation is,' she says. 'Creating a clear monthly budget and checking whether their visa allows part-time work can prevent serious stress later.'",
+    "<strong>E</strong> Student exchange programmes, which usually last for one semester or one academic year, offer a popular alternative to completing a full degree overseas. Because exchange students normally pay fees to their home university, these short programmes are often cheaper and easier to arrange. Professor David Clark, who directs a university exchange office, believes that even a single semester abroad can change a student's worldview. 'Students return with greater confidence and a deeper respect for other traditions,' he explains.",
+    "<strong>F</strong> Despite the challenges, researchers agree that good preparation makes a big difference. Dr. Patel recommends that students learn basic phrases in the local language and connect with current students online before arriving. Meanwhile, Professor Clark suggests that universities should offer better orientation weeks and mental health support during the first term, so that newcomers do not feel isolated while adjusting to their new environment."
+   ],
+   "groups": [
+    {
+     "title": "Questions 14-17",
+     "instruction": "Reading Passage 2 has six sections, A-F. Which section contains the following information? Choose the correct letter, <strong>A-F</strong>.",
+     "type": "matching",
+     "options": [
+      "A",
+      "B",
+      "C",
+      "D",
+      "E",
+      "F"
+     ],
+     "items": [
+      {
+       "q": 14,
+       "text": "a reason why short-term exchange programmes can be more affordable than a full degree abroad"
+      },
+      {
+       "q": 15,
+       "text": "examples of daily tasks that help international students grow as individuals"
+      },
+      {
+       "q": 16,
+       "text": "a suggestion for how universities can help new international students feel less lonely"
+      },
+      {
+       "q": 17,
+       "text": "a personal experience of finding it difficult to understand informal spoken language"
+      }
+     ]
+    },
+    {
+     "title": "Questions 18-21",
+     "instruction": "Complete the summary below. Choose <strong>ONE WORD ONLY</strong> from the passage for each answer.",
+     "type": "summary_text",
+     "boxTitle": "Common challenges for students abroad",
+     "paragraphs": [
+      "International students often face both emotional and financial difficulties. For example, Tomoki Sato experienced a language barrier in Australia, especially when locals used fast speech or {{18}}. He also felt {{19}}, particularly during holiday periods, until he made friends through a {{20}} club. In addition, high living costs in big cities can be a shock. According to Elena Rossi, students are often surprised by the price of {{21}} and should plan a monthly budget in advance."
+     ]
+    },
+    {
+     "title": "Questions 22-26",
+     "instruction": "Look at the following statements (Questions 22-26) and the list of people below. Match each statement with the correct person, <strong>A</strong>, <strong>B</strong>, <strong>C</strong> or <strong>D</strong>. You may use any letter more than once.",
+     "type": "matching",
+     "legendTitle": "List of People",
+     "legend": [
+      {
+       "key": "A",
+       "text": "Dr. Maya Patel"
+      },
+      {
+       "key": "B",
+       "text": "Tomoki Sato"
+      },
+      {
+       "key": "C",
+       "text": "Elena Rossi"
+      },
+      {
+       "key": "D",
+       "text": "Professor David Clark"
+      }
+     ],
+     "options": [
+      "A",
+      "B",
+      "C",
+      "D"
+     ],
+     "items": [
+      {
+       "q": 22,
+       "text": "Students should check if they are legally allowed to do a part-time job while studying abroad."
+      },
+      {
+       "q": 23,
+       "text": "Companies appreciate graduates who have studied abroad because they adjust well to new environments."
+      },
+      {
+       "q": 24,
+       "text": "Spending even a few months in another country can make students more confident and respectful of other cultures."
+      },
+      {
+       "q": 25,
+       "text": "Taking part in an outdoor social activity helped him overcome early difficulties abroad."
+      },
+      {
+       "q": 26,
+       "text": "Contacting students who are already at the university before travelling is a helpful step."
+      }
+     ]
+    }
+   ],
+   "qRange": [
+    14,
+    26
+   ]
+  },
+  {
+   "label": "READING PASSAGE 3",
+   "instruction": "You should spend about 20 minutes on Questions 27-40, which are based on Reading Passage 3 below.",
+   "title": "Who Pays for University?",
+   "subtitle": "The global debate over tuition fees, student loans, and free higher education",
+   "paragraphs": [
+    "Around the world, governments and families face a difficult question: who should pay for university education? While primary and secondary schools are free in almost every country, higher education is treated very differently. In some nations, students pay thousands of dollars every year in tuition fees, whereas in others, university is completely free. Both systems have strong supporters and loud critics.",
+    "In countries like Germany, Norway, and Finland, the government pays for public universities using money collected from taxes. Supporters of free education argue that access to university should depend on a student's ability and hard work, not on how rich their parents are. When tuition fees are removed, young people from low-income families can afford to study medicine, science, or teaching. Supporters also believe that a better-educated population benefits the whole society by creating more skilled workers and a stronger economy.",
+    "However, providing free university education is not without problems. Running modern universities with good libraries, up-to-date technology, and well-paid teachers is extremely expensive. Critics point out that when universities are funded only by the government, public money may be taken away from other essential services such as hospitals or primary schools. Furthermore, some economists argue that free tuition is actually unfair to taxpayers who never went to university themselves, because their taxes help pay for graduates who will later earn high incomes.",
+    "On the other hand, countries such as the United States, the United Kingdom, and Australia charge significant tuition fees. To help students who cannot pay upfront, these countries offer a student loan system. Under this system, students borrow money to cover their fees and only start paying it back after they graduate and earn above a certain income level. Supporters claim that this approach brings more funding into universities, allowing them to improve research facilities and attract top professors.",
+    "Nevertheless, the loan system also creates serious worries. In many cases, graduates leave university with large debts that take decades to repay. Fear of debt can discourage students from poorer backgrounds from applying to university in the first place. It can also push graduates to choose high-paying jobs in finance or business instead of lower-paid but socially important careers such as social work or public teaching.",
+    "Because neither system is perfect, many education experts now suggest a middle path. They believe governments should charge moderate tuition fees for wealthier families while offering full grants and scholarships to students who cannot afford to pay. In my view, this balanced model is the most practical solution: it keeps universities well funded without blocking talented young people from getting a degree simply because of their family's income."
+   ],
+   "groups": [
+    {
+     "title": "Questions 27-30",
+     "instruction": "Choose the correct letter, <strong>A, B, C or D</strong>.",
+     "type": "mcq",
+     "items": [
+      {
+       "q": 27,
+       "text": "What point does the writer make in the first paragraph?",
+       "options": [
+        {
+         "k": "A",
+         "t": "Primary and secondary schools are too expensive in many countries."
+        },
+        {
+         "k": "B",
+         "t": "Countries have very different policies regarding university costs."
+        },
+        {
+         "k": "C",
+         "t": "Most families prefer to pay tuition fees for higher quality education."
+        },
+        {
+         "k": "D",
+         "t": "Free university systems have more critics than supporters."
+        }
+       ]
+      },
+      {
+       "q": 28,
+       "text": "According to the second paragraph, why do supporters favour free education?",
+       "options": [
+        {
+         "k": "A",
+         "t": "It reduces the amount of tax that citizens have to pay."
+        },
+        {
+         "k": "B",
+         "t": "It guarantees that every graduate will find a high-paying job."
+        },
+        {
+         "k": "C",
+         "t": "It gives students from poorer families an equal chance to attend university."
+        },
+        {
+         "k": "D",
+         "t": "It encourages more students to choose subjects like business and law."
+        }
+       ]
+      },
+      {
+       "q": 29,
+       "text": "What concern do some economists express in the third paragraph?",
+       "options": [
+        {
+         "k": "A",
+         "t": "Non-graduates are paying taxes to support future high earners."
+        },
+        {
+         "k": "B",
+         "t": "Universities spend too much money on libraries and technology."
+        },
+        {
+         "k": "C",
+         "t": "Public hospitals are more expensive to run than universities."
+        },
+        {
+         "k": "D",
+         "t": "University teachers are paid less in countries with free education."
+        }
+       ]
+      },
+      {
+       "q": 30,
+       "text": "What is the writer's main conclusion in the final paragraph?",
+       "options": [
+        {
+         "k": "A",
+         "t": "All countries should immediately make university completely free."
+        },
+        {
+         "k": "B",
+         "t": "Student loans are the fairest way to fund higher education."
+        },
+        {
+         "k": "C",
+         "t": "A combined system based on family income is the most sensible approach."
+        },
+        {
+         "k": "D",
+         "t": "Talented students should study abroad where tuition fees are lower."
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "title": "Questions 31-36",
+     "instruction": "Complete the summary using the list of words and phrases, <strong>A-I</strong>, below.",
+     "type": "summary_box",
+     "boxTitle": "The Tuition Fee and Loan System",
+     "legend": [
+      {
+       "key": "A",
+       "text": "financial support"
+      },
+      {
+       "key": "B",
+       "text": "top professors"
+      },
+      {
+       "key": "C",
+       "text": "public teaching"
+      },
+      {
+       "key": "D",
+       "text": "student loans"
+      },
+      {
+       "key": "E",
+       "text": "large debts"
+      },
+      {
+       "key": "F",
+       "text": "poorer backgrounds"
+      },
+      {
+       "key": "G",
+       "text": "research facilities"
+      },
+      {
+       "key": "H",
+       "text": "upfront payment"
+      },
+      {
+       "key": "I",
+       "text": "higher taxes"
+      }
+     ],
+     "options": [
+      "A",
+      "B",
+      "C",
+      "D",
+      "E",
+      "F",
+      "G",
+      "H",
+      "I"
+     ],
+     "paragraphs": [
+      "In countries like the US, the UK, and Australia, students have to pay high tuition fees. Those who cannot make an {{31}} can borrow money through {{32}}, which they repay only when they earn enough after graduation. Supporters say this system gives universities extra money to upgrade their {{33}} and hire skilled academics. However, many graduates end up with {{34}} for many years. Because of this, some young people from {{35}} may decide not to apply, while others may avoid important but lower-paid jobs like {{36}}."
+     ]
+    },
+    {
+     "title": "Questions 37-40",
+     "instruction": "Do the following statements agree with the views of the writer in Reading Passage 3? Choose <strong>YES</strong>, <strong>NO</strong> or <strong>NOT GIVEN</strong>.",
+     "type": "tfng",
+     "options": [
+      "YES",
+      "NO",
+      "NOT GIVEN"
+     ],
+     "items": [
+      {
+       "q": 37,
+       "text": "Running a modern university with good equipment and teachers requires a lot of money."
+      },
+      {
+       "q": 38,
+       "text": "Germany has a higher percentage of university graduates than the United States."
+      },
+      {
+       "q": 39,
+       "text": "The student loan system encourages more graduates to become social workers."
+      },
+      {
+       "q": 40,
+       "text": "Wealthier families should contribute something towards the cost of university education."
+      }
+     ]
+    }
+   ],
+   "qRange": [
+    27,
+    40
+   ]
+  }
+ ],
+ "answers": {
+  "1": [
+   "qualification"
+  ],
+  "2": [
+   "salary"
+  ],
+  "3": [
+   "medicine"
+  ],
+  "4": [
+   "knowledge"
+  ],
+  "5": [
+   "network"
+  ],
+  "6": [
+   "wage"
+  ],
+  "7": [
+   "attitude"
+  ],
+  "8": [
+   "TRUE"
+  ],
+  "9": [
+   "FALSE"
+  ],
+  "10": [
+   "NOT GIVEN"
+  ],
+  "11": [
+   "TRUE"
+  ],
+  "12": [
+   "FALSE"
+  ],
+  "13": [
+   "NOT GIVEN"
+  ],
+  "14": [
+   "E"
+  ],
+  "15": [
+   "B"
+  ],
+  "16": [
+   "F"
+  ],
+  "17": [
+   "C"
+  ],
+  "18": [
+   "slang"
+  ],
+  "19": [
+   "homesick"
+  ],
+  "20": [
+   "hiking"
+  ],
+  "21": [
+   "accommodation"
+  ],
+  "22": [
+   "C"
+  ],
+  "23": [
+   "A"
+  ],
+  "24": [
+   "D"
+  ],
+  "25": [
+   "B"
+  ],
+  "26": [
+   "A"
+  ],
+  "27": [
+   "B"
+  ],
+  "28": [
+   "C"
+  ],
+  "29": [
+   "A"
+  ],
+  "30": [
+   "C"
+  ],
+  "31": [
+   "H"
+  ],
+  "32": [
+   "D"
+  ],
+  "33": [
+   "G"
+  ],
+  "34": [
+   "E"
+  ],
+  "35": [
+   "F"
+  ],
+  "36": [
+   "C"
+  ],
+  "37": [
+   "YES"
+  ],
+  "38": [
+   "NOT GIVEN"
+  ],
+  "39": [
+   "NO"
+  ],
+  "40": [
+   "YES"
+  ]
+ }
+}

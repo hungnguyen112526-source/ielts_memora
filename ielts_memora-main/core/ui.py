@@ -151,7 +151,7 @@ button[data-baseweb="tab"] { font-weight: 700; }
 .memora-bar i { display: block; height: 100%; background: linear-gradient(90deg, var(--m-accent), var(--m-accent2)); border-radius: 9999px; }
 .memora-series { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; flex-wrap: wrap; margin: 1.6rem 0 .25rem; }
 .memora-series h3 { font-size: 1.15rem; margin: 0; padding: 0; }
-.memora-series span { font-size: .8rem; font-weight: 700; padding: 3px 10px; border-radius: 999px; background: var(--m-accent-soft); color: var(--m-accent-text); }
+.memora-series > span { font-size: .8rem; font-weight: 700; padding: 3px 10px; border-radius: 999px; background: var(--m-accent-soft); color: var(--m-accent-text); }
 .memora-series-desc { opacity: .7; font-size: .88rem; margin: 0 0 .75rem; }
 .memora-table { width: 100%; border-collapse: collapse; font-size: .88rem; }
 .memora-table th { text-align: left; opacity: .65; font-weight: 700; font-size: .78rem; padding: 0 8px 8px; border-bottom: 1px solid var(--m-line); }

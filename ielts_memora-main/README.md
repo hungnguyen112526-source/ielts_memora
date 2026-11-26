@@ -67,10 +67,10 @@ Công cụ này kiểm tra thiếu đáp án, câu bị sót hoặc dư, id trù
 | `bandTable` | (tuỳ chọn) bảng quy đổi riêng, ví dụ `[[10,"5.0"],[5,"4.0"]]`, mặc định là bảng Academic 40 câu |
 | `passages[]` | `label`, `title`, `paragraphs`, `groups[]`, `qRange` (câu đầu, câu cuối) |
 | `answers` | `{"1": ["mining"], "8": ["TRUE"], ...}`, mỗi câu có thể có nhiều đáp án chấp nhận |
-| `pairQuestions` | (tuỳ chọn) cặp câu chọn 2 đáp án, thứ tự nào cũng đúng |
+| `pairQuestions` | (tuỳ chọn) nhóm câu chọn 2, 3 hoặc 4 đáp án, thứ tự nào cũng đúng: `[20, 21, ["B","D"]]` hoặc `[24, 25, 26, ["A","C","E"]]` |
 
 Chỗ điền từ viết là `{{số câu}}` trong văn bản. Các dạng câu hỏi hiện có:
-`tfng`, `mcq`, `multi2`, `matching`, `notes`, `summary_box`, `summary_text`, `table`, `flowchart`.
+`tfng`, `mcq`, `multi2` (chọn 2/3/4 đáp án, khai báo bằng `qPair`), `matching`, `notes`, `summary_box`, `summary_text`, `table`, `flowchart`.
 Muốn thêm dạng mới, thêm một nhánh render trong `renderQuestions` của `engine/reader/index.html` và tên dạng vào `KNOWN_TYPES` trong `tools/validate.py`.
 
 Giữ cho file nhẹ: một đề một file, ảnh để file riêng và ghi đường dẫn, không nhúng base64.
