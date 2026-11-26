@@ -1,0 +1,560 @@
+{
+ "schema": 1,
+ "id": "band-5-6-5-education-test-2",
+ "series": "education",
+ "category": "band_5_6_5",
+ "title": "Skills, Science & Parental Pressure",
+ "summary": "Academic Knowledge vs Employability • Why Fewer Students Choose Science • Parental Pressure",
+ "subtitle": "Band 5.0–6.5 · Education",
+ "module": "academic",
+ "durationMin": 60,
+ "totalQuestions": 40,
+ "questionTypes": [
+  "table",
+  "tfng",
+  "matching",
+  "multi2",
+  "summary_text",
+  "mcq",
+  "summary_box"
+ ],
+ "passages": [
+  {
+   "label": "READING PASSAGE 1",
+   "instruction": "You should spend about 20 minutes on Questions 1-13, which are based on Reading Passage 1 below.",
+   "title": "Academic Knowledge vs. Employability Skills",
+   "subtitle": "Rethinking the balance between university theory and vocational readiness",
+   "paragraphs": [
+    "Historically, universities were designed as centres of scholarship where students explored philosophy, literature, and pure science with little concern for immediate employment. Much of this instruction was deeply theoretical, prioritising abstract reasoning over workplace routines. In the twenty-first-century labour market, however, rapid automation and intense global competition have triggered urgent questions about whether universities should shift their mission toward producing job-ready graduates.",
+    "Employer surveys across Europe and North America repeatedly highlight a 'skills gap'. Hiring managers complain that although recent graduates possess impressive exam grades, many struggle to apply their knowledge to messy commercial problems. Companies consistently look for two complementary capabilities: up-to-date practical skills, such as coding, financial modelling, or laboratory testing, and interpersonal soft skills, including persuasive presentation, conflict resolution, and adaptability under tight deadlines.",
+    "This frustration has renewed interest in vocational education. Unlike traditional universities, technical colleges and apprenticeship schemes train learners directly for high-demand industries such as renewable energy installation, culinary arts, and healthcare support. Because apprentices spend up to eighty percent of their week working alongside experienced mentors, they earn a wage while training and typically enter full-time employment with minimal transition time.",
+    "Nevertheless, many academics caution against turning universities into narrow job-training centres. Professor Helen Carter, an education historian, observes that specific technical tools often become obsolete within a decade. By contrast, rigorous theoretical training teaches students how to evaluate unreliable evidence, construct logical arguments, and learn independently—intellectual habits that remain relevant even when entire industries vanish.",
+    "Increasingly, progressive institutions are rejecting the idea that theory and practice must compete. Universities in countries such as Switzerland, Singapore, and Canada now embed mandatory industry placements, real-client consulting projects, and digital bootcamps inside standard honours degrees. Meanwhile, vocational colleges are adding modules on business ethics and communication so technicians can eventually step into leadership roles. Together, these reforms aim to bridge the historic divide between thinking and doing."
+   ],
+   "groups": [
+    {
+     "title": "Questions 1-5",
+     "instruction": "Complete the table below. Choose <strong>ONE WORD ONLY</strong> from the passage for each answer.",
+     "type": "table",
+     "boxTitle": "Comparing Higher Education Pathways",
+     "headers": [
+      "Pathway",
+      "Core emphasis",
+      "Distinctive strength or example"
+     ],
+     "rows": [
+      [
+       "Traditional academic degrees",
+       "• Deeply {{1}} learning centred on abstract reasoning<br>• Trains students to assess unreliable {{2}} and build logical arguments",
+       ""
+      ],
+      [
+       "Vocational apprenticeships",
+       "• Hands-on training alongside experienced {{3}}",
+       ""
+      ],
+      [
+       "Vocational colleges (reformed)",
+       "• Adding courses in communication and business {{4}} for future leaders",
+       ""
+      ],
+      [
+       "Reformed honours degrees",
+       "• Includes digital bootcamps and mandatory industry {{5}}",
+       ""
+      ]
+     ]
+    },
+    {
+     "title": "Questions 6-13",
+     "instruction": "Do the following statements agree with the information given in Reading Passage 1? Choose <strong>TRUE</strong>, <strong>FALSE</strong> or <strong>NOT GIVEN</strong>.",
+     "type": "tfng",
+     "options": [
+      "TRUE",
+      "FALSE",
+      "NOT GIVEN"
+     ],
+     "items": [
+      {
+       "q": 6,
+       "text": "Early universities focused primarily on helping students find jobs immediately after graduation."
+      },
+      {
+       "q": 7,
+       "text": "Hiring managers say that graduates with strong exam scores can still struggle with real workplace problems."
+      },
+      {
+       "q": 8,
+       "text": "Financial modelling is classified in the passage as an example of a soft skill."
+      },
+      {
+       "q": 9,
+       "text": "Apprentices earn more money during training than university students earn from part-time jobs."
+      },
+      {
+       "q": 10,
+       "text": "Professor Helen Carter warns that specific technical tools can quickly become outdated."
+      },
+      {
+       "q": 11,
+       "text": "According to Helen Carter, independent learning skills lose their value when industries change."
+      },
+      {
+       "q": 12,
+       "text": "Switzerland spends a larger percentage of its education budget on vocational colleges than Singapore does."
+      },
+      {
+       "q": 13,
+       "text": "Some vocational colleges now teach subjects intended to help graduates move into management positions."
+      }
+     ]
+    }
+   ],
+   "qRange": [
+    1,
+    13
+   ]
+  },
+  {
+   "label": "READING PASSAGE 2",
+   "instruction": "You should spend about 20 minutes on Questions 14-26, which are based on Reading Passage 2 below.",
+   "title": "Why Fewer Students Choose Science",
+   "subtitle": "Investigating the roots of the STEM shortage and persistent gender gaps",
+   "paragraphs": [
+    "<strong>A</strong> Despite rapid technological advancement in artificial intelligence, biotechnology, and clean energy, many industrialised nations are experiencing a troubling decline in domestic students enrolling in science, technology, engineering, and mathematics (STEM). Industry federations warn that a prolonged shortage of qualified scientists and engineers could slow economic innovation and leave critical public infrastructure vulnerable.",
+    "<strong>B</strong> Classroom surveys reveal that student enthusiasm for science often drops sharply during secondary school. Physics and chemistry are widely perceived as difficult because curricula frequently overload teenagers with abstract equations and dense memorisation rather than curiosity-driven inquiry. In competitive exam systems where university entry depends on overall grade averages, rational students often drop demanding science subjects in favour of courses where high marks feel safer to achieve.",
+    "<strong>C</strong> Perceptions of career rewards further complicate recruitment. Although technology specialists can earn impressive incomes, many undergraduates assume that pure scientific research offers years of insecure temporary contracts and modest pay. Consequently, mathematically talented students are frequently drawn toward lucrative careers in investment banking, corporate consulting, or commercial law, where financial progression appears faster and more predictable.",
+    "<strong>D</strong> Gender imbalances remain another stubborn barrier. International assessment data shows that girls routinely match or outperform boys in school-level science and mathematics. Yet women remain heavily underrepresented in university physics, electrical engineering, and computer science. Sociologists attribute this gap partly to cultural stereotypes that subtly link technical brilliance with masculinity, and partly to the scarcity of female role models in senior faculty posts and media portrayals.",
+    "<strong>E</strong> Encouragingly, targeted school reforms have produced measurable improvements. When secondary schools replace passive note-taking with inquiry-based projects—such as designing water filtration devices or programming autonomous sensors—student engagement rises markedly. Connecting scientific principles to tangible social challenges, including climate adaptation and medical diagnostics, proves especially effective in motivating students who want their future careers to help people.",
+    "<strong>F</strong> Governments and employers are reinforcing these classroom changes with structural incentives. Several countries have introduced tuition bursaries for trainee science teachers to address staff shortages in rural schools, while engineering associations sponsor paid summer workshops specifically welcoming young women. Analysts agree that reversing the STEM decline requires reforming both how science is taught and how scientific careers are rewarded."
+   ],
+   "groups": [
+    {
+     "title": "Questions 14-19",
+     "instruction": "Reading Passage 2 has six sections, A-F. Which section contains the following information? Choose the correct letter, <strong>A-F</strong>.",
+     "type": "matching",
+     "options": [
+      "A",
+      "B",
+      "C",
+      "D",
+      "E",
+      "F"
+     ],
+     "items": [
+      {
+       "q": 14,
+       "text": "financial support aimed at attracting more science educators to countryside schools"
+      },
+      {
+       "q": 15,
+       "text": "a comparison showing that young women achieve strong results in school science tests"
+      },
+      {
+       "q": 16,
+       "text": "strategic reasons why high-achieving teenagers avoid tough science exams"
+      },
+      {
+       "q": 17,
+       "text": "a warning about how a lack of scientists could negatively affect national infrastructure"
+      },
+      {
+       "q": 18,
+       "text": "non-scientific sectors that compete successfully for mathematically gifted graduates"
+      },
+      {
+       "q": 19,
+       "text": "classroom projects linking scientific theory to practical social needs"
+      }
+     ]
+    },
+    {
+     "title": "Questions 20-21",
+     "instruction": "Choose <strong>TWO</strong> letters, <strong>A-E</strong>. Which TWO factors are mentioned by sociologists to explain the underrepresentation of women in fields such as physics and computer science?",
+     "type": "multi2",
+     "qPair": [
+      20,
+      21
+     ],
+     "options": [
+      {
+       "k": "A",
+       "t": "Girls generally score lower than boys in secondary school mathematics."
+      },
+      {
+       "k": "B",
+       "t": "Cultural assumptions quietly associate technical talent with men."
+      },
+      {
+       "k": "C",
+       "t": "Engineering universities set stricter entry rules for female applicants."
+      },
+      {
+       "k": "D",
+       "t": "Few women appear as senior scientists in universities and the media."
+      },
+      {
+       "k": "E",
+       "t": "Female students have little interest in solving medical or environmental problems."
+      }
+     ]
+    },
+    {
+     "title": "Questions 22-26",
+     "instruction": "Complete the summary below. Choose <strong>ONE WORD ONLY</strong> from the passage for each answer.",
+     "type": "summary_text",
+     "boxTitle": "Causes of Declining STEM Interest and Classroom Remedies",
+     "paragraphs": [
+      "Teenagers frequently lose interest in science at secondary school because syllabuses rely heavily on memorisation and abstract {{22}}. At university level, many capable students avoid pure research because they fear facing low pay and insecure {{23}}, choosing finance or corporate {{24}} instead. However, schools can boost enthusiasm by shifting away from passive note-taking toward practical tasks such as building water {{25}} devices or coding autonomous {{26}}."
+     ]
+    }
+   ],
+   "qRange": [
+    14,
+    26
+   ]
+  },
+  {
+   "label": "READING PASSAGE 3",
+   "instruction": "You should spend about 20 minutes on Questions 27-40, which are based on Reading Passage 3 below.",
+   "title": "Parental Pressure and Children's Mental Health",
+   "subtitle": "When structured achievement crowds out childhood resilience and free play",
+   "paragraphs": [
+    "Across East Asia, Europe, and North America, parenting has undergone a quiet transformation over the past forty years. Driven by fears of economic uncertainty and fierce university admissions, many middle-class families have adopted what sociologists term 'intensive parenting'. Under this approach, childhood is carefully engineered into a tightly managed calendar of private tutoring, competitive sports, and enrichment classes designed to maximise future credentials.",
+    "Holding high expectations for children is not inherently harmful. Longitudinal education studies confirm that parental involvement and clear aspirations strongly predict solid academic achievement. The tipping point occurs when supportive guidance hardens into relentless academic pressure. When parents treat every test result as a referendum on their child's future—or express affection primarily when top grades arrive—young people internalise a fragile form of perfectionism.",
+    "Clinical psychologists are documenting the psychological toll of this hyper-competitive environment. Clinics report rising numbers of adolescents experiencing chronic anxiety, insomnia, and full-scale academic burnout—characterised by emotional exhaustion and cynicism toward learning. Paradoxically, relentless scrutiny can undermine a child's self-esteem rather than build it: students who fear disappointing their parents often avoid difficult intellectual risks, preferring safe tasks where failure is unlikely.",
+    "Closely linked to over-scheduling is the dramatic disappearance of unstructured free play. Surveys indicate that children today spend far less time playing outdoors without adult supervision than their grandparents did. Many parents view unscheduled afternoons as unproductive, preferring structured activities with measurable awards. Yet developmental neuroscientists argue that free play is precisely how young brains practise executive function.",
+    "As paediatric researcher Dr. Samuel Osei explains, 'When children invent their own games, negotiate disagreements without a referee, and tolerate occasional boredom, they develop emotional regulation and genuine independence.' In Osei's view, raising a truly well-rounded adult requires leaving unscripted space for curiosity, rest, and self-directed exploration alongside formal schooling.",
+    "None of this implies that parents should abandon ambition or stop encouraging effort. Rather, child welfare advocates urge families to shift from outcome-focused control to process-focused support—praising persistence, normalising mistakes as part of learning, and protecting daily downtime. Ultimately, resilient and mentally healthy children are far better equipped for adult success than exhausted top scorers."
+   ],
+   "groups": [
+    {
+     "title": "Questions 27-29",
+     "instruction": "Choose the correct letter, <strong>A, B, C or D</strong>.",
+     "type": "mcq",
+     "items": [
+      {
+       "q": 27,
+       "text": "What is the writer explaining in the first paragraph?",
+       "options": [
+        {
+         "k": "A",
+         "t": "Why economic worries have led many families to over-schedule childhood"
+        },
+        {
+         "k": "B",
+         "t": "How university admissions have become fairer over the last forty years"
+        },
+        {
+         "k": "C",
+         "t": "Why competitive sports are replacing private tutoring in middle-class homes"
+        },
+        {
+         "k": "D",
+         "t": "How parenting styles differ sharply between East Asia and Europe"
+        }
+       ]
+      },
+      {
+       "q": 28,
+       "text": "In the third paragraph, what unexpected consequence of strict parental scrutiny is highlighted?",
+       "options": [
+        {
+         "k": "A",
+         "t": "Children begin to perform better under extreme stress."
+        },
+        {
+         "k": "B",
+         "t": "Students become reluctant to take on challenging tasks for fear of failing."
+        },
+        {
+         "k": "C",
+         "t": "Adolescents sleep longer to escape academic responsibilities."
+        },
+        {
+         "k": "D",
+         "t": "Parents become cynical about the quality of school teachers."
+        }
+       ]
+      },
+      {
+       "q": 29,
+       "text": "Why do many parents prefer organised activities over free play, according to paragraph 4?",
+       "options": [
+        {
+         "k": "A",
+         "t": "Neuroscientists warned them that outdoor play delays brain growth."
+        },
+        {
+         "k": "B",
+         "t": "Grandparents advise them to keep children indoors for safety."
+        },
+        {
+         "k": "C",
+         "t": "They regard unscheduled time as wasted and prefer activities with visible achievements."
+        },
+        {
+         "k": "D",
+         "t": "Schools require students to earn awards outside regular class hours."
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "title": "Questions 30-35",
+     "instruction": "Complete the summary using the list of words and phrases, <strong>A-I</strong>, below.",
+     "type": "summary_box",
+     "boxTitle": "Balancing Ambition with Emotional Wellbeing",
+     "legend": [
+      {
+       "key": "A",
+       "text": "emotional control"
+      },
+      {
+       "key": "B",
+       "text": "steady effort"
+      },
+      {
+       "key": "C",
+       "text": "unstructured play"
+      },
+      {
+       "key": "D",
+       "text": "daily rest"
+      },
+      {
+       "key": "E",
+       "text": "perfectionism"
+      },
+      {
+       "key": "F",
+       "text": "academic burnout"
+      },
+      {
+       "key": "G",
+       "text": "private tutoring"
+      },
+      {
+       "key": "H",
+       "text": "higher income"
+      },
+      {
+       "key": "I",
+       "text": "strict discipline"
+      }
+     ],
+     "options": [
+      "A",
+      "B",
+      "C",
+      "D",
+      "E",
+      "F",
+      "G",
+      "H",
+      "I"
+     ],
+     "paragraphs": [
+      "While parental encouragement supports school success, excessive pressure can create fragile {{30}} when affection feels tied to exam results. Over time, teenagers may suffer from sleep loss, anxiety, and {{31}}. Meanwhile, the decline of {{32}} denies young people chances to build mental flexibility. According to Dr. Samuel Osei, negotiating rules without adult interference fosters {{33}} and independence. Advocates therefore suggest valuing {{34}} over grades alone and safeguarding {{35}} every day."
+     ]
+    },
+    {
+     "title": "Questions 36-39",
+     "instruction": "Do the following statements agree with the views of the writer in Reading Passage 3? Choose <strong>YES</strong>, <strong>NO</strong> or <strong>NOT GIVEN</strong>.",
+     "type": "tfng",
+     "options": [
+      "YES",
+      "NO",
+      "NOT GIVEN"
+     ],
+     "items": [
+      {
+       "q": 36,
+       "text": "Research shows that having high parental expectations automatically damages a child's mental health."
+      },
+      {
+       "q": 37,
+       "text": "Dr. Samuel Osei believes that schools should abolish all competitive sports teams."
+      },
+      {
+       "q": 38,
+       "text": "Allowing children to experience boredom occasionally can play a positive role in development."
+      },
+      {
+       "q": 39,
+       "text": "Parents should stop having ambitions for their children in order to protect their wellbeing."
+      }
+     ]
+    },
+    {
+     "title": "Question 40",
+     "instruction": "Choose the correct letter, <strong>A, B, C or D</strong>.",
+     "type": "mcq",
+     "items": [
+      {
+       "q": 40,
+       "text": "What would be the most suitable subtitle for Reading Passage 3?",
+       "options": [
+        {
+         "k": "A",
+         "t": "Why intensive parenting guarantees top university admission"
+        },
+        {
+         "k": "B",
+         "t": "How reducing excessive pressure and restoring free play helps children thrive"
+        },
+        {
+         "k": "C",
+         "t": "Why schools should take over responsibility for children's mental health"
+        },
+        {
+         "k": "D",
+         "t": "How to eliminate anxiety by removing all school examinations"
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "qRange": [
+    27,
+    40
+   ]
+  }
+ ],
+ "answers": {
+  "1": [
+   "theoretical"
+  ],
+  "2": [
+   "evidence"
+  ],
+  "3": [
+   "mentors"
+  ],
+  "4": [
+   "ethics"
+  ],
+  "5": [
+   "placements"
+  ],
+  "6": [
+   "FALSE"
+  ],
+  "7": [
+   "TRUE"
+  ],
+  "8": [
+   "FALSE"
+  ],
+  "9": [
+   "NOT GIVEN"
+  ],
+  "10": [
+   "TRUE"
+  ],
+  "11": [
+   "FALSE"
+  ],
+  "12": [
+   "NOT GIVEN"
+  ],
+  "13": [
+   "TRUE"
+  ],
+  "14": [
+   "F"
+  ],
+  "15": [
+   "D"
+  ],
+  "16": [
+   "B"
+  ],
+  "17": [
+   "A"
+  ],
+  "18": [
+   "C"
+  ],
+  "19": [
+   "E"
+  ],
+  "20": [
+   "B",
+   "D"
+  ],
+  "21": [
+   "B",
+   "D"
+  ],
+  "22": [
+   "equations"
+  ],
+  "23": [
+   "contracts"
+  ],
+  "24": [
+   "consulting"
+  ],
+  "25": [
+   "filtration"
+  ],
+  "26": [
+   "sensors"
+  ],
+  "27": [
+   "A"
+  ],
+  "28": [
+   "B"
+  ],
+  "29": [
+   "C"
+  ],
+  "30": [
+   "E"
+  ],
+  "31": [
+   "F"
+  ],
+  "32": [
+   "C"
+  ],
+  "33": [
+   "A"
+  ],
+  "34": [
+   "B"
+  ],
+  "35": [
+   "D"
+  ],
+  "36": [
+   "NO"
+  ],
+  "37": [
+   "NOT GIVEN"
+  ],
+  "38": [
+   "YES"
+  ],
+  "39": [
+   "NO"
+  ],
+  "40": [
+   "B"
+  ]
+ },
+ "pairQuestions": [
+  [
+   20,
+   21,
+   [
+    "B",
+    "D"
+   ]
+  ]
+ ]
+}

@@ -1,0 +1,532 @@
+{
+ "schema": 1,
+ "id": "band-5-6-5-education-test-3",
+ "series": "education",
+ "category": "band_5_6_5",
+ "title": "Curriculum, Dropouts & Life Skills",
+ "summary": "Breadth or Depth in the Curriculum • Compulsory Schooling and Dropouts • Teaching Life Skills",
+ "subtitle": "Band 5.0–6.5 · Education",
+ "module": "academic",
+ "durationMin": 60,
+ "totalQuestions": 40,
+ "questionTypes": [
+  "notes",
+  "tfng",
+  "mcq",
+  "matching"
+ ],
+ "passages": [
+  {
+   "label": "READING PASSAGE 1",
+   "instruction": "You should spend about 20 minutes on Questions 1-13, which are based on Reading Passage 1 below.",
+   "title": "Breadth or Depth in the School Curriculum?",
+   "subtitle": "Debating early specialisation versus a broad upper-secondary education",
+   "paragraphs": [
+    "Designing an upper-secondary school curriculum forces policymakers to confront a classic dilemma: should sixteen-year-olds study a wide range of disciplines, or should they narrow their focus early? National traditions vary dramatically. While the English A-level system allows teenagers to specialise in as few as three subjects, systems in France, South Korea, and the United States require students to study a much broader portfolio until age eighteen.",
+    "Defenders of early specialisation emphasise the advantages of depth. By concentrating on three closely related subjects—such as biology, chemistry, and mathematics—students gain in-depth knowledge that prepares them for intensive university degrees like medicine or astrophysics. Teachers in specialised systems also report higher classroom motivation, because teenagers are no longer forced to attend lessons in subjects they dislike or struggle with.",
+    "Proponents of breadth counter that forcing sixteen-year-olds to lock in their academic identity is premature. Keeping core subjects such as mathematics, literature, and a foreign language compulsory until graduation delivers a genuinely well-rounded education. Moreover, modern careers increasingly cross traditional boundaries: environmental policy demands both scientific literacy and persuasive writing, while digital product design merges coding with visual aesthetics.",
+    "Within this structural debate sits a fierce battle over subject hierarchy—particularly history and the arts versus STEM. Pressed to boost national competitiveness, several governments have redirected school funding toward computing, physics, and engineering, leaving drama, music, and history with shrinking timetables. Yet historians warn that societies lacking historical awareness are more vulnerable to political misinformation, while arts educators point out that creative disciplines foster empathy and original thinking.",
+    "Seeking a middle ground, a growing number of schools worldwide have adopted frameworks such as the International Baccalaureate (IB) Diploma. Under this model, students study six subjects across sciences, humanities, and languages—three at higher level for depth and three at standard level for breadth—alongside a critical thinking seminar. Many curriculum experts view this blended design as the strongest preparation for an unpredictable world."
+   ],
+   "groups": [
+    {
+     "title": "Questions 1-7",
+     "instruction": "Complete the notes below. Choose <strong>ONE WORD ONLY</strong> from the passage for each answer.",
+     "type": "notes",
+     "boxTitle": "Curriculum Models and Subject Priorities",
+     "sections": [
+      {
+       "heading": "Early specialisation (e.g. England)",
+       "items": [
+        "Prepares teenagers for demanding university fields such as medicine or {{1}}.",
+        "Teachers notice greater student {{2}} when learners choose favourite subjects."
+       ]
+      },
+      {
+       "heading": "Broad curriculum model",
+       "items": [
+        "Modern fields such as environmental {{3}} combine science with strong writing.",
+        "Digital product design blends programming skills with visual {{4}}."
+       ]
+      },
+      {
+       "heading": "Humanities and arts vs. STEM",
+       "items": [
+        "Limited knowledge of history can leave citizens exposed to political {{5}}.",
+        "Arts classes help develop original thought and {{6}}."
+       ]
+      },
+      {
+       "heading": "Hybrid model (IB Diploma)",
+       "items": [
+        "Combines six subjects with a seminar focused on critical {{7}}."
+       ]
+      }
+     ]
+    },
+    {
+     "title": "Questions 8-13",
+     "instruction": "Do the following statements agree with the information given in Reading Passage 1? Choose <strong>TRUE</strong>, <strong>FALSE</strong> or <strong>NOT GIVEN</strong>.",
+     "type": "tfng",
+     "options": [
+      "TRUE",
+      "FALSE",
+      "NOT GIVEN"
+     ],
+     "items": [
+      {
+       "q": 8,
+       "text": "Students in France and South Korea typically study more subjects between ages 16 and 18 than students taking English A-levels."
+      },
+      {
+       "q": 9,
+       "text": "Supporters of a broad model think age 16 is too young for students to permanently narrow their subject choices."
+      },
+      {
+       "q": 10,
+       "text": "Students in South Korea achieve higher scores in literature than students in the United States."
+      },
+      {
+       "q": 11,
+       "text": "In recent years, governments have reduced funding for computing and physics in order to support drama and music."
+      },
+      {
+       "q": 12,
+       "text": "IB Diploma students study all six of their chosen subjects at the exact same level of difficulty."
+      },
+      {
+       "q": 13,
+       "text": "Universities prefer applicants with an IB Diploma over those with English A-levels."
+      }
+     ]
+    }
+   ],
+   "qRange": [
+    1,
+    13
+   ]
+  },
+  {
+   "label": "READING PASSAGE 2",
+   "instruction": "You should spend about 20 minutes on Questions 14-26, which are based on Reading Passage 2 below.",
+   "title": "Compulsory Schooling and School Dropouts",
+   "subtitle": "Why legal attendance rules alone cannot guarantee universal completion",
+   "paragraphs": [
+    "Over the last twenty years, a growing number of governments—including those in England, Belgium, and several US states—have raised the compulsory school-leaving age from 16 to 18. Policymakers justify this reform on economic grounds: automation has steadily eliminated low-skill factory and clerical jobs, leaving unqualified teenagers at severe risk of long-term unemployment. By keeping adolescents in education for two extra years, states aim to strengthen social mobility and narrow generational income gaps.",
+    "Yet legislation alone rarely eliminates school dropout. Before teenagers officially abandon their studies, they almost always display a pattern of disengagement—most visibly through chronic truancy and declining attendance. Longitudinal studies reveal that students from vulnerable households, including those coping with housing instability, unpaid family caregiving, or undiagnosed learning disabilities, are disproportionately likely to leave school without a certificate.",
+    "The long-term consequences extend well beyond teenage years. High dropout rates contribute directly to weak adult literacy and numeracy, leaving millions of working-age citizens struggling to interpret legal contracts, navigate digital banking, or follow workplace safety manuals. Economists estimate that early school leavers earn substantially less over their lifetimes and require greater state spending on health and unemployment benefits.",
+    "Critics of raising the school-leaving age argue that simply compelling disengaged teenagers to sit through traditional exam-driven lessons can backfire, increasing classroom disruption and resentment toward teachers. Attendance reforms succeed only when governments pair legal age limits with genuinely diverse options. Establishing a respected vocational pathway from age 16—offering paid apprenticeships in logistics, culinary work, or renewable engineering—allows practical learners to remain engaged while building marketable skills.",
+    "Early intervention systems have also proved decisive. In Finland, multi-professional teams consisting of school nurses, psychologists, and social workers monitor attendance closely; whenever unexplained absences appear, the team meets the family privately to address underlying obstacles such as bullying or financial stress rather than issuing automatic fines. Meanwhile, for citizens who have already left school, tuition-free adult literacy hubs and flexible evening diplomas offer a vital second chance to rejoin the workforce."
+   ],
+   "groups": [
+    {
+     "title": "Questions 14-18",
+     "instruction": "Do the following statements agree with the information given in Reading Passage 2? Choose <strong>TRUE</strong>, <strong>FALSE</strong> or <strong>NOT GIVEN</strong>.",
+     "type": "tfng",
+     "options": [
+      "TRUE",
+      "FALSE",
+      "NOT GIVEN"
+     ],
+     "items": [
+      {
+       "q": 14,
+       "text": "Automation has reduced the number of low-skill jobs available to teenagers without qualifications."
+      },
+      {
+       "q": 15,
+       "text": "Belgium raised its school-leaving age to 18 more successfully than England did."
+      },
+      {
+       "q": 16,
+       "text": "Teenagers usually drop out suddenly without showing any earlier warning signs."
+      },
+      {
+       "q": 17,
+       "text": "Forcing uninterested teenagers to remain in standard academic classrooms can create discipline problems."
+      },
+      {
+       "q": 18,
+       "text": "In Finland, families of absent students are automatically fined before any meeting takes place."
+      }
+     ]
+    },
+    {
+     "title": "Questions 19-26",
+     "instruction": "Complete the notes below. Choose <strong>ONE WORD ONLY</strong> from the passage for each answer.",
+     "type": "notes",
+     "boxTitle": "Understanding and Preventing School Dropouts",
+     "sections": [
+      {
+       "heading": "Risk factors",
+       "items": [
+        "Warning signs include falling attendance and persistent {{19}}.",
+        "Vulnerable youth may face unstable housing, learning disabilities, or unpaid family {{20}}."
+       ]
+      },
+      {
+       "heading": "Long-term impacts",
+       "items": [
+        "Poor adult literacy makes it hard to use digital banking or read workplace safety {{21}}.",
+        "Early leavers increase public expenditure on healthcare and unemployment {{22}}."
+       ]
+      },
+      {
+       "heading": "Practical solutions",
+       "items": [
+        "Offer paid apprenticeships from age 16 in fields like culinary work, renewable engineering, and {{23}}."
+       ]
+      },
+      {
+       "heading": "Early support in Finland",
+       "items": [
+        "Teams of nurses, social workers, and {{24}} investigate unexplained absences.",
+        "Meetings focus on solving root causes such as financial stress or {{25}}."
+       ]
+      },
+      {
+       "heading": "Support for adults",
+       "items": [
+        "Adults can earn flexible evening {{26}} or attend free literacy hubs."
+       ]
+      }
+     ]
+    }
+   ],
+   "qRange": [
+    14,
+    26
+   ]
+  },
+  {
+   "label": "READING PASSAGE 3",
+   "instruction": "You should spend about 20 minutes on Questions 27-40, which are based on Reading Passage 3 below.",
+   "title": "Teaching Life Skills in Schools",
+   "subtitle": "Should classrooms teach personal finance, volunteering, and future parenting?",
+   "paragraphs": [
+    "Every autumn, millions of eighteen-year-olds leave secondary school able to analyse nineteenth-century poetry or calculate trigonometric angles, yet utterly unprepared to read a rental contract, compare mortgage interest rates, or cook nutritious meals on a budget. This gap between exam performance and everyday competence has fuelled a global movement urging schools to make practical life skills a formal part of education.",
+    "At the top of most reform lists sits financial literacy. Digital banking apps, buy-now-pay-later schemes, and easy credit cards have made it dangerously simple for young adults to fall into long-term debt before age twenty-five. Trials in Nordic and Australian high schools show that teenagers who complete practical modules on budgeting, taxation, and compound interest manage personal savings far more responsibly after graduation than peers who receive no financial instruction.",
+    "A second major pillar is civic responsibility cultivated through mandatory community service. In provinces such as Ontario in Canada and across Singaporean secondary schools, teenagers complete structured volunteer projects—from tutoring younger migrants to restoring urban wetlands—as a graduation requirement. Supporters contend that such hands-on engagement plays a vital role in character building, nurturing empathy, reliability, and teamwork far more effectively than abstract lectures on ethics.",
+    "More controversial are proposals to introduce basic parenting skills and relationship education for senior students. Advocates point out that while society requires licences to drive a car, almost no formal preparation exists for raising children, despite clear evidence that early child development shapes lifelong health and behaviour. Critics counter that family values vary sharply across cultures and religions, making parenting a delicate private domain that state schools should approach with extreme caution.",
+    "Practical barriers also complicate reform. School timetables are already heavily congested, and teachers face intense accountability for national exam scores in core subjects. Asking overworked mathematics or literature teachers to deliver personal finance or family workshops without specialist training risks producing shallow, ineffective lessons. Furthermore, sceptics note that mandatory volunteering can feel like a chore if students merely collect signatures without meaningful reflection.",
+    "Still, rejecting life skills altogether misses an obvious opportunity. Schools do not need to invent five brand-new subjects; instead, they can embed real-world practice into existing lessons and partner with local accountants, chefs, and community charities. Academic rigour remains essential, yet an education system that ignores how young people manage money, serve neighbours, and care for families leaves half its mission unfinished."
+   ],
+   "groups": [
+    {
+     "title": "Questions 27-30",
+     "instruction": "Choose the correct letter, <strong>A, B, C or D</strong>.",
+     "type": "mcq",
+     "items": [
+      {
+       "q": 27,
+       "text": "Why does the writer mention nineteenth-century poetry and trigonometric angles in paragraph 1?",
+       "options": [
+        {
+         "k": "A",
+         "t": "To argue that literature and mathematics should be removed from high schools"
+        },
+        {
+         "k": "B",
+         "t": "To highlight the contrast between academic exam knowledge and everyday readiness"
+        },
+        {
+         "k": "C",
+         "t": "To show that secondary school exams have become harder than in the past"
+        },
+        {
+         "k": "D",
+         "t": "To suggest that only university students need to learn budgeting skills"
+        }
+       ]
+      },
+      {
+       "q": 28,
+       "text": "Why are proposals to teach parenting skills in schools considered controversial in paragraph 4?",
+       "options": [
+        {
+         "k": "A",
+         "t": "Teenagers are legally prohibited from learning about child health."
+        },
+        {
+         "k": "B",
+         "t": "There is little proof that early upbringing affects lifelong behaviour."
+        },
+        {
+         "k": "C",
+         "t": "Cultural and religious differences make family raising a sensitive topic for state schools."
+        },
+        {
+         "k": "D",
+         "t": "Most schools already offer mandatory driving and parenting licences."
+        }
+       ]
+      },
+      {
+       "q": 29,
+       "text": "What risk regarding mandatory volunteering is mentioned in paragraph 5?",
+       "options": [
+        {
+         "k": "A",
+         "t": "Local charities may refuse to accept teenage volunteers."
+        },
+        {
+         "k": "B",
+         "t": "Students may treat it mechanically just to get paperwork signed."
+        },
+        {
+         "k": "C",
+         "t": "Volunteering programmes require expensive equipment from schools."
+        },
+        {
+         "k": "D",
+         "t": "Parents may complain that community projects are physically dangerous."
+        }
+       ]
+      },
+      {
+       "q": 30,
+       "text": "How does the writer suggest schools can introduce life skills realistically in paragraph 6?",
+       "options": [
+        {
+         "k": "A",
+         "t": "By extending the school day by two extra hours every afternoon"
+        },
+        {
+         "k": "B",
+         "t": "By replacing core literature classes with five new practical subjects"
+        },
+        {
+         "k": "C",
+         "t": "By integrating practical tasks into current subjects and inviting outside specialists"
+        },
+        {
+         "k": "D",
+         "t": "By leaving all financial and cooking lessons to online video channels"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "title": "Questions 31-34",
+     "instruction": "Complete each sentence with the correct ending, A-F, below. Write the correct letter, A-F.",
+     "type": "matching",
+     "options": [
+      "A",
+      "B",
+      "C",
+      "D",
+      "E",
+      "F"
+     ],
+     "items": [
+      {
+       "q": 31,
+       "text": "Young adults using easy credit cards and buy-now-pay-later apps..."
+      },
+      {
+       "q": 32,
+       "text": "High school students in Nordic and Australian trials who studied finance..."
+      },
+      {
+       "q": 33,
+       "text": "Secondary students in Ontario and Singapore..."
+      },
+      {
+       "q": 34,
+       "text": "Overworked subject teachers asked to teach unfamiliar life skills..."
+      }
+     ],
+     "legend": [
+      {
+       "key": "A",
+       "text": "may deliver poor lessons if they lack specialist training."
+      },
+      {
+       "key": "B",
+       "text": "handle personal savings better after finishing school."
+      },
+      {
+       "key": "C",
+       "text": "must complete structured community projects before graduating."
+      },
+      {
+       "key": "D",
+       "text": "prefer abstract ethics lectures to hands-on volunteering."
+      },
+      {
+       "key": "E",
+       "text": "can easily accumulate debt through modern payment tools."
+      },
+      {
+       "key": "F",
+       "text": "receive higher salaries than students who study poetry."
+      }
+     ]
+    },
+    {
+     "title": "Questions 35-40",
+     "instruction": "Do the following statements agree with the views of the writer in Reading Passage 3? Choose <strong>YES</strong>, <strong>NO</strong> or <strong>NOT GIVEN</strong>.",
+     "type": "tfng",
+     "options": [
+      "YES",
+      "NO",
+      "NOT GIVEN"
+     ],
+     "items": [
+      {
+       "q": 35,
+       "text": "Modern digital payment tools have increased the risk of young people getting into debt early."
+      },
+      {
+       "q": 36,
+       "text": "Classroom lectures on ethics are more effective for character building than hands-on community service."
+      },
+      {
+       "q": 37,
+       "text": "Singapore requires teenagers to complete more volunteer hours than Ontario does."
+      },
+      {
+       "q": 38,
+       "text": "Strong evidence shows that early childhood care influences a person's health and behaviour throughout life."
+      },
+      {
+       "q": 39,
+       "text": "Local accountants and chefs are usually willing to teach in schools without being paid."
+      },
+      {
+       "q": 40,
+       "text": "An education system is incomplete if it focuses solely on academic tests and ignores everyday life skills."
+      }
+     ]
+    }
+   ],
+   "qRange": [
+    27,
+    40
+   ]
+  }
+ ],
+ "answers": {
+  "1": [
+   "astrophysics"
+  ],
+  "2": [
+   "motivation"
+  ],
+  "3": [
+   "policy"
+  ],
+  "4": [
+   "aesthetics"
+  ],
+  "5": [
+   "misinformation"
+  ],
+  "6": [
+   "empathy"
+  ],
+  "7": [
+   "thinking"
+  ],
+  "8": [
+   "TRUE"
+  ],
+  "9": [
+   "TRUE"
+  ],
+  "10": [
+   "NOT GIVEN"
+  ],
+  "11": [
+   "FALSE"
+  ],
+  "12": [
+   "FALSE"
+  ],
+  "13": [
+   "NOT GIVEN"
+  ],
+  "14": [
+   "TRUE"
+  ],
+  "15": [
+   "NOT GIVEN"
+  ],
+  "16": [
+   "FALSE"
+  ],
+  "17": [
+   "TRUE"
+  ],
+  "18": [
+   "FALSE"
+  ],
+  "19": [
+   "truancy"
+  ],
+  "20": [
+   "caregiving"
+  ],
+  "21": [
+   "manuals"
+  ],
+  "22": [
+   "benefits"
+  ],
+  "23": [
+   "logistics"
+  ],
+  "24": [
+   "psychologists"
+  ],
+  "25": [
+   "bullying"
+  ],
+  "26": [
+   "diplomas"
+  ],
+  "27": [
+   "B"
+  ],
+  "28": [
+   "C"
+  ],
+  "29": [
+   "B"
+  ],
+  "30": [
+   "C"
+  ],
+  "31": [
+   "E"
+  ],
+  "32": [
+   "B"
+  ],
+  "33": [
+   "C"
+  ],
+  "34": [
+   "A"
+  ],
+  "35": [
+   "YES"
+  ],
+  "36": [
+   "NO"
+  ],
+  "37": [
+   "NOT GIVEN"
+  ],
+  "38": [
+   "YES"
+  ],
+  "39": [
+   "NOT GIVEN"
+  ],
+  "40": [
+   "YES"
+  ]
+ }
+}

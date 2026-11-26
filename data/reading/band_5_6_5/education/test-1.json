@@ -1,0 +1,547 @@
+{
+ "schema": 1,
+ "id": "band-5-6-5-education-test-1",
+ "series": "education",
+ "category": "band_5_6_5",
+ "title": "Funding, Study Abroad & Online Learning",
+ "summary": "Publicly Funded Higher Education • Studying Abroad vs Brain Drain • Online Learning",
+ "subtitle": "Band 5.0–6.5 · Education",
+ "module": "academic",
+ "durationMin": 60,
+ "totalQuestions": 40,
+ "questionTypes": [
+  "notes",
+  "tfng",
+  "matching",
+  "summary_text",
+  "mcq",
+  "summary_box"
+ ],
+ "passages": [
+  {
+   "label": "READING PASSAGE 1",
+   "instruction": "You should spend about 20 minutes on Questions 1-13, which are based on Reading Passage 1 below.",
+   "title": "Should Higher Education Be Publicly Funded?",
+   "subtitle": "Examining the economic and social trade-offs of tuition-free university systems",
+   "paragraphs": [
+    "The question of who should pay for university education has become one of the fiercest policy debates of the twenty-first century. As a university qualification increasingly becomes a baseline requirement for professional roles, the rising cost of tuition has placed a heavy financial burden on students and their families. While countries such as Germany and Sweden maintain largely tuition-free public universities, nations like the United States and England rely heavily on student fees supported by government loans.",
+    "Advocates of publicly funded universities argue that higher education is a public good rather than a private luxury. In their view, removing tuition fees ensures equal access so that admission depends on academic merit instead of family wealth. When talented students from modest backgrounds are able to enter professions such as medicine, engineering, or architecture, society as a whole gains a more capable workforce. Economists who support state funding also point out that university graduates typically earn higher salaries over their careers, meaning they eventually pay back the state through higher tax revenue.",
+    "In contrast, critics warn that free university systems are far more expensive to maintain than the public often assumes. Modern campuses require advanced laboratories, digital libraries, and competitive salaries to attract skilled lecturers. If universities depend solely on government funding, state budgets may struggle to keep up, potentially leading to overcrowded lecture halls or cuts to primary schools and healthcare. Some analysts also argue that free tuition can unintentionally favour middle-class families, whose children are statistically more likely to attend university than peers from low-income households.",
+    "Supporters of tuition-based models therefore favour income-contingent loans, such as those used in Australia and the UK. Under this system, students do not pay upfront; instead, they repay their loans gradually once their earnings pass a minimum threshold. However, opponents note that young graduates still accumulate debt that can delay major life milestones, including buying a home or starting a family. Anxiety about borrowing large sums may also discourage first-generation applicants from enrolling at all.",
+    "Another growing issue is measuring the return on investment of a degree. When university places expand rapidly, some graduates end up in jobs that do not require degree-level skills, making it harder for either the student or the taxpayer to recover the initial cost. For this reason, several policy institutes recommend a hybrid model: charging reasonable tuition fees to students from wealthy households while providing full grants and living allowances to those in genuine financial need."
+   ],
+   "groups": [
+    {
+     "title": "Questions 1-7",
+     "instruction": "Complete the notes below. Choose <strong>ONE WORD ONLY</strong> from the passage for each answer.",
+     "type": "notes",
+     "boxTitle": "Funding Models for Higher Education",
+     "sections": [
+      {
+       "heading": "Arguments for publicly funded universities",
+       "items": [
+        "Removing fees helps base entry on academic {{1}} rather than household income.",
+        "Graduates tend to earn more and repay society via increased tax {{2}}."
+       ]
+      },
+      {
+       "heading": "Concerns about tuition-free systems",
+       "items": [
+        "High running costs include modern labs, digital libraries, and pay for skilled {{3}}.",
+        "Tight state budgets could reduce funding for primary education and {{4}}."
+       ]
+      },
+      {
+       "heading": "Tuition-based loan systems",
+       "items": [
+        "Repayments start only after a graduate's income exceeds a set {{5}}.",
+        "Carrying heavy loans can postpone personal goals such as purchasing a {{6}}."
+       ]
+      },
+      {
+       "heading": "Suggested compromise",
+       "items": [
+        "A hybrid system offers full {{7}} and living support to low-income students."
+       ]
+      }
+     ]
+    },
+    {
+     "title": "Questions 8-13",
+     "instruction": "Do the following statements agree with the information given in Reading Passage 1? Choose <strong>TRUE</strong>, <strong>FALSE</strong> or <strong>NOT GIVEN</strong>.",
+     "type": "tfng",
+     "options": [
+      "TRUE",
+      "FALSE",
+      "NOT GIVEN"
+     ],
+     "items": [
+      {
+       "q": 8,
+       "text": "Both Germany and Sweden currently charge no tuition fees at most of their public universities."
+      },
+      {
+       "q": 9,
+       "text": "In tuition-free systems, children from low-income households attend university at a higher rate than middle-class children."
+      },
+      {
+       "q": 10,
+       "text": "Australia introduced income-contingent student loans earlier than the United Kingdom did."
+      },
+      {
+       "q": 11,
+       "text": "Under an income-contingent loan scheme, students must pay their fees before beginning their studies."
+      },
+      {
+       "q": 12,
+       "text": "Worry about student debt can prevent students whose parents never went to university from applying."
+      },
+      {
+       "q": 13,
+       "text": "Most wealthy families oppose the hybrid model recommended by policy institutes."
+      }
+     ]
+    }
+   ],
+   "qRange": [
+    1,
+    13
+   ]
+  },
+  {
+   "label": "READING PASSAGE 2",
+   "instruction": "You should spend about 20 minutes on Questions 14-26, which are based on Reading Passage 2 below.",
+   "title": "Studying Abroad: Personal Growth or Brain Drain?",
+   "subtitle": "Weighing the individual benefits of international mobility against national talent loss",
+   "paragraphs": [
+    "<strong>A</strong> Over the past two decades, international student mobility has expanded dramatically, with more than six million students now pursuing degrees, semester exchanges, or overseas work placements outside their home nations. Universities actively promote these opportunities as a way for young adults to broaden horizons, build global networks, and gain a competitive edge in an interconnected economy.",
+    "<strong>B</strong> For individual students, the personal transformation can be profound. Dr. Clara Lindqvist, a sociologist at Uppsala University, has tracked exchange students across twelve countries. She observes that sustained cultural exposure challenges students' assumptions and strengthens their emotional resilience. 'When students have to adapt to unfamiliar teaching styles, housing rules, and social customs, they quickly develop practical problem-solving skills,' she notes. Employers frequently praise this cross-cultural competence, particularly in multinational firms that operate across time zones.",
+    "<strong>C</strong> Short-term international work placements have become an especially effective bridge between campus and career. Marcus Vance, who manages graduate recruitment for a European engineering group, points out that students who complete even a six-month internship abroad stand out during interviews. 'They arrive already knowing how to collaborate in diverse teams and communicate clearly across language gaps,' he explains. Unlike tourists, student interns must navigate workplace expectations and tight deadlines in a second language.",
+    "<strong>D</strong> Yet from the perspective of developing nations, this wave of international study carries a more complicated legacy. Economists warn that overseas degrees frequently become the first step toward permanent skilled migration—a phenomenon widely known as 'brain drain'. When governments or families spend scarce resources preparing top students who later settle permanently in wealthier host countries, the home nation loses future doctors, researchers, and entrepreneurs.",
+    "<strong>E</strong> Professor Kwame Mensah, an economic policy specialist in Ghana, argues that host countries often design post-study work visas specifically to retain international talent. 'Wealthier economies gain ready-trained professionals without paying for their primary and secondary schooling,' he observes. Still, Mensah does not believe restricting students from going abroad is the right answer. Instead, he urges home countries to invest in better research labs and competitive pay so graduates have compelling reasons to return.",
+    "<strong>F</strong> Interestingly, recent research suggests the story is not purely one of loss. Dr. Mei-Ling Zhou, who studies migration patterns in East Asia, highlights the rise of 'brain circulation'. Many graduates who spend five to ten years working abroad eventually return home or collaborate remotely with domestic startups, bringing back advanced expertise, foreign investment, and international business links. In Zhou's view, mobility benefits both sending and receiving countries when home governments stay connected with their overseas graduates."
+   ],
+   "groups": [
+    {
+     "title": "Questions 14-17",
+     "instruction": "Reading Passage 2 has six sections, A-F. Which section contains the following information? Choose the correct letter, <strong>A-F</strong>.",
+     "type": "matching",
+     "options": [
+      "A",
+      "B",
+      "C",
+      "D",
+      "E",
+      "F"
+     ],
+     "items": [
+      {
+       "q": 14,
+       "text": "an explanation of how overseas graduates can eventually benefit their home economies"
+      },
+      {
+       "q": 15,
+       "text": "a contrast between the experience of travellers and that of students working overseas"
+      },
+      {
+       "q": 16,
+       "text": "a figure indicating the current global scale of international student movement"
+      },
+      {
+       "q": 17,
+       "text": "a mention of visa policies created to keep foreign graduates in host countries"
+      }
+     ]
+    },
+    {
+     "title": "Questions 18-21",
+     "instruction": "Complete the summary below. Choose <strong>ONE WORD ONLY</strong> from the passage for each answer.",
+     "type": "summary_text",
+     "boxTitle": "Brain Drain and Brain Circulation",
+     "paragraphs": [
+      "While studying overseas brings clear personal gains, it can also lead to permanent skilled migration, often referred to as brain drain. When talented graduates settle abroad, their home countries lose vital professionals such as researchers, doctors, and {{18}}. According to Professor Kwame Mensah, wealthier nations benefit without funding these workers' earlier {{19}}. Rather than stopping young people from leaving, he advises home governments to improve local salaries and research {{20}}. Meanwhile, Dr. Mei-Ling Zhou points to 'brain circulation', where graduates return or work remotely with domestic {{21}}, sharing skills and foreign investment."
+     ]
+    },
+    {
+     "title": "Questions 22-26",
+     "instruction": "Look at the following statements (Questions 22-26) and the list of people below. Match each statement with the correct person, A, B, C or D. NB You may use any letter more than once.",
+     "type": "matching",
+     "options": [
+      "A",
+      "B",
+      "C",
+      "D"
+     ],
+     "items": [
+      {
+       "q": 22,
+       "text": "Preventing students from travelling abroad is not an effective solution to talent loss."
+      },
+      {
+       "q": 23,
+       "text": "Living in another culture helps students rethink their existing beliefs and become more resilient."
+      },
+      {
+       "q": 24,
+       "text": "Maintaining ties with graduates living overseas helps home countries benefit from mobility."
+      },
+      {
+       "q": 25,
+       "text": "Candidates who have completed an internship overseas are more impressive during job interviews."
+      },
+      {
+       "q": 26,
+       "text": "Adjusting to new academic expectations and daily routines builds practical problem-solving ability."
+      }
+     ],
+     "legendTitle": "List of People",
+     "legend": [
+      {
+       "key": "A",
+       "text": "Dr. Clara Lindqvist"
+      },
+      {
+       "key": "B",
+       "text": "Marcus Vance"
+      },
+      {
+       "key": "C",
+       "text": "Professor Kwame Mensah"
+      },
+      {
+       "key": "D",
+       "text": "Dr. Mei-Ling Zhou"
+      }
+     ]
+    }
+   ],
+   "qRange": [
+    14,
+    26
+   ]
+  },
+  {
+   "label": "READING PASSAGE 3",
+   "instruction": "You should spend about 20 minutes on Questions 27-40, which are based on Reading Passage 3 below.",
+   "title": "The Rise of Online Learning",
+   "subtitle": "From emergency remote lessons to the hybrid classroom of 2050",
+   "paragraphs": [
+    "Only fifteen years ago, online courses were widely dismissed as a second-rate alternative to traditional campus instruction. Today, digital platforms host millions of learners taking everything from coding certificates to full postgraduate degrees. What began as a niche option for working adults has rapidly evolved into a central pillar of global education, prompting fierce debate about what the classroom of 2050 will look like.",
+    "The greatest strength of online learning is undoubtedly accessibility. Students living in remote villages, parents caring for young children, and people with physical disabilities can now attend lectures from leading institutions without relocating. Furthermore, modern platforms have moved far beyond static PDF slides. Through virtual science simulations, live polls, and breakout discussion rooms, well-designed digital courses can be surprisingly interactive, allowing learners to replay complex explanations at their own pace.",
+    "Yet the rapid shift online has also exposed a stark digital divide. Effective remote study requires high-speed internet, a reliable computer, and a quiet room—resources that millions of lower-income families simply do not possess. International education surveys reveal that when schools rely heavily on online instruction, achievement gaps between wealthy and disadvantaged students tend to widen rather than shrink.",
+    "Even when technology is readily available, online education places heavy psychological demands on learners. Without a fixed physical timetable or a teacher monitoring progress in the room, students need considerable self-discipline to avoid distractions and complete assignments on time. Data from massive open online courses (MOOCs) consistently shows completion rates below fifteen percent, suggesting that freedom and flexibility can easily turn into procrastination for younger or less confident learners.",
+    "Equally important is what gets lost when education moves entirely onto screens. In a traditional face-to-face classroom, teachers read subtle body language to spot confused students immediately, while casual corridor conversations spark friendships and mentorship. Neuroscientists and educators alike emphasize that learning is fundamentally social; belonging to a physical community strengthens motivation and mental wellbeing in ways that video calls still struggle to replicate.",
+    "For these reasons, predictions that physical schools and universities will vanish by 2050 appear greatly exaggerated. Instead, the future almost certainly belongs to blended learning. In this model, digital tools handle routine lectures, personalised quizzes, and global collaborations, freeing up precious face-to-face classroom time for hands-on experiments, deep debate, and human guidance. Rather than replacing teachers, technology works best when it amplifies what human educators do uniquely well."
+   ],
+   "groups": [
+    {
+     "title": "Questions 27-30",
+     "instruction": "Choose the correct letter, <strong>A, B, C or D</strong>.",
+     "type": "mcq",
+     "items": [
+      {
+       "q": 27,
+       "text": "What does the writer note about online courses in the first paragraph?",
+       "options": [
+        {
+         "k": "A",
+         "t": "They have shifted from being underrated to becoming a major part of education."
+        },
+        {
+         "k": "B",
+         "t": "They are still used almost exclusively by older working adults."
+        },
+        {
+         "k": "C",
+         "t": "They have already replaced most traditional postgraduate degrees."
+        },
+        {
+         "k": "D",
+         "t": "They were initially designed to prepare schools for the year 2050."
+        }
+       ]
+      },
+      {
+       "q": 28,
+       "text": "Why does the writer mention virtual science simulations and live polls in paragraph 2?",
+       "options": [
+        {
+         "k": "A",
+         "t": "To show that online platforms are cheaper to build than physical labs"
+        },
+        {
+         "k": "B",
+         "t": "To illustrate how modern online courses have become more engaging"
+        },
+        {
+         "k": "C",
+         "t": "To explain why students prefer watching recorded PDF slides"
+        },
+        {
+         "k": "D",
+         "t": "To argue that science subjects are easier to learn online than in person"
+        }
+       ]
+      },
+      {
+       "q": 29,
+       "text": "What does the MOOC completion data in paragraph 4 suggest?",
+       "options": [
+        {
+         "k": "A",
+         "t": "Most online platforms do not give students enough time to finish tests."
+        },
+        {
+         "k": "B",
+         "t": "Online courses are generally harder than face-to-face university degrees."
+        },
+        {
+         "k": "C",
+         "t": "Many learners struggle to stay motivated without external structure."
+        },
+        {
+         "k": "D",
+         "t": "Older adults are more likely to drop out of online courses than teenagers."
+        }
+       ]
+      },
+      {
+       "q": 30,
+       "text": "What is the writer's vision for education by 2050 in the final paragraph?",
+       "options": [
+        {
+         "k": "A",
+         "t": "Physical campuses will disappear as digital tools become cheaper."
+        },
+        {
+         "k": "B",
+         "t": "Teachers will focus mainly on grading automated online quizzes."
+        },
+        {
+         "k": "C",
+         "t": "Online tools and in-person teaching will be combined for maximum benefit."
+        },
+        {
+         "k": "D",
+         "t": "Debates and experiments will be conducted mostly through video calls."
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "title": "Questions 31-36",
+     "instruction": "Complete the summary using the list of words and phrases, <strong>A-I</strong>, below.",
+     "type": "summary_box",
+     "boxTitle": "Barriers and Limitations of Fully Online Study",
+     "legend": [
+      {
+       "key": "A",
+       "text": "quiet workspace"
+      },
+      {
+       "key": "B",
+       "text": "educational inequality"
+      },
+      {
+       "key": "C",
+       "text": "higher tuition"
+      },
+      {
+       "key": "D",
+       "text": "personal discipline"
+      },
+      {
+       "key": "E",
+       "text": "student confusion"
+      },
+      {
+       "key": "F",
+       "text": "in-person teaching"
+      },
+      {
+       "key": "G",
+       "text": "community belonging"
+      },
+      {
+       "key": "H",
+       "text": "strict exams"
+      },
+      {
+       "key": "I",
+       "text": "foreign languages"
+      }
+     ],
+     "options": [
+      "A",
+      "B",
+      "C",
+      "D",
+      "E",
+      "F",
+      "G",
+      "H",
+      "I"
+     ],
+     "paragraphs": [
+      "Although online platforms improve access for remote learners, heavy reliance on digital schooling can deepen {{31}} because poorer families often lack fast internet or a {{32}}. Moreover, without in-person supervision, learners require strong {{33}} to avoid delaying their work. Research also highlights the social value of {{34}}: in physical classrooms, educators can quickly notice {{35}} through body language, and informal interactions build a sense of {{36}} that video software cannot easily match."
+     ]
+    },
+    {
+     "title": "Questions 37-40",
+     "instruction": "Do the following statements agree with the views of the writer in Reading Passage 3? Choose <strong>YES</strong>, <strong>NO</strong> or <strong>NOT GIVEN</strong>.",
+     "type": "tfng",
+     "options": [
+      "YES",
+      "NO",
+      "NOT GIVEN"
+     ],
+     "items": [
+      {
+       "q": 37,
+       "text": "Online education makes it easier for students with physical disabilities to access top institutions."
+      },
+      {
+       "q": 38,
+       "text": "Governments should provide free laptops to every low-income family."
+      },
+      {
+       "q": 39,
+       "text": "Video calls are already able to provide the same sense of social belonging as physical campuses."
+      },
+      {
+       "q": 40,
+       "text": "Digital technology is most effective when it supports teachers rather than trying to replace them."
+      }
+     ]
+    }
+   ],
+   "qRange": [
+    27,
+    40
+   ]
+  }
+ ],
+ "answers": {
+  "1": [
+   "merit"
+  ],
+  "2": [
+   "revenue"
+  ],
+  "3": [
+   "lecturers"
+  ],
+  "4": [
+   "healthcare"
+  ],
+  "5": [
+   "threshold"
+  ],
+  "6": [
+   "home"
+  ],
+  "7": [
+   "grants"
+  ],
+  "8": [
+   "TRUE"
+  ],
+  "9": [
+   "FALSE"
+  ],
+  "10": [
+   "NOT GIVEN"
+  ],
+  "11": [
+   "FALSE"
+  ],
+  "12": [
+   "TRUE"
+  ],
+  "13": [
+   "NOT GIVEN"
+  ],
+  "14": [
+   "F"
+  ],
+  "15": [
+   "C"
+  ],
+  "16": [
+   "A"
+  ],
+  "17": [
+   "E"
+  ],
+  "18": [
+   "entrepreneurs"
+  ],
+  "19": [
+   "schooling"
+  ],
+  "20": [
+   "labs"
+  ],
+  "21": [
+   "startups"
+  ],
+  "22": [
+   "C"
+  ],
+  "23": [
+   "A"
+  ],
+  "24": [
+   "D"
+  ],
+  "25": [
+   "B"
+  ],
+  "26": [
+   "A"
+  ],
+  "27": [
+   "A"
+  ],
+  "28": [
+   "B"
+  ],
+  "29": [
+   "C"
+  ],
+  "30": [
+   "C"
+  ],
+  "31": [
+   "B"
+  ],
+  "32": [
+   "A"
+  ],
+  "33": [
+   "D"
+  ],
+  "34": [
+   "F"
+  ],
+  "35": [
+   "E"
+  ],
+  "36": [
+   "G"
+  ],
+  "37": [
+   "YES"
+  ],
+  "38": [
+   "NOT GIVEN"
+  ],
+  "39": [
+   "NO"
+  ],
+  "40": [
+   "YES"
+  ]
+ }
+}

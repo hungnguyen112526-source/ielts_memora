@@ -1,0 +1,624 @@
+{
+ "schema": 1,
+ "id": "band-5-6-5-education-test-4",
+ "series": "education",
+ "category": "band_5_6_5",
+ "title": "Family, Sport & Success",
+ "summary": "Family, Media and Peers • Elite Sport vs Grassroots • Education and Success",
+ "subtitle": "Band 5.0–6.5 · Education",
+ "module": "academic",
+ "durationMin": 60,
+ "totalQuestions": 40,
+ "questionTypes": [
+  "tfng",
+  "flowchart",
+  "notes",
+  "summary_box",
+  "mcq"
+ ],
+ "passages": [
+  {
+   "label": "READING PASSAGE 1",
+   "instruction": "You should spend about 20 minutes on Questions 1-13, which are based on Reading Passage 1 below.",
+   "title": "Family, Media and Peers: What Shapes a Child?",
+   "subtitle": "How domestic upbringing interacts with television, digital networks, and friendship groups",
+   "paragraphs": [
+    "Developmental psychologists have long debated which forces leave the deepest mark on a child's personality and values. For most of human history, family upbringing stood at the centre of that process. During early childhood, parents and older relatives act as a child's first role model, demonstrating everyday manners, emotional control, and attitudes toward honesty. Even before children enter primary school, they absorb subtle family habits regarding conflict, curiosity, and kindness.",
+    "Once formal schooling begins, however, external forces rapidly gain influence. Classmates and friendship circles—collectively known as peers—become powerful mirrors through which young people judge themselves. By early adolescence, the desire for social belonging intensifies, making teenagers especially responsive to peer pressure. While adults often associate peer pressure solely with risky choices such as skipping class or vaping, research shows that peers can exert an equally strong positive pull, motivating teenagers to join study clubs, volunteer, or persist in athletics.",
+    "Alongside friendship groups, daily exposure to media—spanning broadcast television, streaming platforms, and social apps—has reshaped modern childhood. Well-produced educational TV documentaries and language programmes can expand vocabulary and nurture tolerance toward unfamiliar cultures. Conversely, prolonged consumption of aggressive entertainment or heavily filtered influencer feeds is linked with shortened attention spans, heightened anxiety, and distorted body image.",
+    "Because completely insulating children from television and smartphones is neither realistic nor helpful, media-literacy researchers advocate a structured three-stage strategy called 'active mediation'. First, families agree on consistent household rules—such as keeping screens out of dining rooms and bedrooms. Second, parents practise joint viewing, sitting alongside children during key TV programmes or games to understand what captures their interest. Finally, adults initiate critical conversations, encouraging young viewers to question commercial motives behind advertisements and recognise edited online content.",
+    "Crucially, long-term studies suggest that family, peers, and media do not operate in isolation. Children raised in warm, communicative homes tend to choose more supportive friendship groups and feel comfortable discussing troubling online encounters with adults. Far from making parents irrelevant, the modern media landscape makes steady parental guidance more valuable than ever."
+   ],
+   "groups": [
+    {
+     "title": "Questions 1-7",
+     "instruction": "Do the following statements agree with the information given in Reading Passage 1? Choose <strong>TRUE</strong>, <strong>FALSE</strong> or <strong>NOT GIVEN</strong>.",
+     "type": "tfng",
+     "options": [
+      "TRUE",
+      "FALSE",
+      "NOT GIVEN"
+     ],
+     "items": [
+      {
+       "q": 1,
+       "text": "Young children begin absorbing family attitudes toward honesty even before starting primary school."
+      },
+      {
+       "q": 2,
+       "text": "Research indicates that peer pressure only encourages harmful or risky behaviour among teenagers."
+      },
+      {
+       "q": 3,
+       "text": "Older sisters have a stronger influence on young children than older brothers do."
+      },
+      {
+       "q": 4,
+       "text": "Quality television documentaries can help children develop respect for different cultures."
+      },
+      {
+       "q": 5,
+       "text": "Broadcast television causes greater harm to children's attention spans than social apps do."
+      },
+      {
+       "q": 6,
+       "text": "Media-literacy experts recommend banning children from using smartphones completely until age 16."
+      },
+      {
+       "q": 7,
+       "text": "Children from supportive, communicative families are more likely to make positive choices of friends."
+      }
+     ]
+    },
+    {
+     "title": "Questions 8-10",
+     "instruction": "Complete the flow-chart below. Choose <strong>NO MORE THAN TWO WORDS</strong> from the passage for each answer.",
+     "type": "flowchart",
+     "boxTitle": "The 'Active Mediation' Approach to Children's Media Use",
+     "steps": [
+      "Stage 1: Establish agreed {{8}} (e.g. screen-free bedrooms and dining areas).",
+      "Stage 2: Engage in {{9}} by watching important shows or games with children.",
+      "Stage 3: Start {{10}} to help children evaluate ads and altered online images."
+     ]
+    },
+    {
+     "title": "Questions 11-13",
+     "instruction": "Complete the notes below. Choose <strong>ONE WORD ONLY</strong> from the passage for each answer.",
+     "type": "notes",
+     "boxTitle": "Negative Media Effects and Parental Impact",
+     "sections": [
+      {
+       "heading": "Risks of excessive media use",
+       "items": [
+        "Heavy exposure to aggressive content or edited feeds can reduce {{11}} spans.",
+        "Altered posts by an online {{12}} can harm a young person's body image."
+       ]
+      },
+      {
+       "heading": "Ongoing role of family",
+       "items": [
+        "The digital age makes consistent parental {{13}} more important than before."
+       ]
+      }
+     ]
+    }
+   ],
+   "qRange": [
+    1,
+    13
+   ]
+  },
+  {
+   "label": "READING PASSAGE 2",
+   "instruction": "You should spend about 20 minutes on Questions 14-26, which are based on Reading Passage 2 below.",
+   "title": "Elite Sport Funding vs. Grassroots Participation",
+   "subtitle": "Allocating public sports budgets between Olympic podiums and neighbourhood fitness",
+   "paragraphs": [
+    "When a nation celebrates an unexpected Olympic gold medal, politicians are quick to praise the investment that made victory possible. Yet behind the televised celebrations lies a difficult dilemma in public spending. With national budgets under constant strain, should governments channel hundreds of millions into elite sport programmes designed for a tiny fraction of citizens, or should they prioritise everyday grassroots participation for the broader public?",
+    "Advocates of elite funding maintain that international sporting excellence generates extraordinary national pride, fostering social cohesion across diverse communities. Moreover, structured talent development systems—employing biomechanics specialists, nutritionists, and full-time coaches—produce visible sporting heroes. Supporters cite the 'trickle-down effect', claiming that watching domestic champions triumph inspires millions of schoolchildren to take up regular exercise.",
+    "Public health researchers, however, have struggled to verify this trickle-down theory. Independent evaluations conducted after several recent Olympic Games found that while club registrations briefly spiked during the tournament month, overall population fitness levels remained unchanged two years later. Meanwhile, rising rates of childhood and adult obesity continue to drive up chronic disease costs for public hospitals. From a health-economics perspective, spending millions per medal appears inefficient when basic neighbourhood sports facilities are closing due to local council cuts.",
+    "Grassroots advocates therefore urge governments to redirect funds toward accessible municipal infrastructure: well-lit cycling lanes, free outdoor fitness parks, and subsidised community swimming pools. Unlike elite academies, these spaces welcome beginners, older adults, and low-income families who rarely identify with professional athletes. Even modest increases in daily walking or recreational sport yield substantial reductions in cardiovascular illness and healthcare expenditure.",
+    "A parallel debate concerns how seriously children should treat competitive sport. Driven by scholarship hopes and professional academy scouts, some youngsters specialise in a single sport before age twelve, training intensely year-round. While structured competition teaches resilience and teamwork, paediatric sports doctors warn that early over-specialisation raises the risk of overuse injuries and psychological exhaustion, causing many promising teenagers to abandon sport entirely.",
+    "Ultimately, framing elite and community sport as mutually exclusive rivals is short-sighted. High-performance champions cannot emerge from nowhere; they begin in school playgrounds and local youth leagues. A balanced sports policy should tie every major investment in elite academies to guaranteed funding for neighbourhood facilities—ensuring that international medals complement, rather than replace, a healthier population."
+   ],
+   "groups": [
+    {
+     "title": "Questions 14-19",
+     "instruction": "Complete the summary using the list of words and phrases, <strong>A-J</strong>, below.",
+     "type": "summary_box",
+     "boxTitle": "Evaluating Elite and Community Sport Investments",
+     "legend": [
+      {
+       "key": "A",
+       "text": "heart disease"
+      },
+      {
+       "key": "B",
+       "text": "temporary rise"
+      },
+      {
+       "key": "C",
+       "text": "social unity"
+      },
+      {
+       "key": "D",
+       "text": "professional scouts"
+      },
+      {
+       "key": "E",
+       "text": "local amenities"
+      },
+      {
+       "key": "F",
+       "text": "obesity levels"
+      },
+      {
+       "key": "G",
+       "text": "trickle-down effect"
+      },
+      {
+       "key": "H",
+       "text": "ticket revenue"
+      },
+      {
+       "key": "I",
+       "text": "school exams"
+      },
+      {
+       "key": "J",
+       "text": "training injuries"
+      }
+     ],
+     "options": [
+      "A",
+      "B",
+      "C",
+      "D",
+      "E",
+      "F",
+      "G",
+      "H",
+      "I",
+      "J"
+     ],
+     "paragraphs": [
+      "Supporters of funding top athletes argue that global victories strengthen {{14}} and encourage children to exercise through a {{15}}. However, post-Olympic studies show that while club sign-ups enjoy a {{16}}, long-term public activity hardly shifts. At the same time, climbing {{17}} rates strain public healthcare while local venues shut down. Health specialists therefore favour investing in {{18}} like safe cycling routes and affordable pools, which reduce {{19}} across the general public."
+     ]
+    },
+    {
+     "title": "Questions 20-23",
+     "instruction": "Do the following statements agree with the views of the writer in Reading Passage 2? Choose <strong>YES</strong>, <strong>NO</strong> or <strong>NOT GIVEN</strong>.",
+     "type": "tfng",
+     "options": [
+      "YES",
+      "NO",
+      "NOT GIVEN"
+     ],
+     "items": [
+      {
+       "q": 20,
+       "text": "Evidence from recent Olympic Games strongly confirms that elite victories cause lasting increases in national fitness."
+      },
+      {
+       "q": 21,
+       "text": "Older adults prefer using free outdoor fitness parks rather than swimming pools."
+      },
+      {
+       "q": 22,
+       "text": "Focusing intensively on a single sport before age twelve can sometimes push teenagers to quit sport completely."
+      },
+      {
+       "q": 23,
+       "text": "Governments should stop funding elite sport academies altogether to save money for hospitals."
+      }
+     ]
+    },
+    {
+     "title": "Questions 24-26",
+     "instruction": "Choose the correct letter, <strong>A, B, C or D</strong>.",
+     "type": "mcq",
+     "items": [
+      {
+       "q": 24,
+       "text": "Why does the writer mention 'biomechanics specialists, nutritionists, and full-time coaches' in paragraph 2?",
+       "options": [
+        {
+         "k": "A",
+         "t": "To show the specialist support involved in elite talent development"
+        },
+        {
+         "k": "B",
+         "t": "To argue that elite athletes rely too heavily on medical staff"
+        },
+        {
+         "k": "C",
+         "t": "To explain why local councils cannot afford community swimming pools"
+        },
+        {
+         "k": "D",
+         "t": "To compare career opportunities in sports science with hospital medicine"
+        }
+       ]
+      },
+      {
+       "q": 25,
+       "text": "According to paragraph 4, why are subsidised pools and cycling lanes especially effective for public health?",
+       "options": [
+        {
+         "k": "A",
+         "t": "They help discover future Olympic cyclists and swimmers."
+        },
+        {
+         "k": "B",
+         "t": "They attract everyday groups who rarely relate to elite athletes."
+        },
+        {
+         "k": "C",
+         "t": "They generate large profits for municipal governments."
+        },
+        {
+         "k": "D",
+         "t": "They require less maintenance than professional stadiums."
+        }
+       ]
+      },
+      {
+       "q": 26,
+       "text": "What policy recommendation does the writer make in the final paragraph?",
+       "options": [
+        {
+         "k": "A",
+         "t": "Allowing private companies to take over school playgrounds"
+        },
+        {
+         "k": "B",
+         "t": "Linking major elite sports budgets to guaranteed grassroots funding"
+        },
+        {
+         "k": "C",
+         "t": "Preventing children under twelve from joining local youth leagues"
+        },
+        {
+         "k": "D",
+         "t": "Reducing televised coverage of international Olympic tournaments"
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "qRange": [
+    14,
+    26
+   ]
+  },
+  {
+   "label": "READING PASSAGE 3",
+   "instruction": "You should spend about 20 minutes on Questions 27-40, which are based on Reading Passage 3 below.",
+   "title": "Education and Success in Modern Society",
+   "subtitle": "Redefining achievement beyond university degrees in an era of rapid change",
+   "paragraphs": [
+    "For much of the post-war era, the relationship between education and success appeared straightforward: securing strong university qualifications led reliably to stable corporate employment, rising income, and respected social status. Families invested heavily in higher education under the assumption that a prestigious diploma served as a lifelong passport to prosperity. Today, however, economists and sociologists argue that this neat equation no longer captures how success is built.",
+    "Part of the disruption stems from the sheer expansion of higher education—a trend scholars call 'credential inflation'. When barely fifteen percent of young adults graduated from university, a bachelor's degree functioned as an immediate signal of rare capability. In economies where over half of school leavers now earn degrees, employers increasingly treat a university certificate as a basic minimum rather than a guarantee of distinction, leaving many graduates in positions once held by high-school leavers.",
+    "Simultaneously, digital technology has lowered the barriers to entrepreneurship. Creative individuals with modest capital can now build software tools, launch e-commerce brands, or monetise specialist media channels directly from a laptop. High-profile founders who succeeded without completing traditional degrees have challenged the cultural assumption that formal academic credentials are the sole measure of intelligence or ambition.",
+    "When researchers examine what truly distinguishes high achievers across diverse fields—from artisan craftspeople to medical scientists—one psychological trait appears repeatedly: determination. Psychologist Angela Duckworth's work on 'grit' demonstrates that sustained persistence in the face of setbacks often predicts long-term accomplishment more accurately than raw test scores alone. Talent opens doors, but resilience and deliberate practice determine who progresses when initial plans collapse.",
+    "Equally decisive in the modern economy is lifelong learning. Because artificial intelligence, green energy, and digital platforms continuously transform workplace tasks, knowledge acquired at age twenty-two depreciates rapidly. Thriving professionals treat formal graduation not as the finish line of education, but as its starting point—regularly acquiring micro-credentials, switching disciplines, and seeking peer mentorship throughout their working lives.",
+    "None of this renders university obsolete. Regulated fields such as surgery, civil engineering, and scientific research still rightly demand rigorous degrees, and higher education offers unmatched opportunities for intellectual growth. Yet society is gradually embracing a broader, healthier definition of success—one measured not merely by paper qualifications, but by adaptability, purposeful work, and the determination to keep learning."
+   ],
+   "groups": [
+    {
+     "title": "Questions 27-32",
+     "instruction": "Complete the summary using the list of words and phrases, <strong>A-J</strong>, below.",
+     "type": "summary_box",
+     "boxTitle": "Why Degrees Alone No Longer Define Success",
+     "legend": [
+      {
+       "key": "A",
+       "text": "starting ventures"
+      },
+      {
+       "key": "B",
+       "text": "continuous learning"
+      },
+      {
+       "key": "C",
+       "text": "exam results"
+      },
+      {
+       "key": "D",
+       "text": "credential inflation"
+      },
+      {
+       "key": "E",
+       "text": "social prestige"
+      },
+      {
+       "key": "F",
+       "text": "corporate loyalty"
+      },
+      {
+       "key": "G",
+       "text": "sustained grit"
+      },
+      {
+       "key": "H",
+       "text": "free tuition"
+      },
+      {
+       "key": "I",
+       "text": "early retirement"
+      },
+      {
+       "key": "J",
+       "text": "manual labour"
+      }
+     ],
+     "options": [
+      "A",
+      "B",
+      "C",
+      "D",
+      "E",
+      "F",
+      "G",
+      "H",
+      "I",
+      "J"
+     ],
+     "paragraphs": [
+      "In the decades after the war, a university diploma reliably delivered financial security and {{27}}. Today, however, widespread university attendance has produced {{28}}, meaning degrees no longer automatically distinguish applicants. At the same time, digital tools have made {{29}} accessible with relatively little money. Psychological studies highlight {{30}}—the willingness to keep going after failure—as a stronger predictor of achievement than {{31}} alone. Finally, fast workplace shifts mean successful workers must embrace {{32}} throughout adulthood."
+     ]
+    },
+    {
+     "title": "Questions 33-36",
+     "instruction": "Do the following statements agree with the views of the writer in Reading Passage 3? Choose <strong>YES</strong>, <strong>NO</strong> or <strong>NOT GIVEN</strong>.",
+     "type": "tfng",
+     "options": [
+      "YES",
+      "NO",
+      "NOT GIVEN"
+     ],
+     "items": [
+      {
+       "q": 33,
+       "text": "Because more people hold degrees today, some graduates take jobs that previously did not require university study."
+      },
+      {
+       "q": 34,
+       "text": "Entrepreneurs who drop out of university generally earn more than those who graduate."
+      },
+      {
+       "q": 35,
+       "text": "Knowledge gained during a bachelor's degree usually stays completely up to date for an entire career."
+      },
+      {
+       "q": 36,
+       "text": "Angela Duckworth's research has been criticised by economists for ignoring family wealth."
+      }
+     ]
+    },
+    {
+     "title": "Questions 37-40",
+     "instruction": "Choose the correct letter, <strong>A, B, C or D</strong>.",
+     "type": "mcq",
+     "items": [
+      {
+       "q": 37,
+       "text": "What does the writer mean by describing a university diploma as a 'lifelong passport to prosperity' in paragraph 1?",
+       "options": [
+        {
+         "k": "A",
+         "t": "Graduates used to travel abroad easily with a university degree."
+        },
+        {
+         "k": "B",
+         "t": "Families once assumed a degree guaranteed lasting financial success."
+        },
+        {
+         "k": "C",
+         "t": "Universities formerly offered free lifelong courses to all alumni."
+        },
+        {
+         "k": "D",
+         "t": "Governments required citizens to hold a degree before owning property."
+        }
+       ]
+      },
+      {
+       "q": 38,
+       "text": "What point does the writer make about high-profile founders without degrees in paragraph 3?",
+       "options": [
+        {
+         "k": "A",
+         "t": "They show that formal certificates are not the only indicator of ability."
+        },
+        {
+         "k": "B",
+         "t": "They prove that universities fail to teach useful digital skills."
+        },
+        {
+         "k": "C",
+         "t": "They succeeded mainly because they inherited large amounts of capital."
+        },
+        {
+         "k": "D",
+         "t": "They encourage governments to close traditional business schools."
+        }
+       ]
+      },
+      {
+       "q": 39,
+       "text": "According to paragraph 5, how do thriving modern professionals view university graduation?",
+       "options": [
+        {
+         "k": "A",
+         "t": "As the final stage of their formal education"
+        },
+        {
+         "k": "B",
+         "t": "As an outdated requirement that slows down career progress"
+        },
+        {
+         "k": "C",
+         "t": "As the beginning of an ongoing process of updating their skills"
+        },
+        {
+         "k": "D",
+         "t": "As a guarantee that artificial intelligence will not affect their jobs"
+        }
+       ]
+      },
+      {
+       "q": 40,
+       "text": "What is the writer's conclusion about university education in the final paragraph?",
+       "options": [
+        {
+         "k": "A",
+         "t": "It should be restricted only to future surgeons and civil engineers."
+        },
+        {
+         "k": "B",
+         "t": "It remains essential for many professions, though success involves much more than a degree."
+        },
+        {
+         "k": "C",
+         "t": "It has lost most of its intellectual value due to credential inflation."
+        },
+        {
+         "k": "D",
+         "t": "It is less important for personal growth than starting an online business."
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "qRange": [
+    27,
+    40
+   ]
+  }
+ ],
+ "answers": {
+  "1": [
+   "TRUE"
+  ],
+  "2": [
+   "FALSE"
+  ],
+  "3": [
+   "NOT GIVEN"
+  ],
+  "4": [
+   "TRUE"
+  ],
+  "5": [
+   "NOT GIVEN"
+  ],
+  "6": [
+   "FALSE"
+  ],
+  "7": [
+   "TRUE"
+  ],
+  "8": [
+   "household rules"
+  ],
+  "9": [
+   "joint viewing"
+  ],
+  "10": [
+   "critical conversations"
+  ],
+  "11": [
+   "attention"
+  ],
+  "12": [
+   "influencer"
+  ],
+  "13": [
+   "guidance"
+  ],
+  "14": [
+   "C"
+  ],
+  "15": [
+   "G"
+  ],
+  "16": [
+   "B"
+  ],
+  "17": [
+   "F"
+  ],
+  "18": [
+   "E"
+  ],
+  "19": [
+   "A"
+  ],
+  "20": [
+   "NO"
+  ],
+  "21": [
+   "NOT GIVEN"
+  ],
+  "22": [
+   "YES"
+  ],
+  "23": [
+   "NO"
+  ],
+  "24": [
+   "A"
+  ],
+  "25": [
+   "B"
+  ],
+  "26": [
+   "B"
+  ],
+  "27": [
+   "E"
+  ],
+  "28": [
+   "D"
+  ],
+  "29": [
+   "A"
+  ],
+  "30": [
+   "G"
+  ],
+  "31": [
+   "C"
+  ],
+  "32": [
+   "B"
+  ],
+  "33": [
+   "YES"
+  ],
+  "34": [
+   "NOT GIVEN"
+  ],
+  "35": [
+   "NO"
+  ],
+  "36": [
+   "NOT GIVEN"
+  ],
+  "37": [
+   "B"
+  ],
+  "38": [
+   "A"
+  ],
+  "39": [
+   "C"
+  ],
+  "40": [
+   "B"
+  ]
+ }
+}
