@@ -23,9 +23,11 @@ DARK = {
 CSS = """
 <style>
 /* ---------- nền tảng ---------- */
-.stApp, .stApp *:not([data-testid="stIconMaterial"]):not([class*="material-symbols"]):not(code):not(pre):not(kbd) {
+.stApp, .stApp *:not([data-testid*="Icon"]):not([data-testid*="Icon"] *):not([class*="material-symbols"]):not([class*="material-symbols"] *):not(code):not(pre):not(kbd) {
   font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif; }
-[data-testid="stIconMaterial"], [class*="material-symbols"] { font-family: 'Material Symbols Rounded' !important; }
+/* Icon Material (nút, thông báo st.success/warning, toast...) phải giữ font icon, nếu không sẽ hiện chữ "cloud_done" */
+[data-testid*="Icon"], [data-testid*="Icon"] *, [class*="material-symbols"], [class*="material-symbols"] * {
+  font-family: 'Material Symbols Rounded', 'Segoe UI Emoji', 'Apple Color Emoji', 'Noto Color Emoji', sans-serif !important; }
 footer, .stDeployButton, [data-testid="stDeployButton"] { display: none !important; }
 .block-container, [data-testid="stMainBlockContainer"] { max-width: 1200px; padding: 4.5rem 2rem 4rem; }
 h1, h2, h3 { font-weight: 800 !important; letter-spacing: -.03em !important; }
