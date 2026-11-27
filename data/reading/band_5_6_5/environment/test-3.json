@@ -1,0 +1,518 @@
+{
+ "schema": 1,
+ "id": "band-5-6-5-environment-test-3",
+ "series": "environment",
+ "category": "band_5_6_5",
+ "title": "Resources, Fuel Prices & Fresh Water",
+ "summary": "Are We Using Up the Earth's Resources? • Fuel Prices and the Environment • Fresh Water: A Limited Resource",
+ "subtitle": "Band 5.0–6.5 · Environment",
+ "module": "academic",
+ "durationMin": 60,
+ "totalQuestions": 40,
+ "questionTypes": [
+  "notes",
+  "tfng",
+  "mcq",
+  "matching"
+ ],
+ "passages": [
+  {
+   "label": "READING PASSAGE 1",
+   "instruction": "You should spend about 20 minutes on Questions 1-13, which are based on Reading Passage 1 below.",
+   "title": "Are We Using Up the Earth's Resources?",
+   "subtitle": "Understanding ecological overshoot, deforestation, and the shift toward circular manufacturing",
+   "paragraphs": [
+    "Modern prosperity rests on an enormous flow of natural resources—timber, freshwater, topsoil, industrial metals, and marine fish. Yet environmental analysts warn that humanity has entered a state of 'ecological overshoot', consuming biological supplies roughly 1.7 times faster than ecosystems can regenerate them. Because the planet's material stores are finite, unchecked overconsumption is accelerating dangerous resource depletion across both land and sea.",
+    "Tropical deforestation illustrates the speed of this loss. Driven primarily by commercial ranching, soy plantations, and palm oil estates, forest clearance strips away complex canopies that shelter over half of all land-based wildlife. Removing ancient woodland also disrupts regional rainfall cycles and releases massive stores of carbon locked inside tree trunks and forest peat.",
+    "Beneath the ground, high-grade mineral deposits face mounting pressure. Essential metals such as copper, nickel, and rare earths underpin smartphones, wind turbines, and electric grids. Although Earth will not literally run out of rock containing these elements tomorrow, the richest shallow ores are steadily shrinking. Miners must now dig lower-grade seams that demand far more diesel, explosives, and freshwater per tonne of metal extracted.",
+    "Marine fisheries face an equally alarming squeeze. Industrial trawlers guided by sonar and satellite weather maps can empty entire shoals in days, leaving populations too small to recover naturally. Even sand—the overlooked raw material behind concrete and glass—is being dredged from riverbeds faster than currents replace it, eroding riverbanks and destroying fish habitats.",
+    "Reversing these trends demands moving from a 'take-make-dispose' economy to practical conservation and circular manufacturing. Through 'urban mining', specialist recyclers extract valuable palladium, gold, and lithium from discarded circuit boards and car batteries at a fraction of the energy cost of traditional mines. Meanwhile, modular building designs allow steel beams and bricks to be unbolted and reused rather than crushed into rubble, while sensible consumption habits reduce overall demand."
+   ],
+   "groups": [
+    {
+     "title": "Questions 1-7",
+     "instruction": "Complete the notes below. Choose <strong>ONE WORD ONLY</strong> from the passage for each answer.",
+     "type": "notes",
+     "boxTitle": "Resource Depletion and Circular Solutions",
+     "sections": [
+      {
+       "heading": "Forests",
+       "items": [
+        "Commercial ranching, palm oil estates, and {{1}} plantations drive tropical deforestation.",
+        "Clearing ancient trees disrupts regional {{2}} cycles and releases stored carbon."
+       ]
+      },
+      {
+       "heading": "Minerals and construction materials",
+       "items": [
+        "Mining lower-grade ore requires more freshwater, diesel, and {{3}} per tonne.",
+        "Industrial fishing vessels locate shoals using satellite maps and {{4}}.",
+        "Dredging {{5}} from riverbeds for glass and concrete erodes riverbanks."
+       ]
+      },
+      {
+       "heading": "Circular manufacturing",
+       "items": [
+        "'Urban mining' recovers gold, lithium, and {{6}} from old electronics and batteries.",
+        "Modular buildings let workers reuse bricks and steel {{7}} instead of crushing them."
+       ]
+      }
+     ]
+    },
+    {
+     "title": "Questions 8-13",
+     "instruction": "Do the following statements agree with the information given in Reading Passage 1? Write <strong>TRUE</strong>, <strong>FALSE</strong>, or <strong>NOT GIVEN</strong>.",
+     "type": "tfng",
+     "options": [
+      "TRUE",
+      "FALSE",
+      "NOT GIVEN"
+     ],
+     "items": [
+      {
+       "q": 8,
+       "text": "Humanity is currently using biological resources at a faster rate than nature can renew them."
+      },
+      {
+       "q": 9,
+       "text": "Tropical forests are home to fewer than half of the world's land-based animal species."
+      },
+      {
+       "q": 10,
+       "text": "The planet's entire physical supply of copper and nickel will completely vanish within ten years."
+      },
+      {
+       "q": 11,
+       "text": "Extracting metals from discarded electronics generally uses less energy than traditional mining."
+      },
+      {
+       "q": 12,
+       "text": "Modular buildings cost less to construct initially than conventional concrete buildings."
+      },
+      {
+       "q": 13,
+       "text": "Asia currently dredges more river sand than Europe and North America combined."
+      }
+     ]
+    }
+   ],
+   "qRange": [
+    1,
+    13
+   ]
+  },
+  {
+   "label": "READING PASSAGE 2",
+   "instruction": "You should spend about 20 minutes on Questions 14-26, which are based on Reading Passage 2 below.",
+   "title": "Fuel Prices and the Environment",
+   "subtitle": "Evaluating whether higher petrol taxes reduce driving fairly—and what alternatives work best",
+   "paragraphs": [
+    "Road transport accounts for roughly one-sixth of global carbon emissions and remains the primary source of toxic urban smog. To curb private car dependence, many environmental economists recommend raising the fuel tax on petrol and diesel. By making the true environmental cost of driving visible at the pump, higher prices can discourage non-essential journeys and accelerate demand for cleaner engines.",
+    "Long-term data from European nations with high petrol duties confirms that pricing shapes mobility habits. Countries with steep fuel taxes generally have smaller average car sizes, higher carpooling rates, and greater bus ridership than low-tax nations. Moreover, fuel levies generate reliable public revenue that ministries can ring-fence to modernise regional rail networks and electrify city bus fleets.",
+    "Yet abrupt fuel hikes have repeatedly sparked fierce public protests, largely because economists classify fuel duties as 'regressive'—meaning they hit low-income households disproportionately hard. Wealthy suburbanites can absorb steeper pump prices or afford brand-new electric vehicles. By contrast, rural commuters, self-employed tradespeople, and shift workers in areas without frequent buses have little choice but to keep driving older petrol vans while losing a larger share of their disposable income.",
+    "Transport planners therefore warn that penalties fail when introduced in isolation. Before raising petrol costs sharply, governments must first invest in affordable alternatives. Expanding reliable public transport—backed by simplified, flat-rate national tickets like Germany's monthly Deutschlandticket—gives commuters a genuine, stress-free option to leave private cars parked.",
+    "Targeted financial incentives can bridge the fairness gap further. Several countries now offer means-tested scrappage grants, paying lower-income motorists thousands of euros to trade old diesel cars for used electric vehicles, cargo e-bikes, or free multi-year transit passes. Others return a portion of carbon fuel revenue directly to citizens as an equal annual 'climate dividend', ensuring modest-income households who drive less actually come out financially ahead."
+   ],
+   "groups": [
+    {
+     "title": "Questions 14-18",
+     "instruction": "Do the following statements agree with the information given in Reading Passage 2? Write <strong>TRUE</strong>, <strong>FALSE</strong>, or <strong>NOT GIVEN</strong>.",
+     "type": "tfng",
+     "options": [
+      "TRUE",
+      "FALSE",
+      "NOT GIVEN"
+     ],
+     "items": [
+      {
+       "q": 14,
+       "text": "Countries with high petrol taxes tend to see smaller average vehicle sizes than low-tax countries."
+      },
+      {
+       "q": 15,
+       "text": "Fuel taxes affect wealthy drivers and low-income families to the exact same financial extent."
+      },
+      {
+       "q": 16,
+       "text": "Germany's monthly Deutschlandticket caused private car sales in Germany to fall by half."
+      },
+      {
+       "q": 17,
+       "text": "Transport planners believe governments should build affordable transit choices before sharply raising fuel prices."
+      },
+      {
+       "q": 18,
+       "text": "Under an equal 'climate dividend' scheme, low-income families who drive very little lose money."
+      }
+     ]
+    },
+    {
+     "title": "Questions 19-26",
+     "instruction": "Complete the notes below. Choose <strong>ONE WORD ONLY</strong> from the passage for each answer.",
+     "type": "notes",
+     "boxTitle": "Designing Fair Fuel Policies and Clean Alternatives",
+     "sections": [
+      {
+       "heading": "Impact of higher fuel duties",
+       "items": [
+        "Steeper fuel prices are linked with more bus use and higher {{19}} rates.",
+        "Tax revenue can be set aside to electrify buses and upgrade regional {{20}} systems."
+       ]
+      },
+      {
+       "heading": "Fairness challenges",
+       "items": [
+        "Shift workers and self-employed {{21}} often rely on older petrol vans.",
+        "Lower-income drivers lose a larger share of their disposable {{22}} when petrol rises."
+       ]
+      },
+      {
+       "heading": "Public transport and incentives",
+       "items": [
+        "Germany offers simplified flat-rate monthly {{23}} for public transit.",
+        "Means-tested {{24}} grants help poorer drivers replace old diesel vehicles.",
+        "Drivers can switch to used electric cars, cargo e-bikes, or free transit {{25}}.",
+        "Some governments return fuel tax money as an equal annual climate {{26}}."
+       ]
+      }
+     ]
+    }
+   ],
+   "qRange": [
+    14,
+    26
+   ]
+  },
+  {
+   "label": "READING PASSAGE 3",
+   "instruction": "You should spend about 20 minutes on Questions 27-40, which are based on Reading Passage 3 below.",
+   "title": "Fresh Water: A Limited Resource",
+   "subtitle": "How demographics, agriculture, and engineering are reshaping the global fight against water scarcity",
+   "paragraphs": [
+    "<strong>1</strong> Seen from orbit, Earth appears generously supplied with water. Yet barely 2.5 percent of planetary water is fresh, and less than one percent is readily accessible in rivers, lakes, and shallow aquifers. For centuries, abundant rainfall allowed industrialised cities to treat piped water as virtually infinite. Today, hydrologists warn that over half the world's population already experiences severe water scarcity for at least one month each year.",
+    "<strong>2</strong> Two converging forces are tightening the squeeze. Rapid population growth and rising urban prosperity have multiplied demand for municipal supplies, food, and manufactured goods. Simultaneously, climate change is disrupting snowfall in mountain ranges such as the Andes and Himalayas—natural 'water towers' that feed major rivers—while prolonged drought empties reservoirs from Spain to southern Africa.",
+    "<strong>3</strong> Public campaigns often focus on household showers, yet domestic use represents barely ten percent of global freshwater withdrawals. Agriculture consumes roughly seventy percent—mostly for open-channel crop irrigation, where up to half the water evaporates before reaching roots—while industry and power generation take another twenty percent. Untreated textile dyes, mining runoff, and farm nitrates further contaminate scarce rivers, shrinking usable supplies.",
+    "<strong>4</strong> Engineering offers powerful supply-side breakthroughs. Arid coastal states such as Israel and Saudi Arabia rely heavily on reverse-osmosis desalination to convert seawater into municipal drinking water. Equally impressive is advanced wastewater treatment: Singapore's NEWater plants purify city sewage through multi-stage membranes and ultraviolet light until it exceeds drinking-water standards, supplying semiconductor factories and topping up reservoirs during dry spells.",
+    "<strong>5</strong> High-tech plants, however, are no silver bullet. Desalination consumes substantial electricity and discharges dense salty brine that can suffocate coastal seagrass beds if poorly dispersed. Water strategists therefore stress efficiency first: repairing crumbling urban pipes—which lose up to thirty percent of treated water in some major cities—and adopting sensor-guided drip irrigation on farms cut waste at a fraction of the energy cost.",
+    "<strong>6</strong> Household habits and building design complete the picture. Installing greywater recycling systems that channel shower water to flush toilets, capturing rooftop rainwater, and motivating citizens to conserve water through tiered pricing all build resilience. Fresh water cannot be manufactured cheaply at endless scale; safeguarding it requires treating every litre as a strategic shared asset."
+   ],
+   "groups": [
+    {
+     "title": "Questions 27-30",
+     "instruction": "Choose the correct letter, <strong>A, B, C or D</strong>.",
+     "type": "mcq",
+     "items": [
+      {
+       "q": 27,
+       "text": "Why does the writer refer to the Andes and Himalayas as 'water towers' in paragraph 2?",
+       "options": [
+        {
+         "k": "A",
+         "t": "They contain the world's largest artificial reservoirs."
+        },
+        {
+         "k": "B",
+         "t": "Their seasonal snowfall feeds major rivers that supply water downstream."
+        },
+        {
+         "k": "C",
+         "t": "They experience less climate disruption than coastal regions."
+        },
+        {
+         "k": "D",
+         "t": "Engineers build desalination plants high in those mountains."
+        }
+       ]
+      },
+      {
+       "q": 28,
+       "text": "What inefficiency in global agriculture is pointed out in paragraph 3?",
+       "options": [
+        {
+         "k": "A",
+         "t": "Farms receive less water than textile factories and power plants."
+        },
+        {
+         "k": "B",
+         "t": "Open-channel irrigation loses up to half its water to evaporation before reaching crops."
+        },
+        {
+         "k": "C",
+         "t": "Most farmers refuse to grow crops near rivers."
+        },
+        {
+         "k": "D",
+         "t": "Household showers waste more water than crop irrigation."
+        }
+       ]
+      },
+      {
+       "q": 29,
+       "text": "Why do water strategists prioritise fixing pipes and drip irrigation over building more desalination plants in paragraph 5?",
+       "options": [
+        {
+         "k": "A",
+         "t": "Desalination cannot remove industrial chemicals from seawater."
+        },
+        {
+         "k": "B",
+         "t": "Efficiency upgrades save huge water losses with far lower energy use and coastal harm."
+        },
+        {
+         "k": "C",
+         "t": "Urban water pipes rarely leak more than five percent of supply."
+        },
+        {
+         "k": "D",
+         "t": "Seagrass beds require salty brine in order to grow."
+        }
+       ]
+      },
+      {
+       "q": 30,
+       "text": "What is the writer's concluding argument in paragraph 6?",
+       "options": [
+        {
+         "k": "A",
+         "t": "Tiered pricing alone will eliminate global droughts."
+        },
+        {
+         "k": "B",
+         "t": "Because fresh water cannot be produced endlessly at low cost, smart design and conservation are essential."
+        },
+        {
+         "k": "C",
+         "t": "Greywater systems are too complex for ordinary apartment buildings."
+        },
+        {
+         "k": "D",
+         "t": "Industrial factories should stop using purified wastewater."
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "title": "Questions 31-34",
+     "instruction": "Complete each sentence with the correct ending, <strong>A-F</strong>, below. Write the correct letter, <strong>A-F</strong>.",
+     "type": "matching",
+     "legendTitle": "Sentence Endings",
+     "legend": [
+      {
+       "key": "A",
+       "text": "purify sewage to standards high enough for industry and reservoirs."
+      },
+      {
+       "key": "B",
+       "text": "can damage coastal seagrass habitats when not properly dispersed."
+      },
+      {
+       "key": "C",
+       "text": "contaminate remaining rivers and reduce drinkable supplies."
+      },
+      {
+       "key": "D",
+       "text": "redirect lightly used shower water for flushing toilets."
+      },
+      {
+       "key": "E",
+       "text": "account for over half of global water withdrawals."
+      },
+      {
+       "key": "F",
+       "text": "operate completely without electrical power."
+      }
+     ],
+     "options": [
+      "A",
+      "B",
+      "C",
+      "D",
+      "E",
+      "F"
+     ],
+     "items": [
+      {
+       "q": 31,
+       "text": "Farm nitrates, mining runoff, and untreated textile dyes..."
+      },
+      {
+       "q": 32,
+       "text": "Singapore's multi-stage NEWater facilities..."
+      },
+      {
+       "q": 33,
+       "text": "Concentrated salty brine discharged from desalination plants..."
+      },
+      {
+       "q": 34,
+       "text": "Modern greywater recycling systems inside buildings..."
+      }
+     ]
+    },
+    {
+     "title": "Questions 35-40",
+     "instruction": "Do the following statements agree with the views of the writer in Reading Passage 3? Write <strong>YES</strong>, <strong>NO</strong>, or <strong>NOT GIVEN</strong>.",
+     "type": "tfng",
+     "options": [
+      "YES",
+      "NO",
+      "NOT GIVEN"
+     ],
+     "items": [
+      {
+       "q": 35,
+       "text": "Less than one percent of the Earth's total water is easily accessible fresh water."
+      },
+      {
+       "q": 36,
+       "text": "Domestic households withdraw more fresh water worldwide than industry and power plants do."
+      },
+      {
+       "q": 37,
+       "text": "Saudi Arabia produces more desalinated drinking water per person than Israel."
+      },
+      {
+       "q": 38,
+       "text": "Some major cities lose almost a third of their treated water through leaking pipes."
+      },
+      {
+       "q": 39,
+       "text": "Residents in Singapore initially objected to drinking water from NEWater plants."
+      },
+      {
+       "q": 40,
+       "text": "Desalination technology on its own solves water shortages without creating any ecological drawbacks."
+      }
+     ]
+    }
+   ],
+   "qRange": [
+    27,
+    40
+   ]
+  }
+ ],
+ "answers": {
+  "1": [
+   "soy"
+  ],
+  "2": [
+   "rainfall"
+  ],
+  "3": [
+   "explosives"
+  ],
+  "4": [
+   "sonar"
+  ],
+  "5": [
+   "sand"
+  ],
+  "6": [
+   "palladium"
+  ],
+  "7": [
+   "beams"
+  ],
+  "8": [
+   "TRUE"
+  ],
+  "9": [
+   "FALSE"
+  ],
+  "10": [
+   "FALSE"
+  ],
+  "11": [
+   "TRUE"
+  ],
+  "12": [
+   "NOT GIVEN"
+  ],
+  "13": [
+   "NOT GIVEN"
+  ],
+  "14": [
+   "TRUE"
+  ],
+  "15": [
+   "FALSE"
+  ],
+  "16": [
+   "NOT GIVEN"
+  ],
+  "17": [
+   "TRUE"
+  ],
+  "18": [
+   "FALSE"
+  ],
+  "19": [
+   "carpooling"
+  ],
+  "20": [
+   "rail"
+  ],
+  "21": [
+   "tradespeople"
+  ],
+  "22": [
+   "income"
+  ],
+  "23": [
+   "tickets"
+  ],
+  "24": [
+   "scrappage"
+  ],
+  "25": [
+   "passes"
+  ],
+  "26": [
+   "dividend"
+  ],
+  "27": [
+   "B"
+  ],
+  "28": [
+   "B"
+  ],
+  "29": [
+   "B"
+  ],
+  "30": [
+   "B"
+  ],
+  "31": [
+   "C"
+  ],
+  "32": [
+   "A"
+  ],
+  "33": [
+   "B"
+  ],
+  "34": [
+   "D"
+  ],
+  "35": [
+   "YES"
+  ],
+  "36": [
+   "NO"
+  ],
+  "37": [
+   "NOT GIVEN"
+  ],
+  "38": [
+   "YES"
+  ],
+  "39": [
+   "NOT GIVEN"
+  ],
+  "40": [
+   "NO"
+  ]
+ }
+}

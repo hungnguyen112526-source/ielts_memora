@@ -1,0 +1,629 @@
+{
+ "schema": 1,
+ "id": "band-5-6-5-education-test-8",
+ "series": "education",
+ "category": "band_5_6_5",
+ "title": "Youth, Sport & Success",
+ "summary": "Why Learn a Foreign Language? • Managing Your Money • The Role of a Good Teacher",
+ "subtitle": "Band 5.0–6.5 · Education",
+ "module": "academic",
+ "durationMin": 60,
+ "totalQuestions": 40,
+ "questionTypes": [
+  "tfng",
+  "flowchart",
+  "notes",
+  "summary_box",
+  "mcq"
+ ],
+ "passages": [
+  {
+   "label": "READING PASSAGE 1",
+   "instruction": "You should spend about 20 minutes on Questions 1-13, which are based on Reading Passage 1 below.",
+   "title": "Why Learn a Foreign Language?",
+   "subtitle": "Personal rewards, global careers, and why class size matters in language learning",
+   "paragraphs": [
+    "With instant translation apps now installed on almost every smartphone, some people question whether spending years mastering a foreign language is still worth the effort. Yet linguists, business leaders, and seasoned travellers insist that digital translation can never replace genuine human fluency. Speaking another language does far more than convert words; it allows people to communicate with warmth, humour, and trust.",
+    "The personal and professional rewards are substantial. In a global economy where companies trade across borders daily, bilingual staff frequently earn higher salaries and access international promotions more easily. During leisure travel, knowing even conversational phrases transforms a tourist's trip—opening doors to local family restaurants, street markets, and deeper appreciation of another culture's literature, film, and history. Neuroscientists also report that regularly switching between two languages helps improve skills such as memory, multitasking, and mental flexibility well into old age.",
+    "Despite these advantages, many teenagers leave school after five years of foreign language classes unable to hold a basic two-minute conversation. Applied linguistics research points to one decisive factor behind this frustration: class size. Unlike history or geography lectures, where forty students can listen quietly and take notes, learning to speak requires constant active practice. In an overcrowded room of thirty-five pupils, an individual student may get fewer than ninety seconds of direct speaking time per lesson.",
+    "Small-group language institutes consistently produce faster spoken fluency by following a clear three-stage classroom cycle. First, teachers introduce a short practical dialogue using realistic audio clips rather than lengthy grammar charts. Next, learners enter pair discussions in small rooms of ten to twelve students, where everyone speaks actively without fear of public ridicule. Finally, instructors give targeted feedback on pronunciation and natural phrasing before students swap partners to try the conversation again.",
+    "Because hiring enough teachers to halve every public school class is costly, many ministries are experimenting with creative compromises. Some secondary schools split large cohorts into smaller speaking seminars once a week while using digital listening labs for vocabulary practice. Whether inside a school or an evening club, combining small speaking groups with genuine cultural curiosity remains the surest route to mastering another tongue."
+   ],
+   "groups": [
+    {
+     "title": "Questions 1-7",
+     "instruction": "Do the following statements agree with the information given in Reading Passage 1? Write <strong>TRUE</strong>, <strong>FALSE</strong>, or <strong>NOT GIVEN</strong>.",
+     "type": "tfng",
+     "options": [
+      "TRUE",
+      "FALSE",
+      "NOT GIVEN"
+     ],
+     "items": [
+      {
+       "q": 1,
+       "text": "Linguists believe that smartphone translation apps can completely replace human language fluency."
+      },
+      {
+       "q": 2,
+       "text": "Workers who speak two languages often have better prospects for international promotion."
+      },
+      {
+       "q": 3,
+       "text": "Spanish is easier for English speakers to learn than Mandarin or Arabic."
+      },
+      {
+       "q": 4,
+       "text": "Neuroscientists have linked bilingualism with mental benefits that last into older adulthood."
+      },
+      {
+       "q": 5,
+       "text": "Large class sizes affect spoken language learning in the exact same way as they affect history lectures."
+      },
+      {
+       "q": 6,
+       "text": "In a language class of thirty-five students, each pupil may speak directly for under two minutes per lesson."
+      },
+      {
+       "q": 7,
+       "text": "Digital listening labs are more expensive for schools to maintain than hiring additional language teachers."
+      }
+     ]
+    },
+    {
+     "title": "Questions 8-10",
+     "instruction": "Complete the flow-chart below. Choose <strong>NO MORE THAN TWO WORDS</strong> from the passage for each answer.",
+     "type": "flowchart",
+     "boxTitle": "Three-Stage Classroom Cycle in Small Language Groups",
+     "steps": [
+      "Stage 1: Present a brief {{8}} supported by realistic audio recordings.",
+      "Stage 2: Students take part in {{9}} inside small groups of ten to twelve.",
+      "Stage 3: Teachers provide {{10}} on phrasing and pronunciation before partners rotate."
+     ]
+    },
+    {
+     "title": "Questions 11-13",
+     "instruction": "Complete the notes below. Choose <strong>ONE WORD ONLY</strong> from the passage for each answer.",
+     "type": "notes",
+     "boxTitle": "Cultural Value and School Solutions",
+     "sections": [
+      {
+       "heading": "Travel and cultural insight",
+       "items": [
+        "Basic conversational phrases help travellers appreciate local film, history, and {{11}}."
+       ]
+      },
+      {
+       "heading": "Small-group atmosphere",
+       "items": [
+        "Smaller rooms help learners speak up without fear of public {{12}}."
+       ]
+      },
+      {
+       "heading": "Public school compromises",
+       "items": [
+        "Some schools divide large groups into smaller weekly speaking {{13}}."
+       ]
+      }
+     ]
+    }
+   ],
+   "qRange": [
+    1,
+    13
+   ]
+  },
+  {
+   "label": "READING PASSAGE 2",
+   "instruction": "You should spend about 20 minutes on Questions 14-26, which are based on Reading Passage 2 below.",
+   "title": "Managing Your Money",
+   "subtitle": "How early pocket money habits and simple budgeting build lifelong financial security",
+   "paragraphs": [
+    "<strong>1</strong> In an age of contactless cards, one-click shopping, and digital wallets, money has become almost invisible. While cashless payments save seconds at the checkout, behavioural economists warn that tapping a phone feels far less painful than handing over physical banknotes. As a result, young adults today find it easier than ever to spend impulsively and lose track of where their monthly wages go.",
+    "<strong>2</strong> Developing sensible financial habits begins surprisingly early. Research from the University of Cambridge indicates that core attitudes toward money—such as delaying gratification and comparing prices—are already forming by age seven. Giving children regular pocket money, rather than buying treats randomly whenever they ask, lets youngsters experience small, safe trade-offs. If a nine-year-old spends an entire weekly allowance on sweets on Monday, they learn directly why nothing remains for a comic book on Friday.",
+    "<strong>3</strong> Once teenagers earn part-time wages or move away for college, creating a written budget becomes essential. Financial educators often recommend a simple '50-30-20' rule: allocating roughly half of monthly income to necessities like rent and groceries, thirty percent to leisure and hobbies, and twenty percent to savings or debt repayment. Tracking every coffee, streaming subscription, and delivery meal for just thirty days frequently exposes wasteful habits that quietly drain hundreds of dollars a year.",
+    "<strong>4</strong> Learning how to save consistently is equally important, even when starting with tiny amounts. Setting up an automatic bank transfer on payday—moving a modest sum into a separate emergency fund before spending begins—removes the temptation to dip into savings. Financial planners stress that an emergency reserve covering three months of basic bills protects households from sudden car repairs, job gaps, or medical costs without forcing them onto expensive credit cards.",
+    "<strong>5</strong> Social media adds a modern psychological hurdle to disciplined budgeting. Curated posts showcasing designer trainers, exotic holidays, and luxury dining create relentless pressure to keep up with peers' lifestyles. Behavioural advisers suggest countering this pressure with a '48-hour pause': waiting two full days before buying any non-essential item online. In most cases, the sudden urge fades, leaving shoppers relieved that they kept their cash.",
+    "<strong>6</strong> Good money management is not about living miserably or refusing every pleasure. Rather, it is about aligning daily spending with genuine personal goals—whether travelling, studying, or buying a first apartment. By combining early pocket money lessons with clear budgeting and mindful pausing, anyone can build lasting financial peace of mind."
+   ],
+   "groups": [
+    {
+     "title": "Questions 14-19",
+     "instruction": "Complete the summary using the list of words and phrases, <strong>A-J</strong>, below. Write the correct letter, <strong>A-J</strong>.",
+     "type": "summary_box",
+     "boxTitle": "Building Practical Financial Habits",
+     "legend": [
+      {
+       "key": "A",
+       "text": "emergency fund"
+      },
+      {
+       "key": "B",
+       "text": "wasteful habits"
+      },
+      {
+       "key": "C",
+       "text": "two-day wait"
+      },
+      {
+       "key": "D",
+       "text": "impulsive spending"
+      },
+      {
+       "key": "E",
+       "text": "pocket money"
+      },
+      {
+       "key": "F",
+       "text": "written budget"
+      },
+      {
+       "key": "G",
+       "text": "credit cards"
+      },
+      {
+       "key": "H",
+       "text": "physical cash"
+      },
+      {
+       "key": "I",
+       "text": "designer clothes"
+      },
+      {
+       "key": "J",
+       "text": "higher wages"
+      }
+     ],
+     "options": [
+      "A",
+      "B",
+      "C",
+      "D",
+      "E",
+      "F",
+      "G",
+      "H",
+      "I",
+      "J"
+     ],
+     "paragraphs": [
+      "Because cashless apps make paying feel effortless, young adults are more likely to engage in {{14}}. Experts note that giving children fixed {{15}} helps them learn real choices from an early age. Later, keeping a monthly {{16}} and logging everyday purchases helps uncover {{17}} such as unused subscriptions. Advisers also recommend using automatic payday transfers to build an {{18}} for unexpected bills, and applying a {{19}} before buying non-essential goods online."
+     ]
+    },
+    {
+     "title": "Questions 20-23",
+     "instruction": "Do the following statements agree with the claims of the writer in Reading Passage 2? Write <strong>YES</strong>, <strong>NO</strong>, or <strong>NOT GIVEN</strong>.",
+     "type": "tfng",
+     "options": [
+      "YES",
+      "NO",
+      "NOT GIVEN"
+     ],
+     "items": [
+      {
+       "q": 20,
+       "text": "Paying with physical banknotes tends to feel more noticeable than paying with a smartphone."
+      },
+      {
+       "q": 21,
+       "text": "Children should have to complete household chores in order to earn their pocket money."
+      },
+      {
+       "q": 22,
+       "text": "Under the 50-30-20 budgeting rule, half of a person's income should go straight into savings."
+      },
+      {
+       "q": 23,
+       "text": "Effective budgeting means cutting out all hobbies and enjoyable purchases completely."
+      }
+     ]
+    },
+    {
+     "title": "Questions 24-26",
+     "instruction": "Choose the correct letter, <strong>A, B, C or D</strong>.",
+     "type": "mcq",
+     "items": [
+      {
+       "q": 24,
+       "text": "Why does the writer give the example of a nine-year-old buying sweets on Monday in paragraph 2?",
+       "options": [
+        {
+         "k": "A",
+         "t": "To show that nine-year-olds are too young to handle cash"
+        },
+        {
+         "k": "B",
+         "t": "To illustrate how regular allowances teach children the consequences of spending choices"
+        },
+        {
+         "k": "C",
+         "t": "To argue that comic books are better purchases than sweets"
+        },
+        {
+         "k": "D",
+         "t": "To prove that Cambridge researchers oppose giving children money"
+        }
+       ]
+      },
+      {
+       "q": 25,
+       "text": "According to paragraph 4, what is the main advantage of an automatic payday savings transfer?",
+       "options": [
+        {
+         "k": "A",
+         "t": "Banks pay double interest rates on automatic transfers."
+        },
+        {
+         "k": "B",
+         "t": "It stops people from being tempted to spend money meant for savings."
+        },
+        {
+         "k": "C",
+         "t": "It eliminates the need to pay monthly rent and grocery bills."
+        },
+        {
+         "k": "D",
+         "t": "It automatically cancels unused streaming subscriptions."
+        }
+       ]
+      },
+      {
+       "q": 26,
+       "text": "How does social media complicate personal budgeting in paragraph 5?",
+       "options": [
+        {
+         "k": "A",
+         "t": "It blocks users from accessing online banking apps."
+        },
+        {
+         "k": "B",
+         "t": "It encourages people to spend money trying to match idealized peer lifestyles."
+        },
+        {
+         "k": "C",
+         "t": "It charges hidden fees whenever users post holiday photographs."
+        },
+        {
+         "k": "D",
+         "t": "It discourages young adults from working part-time jobs."
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "qRange": [
+    14,
+    26
+   ]
+  },
+  {
+   "label": "READING PASSAGE 3",
+   "instruction": "You should spend about 20 minutes on Questions 27-40, which are based on Reading Passage 3 below.",
+   "title": "The Role of a Good Teacher",
+   "subtitle": "Why human mentorship, clarity, and moral example remain irreplaceable in the digital era",
+   "paragraphs": [
+    "<strong>1</strong> When adults recall the teachers who changed their lives, they rarely remember a spotless PowerPoint slide or a perfect textbook summary. Instead, they describe a person who noticed their hidden talent, stayed patient during a confusing algebra lesson, or believed in them when they doubted themselves. Even in an era of artificial intelligence tutors and unlimited online videos, education research confirms that teacher quality remains the single most influential school-based factor in student achievement.",
+    "<strong>2</strong> At the core of effective teaching is the ability to explain complex concepts clearly and adaptively. Deep subject mastery alone is never sufficient; some brilliant university scholars struggle in secondary classrooms because they forget what it feels like to be a beginner. Skilled teachers break intimidating ideas into manageable steps, invent memorable everyday analogies, and quickly sense from puzzled expressions when an entire class needs a fresh approach.",
+    "<strong>3</strong> Equally vital is the power to motivate reluctant learners. Adolescents often disconnect from schoolwork when lessons feel irrelevant or when early mistakes convince them they are simply 'bad at maths' or 'hopeless at writing'. Great educators counter this defeatism by celebrating steady progress, linking classroom theories to students' personal interests, and setting challenging yet achievable goals that rebuild academic confidence.",
+    "<strong>4</strong> Maintaining fair classroom discipline is another delicate craft. Decades ago, strict authority relied heavily on fear and harsh punishment, which often bred silence without genuine engagement. Modern pedagogical studies show that the best classrooms balance clear boundaries with mutual respect. When teachers apply rules consistently, listen politely to student viewpoints, and admit their own occasional mistakes, teenagers generally cooperate willingly rather than rebelling.",
+    "<strong>5</strong> Beyond test scores, a good teacher acts as an everyday role model. Children spend over a thousand hours a year watching how educators handle stress, treat quieter classmates, and respond to disagreement. Through steady kindness, fairness, and intellectual curiosity, teachers silently teach citizenship and character—lessons that no automated software programme can authentically demonstrate.",
+    "<strong>6</strong> Yet praising teachers in speeches means little if societies fail to support them practically. Heavy administrative paperwork, oversized classes, and modest salaries are currently driving experienced educators out of the profession in many nations. If governments truly want classrooms filled with inspiring mentors, they must invest in competitive pay, ongoing professional training, and sufficient preparation time—recognising that strong teachers are the true foundation of every thriving society."
+   ],
+   "groups": [
+    {
+     "title": "Questions 27-32",
+     "instruction": "Complete the summary using the list of words and phrases, <strong>A-J</strong>, below. Write the correct letter, <strong>A-J</strong>.",
+     "type": "summary_box",
+     "boxTitle": "What Makes an Effective Teacher",
+     "legend": [
+      {
+       "key": "A",
+       "text": "complex ideas"
+      },
+      {
+       "key": "B",
+       "text": "mutual respect"
+      },
+      {
+       "key": "C",
+       "text": "heavy paperwork"
+      },
+      {
+       "key": "D",
+       "text": "preparation time"
+      },
+      {
+       "key": "E",
+       "text": "student defeatism"
+      },
+      {
+       "key": "F",
+       "text": "civic character"
+      },
+      {
+       "key": "G",
+       "text": "harsh punishment"
+      },
+      {
+       "key": "H",
+       "text": "strict exams"
+      },
+      {
+       "key": "I",
+       "text": "online videos"
+      },
+      {
+       "key": "J",
+       "text": "perfect slides"
+      }
+     ],
+     "options": [
+      "A",
+      "B",
+      "C",
+      "D",
+      "E",
+      "F",
+      "G",
+      "H",
+      "I",
+      "J"
+     ],
+     "paragraphs": [
+      "Research shows that skilled teachers matter more to school success than digital tools. Knowing a subject deeply is not enough: strong educators can simplify {{27}} and adjust when they spot confused faces. They also overcome {{28}} by rewarding steady improvement and connecting topics to students' lives. In managing behaviour, effective teachers replace fear-based control with {{29}} and consistent rules. Furthermore, by modelling curiosity and fairness, they teach {{30}} that software cannot replicate. To keep talented staff from leaving due to {{31}} and low pay, governments must fund better training and {{32}}."
+     ]
+    },
+    {
+     "title": "Questions 33-36",
+     "instruction": "Do the following statements agree with the claims of the writer in Reading Passage 3? Write <strong>YES</strong>, <strong>NO</strong>, or <strong>NOT GIVEN</strong>.",
+     "type": "tfng",
+     "options": [
+      "YES",
+      "NO",
+      "NOT GIVEN"
+     ],
+     "items": [
+      {
+       "q": 33,
+       "text": "Knowing an academic subject at an advanced level automatically guarantees success as a secondary school teacher."
+      },
+      {
+       "q": 34,
+       "text": "Primary school teachers generally earn lower salaries than secondary school teachers."
+      },
+      {
+       "q": 35,
+       "text": "Students are more likely to cooperate with teachers who apply rules fairly and admit occasional errors."
+      },
+      {
+       "q": 36,
+       "text": "Artificial intelligence tutors are already more effective than humans at teaching moral values."
+      }
+     ]
+    },
+    {
+     "title": "Questions 37-40",
+     "instruction": "Choose the correct letter, <strong>A, B, C or D</strong>.",
+     "type": "mcq",
+     "items": [
+      {
+       "q": 37,
+       "text": "Why does the writer mention 'brilliant university scholars' in paragraph 2?",
+       "options": [
+        {
+         "k": "A",
+         "t": "To argue that universities should train more secondary school teachers"
+        },
+        {
+         "k": "B",
+         "t": "To illustrate that deep knowledge alone does not make someone a clear explainer"
+        },
+        {
+         "k": "C",
+         "t": "To suggest that algebra is too difficult for most beginners"
+        },
+        {
+         "k": "D",
+         "t": "To show that older teachers use better analogies than younger teachers"
+        }
+       ]
+      },
+      {
+       "q": 38,
+       "text": "What weakness of old-fashioned, fear-based discipline is mentioned in paragraph 4?",
+       "options": [
+        {
+         "k": "A",
+         "t": "It created quiet rooms without true student interest or involvement."
+        },
+        {
+         "k": "B",
+         "t": "It prevented teachers from finishing the national syllabus on time."
+        },
+        {
+         "k": "C",
+         "t": "It encouraged students to interrupt lessons with polite questions."
+        },
+        {
+         "k": "D",
+         "t": "It required schools to hire extra classroom supervisors."
+        }
+       ]
+      },
+      {
+       "q": 39,
+       "text": "According to paragraph 5, how do teachers act as role models during the school year?",
+       "options": [
+        {
+         "k": "A",
+         "t": "By delivering daily lectures about famous historical heroes"
+        },
+        {
+         "k": "B",
+         "t": "By demonstrating calmness, fairness, and respect in everyday interactions"
+        },
+        {
+         "k": "C",
+         "t": "By allowing students to design their own software programmes"
+        },
+        {
+         "k": "D",
+         "t": "By avoiding all disagreements inside the classroom"
+        }
+       ]
+      },
+      {
+       "q": 40,
+       "text": "What is the writer's main message to governments in the final paragraph?",
+       "options": [
+        {
+         "k": "A",
+         "t": "Public speeches praising teachers are enough to keep them motivated."
+        },
+        {
+         "k": "B",
+         "t": "Schools should replace experienced teachers with AI tutors to cut costs."
+        },
+        {
+         "k": "C",
+         "t": "Retaining great teachers requires concrete improvements in pay, workload, and training."
+        },
+        {
+         "k": "D",
+         "t": "Class sizes no longer affect teacher stress in modern schools."
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "qRange": [
+    27,
+    40
+   ]
+  }
+ ],
+ "answers": {
+  "1": [
+   "FALSE"
+  ],
+  "2": [
+   "TRUE"
+  ],
+  "3": [
+   "NOT GIVEN"
+  ],
+  "4": [
+   "TRUE"
+  ],
+  "5": [
+   "FALSE"
+  ],
+  "6": [
+   "TRUE"
+  ],
+  "7": [
+   "NOT GIVEN"
+  ],
+  "8": [
+   "practical dialogue"
+  ],
+  "9": [
+   "pair discussions"
+  ],
+  "10": [
+   "targeted feedback"
+  ],
+  "11": [
+   "literature"
+  ],
+  "12": [
+   "ridicule"
+  ],
+  "13": [
+   "seminars"
+  ],
+  "14": [
+   "D"
+  ],
+  "15": [
+   "E"
+  ],
+  "16": [
+   "F"
+  ],
+  "17": [
+   "B"
+  ],
+  "18": [
+   "A"
+  ],
+  "19": [
+   "C"
+  ],
+  "20": [
+   "YES"
+  ],
+  "21": [
+   "NOT GIVEN"
+  ],
+  "22": [
+   "NO"
+  ],
+  "23": [
+   "NO"
+  ],
+  "24": [
+   "B"
+  ],
+  "25": [
+   "B"
+  ],
+  "26": [
+   "B"
+  ],
+  "27": [
+   "A"
+  ],
+  "28": [
+   "E"
+  ],
+  "29": [
+   "B"
+  ],
+  "30": [
+   "F"
+  ],
+  "31": [
+   "C"
+  ],
+  "32": [
+   "D"
+  ],
+  "33": [
+   "NO"
+  ],
+  "34": [
+   "NOT GIVEN"
+  ],
+  "35": [
+   "YES"
+  ],
+  "36": [
+   "NO"
+  ],
+  "37": [
+   "B"
+  ],
+  "38": [
+   "A"
+  ],
+  "39": [
+   "B"
+  ],
+  "40": [
+   "C"
+  ]
+ }
+}

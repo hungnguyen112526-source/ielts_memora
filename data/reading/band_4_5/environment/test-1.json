@@ -1,0 +1,542 @@
+{
+ "schema": 1,
+ "id": "band-4-5-environment-test-1",
+ "series": "environment",
+ "category": "band_4_5",
+ "title": "Climate Change, Growth & Business",
+ "summary": "Climate Change: Causes and Effects • Economic Growth or Environmental Protection? • Climate Change: Risk or Opportunity for Business?",
+ "subtitle": "Band 4.0–5.0 · Environment",
+ "module": "academic",
+ "durationMin": 60,
+ "totalQuestions": 40,
+ "questionTypes": [
+  "notes",
+  "tfng",
+  "matching",
+  "summary_text",
+  "mcq",
+  "summary_box"
+ ],
+ "passages": [
+  {
+   "label": "READING PASSAGE 1",
+   "instruction": "You should spend about 20 minutes on Questions 1-13, which are based on Reading Passage 1 below.",
+   "title": "Climate Change: Causes and Effects",
+   "subtitle": "How rising global temperatures are reshaping weather, coastlines, and farming",
+   "paragraphs": [
+    "Over the past century, the average temperature of the Earth has risen faster than at any other time in modern history. Scientists call this long-term warming trend global warming. The main cause is human activity—especially burning coal, oil, and gas for electricity, factories, and transport. These activities release huge amounts of carbon emissions and other greenhouse gases into the atmosphere.",
+    "Normally, greenhouse gases act like a thin blanket that keeps our planet warm enough for life. However, when too many of these gases build up in the air, they trap extra heat from the sun. As a result, oceans and land surfaces become warmer every decade, changing natural climate patterns around the world.",
+    "One of the clearest effects of a hotter planet is extreme weather. Many regions now experience longer heatwaves, stronger tropical storms, and sudden heavy floods. In dry areas such as parts of Australia and California, hotter summers dry out forests and grass, leading to dangerous wildfires that destroy homes and wildlife habitats.",
+    "Higher temperatures are also causing melting ice caps in Greenland and Antarctica. As massive sheets of ice turn into water and flow into the oceans, coastal communities face rising sea levels. Low-lying island nations and major port cities already report more frequent street flooding during high tides, forcing local councils to spend billions building higher sea walls.",
+    "Farming and daily life are heavily affected too. Unpredictable rainfall and sudden droughts can cause serious crop failure, leaving farmers with little rice, wheat, or fruit to sell. When harvests shrink, food prices rise in supermarkets, hurting ordinary families. Meanwhile, some scientists and planners argue that while we must cut emissions, societies also need to learn how to live with climate change by planting heat-resistant crops and designing cooler, greener buildings."
+   ],
+   "groups": [
+    {
+     "title": "Questions 1-7",
+     "instruction": "Complete the notes below. Choose <strong>ONE WORD ONLY</strong> from the passage for each answer.",
+     "type": "notes",
+     "boxTitle": "Causes and Impacts of Climate Change",
+     "sections": [
+      {
+       "heading": "Causes",
+       "items": [
+        "Burning fossil fuels for power, transport, and {{1}} produces high carbon emissions.",
+        "Too many greenhouse gases act like a thick {{2}} that holds extra solar heat."
+       ]
+      },
+      {
+       "heading": "Weather and oceans",
+       "items": [
+        "Hotter summers in dry regions increase the risk of destructive {{3}}.",
+        "Melting ice caps in Antarctica and {{4}} lead to rising sea levels.",
+        "Port cities are spending huge sums constructing taller sea {{5}}."
+       ]
+      },
+      {
+       "heading": "Farming and adaptation",
+       "items": [
+        "Droughts and irregular rain lead to crop {{6}} and higher food prices.",
+        "Adapting to climate change includes designing cooler {{7}} and planting tougher crops."
+       ]
+      }
+     ]
+    },
+    {
+     "title": "Questions 8-13",
+     "instruction": "Do the following statements agree with the information given in Reading Passage 1? Write <strong>TRUE</strong>, <strong>FALSE</strong>, or <strong>NOT GIVEN</strong>.",
+     "type": "tfng",
+     "options": [
+      "TRUE",
+      "FALSE",
+      "NOT GIVEN"
+     ],
+     "items": [
+      {
+       "q": 8,
+       "text": "Earth's average temperature has increased more rapidly over the last 100 years than in earlier modern periods."
+      },
+      {
+       "q": 9,
+       "text": "Without any greenhouse gases at all, the Earth would still stay warm enough for life."
+      },
+      {
+       "q": 10,
+       "text": "Wildfires destroy more homes in Australia than in California each year."
+      },
+      {
+       "q": 11,
+       "text": "Some low-lying islands already experience street flooding more often during high tides."
+      },
+      {
+       "q": 12,
+       "text": "Smaller harvests usually cause food prices in supermarkets to fall."
+      },
+      {
+       "q": 13,
+       "text": "Heat-resistant crops are more expensive for farmers to buy than normal seeds."
+      }
+     ]
+    }
+   ],
+   "qRange": [
+    1,
+    13
+   ]
+  },
+  {
+   "label": "READING PASSAGE 2",
+   "instruction": "You should spend about 20 minutes on Questions 14-26, which are based on Reading Passage 2 below.",
+   "title": "Economic Growth or Environmental Protection?",
+   "subtitle": "Can countries lift citizens out of poverty without destroying natural ecosystems?",
+   "paragraphs": [
+    "<strong>A</strong> For many governments around the world, achieving strong economic growth is the number-one goal. Opening new factories, expanding trade, and building highways create millions of jobs and help lift people out of poverty. Over the past fifty years, rapid industrial development has given hundreds of millions of families access to electricity, clean housing, and better schools.",
+    "<strong>B</strong> However, traditional growth has come at a heavy environmental cost. Dr. Samuel Mensah, an environmental scientist in Ghana, warns that unmanaged factories and mining operations quickly deplete resources such as forests, minerals, and clean rivers. 'When rivers become polluted and farm soil loses its quality, local families suffer from health problems and lower crop yields,' he says. 'A rich economy cannot survive on a damaged planet.'",
+    "<strong>C</strong> On the other hand, developing countries often feel it is unfair to ask them to slow down. Maria Lopez, an economist in Peru, points out that wealthy nations grew rich in the past by burning coal and cutting down forests without strict green laws. 'Poorer regions still need affordable power and basic roads for their citizens,' she argues. 'If strict environmental rules close local factories too quickly, unemployment and hunger will rise.'",
+    "<strong>D</strong> Because both sides have valid points, international leaders now promote sustainable development—growing the economy in a way that meets today's needs without harming future generations. The key goal is to strike a balance between creating jobs and keeping air, water, and forests healthy.",
+    "<strong>E</strong> One promising path is building a green economy. Kenji Takahashi, a clean-tech adviser in Japan, explains that protecting nature can actually create new wealth. 'Investing in solar farms, electric buses, and modern recycling plants creates thousands of skilled local jobs while cutting air pollution,' he notes. In his view, green industries offer a smarter way to grow than old smoky factories.",
+    "<strong>F</strong> Global support is also essential. Dr. Sarah Al-Noor, a policy researcher in Jordan, believes wealthy countries should share clean technology and offer low-interest loans to developing nations. 'If rich nations help fund clean energy projects abroad, developing countries can lift citizens out of poverty without repeating the polluting mistakes of the past,' she concludes."
+   ],
+   "groups": [
+    {
+     "title": "Questions 14-17",
+     "instruction": "Reading Passage 2 has six sections, <strong>A-F</strong>. Which section contains the following information? Write the correct letter, <strong>A-F</strong>.",
+     "type": "matching",
+     "options": [
+      "A",
+      "B",
+      "C",
+      "D",
+      "E",
+      "F"
+     ],
+     "items": [
+      {
+       "q": 14,
+       "text": "a definition of growing an economy without damaging the future"
+      },
+      {
+       "q": 15,
+       "text": "examples of clean industries that can generate skilled employment"
+      },
+      {
+       "q": 16,
+       "text": "social improvements brought about by industrial growth over the last half century"
+      },
+      {
+       "q": 17,
+       "text": "a suggestion that richer countries should help pay for clean energy in poorer nations"
+      }
+     ]
+    },
+    {
+     "title": "Questions 18-21",
+     "instruction": "Complete the summary below. Choose <strong>ONE WORD ONLY</strong> from the passage for each answer.",
+     "type": "summary_text",
+     "boxTitle": "Debating Growth and Environmental Care",
+     "paragraphs": [
+      "Rapid industrial expansion has helped many families gain better housing, electricity, and {{18}}. Yet Dr. Samuel Mensah warns that careless mining and factories harm rivers and farm {{19}}, reducing food harvests. Meanwhile, Maria Lopez argues that shutting down local factories too fast could increase hunger and {{20}}. To solve this conflict, Kenji Takahashi supports a green economy built on recycling plants, electric buses, and {{21}} farms."
+     ]
+    },
+    {
+     "title": "Questions 22-26",
+     "instruction": "Look at the following statements (Questions 22-26) and the list of people below. Match each statement with the correct person, <strong>A, B, C or D</strong>. <em>NB You may use any letter more than once.</em>",
+     "type": "matching",
+     "legendTitle": "List of People",
+     "legend": [
+      {
+       "key": "A",
+       "text": "Dr. Samuel Mensah"
+      },
+      {
+       "key": "B",
+       "text": "Maria Lopez"
+      },
+      {
+       "key": "C",
+       "text": "Kenji Takahashi"
+      },
+      {
+       "key": "D",
+       "text": "Dr. Sarah Al-Noor"
+      }
+     ],
+     "options": [
+      "A",
+      "B",
+      "C",
+      "D"
+     ],
+     "items": [
+      {
+       "q": 22,
+       "text": "Wealthy nations should offer cheap loans to help poorer countries build clean energy."
+      },
+      {
+       "q": 23,
+       "text": "A strong economy cannot last if the natural environment is destroyed."
+      },
+      {
+       "q": 24,
+       "text": "Rich countries became wealthy in the past without obeying strict environmental rules."
+      },
+      {
+       "q": 25,
+       "text": "Developing eco-friendly sectors can bring new jobs and lower pollution at the same time."
+      },
+      {
+       "q": 26,
+       "text": "Polluted waterways and weak soil directly harm the health of local communities."
+      }
+     ]
+    }
+   ],
+   "qRange": [
+    14,
+    26
+   ]
+  },
+  {
+   "label": "READING PASSAGE 3",
+   "instruction": "You should spend about 20 minutes on Questions 27-40, which are based on Reading Passage 3 below.",
+   "title": "Climate Change: Risk or Opportunity for Business?",
+   "subtitle": "How companies adapt to climate damage while investing in green technology",
+   "paragraphs": [
+    "<strong>1</strong> In the past, many business leaders treated climate change as a distant problem for scientists and politicians. Today, however, changing weather is directly affecting company profits around the world. From family farms to global factories, firms are discovering that climate change brings both serious financial risks and surprising new business opportunities.",
+    "<strong>2</strong> Several major industries already face heavy losses. Agriculture suffers directly when floods or droughts ruin coffee, cocoa, and grain harvests. The tourism industry is also vulnerable: ski resorts receive less natural snow each winter, while coastal hotels struggle with severe storms and beach erosion. Meanwhile, insurance companies have to pay out record sums every year to repair buildings damaged by extreme weather.",
+    "<strong>3</strong> Even companies far from storms can run into trouble through their supply chain—the network of factories, farms, and ships that deliver parts and goods. If a major flood shuts down a factory in one country, carmakers or clothing brands on the other side of the world may face costly delays. In addition, more governments are introducing a carbon tax, charging companies money for the greenhouse gases they release.",
+    "<strong>4</strong> Yet climate change is not only bad news for business. As countries try to cut emissions, the renewable industry is growing at record speed. Firms that design green technology—such as solar panels, battery storage, and smart energy-saving appliances—are attracting billions of dollars from banks and private funds eager to invest in clean growth.",
+    "<strong>5</strong> Ordinary shoppers are also pushing markets in a greener direction. Surveys show that younger customers increasingly prefer eco-friendly products, including recycled clothing, refillable packaging, and plant-based snacks. Companies that listen to these buyers and reduce waste often build stronger brand loyalty while saving money on electricity and raw materials.",
+    "<strong>6</strong> In short, climate change is separating forward-looking businesses from those stuck in the past. Firms that ignore environmental warnings risk losing money from damaged supplies, higher carbon taxes, and unhappy customers. By contrast, businesses that adapt to new conditions early and invest in clean ideas are likely to become the market leaders of the next decade."
+   ],
+   "groups": [
+    {
+     "title": "Questions 27-30",
+     "instruction": "Choose the correct letter, <strong>A, B, C or D</strong>.",
+     "type": "mcq",
+     "items": [
+      {
+       "q": 27,
+       "text": "What point does the writer make in the first paragraph?",
+       "options": [
+        {
+         "k": "A",
+         "t": "Most business leaders still believe climate change is only for scientists."
+        },
+        {
+         "k": "B",
+         "t": "Climate change now affects company earnings in both negative and positive ways."
+        },
+        {
+         "k": "C",
+         "t": "Only family farms are harmed by changing weather patterns."
+        },
+        {
+         "k": "D",
+         "t": "Politicians have solved most climate risks for global factories."
+        }
+       ]
+      },
+      {
+       "q": 28,
+       "text": "Why are insurance companies losing money due to climate change in paragraph 2?",
+       "options": [
+        {
+         "k": "A",
+         "t": "Fewer people are buying travel insurance for ski holidays."
+        },
+        {
+         "k": "B",
+         "t": "They must pay very large amounts to fix weather-damaged buildings."
+        },
+        {
+         "k": "C",
+         "t": "Coffee and cocoa farmers refuse to insure their crops."
+        },
+        {
+         "k": "D",
+         "t": "Coastal hotels are closing before insurance contracts end."
+        }
+       ]
+      },
+      {
+       "q": 29,
+       "text": "According to paragraph 5, why do companies benefit from making eco-friendly products?",
+       "options": [
+        {
+         "k": "A",
+         "t": "They receive free raw materials from local governments."
+        },
+        {
+         "k": "B",
+         "t": "They attract loyal younger shoppers and cut power and material costs."
+        },
+        {
+         "k": "C",
+         "t": "Plant-based snacks are cheaper to advertise on television."
+        },
+        {
+         "k": "D",
+         "t": "Customers are willing to wait longer for delayed deliveries."
+        }
+       ]
+      },
+      {
+       "q": 30,
+       "text": "What is the writer's main conclusion in the final paragraph?",
+       "options": [
+        {
+         "k": "A",
+         "t": "Most businesses will go bankrupt because of carbon taxes."
+        },
+        {
+         "k": "B",
+         "t": "Companies that adapt early and invest in green solutions will lead future markets."
+        },
+        {
+         "k": "C",
+         "t": "Governments should stop charging companies for greenhouse gases."
+        },
+        {
+         "k": "D",
+         "t": "Only renewable energy firms can survive climate change."
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "title": "Questions 31-36",
+     "instruction": "Complete the summary using the list of words and phrases, <strong>A-I</strong>, below. Write the correct letter, <strong>A-I</strong>.",
+     "type": "summary_box",
+     "boxTitle": "Business Risks and Green Opportunities",
+     "legend": [
+      {
+       "key": "A",
+       "text": "green technology"
+      },
+      {
+       "key": "B",
+       "text": "supply chain"
+      },
+      {
+       "key": "C",
+       "text": "tourism"
+      },
+      {
+       "key": "D",
+       "text": "carbon tax"
+      },
+      {
+       "key": "E",
+       "text": "production delays"
+      },
+      {
+       "key": "F",
+       "text": "eco-friendly goods"
+      },
+      {
+       "key": "G",
+       "text": "cheaper flights"
+      },
+      {
+       "key": "H",
+       "text": "insurance claims"
+      },
+      {
+       "key": "I",
+       "text": "oil reserves"
+      }
+     ],
+     "options": [
+      "A",
+      "B",
+      "C",
+      "D",
+      "E",
+      "F",
+      "G",
+      "H",
+      "I"
+     ],
+     "paragraphs": [
+      "Climate change hurts sectors such as farming and {{31}}, where ski areas lose snow and beaches erode. Even firms away from storms can suffer costly {{32}} when floods hit part of their {{33}}. Governments are also raising costs for polluters through a {{34}}. At the same time, clean growth is booming: investors are funding {{35}} such as battery storage, while younger shoppers actively choose {{36}}."
+     ]
+    },
+    {
+     "title": "Questions 37-40",
+     "instruction": "Do the following statements agree with the claims of the writer in Reading Passage 3? Write <strong>YES</strong>, <strong>NO</strong>, or <strong>NOT GIVEN</strong>.",
+     "type": "tfng",
+     "options": [
+      "YES",
+      "NO",
+      "NOT GIVEN"
+     ],
+     "items": [
+      {
+       "q": 37,
+       "text": "A flood in one country can disrupt manufacturing for companies located far away."
+      },
+      {
+       "q": 38,
+       "text": "European governments charge higher carbon taxes than Asian governments."
+      },
+      {
+       "q": 39,
+       "text": "Banks and private funds are reluctant to put money into renewable energy firms."
+      },
+      {
+       "q": 40,
+       "text": "Businesses that ignore climate change risk losing both money and customers."
+      }
+     ]
+    }
+   ],
+   "qRange": [
+    27,
+    40
+   ]
+  }
+ ],
+ "answers": {
+  "1": [
+   "factories"
+  ],
+  "2": [
+   "blanket"
+  ],
+  "3": [
+   "wildfires"
+  ],
+  "4": [
+   "Greenland"
+  ],
+  "5": [
+   "walls"
+  ],
+  "6": [
+   "failure"
+  ],
+  "7": [
+   "buildings"
+  ],
+  "8": [
+   "TRUE"
+  ],
+  "9": [
+   "FALSE"
+  ],
+  "10": [
+   "NOT GIVEN"
+  ],
+  "11": [
+   "TRUE"
+  ],
+  "12": [
+   "FALSE"
+  ],
+  "13": [
+   "NOT GIVEN"
+  ],
+  "14": [
+   "D"
+  ],
+  "15": [
+   "E"
+  ],
+  "16": [
+   "A"
+  ],
+  "17": [
+   "F"
+  ],
+  "18": [
+   "schools"
+  ],
+  "19": [
+   "soil"
+  ],
+  "20": [
+   "unemployment"
+  ],
+  "21": [
+   "solar"
+  ],
+  "22": [
+   "D"
+  ],
+  "23": [
+   "A"
+  ],
+  "24": [
+   "B"
+  ],
+  "25": [
+   "C"
+  ],
+  "26": [
+   "A"
+  ],
+  "27": [
+   "B"
+  ],
+  "28": [
+   "B"
+  ],
+  "29": [
+   "B"
+  ],
+  "30": [
+   "B"
+  ],
+  "31": [
+   "C"
+  ],
+  "32": [
+   "E"
+  ],
+  "33": [
+   "B"
+  ],
+  "34": [
+   "D"
+  ],
+  "35": [
+   "A"
+  ],
+  "36": [
+   "F"
+  ],
+  "37": [
+   "YES"
+  ],
+  "38": [
+   "NOT GIVEN"
+  ],
+  "39": [
+   "NO"
+  ],
+  "40": [
+   "YES"
+  ]
+ }
+}

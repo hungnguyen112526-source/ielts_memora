@@ -1,6 +1,6 @@
 {
- "generated": 1795679411,
- "signature": 22490334686034,
+ "generated": 1795765748,
+ "signature": 197831757747829,
  "categories": [
   {
    "id": "band_4_5",
@@ -161,7 +161,7 @@
       {
        "id": "band-4-5-education-test-5",
        "file": "band_4_5/education/test-5.json",
-       "title": "Funding, Study Abroad & Online Learning (Set 2)",
+       "title": "Funding, Study Abroad & Online Learning",
        "summary": "Publicly Funded Higher Education • Studying Abroad vs Brain Drain • Online Learning",
        "module": "academic",
        "durationMin": 60,
@@ -197,7 +197,7 @@
       {
        "id": "band-4-5-education-test-6",
        "file": "band_4_5/education/test-6.json",
-       "title": "Skills, Science & Parental Pressure (Set 2)",
+       "title": "Skills, Science & Parental Pressure",
        "summary": "Academic Knowledge vs Employability • Why Fewer Students Choose Science • Parental Pressure",
        "module": "academic",
        "durationMin": 60,
@@ -234,7 +234,7 @@
       {
        "id": "band-4-5-education-test-7",
        "file": "band_4_5/education/test-7.json",
-       "title": "Curriculum, Dropouts & Life Skills (Set 2)",
+       "title": "Curriculum, Dropouts & Life Skills",
        "summary": "Breadth or Depth in the Curriculum • Compulsory Schooling and Dropouts • Teaching Life Skills",
        "module": "academic",
        "durationMin": 60,
@@ -268,7 +268,7 @@
       {
        "id": "band-4-5-education-test-8",
        "file": "band_4_5/education/test-8.json",
-       "title": "Family, Sport & Success (Set 2)",
+       "title": "Family, Sport & Success",
        "summary": "Family, Media and Peers • Elite Sport vs Grassroots • Education and Success",
        "module": "academic",
        "durationMin": 60,
@@ -308,7 +308,186 @@
      "description": "Chủ đề Environment.",
      "badge": "ENV",
      "order": 2,
-     "tests": []
+     "tests": [
+      {
+       "id": "band-4-5-environment-test-1",
+       "file": "band_4_5/environment/test-1.json",
+       "title": "Climate Change, Growth & Business",
+       "summary": "Climate Change: Causes and Effects • Economic Growth or Environmental Protection? • Climate Change: Risk or Opportunity for Business?",
+       "module": "academic",
+       "durationMin": 60,
+       "totalQuestions": 40,
+       "questionTypes": [
+        "notes",
+        "tfng",
+        "matching",
+        "summary_text",
+        "mcq",
+        "summary_box"
+       ],
+       "passages": [
+        "Climate Change: Causes and Effects",
+        "Economic Growth or Environmental Protection?",
+        "Climate Change: Risk or Opportunity for Business?"
+       ],
+       "qRanges": [
+        [
+         1,
+         13
+        ],
+        [
+         14,
+         26
+        ],
+        [
+         27,
+         40
+        ]
+       ]
+      },
+      {
+       "id": "band-4-5-environment-test-2",
+       "file": "band_4_5/environment/test-2.json",
+       "title": "Consumer Goods, Energy & Wilderness",
+       "summary": "The Environmental Cost of Consumer Goods • From Fossil Fuels to Renewable Energy • Oil and Gas in Untouched Wilderness",
+       "module": "academic",
+       "durationMin": 60,
+       "totalQuestions": 40,
+       "questionTypes": [
+        "table",
+        "tfng",
+        "matching",
+        "multi2",
+        "summary_text",
+        "mcq",
+        "summary_box"
+       ],
+       "passages": [
+        "The Environmental Cost of Consumer Goods",
+        "From Fossil Fuels to Renewable Energy",
+        "Oil and Gas in Untouched Wilderness"
+       ],
+       "qRanges": [
+        [
+         1,
+         13
+        ],
+        [
+         14,
+         26
+        ],
+        [
+         27,
+         40
+        ]
+       ]
+      },
+      {
+       "id": "band-4-5-environment-test-3",
+       "file": "band_4_5/environment/test-3.json",
+       "title": "Resources, Fuel Prices & Fresh Water",
+       "summary": "Are We Using Up the Earth's Resources? • Fuel Prices and the Environment • Fresh Water: A Limited Resource",
+       "module": "academic",
+       "durationMin": 60,
+       "totalQuestions": 40,
+       "questionTypes": [
+        "notes",
+        "tfng",
+        "mcq",
+        "matching"
+       ],
+       "passages": [
+        "Are We Using Up the Earth's Resources?",
+        "Fuel Prices and the Environment",
+        "Fresh Water: A Limited Resource"
+       ],
+       "qRanges": [
+        [
+         1,
+         13
+        ],
+        [
+         14,
+         26
+        ],
+        [
+         27,
+         40
+        ]
+       ]
+      },
+      {
+       "id": "band-4-5-environment-test-4",
+       "file": "band_4_5/environment/test-4.json",
+       "title": "Air Travel, Cleaner Cities & Waste",
+       "summary": "Air Travel vs. the Environment • Cleaner Cities: From Car-Free Days to Cycling • Waste, Recycling and Plastic",
+       "module": "academic",
+       "durationMin": 60,
+       "totalQuestions": 40,
+       "questionTypes": [
+        "tfng",
+        "flowchart",
+        "notes",
+        "summary_box",
+        "mcq"
+       ],
+       "passages": [
+        "Air Travel vs. the Environment",
+        "Cleaner Cities: From Car-Free Days to Cycling",
+        "Waste, Recycling and Plastic"
+       ],
+       "qRanges": [
+        [
+         1,
+         13
+        ],
+        [
+         14,
+         26
+        ],
+        [
+         27,
+         40
+        ]
+       ]
+      },
+      {
+       "id": "band-4-5-environment-test-5",
+       "file": "band_4_5/environment/test-5.json",
+       "title": "Species, Green Spaces & Responsibility",
+       "summary": "Why Are Species Disappearing? • Green Spaces in Cities • Who Is Responsible for the Environment?",
+       "module": "academic",
+       "durationMin": 60,
+       "totalQuestions": 40,
+       "questionTypes": [
+        "notes",
+        "tfng",
+        "matching",
+        "summary_text",
+        "mcq",
+        "summary_box"
+       ],
+       "passages": [
+        "Why Are Species Disappearing?",
+        "Green Spaces in Cities",
+        "Who Is Responsible for the Environment?"
+       ],
+       "qRanges": [
+        [
+         1,
+         13
+        ],
+        [
+         14,
+         26
+        ],
+        [
+         27,
+         40
+        ]
+       ]
+      }
+     ]
     },
     {
      "id": "work-careers",
@@ -539,6 +718,148 @@
          40
         ]
        ]
+      },
+      {
+       "id": "band-5-6-5-education-test-5",
+       "file": "band_5_6_5/education/test-5.json",
+       "title": "University Life & Higher Education",
+       "summary": "Why Do People Go to University? • Studying in Another Country • Who Pays for University?",
+       "module": "academic",
+       "durationMin": 60,
+       "totalQuestions": 40,
+       "questionTypes": [
+        "notes",
+        "tfng",
+        "matching",
+        "summary_text",
+        "mcq",
+        "summary_box"
+       ],
+       "passages": [
+        "Why Do People Go to University?",
+        "Studying in Another Country",
+        "Who Pays for University?"
+       ],
+       "qRanges": [
+        [
+         1,
+         13
+        ],
+        [
+         14,
+         26
+        ],
+        [
+         27,
+         40
+        ]
+       ]
+      },
+      {
+       "id": "band-5-6-5-education-test-6",
+       "file": "band_5_6_5/education/test-6.json",
+       "title": "Education, Skills & Pressure",
+       "summary": "Learning Online or in the Classroom? • Taking a Year Off Before University • Why Is It Hard to Concentrate at School?",
+       "module": "academic",
+       "durationMin": 60,
+       "totalQuestions": 40,
+       "questionTypes": [
+        "table",
+        "tfng",
+        "matching",
+        "multi2",
+        "summary_text",
+        "mcq",
+        "summary_box"
+       ],
+       "passages": [
+        "Learning Online or in the Classroom?",
+        "Taking a Year Off Before University",
+        "Why Is It Hard to Concentrate at School?"
+       ],
+       "qRanges": [
+        [
+         1,
+         13
+        ],
+        [
+         14,
+         26
+        ],
+        [
+         27,
+         40
+        ]
+       ]
+      },
+      {
+       "id": "band-5-6-5-education-test-7",
+       "file": "band_5_6_5/education/test-7.json",
+       "title": "School Curriculum & Life Skills",
+       "summary": "Children and TV • Playing Sports in a Team • Learning at Home: Homeschooling",
+       "module": "academic",
+       "durationMin": 60,
+       "totalQuestions": 40,
+       "questionTypes": [
+        "notes",
+        "tfng",
+        "mcq",
+        "matching"
+       ],
+       "passages": [
+        "Children and TV",
+        "Playing Sports in a Team",
+        "Learning at Home: Homeschooling"
+       ],
+       "qRanges": [
+        [
+         1,
+         13
+        ],
+        [
+         14,
+         26
+        ],
+        [
+         27,
+         40
+        ]
+       ]
+      },
+      {
+       "id": "band-5-6-5-education-test-8",
+       "file": "band_5_6_5/education/test-8.json",
+       "title": "Youth, Sport & Success",
+       "summary": "Why Learn a Foreign Language? • Managing Your Money • The Role of a Good Teacher",
+       "module": "academic",
+       "durationMin": 60,
+       "totalQuestions": 40,
+       "questionTypes": [
+        "tfng",
+        "flowchart",
+        "notes",
+        "summary_box",
+        "mcq"
+       ],
+       "passages": [
+        "Why Learn a Foreign Language?",
+        "Managing Your Money",
+        "The Role of a Good Teacher"
+       ],
+       "qRanges": [
+        [
+         1,
+         13
+        ],
+        [
+         14,
+         26
+        ],
+        [
+         27,
+         40
+        ]
+       ]
       }
      ]
     },
@@ -548,7 +869,186 @@
      "description": "Chủ đề Environment.",
      "badge": "ENV",
      "order": 2,
-     "tests": []
+     "tests": [
+      {
+       "id": "band-5-6-5-environment-test-1",
+       "file": "band_5_6_5/environment/test-1.json",
+       "title": "Climate Change, Growth & Business",
+       "summary": "Climate Change: Causes and Effects • Economic Growth or Environmental Protection? • Climate Change: Risk or Opportunity for Business?",
+       "module": "academic",
+       "durationMin": 60,
+       "totalQuestions": 40,
+       "questionTypes": [
+        "notes",
+        "tfng",
+        "matching",
+        "summary_text",
+        "mcq",
+        "summary_box"
+       ],
+       "passages": [
+        "Climate Change: Causes and Effects",
+        "Economic Growth or Environmental Protection?",
+        "Climate Change: Risk or Opportunity for Business?"
+       ],
+       "qRanges": [
+        [
+         1,
+         13
+        ],
+        [
+         14,
+         26
+        ],
+        [
+         27,
+         40
+        ]
+       ]
+      },
+      {
+       "id": "band-5-6-5-environment-test-2",
+       "file": "band_5_6_5/environment/test-2.json",
+       "title": "Consumer Goods, Energy & Wilderness",
+       "summary": "The Environmental Cost of Consumer Goods • From Fossil Fuels to Renewable Energy • Oil and Gas in Untouched Wilderness",
+       "module": "academic",
+       "durationMin": 60,
+       "totalQuestions": 40,
+       "questionTypes": [
+        "table",
+        "tfng",
+        "matching",
+        "multi2",
+        "summary_text",
+        "mcq",
+        "summary_box"
+       ],
+       "passages": [
+        "The Environmental Cost of Consumer Goods",
+        "From Fossil Fuels to Renewable Energy",
+        "Oil and Gas in Untouched Wilderness"
+       ],
+       "qRanges": [
+        [
+         1,
+         13
+        ],
+        [
+         14,
+         26
+        ],
+        [
+         27,
+         40
+        ]
+       ]
+      },
+      {
+       "id": "band-5-6-5-environment-test-3",
+       "file": "band_5_6_5/environment/test-3.json",
+       "title": "Resources, Fuel Prices & Fresh Water",
+       "summary": "Are We Using Up the Earth's Resources? • Fuel Prices and the Environment • Fresh Water: A Limited Resource",
+       "module": "academic",
+       "durationMin": 60,
+       "totalQuestions": 40,
+       "questionTypes": [
+        "notes",
+        "tfng",
+        "mcq",
+        "matching"
+       ],
+       "passages": [
+        "Are We Using Up the Earth's Resources?",
+        "Fuel Prices and the Environment",
+        "Fresh Water: A Limited Resource"
+       ],
+       "qRanges": [
+        [
+         1,
+         13
+        ],
+        [
+         14,
+         26
+        ],
+        [
+         27,
+         40
+        ]
+       ]
+      },
+      {
+       "id": "band-5-6-5-environment-test-4",
+       "file": "band_5_6_5/environment/test-4.json",
+       "title": "Air Travel, Cleaner Cities & Waste",
+       "summary": "Air Travel vs. the Environment • Cleaner Cities: From Car-Free Days to Cycling • Waste, Recycling and Plastic",
+       "module": "academic",
+       "durationMin": 60,
+       "totalQuestions": 40,
+       "questionTypes": [
+        "tfng",
+        "flowchart",
+        "notes",
+        "summary_box",
+        "mcq"
+       ],
+       "passages": [
+        "Air Travel vs. the Environment",
+        "Cleaner Cities: From Car-Free Days to Cycling",
+        "Waste, Recycling and Plastic"
+       ],
+       "qRanges": [
+        [
+         1,
+         13
+        ],
+        [
+         14,
+         26
+        ],
+        [
+         27,
+         40
+        ]
+       ]
+      },
+      {
+       "id": "band-5-6-5-environment-test-5",
+       "file": "band_5_6_5/environment/test-5.json",
+       "title": "Species, Green Spaces & Responsibility",
+       "summary": "Why Are Species Disappearing? • Green Spaces in Cities • Who Is Responsible for the Environment?",
+       "module": "academic",
+       "durationMin": 60,
+       "totalQuestions": 40,
+       "questionTypes": [
+        "notes",
+        "tfng",
+        "matching",
+        "summary_text",
+        "mcq",
+        "summary_box"
+       ],
+       "passages": [
+        "Why Are Species Disappearing?",
+        "Green Spaces in Cities",
+        "Who Is Responsible for the Environment?"
+       ],
+       "qRanges": [
+        [
+         1,
+         13
+        ],
+        [
+         14,
+         26
+        ],
+        [
+         27,
+         40
+        ]
+       ]
+      }
+     ]
     },
     {
      "id": "work-careers",
@@ -630,6 +1130,307 @@
    "description": "Bộ đề Orange mô phỏng phòng thi máy tính, 60 phút, 40 câu.",
    "order": 3,
    "series": [
+    {
+     "id": "orange-18",
+     "title": "Orange 18",
+     "description": "Bộ đề Orange 18 – Academic Reading, 4 đề đầy đủ.",
+     "badge": "O18",
+     "order": 18,
+     "tests": [
+      {
+       "id": "orange-18-test-1",
+       "file": "orange/orange-18/test-1.json",
+       "title": "Test 1",
+       "summary": "Urban farming • Forest management in Pennsylvania, USA • Conquering Earth's space junk problem",
+       "module": "academic",
+       "durationMin": 60,
+       "totalQuestions": 40,
+       "questionTypes": [
+        "notes",
+        "table",
+        "tfng",
+        "matching",
+        "summary_text"
+       ],
+       "passages": [
+        "Urban farming",
+        "Forest management in Pennsylvania, USA",
+        "Conquering Earth's space junk problem"
+       ],
+       "qRanges": [
+        [
+         1,
+         13
+        ],
+        [
+         14,
+         26
+        ],
+        [
+         27,
+         40
+        ]
+       ]
+      },
+      {
+       "id": "orange-18-test-2",
+       "file": "orange/orange-18/test-2.json",
+       "title": "Test 2",
+       "summary": "Stonehenge • Living with artificial intelligence • An ideal city",
+       "module": "academic",
+       "durationMin": 60,
+       "totalQuestions": 40,
+       "questionTypes": [
+        "notes",
+        "tfng",
+        "mcq",
+        "summary_box",
+        "summary_text"
+       ],
+       "passages": [
+        "Stonehenge",
+        "Living with artificial intelligence",
+        "An ideal city"
+       ],
+       "qRanges": [
+        [
+         1,
+         13
+        ],
+        [
+         14,
+         26
+        ],
+        [
+         27,
+         40
+        ]
+       ]
+      },
+      {
+       "id": "orange-18-test-3",
+       "file": "orange/orange-18/test-3.json",
+       "title": "Test 3",
+       "summary": "Materials to take us beyond concrete • The steam car • The case for mixed-ability classes",
+       "module": "academic",
+       "durationMin": 60,
+       "totalQuestions": 40,
+       "questionTypes": [
+        "matching",
+        "summary_text",
+        "mcq",
+        "summary_box",
+        "tfng"
+       ],
+       "passages": [
+        "Materials to take us beyond concrete",
+        "The steam car",
+        "The case for mixed-ability classes"
+       ],
+       "qRanges": [
+        [
+         1,
+         13
+        ],
+        [
+         14,
+         26
+        ],
+        [
+         27,
+         40
+        ]
+       ]
+      },
+      {
+       "id": "orange-18-test-4",
+       "file": "orange/orange-18/test-4.json",
+       "title": "Test 4",
+       "summary": "Green roofs • The growth mindset • Alfred Wegener: science, exploration and the theory of continental drift",
+       "module": "academic",
+       "durationMin": 60,
+       "totalQuestions": 40,
+       "questionTypes": [
+        "matching",
+        "summary_text",
+        "multi2",
+        "mcq",
+        "tfng",
+        "summary_box"
+       ],
+       "passages": [
+        "Green roofs",
+        "The growth mindset",
+        "Alfred Wegener: science, exploration and the theory of continental drift"
+       ],
+       "qRanges": [
+        [
+         1,
+         13
+        ],
+        [
+         14,
+         26
+        ],
+        [
+         27,
+         40
+        ]
+       ]
+      }
+     ]
+    },
+    {
+     "id": "orange-19",
+     "title": "Orange 19",
+     "description": "Bộ đề Orange 19 – Academic Reading, 4 đề đầy đủ.",
+     "badge": "O19",
+     "order": 19,
+     "tests": [
+      {
+       "id": "orange-19-test-1",
+       "file": "orange/orange-19/test-1.json",
+       "title": "Test 1",
+       "summary": "How tennis rackets have changed • The pirates of the ancient Mediterranean • The persistence and peril of misinformation",
+       "module": "academic",
+       "durationMin": 60,
+       "totalQuestions": 40,
+       "questionTypes": [
+        "tfng",
+        "notes",
+        "matching",
+        "multi2",
+        "summary_text",
+        "mcq",
+        "summary_box"
+       ],
+       "passages": [
+        "How tennis rackets have changed",
+        "The pirates of the ancient Mediterranean",
+        "The persistence and peril of misinformation"
+       ],
+       "qRanges": [
+        [
+         1,
+         13
+        ],
+        [
+         14,
+         26
+        ],
+        [
+         27,
+         40
+        ]
+       ]
+      },
+      {
+       "id": "orange-19-test-2",
+       "file": "orange/orange-19/test-2.json",
+       "title": "Test 2",
+       "summary": "The Industrial Revolution in Britain • Athletes and stress • An inquiry into the existence of the gifted child",
+       "module": "academic",
+       "durationMin": 60,
+       "totalQuestions": 40,
+       "questionTypes": [
+        "notes",
+        "tfng",
+        "matching",
+        "multi2",
+        "summary_box",
+        "mcq"
+       ],
+       "passages": [
+        "The Industrial Revolution in Britain",
+        "Athletes and stress",
+        "An inquiry into the existence of the gifted child"
+       ],
+       "qRanges": [
+        [
+         1,
+         13
+        ],
+        [
+         14,
+         26
+        ],
+        [
+         27,
+         40
+        ]
+       ]
+      },
+      {
+       "id": "orange-19-test-3",
+       "file": "orange/orange-19/test-3.json",
+       "title": "Test 3",
+       "summary": "Archaeologists discover evidence of prehistoric island settlers • The global importance of wetlands • Is the era of artificial speech translation upon us?",
+       "module": "academic",
+       "durationMin": 60,
+       "totalQuestions": 40,
+       "questionTypes": [
+        "tfng",
+        "notes",
+        "matching",
+        "mcq"
+       ],
+       "passages": [
+        "Archaeologists discover evidence of prehistoric island settlers",
+        "The global importance of wetlands",
+        "Is the era of artificial speech translation upon us?"
+       ],
+       "qRanges": [
+        [
+         1,
+         13
+        ],
+        [
+         14,
+         26
+        ],
+        [
+         27,
+         40
+        ]
+       ]
+      },
+      {
+       "id": "orange-19-test-4",
+       "file": "orange/orange-19/test-4.json",
+       "title": "Test 4",
+       "summary": "The impact of climate change on butterflies in Britain • Deep-sea mining • The Unselfish Gene",
+       "module": "academic",
+       "durationMin": 60,
+       "totalQuestions": 40,
+       "questionTypes": [
+        "tfng",
+        "notes",
+        "matching",
+        "summary_text",
+        "mcq"
+       ],
+       "passages": [
+        "The impact of climate change on butterflies in Britain",
+        "Deep-sea mining",
+        "The Unselfish Gene"
+       ],
+       "qRanges": [
+        [
+         1,
+         13
+        ],
+        [
+         14,
+         26
+        ],
+        [
+         27,
+         40
+        ]
+       ]
+      }
+     ]
+    },
     {
      "id": "orange-21",
      "title": "Orange 21",

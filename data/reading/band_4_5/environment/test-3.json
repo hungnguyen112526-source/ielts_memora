@@ -1,0 +1,528 @@
+{
+ "schema": 1,
+ "id": "band-4-5-environment-test-3",
+ "series": "environment",
+ "category": "band_4_5",
+ "title": "Resources, Fuel Prices & Fresh Water",
+ "summary": "Are We Using Up the Earth's Resources? • Fuel Prices and the Environment • Fresh Water: A Limited Resource",
+ "subtitle": "Band 4.0–5.0 · Environment",
+ "module": "academic",
+ "durationMin": 60,
+ "totalQuestions": 40,
+ "questionTypes": [
+  "notes",
+  "tfng",
+  "mcq",
+  "matching"
+ ],
+ "passages": [
+  {
+   "label": "READING PASSAGE 1",
+   "instruction": "You should spend about 20 minutes on Questions 1-13, which are based on Reading Passage 1 below.",
+   "title": "Are We Using Up the Earth's Resources?",
+   "subtitle": "Facing overconsumption, deforestation, and the move toward smarter conservation",
+   "paragraphs": [
+    "Every house, smartphone, and meal depends on natural resources taken from the Earth, including wood, clean water, metals, and fertile soil. For centuries, people acted as if the planet's supplies were endless. Today, however, scientists warn that our Earth is finite, and rapid overconsumption is pushing many vital supplies close to their limits.",
+    "One clear example of resource depletion is deforestation. Every year, millions of hectares of tropical forest are cleared to raise cattle, grow palm oil, or supply timber for furniture and paper. Cutting down ancient forests does not just destroy trees; it also removes homes for countless animals and reduces biodiversity, while releasing carbon stored in the wood.",
+    "Underground minerals are also under heavy strain. Metals such as copper, lithium, and cobalt are essential for smartphones, cables, and electric car batteries. Because global demand has risen sharply, mining companies have to dig deeper mines that use huge amounts of water and energy. Some experts warn that if extraction continues at current speeds, easy-to-reach supplies of several key metals could run out of affordable ore within a few decades.",
+    "Oceans are feeling the pressure as well. Modern fishing fleets equipped with giant nets and satellite trackers can catch enormous amounts of fish in a single trip. When fish are caught faster than they can reproduce, fish stocks collapse, threatening both marine food chains and the livelihoods of small coastal fishermen.",
+    "To slow this decline, environmental groups promote practical conservation and a 'circular economy'. Instead of digging up fresh materials for every new product, factories can recover copper and gold from old electronics, while builders can reuse timber and steel from demolished offices. On an individual level, buying durable items, sharing tools with neighbours, and wasting less food can significantly reduce the pressure on our planet's limited stores."
+   ],
+   "groups": [
+    {
+     "title": "Questions 1-7",
+     "instruction": "Complete the notes below. Choose <strong>ONE WORD ONLY</strong> from the passage for each answer.",
+     "type": "notes",
+     "boxTitle": "Threats to Natural Resources and Solutions",
+     "sections": [
+      {
+       "heading": "Forests",
+       "items": [
+        "Tropical forests are cleared for timber, palm oil, and raising {{1}}.",
+        "Deforestation reduces {{2}} and releases stored carbon."
+       ]
+      },
+      {
+       "heading": "Minerals",
+       "items": [
+        "Metals like cobalt, copper, and {{3}} are vital for batteries and phones."
+       ]
+      },
+      {
+       "heading": "Oceans",
+       "items": [
+        "Large fishing fleets use giant nets and {{4}} trackers to locate fish."
+       ]
+      },
+      {
+       "heading": "Conservation solutions",
+       "items": [
+        "Factories can recover copper and {{5}} from discarded electronics.",
+        "Construction firms can reuse steel and {{6}} from old offices.",
+        "Ordinary people can help by sharing {{7}} with neighbours and wasting less food."
+       ]
+      }
+     ]
+    },
+    {
+     "title": "Questions 8-13",
+     "instruction": "Do the following statements agree with the information given in Reading Passage 1? Write <strong>TRUE</strong>, <strong>FALSE</strong>, or <strong>NOT GIVEN</strong>.",
+     "type": "tfng",
+     "options": [
+      "TRUE",
+      "FALSE",
+      "NOT GIVEN"
+     ],
+     "items": [
+      {
+       "q": 8,
+       "text": "In the past, humans often behaved as though the Earth's resources would never run out."
+      },
+      {
+       "q": 9,
+       "text": "Palm oil farms destroy more forest area each year than cattle farming does."
+      },
+      {
+       "q": 10,
+       "text": "Digging deeper mines for metals requires very little water or power."
+      },
+      {
+       "q": 11,
+       "text": "Overfishing can threaten the income of small coastal fishermen."
+      },
+      {
+       "q": 12,
+       "text": "In a circular economy, companies only use brand-new raw materials from mines."
+      },
+      {
+       "q": 13,
+       "text": "Governments offer cash prizes to neighbours who share gardening tools."
+      }
+     ]
+    }
+   ],
+   "qRange": [
+    1,
+    13
+   ]
+  },
+  {
+   "label": "READING PASSAGE 2",
+   "instruction": "You should spend about 20 minutes on Questions 14-26, which are based on Reading Passage 2 below.",
+   "title": "Fuel Prices and the Environment",
+   "subtitle": "Can higher fuel taxes reduce private car use fairly?",
+   "paragraphs": [
+    "Private petrol cars are one of the biggest sources of urban air pollution and carbon emissions. To fight climate change, many economists suggest raising the fuel tax on petrol and diesel. The basic idea is simple: when filling up a tank becomes expensive, governments can discourage unnecessary car trips and motivate drivers to choose cleaner ways to travel.",
+    "Evidence from several European cities shows that higher petrol prices do change travel habits over time. When fuel costs jump, commuters are more likely to share rides with colleagues, walk for short errands, or buy smaller, fuel-saving cars. In addition, the extra tax money collected at petrol stations can be spent on improving buses, trams, and train lines.",
+    "However, raising fuel prices is politically unpopular and can hurt low-income households unfairly. Wealthy drivers can easily absorb an extra ten dollars at the pump or switch to expensive electric vehicles. By contrast, rural workers, nurses on night shifts, and delivery drivers often live in areas with poor bus services, meaning they have no choice but to keep driving older petrol cars while paying a larger share of their weekly wages.",
+    "Because of these fairness concerns, transport experts warn that fuel taxes alone are not enough. Before making petrol more expensive, cities must first provide affordable alternatives. Investing in frequent, clean, and reliable public transport—with low-cost monthly passes—gives commuters a real reason to leave their car keys at home.",
+    "Governments can also use positive incentives rather than just penalties. In Norway, buyers of electric vehicles enjoy zero purchase tax, free ferry crossings, and cheaper parking, helping electric cars become the top-selling vehicles in the country. Other nations offer trade-in rebates that help poorer families swap old polluting cars for clean second-hand models or electric bicycles."
+   ],
+   "groups": [
+    {
+     "title": "Questions 14-18",
+     "instruction": "Do the following statements agree with the information given in Reading Passage 2? Write <strong>TRUE</strong>, <strong>FALSE</strong>, or <strong>NOT GIVEN</strong>.",
+     "type": "tfng",
+     "options": [
+      "TRUE",
+      "FALSE",
+      "NOT GIVEN"
+     ],
+     "items": [
+      {
+       "q": 14,
+       "text": "Higher petrol prices have been shown to change drivers' habits in parts of Europe."
+      },
+      {
+       "q": 15,
+       "text": "Wealthy drivers struggle just as much as low-income families when fuel taxes rise."
+      },
+      {
+       "q": 16,
+       "text": "Nurses on night shifts receive free bus tickets in most European cities."
+      },
+      {
+       "q": 17,
+       "text": "Transport experts believe cities should create affordable travel options before raising fuel taxes."
+      },
+      {
+       "q": 18,
+       "text": "In Norway, electric vehicle owners have to pay higher purchase taxes than petrol car owners."
+      }
+     ]
+    },
+    {
+     "title": "Questions 19-26",
+     "instruction": "Complete the notes below. Choose <strong>ONE WORD ONLY</strong> from the passage for each answer.",
+     "type": "notes",
+     "boxTitle": "Fuel Taxes and Cleaner Transport Policies",
+     "sections": [
+      {
+       "heading": "Effects of higher fuel prices",
+       "items": [
+        "Commuters may walk for short trips or share {{19}} with coworkers.",
+        "Tax income can fund better buses, trains, and {{20}}."
+       ]
+      },
+      {
+       "heading": "Impact on low-income groups",
+       "items": [
+        "Rural workers and delivery {{21}} often lack reliable bus routes.",
+        "Poorer motorists must spend a bigger share of their weekly {{22}} on petrol."
+       ]
+      },
+      {
+       "heading": "Affordable alternatives",
+       "items": [
+        "Cities should offer reliable public transport with low-cost monthly {{23}}."
+       ]
+      },
+      {
+       "heading": "Positive incentives",
+       "items": [
+        "Electric car drivers in Norway get cheaper parking and free {{24}} trips.",
+        "Trade-in {{25}} help low-income families replace old polluting cars.",
+        "Families can switch to cleaner used cars or electric {{26}}."
+       ]
+      }
+     ]
+    }
+   ],
+   "qRange": [
+    14,
+    26
+   ]
+  },
+  {
+   "label": "READING PASSAGE 3",
+   "instruction": "You should spend about 20 minutes on Questions 27-40, which are based on Reading Passage 3 below.",
+   "title": "Fresh Water: A Limited Resource",
+   "subtitle": "Why water scarcity is growing—and how technology and conservation can help",
+   "paragraphs": [
+    "<strong>1</strong> Although water covers more than seventy percent of our planet's surface, almost all of it is salty seawater. Less than three percent of Earth's water is fresh, and most of that is locked inside glaciers or deep underground. As a result, clean drinkable water is a surprisingly scarce treasure that billions of people cannot take for granted.",
+    "<strong>2</strong> Today, water scarcity is worsening rapidly due to two main pressures: rapid population growth and climate change. Growing megacities need vast daily supplies for drinking, washing, and power stations. At the same time, severe drought is drying up rivers and reservoirs across parts of Africa, Asia, and southern Europe, leaving taps dry during hot summer months.",
+    "<strong>3</strong> Surprisingly, household taps account for only a small fraction of global water use. Roughly seventy percent of all fresh water goes to agriculture—mostly for farm irrigation—while factories and mining use another twenty percent. Worse still, untreated factory waste and farm chemicals pollute many remaining rivers, making water unsafe to drink without costly cleaning.",
+    "<strong>4</strong> To secure future supplies, engineers are turning to smart technology. Coastal desert nations such as Israel and the United Arab Emirates rely heavily on desalination—a process that removes salt from seawater to produce fresh drinking water. Meanwhile, modern wastewater treatment plants in Singapore clean used city water so thoroughly that it can be reused safely by factories and even added back to drinking reservoirs.",
+    "<strong>5</strong> Yet high-tech plants have limits: desalination uses large amounts of electricity and leaves salty waste behind that can harm coastal sea life. Therefore, water experts stress that upgrading leaky city pipes and changing farm habits are just as important. Drip irrigation, which delivers water drop by drop directly to plant roots, can cut farm water waste by half compared with open spraying.",
+    "<strong>6</strong> Every citizen also plays a part in helping to conserve water. Fixing dripping taps, taking shorter showers, and collecting rainwater for gardens may seem small on their own, but across a city of five million people, those habits save millions of litres every week. Treating fresh water as a precious, limited resource is the only way to guarantee enough for everyone."
+   ],
+   "groups": [
+    {
+     "title": "Questions 27-30",
+     "instruction": "Choose the correct letter, <strong>A, B, C or D</strong>.",
+     "type": "mcq",
+     "items": [
+      {
+       "q": 27,
+       "text": "What fact about Earth's water is highlighted in the first paragraph?",
+       "options": [
+        {
+         "k": "A",
+         "t": "Most of the world's fresh water is easily available in rivers."
+        },
+        {
+         "k": "B",
+         "t": "Only a very small percentage of the planet's water is fresh."
+        },
+        {
+         "k": "C",
+         "t": "Glaciers contain mostly salty seawater."
+        },
+        {
+         "k": "D",
+         "t": "Seventy percent of Earth's surface is covered by drinkable lakes."
+        }
+       ]
+      },
+      {
+       "q": 28,
+       "text": "According to paragraph 3, which sector uses the largest share of fresh water worldwide?",
+       "options": [
+        {
+         "k": "A",
+         "t": "Household drinking and washing"
+        },
+        {
+         "k": "B",
+         "t": "Mining operations"
+        },
+        {
+         "k": "C",
+         "t": "Agriculture"
+        },
+        {
+         "k": "D",
+         "t": "City power stations"
+        }
+       ]
+      },
+      {
+       "q": 29,
+       "text": "What drawback of desalination is mentioned in paragraph 5?",
+       "options": [
+        {
+         "k": "A",
+         "t": "It cannot remove all salt from seawater."
+        },
+        {
+         "k": "B",
+         "t": "It consumes lots of power and creates salty waste harmful to marine life."
+        },
+        {
+         "k": "C",
+         "t": "It only works during rainy winter months."
+        },
+        {
+         "k": "D",
+         "t": "It is forbidden in coastal desert nations."
+        }
+       ]
+      },
+      {
+       "q": 30,
+       "text": "What is the writer's main message to ordinary people in the final paragraph?",
+       "options": [
+        {
+         "k": "A",
+         "t": "Individual water-saving habits make no real difference in large cities."
+        },
+        {
+         "k": "B",
+         "t": "Small daily savings by millions of citizens add up to huge amounts of water."
+        },
+        {
+         "k": "C",
+         "t": "People should stop watering gardens completely."
+        },
+        {
+         "k": "D",
+         "t": "Only governments can fix water shortages."
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "title": "Questions 31-34",
+     "instruction": "Complete each sentence with the correct ending, <strong>A-F</strong>, below. Write the correct letter, <strong>A-F</strong>.",
+     "type": "matching",
+     "legendTitle": "Sentence Endings",
+     "legend": [
+      {
+       "key": "A",
+       "text": "reduces farm water waste by half compared to open spraying."
+      },
+      {
+       "key": "B",
+       "text": "clean city wastewater thoroughly enough for industrial and drinking reuse."
+      },
+      {
+       "key": "C",
+       "text": "turn seawater into fresh drinking water using desalination."
+      },
+      {
+       "key": "D",
+       "text": "use over ninety percent of the planet's fresh water for drinking."
+      },
+      {
+       "key": "E",
+       "text": "make remaining river water unsafe without expensive treatment."
+      },
+      {
+       "key": "F",
+       "text": "are no longer affected by summer droughts."
+      }
+     ],
+     "options": [
+      "A",
+      "B",
+      "C",
+      "D",
+      "E",
+      "F"
+     ],
+     "items": [
+      {
+       "q": 31,
+       "text": "Untreated factory waste and farm chemicals..."
+      },
+      {
+       "q": 32,
+       "text": "Coastal desert countries like Israel and the UAE..."
+      },
+      {
+       "q": 33,
+       "text": "Advanced treatment plants in Singapore..."
+      },
+      {
+       "q": 34,
+       "text": "Using drip irrigation directly at plant roots..."
+      }
+     ]
+    },
+    {
+     "title": "Questions 35-40",
+     "instruction": "Do the following statements agree with the views of the writer in Reading Passage 3? Write <strong>YES</strong>, <strong>NO</strong>, or <strong>NOT GIVEN</strong>.",
+     "type": "tfng",
+     "options": [
+      "YES",
+      "NO",
+      "NOT GIVEN"
+     ],
+     "items": [
+      {
+       "q": 35,
+       "text": "Population growth and climate change are both making water shortages worse."
+      },
+      {
+       "q": 36,
+       "text": "Household taps use more fresh water globally than factories and mining combined."
+      },
+      {
+       "q": 37,
+       "text": "Singapore builds more desalination plants than Israel does."
+      },
+      {
+       "q": 38,
+       "text": "Repairing leaking city water pipes is just as important as building high-tech plants."
+      },
+      {
+       "q": 39,
+       "text": "Most city residents already collect rainwater for their home gardens."
+      },
+      {
+       "q": 40,
+       "text": "High-tech desalination alone can solve global water scarcity without any environmental downside."
+      }
+     ]
+    }
+   ],
+   "qRange": [
+    27,
+    40
+   ]
+  }
+ ],
+ "answers": {
+  "1": [
+   "cattle"
+  ],
+  "2": [
+   "biodiversity"
+  ],
+  "3": [
+   "lithium"
+  ],
+  "4": [
+   "satellite"
+  ],
+  "5": [
+   "gold"
+  ],
+  "6": [
+   "timber"
+  ],
+  "7": [
+   "tools"
+  ],
+  "8": [
+   "TRUE"
+  ],
+  "9": [
+   "NOT GIVEN"
+  ],
+  "10": [
+   "FALSE"
+  ],
+  "11": [
+   "TRUE"
+  ],
+  "12": [
+   "FALSE"
+  ],
+  "13": [
+   "NOT GIVEN"
+  ],
+  "14": [
+   "TRUE"
+  ],
+  "15": [
+   "FALSE"
+  ],
+  "16": [
+   "NOT GIVEN"
+  ],
+  "17": [
+   "TRUE"
+  ],
+  "18": [
+   "FALSE"
+  ],
+  "19": [
+   "rides"
+  ],
+  "20": [
+   "trams"
+  ],
+  "21": [
+   "drivers"
+  ],
+  "22": [
+   "wages"
+  ],
+  "23": [
+   "passes"
+  ],
+  "24": [
+   "ferry"
+  ],
+  "25": [
+   "rebates"
+  ],
+  "26": [
+   "bicycles"
+  ],
+  "27": [
+   "B"
+  ],
+  "28": [
+   "C"
+  ],
+  "29": [
+   "B"
+  ],
+  "30": [
+   "B"
+  ],
+  "31": [
+   "E"
+  ],
+  "32": [
+   "C"
+  ],
+  "33": [
+   "B"
+  ],
+  "34": [
+   "A"
+  ],
+  "35": [
+   "YES"
+  ],
+  "36": [
+   "NO"
+  ],
+  "37": [
+   "NOT GIVEN"
+  ],
+  "38": [
+   "YES"
+  ],
+  "39": [
+   "NOT GIVEN"
+  ],
+  "40": [
+   "NO"
+  ]
+ }
+}

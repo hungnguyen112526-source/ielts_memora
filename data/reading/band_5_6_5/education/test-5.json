@@ -1,0 +1,548 @@
+{
+ "schema": 1,
+ "id": "band-5-6-5-education-test-5",
+ "series": "education",
+ "category": "band_5_6_5",
+ "title": "University Life & Higher Education",
+ "summary": "Why Do People Go to University? • Studying in Another Country • Who Pays for University?",
+ "subtitle": "Band 5.0–6.5 · Education",
+ "module": "academic",
+ "durationMin": 60,
+ "totalQuestions": 40,
+ "questionTypes": [
+  "notes",
+  "tfng",
+  "matching",
+  "summary_text",
+  "mcq",
+  "summary_box"
+ ],
+ "passages": [
+  {
+   "label": "READING PASSAGE 1",
+   "instruction": "You should spend about 20 minutes on Questions 1-13, which are based on Reading Passage 1 below.",
+   "title": "Why Do People Go to University?",
+   "subtitle": "Evaluating the role of a university degree in a rapidly changing workplace",
+   "paragraphs": [
+    "For much of the late twentieth century, attending university was widely regarded as the most reliable route to financial stability and personal success. Even today, school leavers across the globe invest three to four years in earning a degree, primarily because they expect it to unlock better job opportunities. In many corporate recruitment systems, holding an undergraduate qualification remains the first filter used to sort hundreds of applications.",
+    "Employment statistics still support the economic appeal of higher education. Across most developed economies, university graduates experience lower unemployment rates and earn noticeably higher lifetime incomes than adults who enter the workforce directly after high school. Moreover, regulated professions such as pharmacy, civil engineering, and architecture cannot be entered without formal university accreditation, making higher education unavoidable for students aiming at those fields.",
+    "Yet career advancement is only part of the picture. Many undergraduates enrol because they want to explore an academic subject deeply and build specialist knowledge under the guidance of active researchers. Beyond lecture theatres, university campuses foster transferable abilities—including independent research, persuasive writing, and analytical debate—that help graduates adjust when technology transforms their chosen career.",
+    "Campus life also delivers social advantages that are difficult to measure on a CV. Living alongside peers from different regions and cultures teaches young adults how to negotiate shared spaces and communicate across differences. Student societies, debating unions, and volunteering projects regularly create lifelong friendships as well as alumni contacts that assist graduates during job hunts.",
+    "Even so, the belief that university is the only key to success is increasingly being challenged. Rising living expenses and tuition fees have pushed many eighteen-year-olds to compare university against entering work immediately or joining paid apprenticeships. Through structured apprenticeships in fields like cybersecurity, logistics, and hospitality, young trainees gain real workplace experience while avoiding student debt.",
+    "Major employers are responding to this shift as well. Several international software, accounting, and media firms now run 'skills-first' hiring programmes that assess practical tests and real portfolios rather than demanding a university diploma. While university remains an enriching choice for millions, modern labour markets increasingly recognise that ambition and competence can be developed along multiple paths."
+   ],
+   "groups": [
+    {
+     "title": "Questions 1-7",
+     "instruction": "Complete the notes below. Choose <strong>ONE WORD ONLY</strong> from the passage for each answer.",
+     "type": "notes",
+     "boxTitle": "University Education vs. Direct Entry to Work",
+     "sections": [
+      {
+       "heading": "Career and economic reasons",
+       "items": [
+        "Many companies use a university qualification as an initial {{1}} when reviewing applicants.",
+        "Formal university accreditation is mandatory for careers such as architecture, civil engineering, and {{2}}."
+       ]
+      },
+      {
+       "heading": "Intellectual and social benefits",
+       "items": [
+        "Students gain specialist knowledge by studying under active {{3}}.",
+        "Campus societies help students form lasting friendships and useful {{4}} contacts."
+       ]
+      },
+      {
+       "heading": "Alternative routes to work",
+       "items": [
+        "Paid apprenticeships let trainees build experience without accumulating student {{5}}.",
+        "Apprenticeships are available in areas including hospitality, cybersecurity, and {{6}}."
+       ]
+      },
+      {
+       "heading": "Changing hiring practices",
+       "items": [
+        "Some large firms evaluate candidates using practical tests and real {{7}} instead of degrees."
+       ]
+      }
+     ]
+    },
+    {
+     "title": "Questions 8-13",
+     "instruction": "Do the following statements agree with the information given in Reading Passage 1? Write <strong>TRUE</strong>, <strong>FALSE</strong>, or <strong>NOT GIVEN</strong>.",
+     "type": "tfng",
+     "options": [
+      "TRUE",
+      "FALSE",
+      "NOT GIVEN"
+     ],
+     "items": [
+      {
+       "q": 8,
+       "text": "In most developed countries, university graduates are less likely to be unemployed than high school leavers."
+      },
+      {
+       "q": 9,
+       "text": "Civil engineers generally earn more over their lifetimes than pharmacists."
+      },
+      {
+       "q": 10,
+       "text": "Skills such as analytical debate can help graduates cope with technological changes in their careers."
+      },
+      {
+       "q": 11,
+       "text": "Universities have recently reduced the number of student societies due to rising living expenses."
+      },
+      {
+       "q": 12,
+       "text": "Participants in structured apprenticeships must work without pay while they learn workplace skills."
+      },
+      {
+       "q": 13,
+       "text": "Every international software company has completely stopped asking applicants for university diplomas."
+      }
+     ]
+    }
+   ],
+   "qRange": [
+    1,
+    13
+   ]
+  },
+  {
+   "label": "READING PASSAGE 2",
+   "instruction": "You should spend about 20 minutes on Questions 14-26, which are based on Reading Passage 2 below.",
+   "title": "Studying in Another Country",
+   "subtitle": "Personal resilience, cultural adjustment, and the economics of international study",
+   "paragraphs": [
+    "<strong>A</strong> International education has expanded rapidly over the past decade, with millions of undergraduates enrolling in full overseas degrees or one-semester student exchange programmes. Universities market these opportunities not merely as academic experiences, but as a chance to immerse oneself in a foreign culture and develop a broader perspective on global affairs.",
+    "<strong>B</strong> Dr. Hannah Bergstrom, who studies student mobility in Sweden, believes that personal maturity is often the most lasting outcome of studying abroad. 'When a nineteen-year-old moves across the world, nobody is there to remind them to pay bills, book doctor visits, or navigate public transit,' she explains. 'Managing these practical responsibilities alone forces students to become genuinely independent far faster than peers who stay in their hometowns.'",
+    "<strong>C</strong> Still, the transition is rarely smooth. Mateo Silva, an architecture student from Chile who completed an exchange year in Edinburgh, recalls struggling deeply during his first winter. 'I had passed my English test easily, yet I still hit a frustrating language barrier whenever classmates joked in fast regional accents,' he admits. 'Dark afternoons and unfamiliar food also made me terribly homesick.' Silva only began to settle after joining a university cycling society where regular weekend rides helped him build genuine friendships.",
+    "<strong>D</strong> Budgeting presents another major hurdle. While students focus heavily on tuition, everyday living costs—including shared accommodation, heating bills, and public transport—frequently exceed initial estimates in major university hubs. Priya Nair, an international student welfare officer in Melbourne, urges newcomers to plan conservatively. 'Unexpected expenses like winter clothing or rental deposits catch many families off guard,' she warns. 'Understanding local tenancy rules and part-time work restrictions before flying can prevent severe financial anxiety.'",
+    "<strong>E</strong> For undergraduates deterred by the price of a multi-year foreign degree, semester-long exchange programmes offer a practical compromise. Because partner universities usually waive overseas tuition fees and allow students to keep paying their home institution's rate, exchanges make international study accessible to a wider range of incomes. Professor Martin Keller, director of a German exchange consortium, observes that even five months abroad noticeably strengthens a student's adaptability and cross-cultural empathy.",
+    "<strong>F</strong> Researchers emphasise that institutional support plays a decisive role in whether international students thrive. Dr. Bergstrom encourages prospective students to practise conversational listening rather than just textbook grammar before departure. Meanwhile, Professor Keller argues that host universities should pair every newcomer with a trained local 'buddy' during the opening term so that academic confusion and social isolation are addressed early."
+   ],
+   "groups": [
+    {
+     "title": "Questions 14-17",
+     "instruction": "Reading Passage 2 has six sections, <strong>A-F</strong>. Which section contains the following information? Write the correct letter, <strong>A-F</strong>.",
+     "type": "matching",
+     "options": [
+      "A",
+      "B",
+      "C",
+      "D",
+      "E",
+      "F"
+     ],
+     "items": [
+      {
+       "q": 14,
+       "text": "how partner agreements keep short-term study abroad more affordable than full overseas degrees"
+      },
+      {
+       "q": 15,
+       "text": "an account of struggling with regional speech despite having good test scores"
+      },
+      {
+       "q": 16,
+       "text": "a proposal for host campuses to match new arrivals with experienced local students"
+      },
+      {
+       "q": 17,
+       "text": "specific unexpected costs that often surprise newly arrived international students"
+      }
+     ]
+    },
+    {
+     "title": "Questions 18-21",
+     "instruction": "Complete the summary below. Choose <strong>ONE WORD ONLY</strong> from the passage for each answer.",
+     "type": "summary_text",
+     "boxTitle": "Adjusting to Life Overseas",
+     "paragraphs": [
+      "Moving abroad brings real emotional and financial challenges. During his exchange year in Edinburgh, Mateo Silva struggled to follow classmates' fast regional {{18}} and felt homesick until weekend trips with a university {{19}} club helped him make friends. Financial stress is also widespread because everyday expenses often surpass early estimates. Welfare officer Priya Nair recommends checking part-time work rules and local {{20}} regulations prior to departure, noting that upfront costs such as rental {{21}} frequently catch students unprepared."
+     ]
+    },
+    {
+     "title": "Questions 22-26",
+     "instruction": "Look at the following statements (Questions 22-26) and the list of people below. Match each statement with the correct person, <strong>A, B, C or D</strong>. <em>NB You may use any letter more than once.</em>",
+     "type": "matching",
+     "legendTitle": "List of People",
+     "legend": [
+      {
+       "key": "A",
+       "text": "Dr. Hannah Bergstrom"
+      },
+      {
+       "key": "B",
+       "text": "Mateo Silva"
+      },
+      {
+       "key": "C",
+       "text": "Priya Nair"
+      },
+      {
+       "key": "D",
+       "text": "Professor Martin Keller"
+      }
+     ],
+     "options": [
+      "A",
+      "B",
+      "C",
+      "D"
+     ],
+     "items": [
+      {
+       "q": 22,
+       "text": "Handling everyday tasks like medical appointments without family help builds true independence."
+      },
+      {
+       "q": 23,
+       "text": "Even a five-month stay in another country can meaningfully boost a student's empathy."
+      },
+      {
+       "q": 24,
+       "text": "Researching rental regulations before travelling helps avoid serious money worries."
+      },
+      {
+       "q": 25,
+       "text": "Seasonal weather and unfamiliar meals contributed to feeling lonely away from home."
+      },
+      {
+       "q": 26,
+       "text": "Students preparing to study abroad should focus on real spoken listening rather than solely grammar rules."
+      }
+     ]
+    }
+   ],
+   "qRange": [
+    14,
+    26
+   ]
+  },
+  {
+   "label": "READING PASSAGE 3",
+   "instruction": "You should spend about 20 minutes on Questions 27-40, which are based on Reading Passage 3 below.",
+   "title": "Who Pays for University?",
+   "subtitle": "Weighing public funding, tuition fees, and graduate loans across modern economies",
+   "paragraphs": [
+    "<strong>1</strong> Although almost every nation accepts that primary and secondary schooling should be funded by the state, higher education remains deeply divided in how it is financed. In Nordic countries and Germany, public universities largely abolish tuition fees for domestic students. By contrast, systems in the United States, England, and Japan expect students and families to shoulder substantial costs, often through long-term borrowing.",
+    "<strong>2</strong> Supporters of free education treat university as a collective investment rather than a personal consumer purchase. When tuition fees disappear, talented teenagers from working-class households can afford to study demanding fields like medicine or engineering without fearing lifelong debt. Economists in favour of public funding also argue that because university graduates generally earn higher wages and pay greater taxes over their careers, the government eventually recovers its upfront spending while gaining a more innovative economy.",
+    "<strong>3</strong> Yet tuition-free models face genuine fiscal pressures. Maintaining competitive research laboratories, modern libraries, and well-trained faculty costs billions each year. Critics warn that when universities rely exclusively on tax money, governments may cap student places or cut spending on vocational colleges and early childhood care. Moreover, some policy analysts contend that free university acts as a hidden subsidy for affluent families, whose children remain statistically more likely to qualify for university admission than poorer peers.",
+    "<strong>4</strong> To bring more private funding into campuses without blocking poorer students upfront, countries such as Australia and the UK use income-linked student loan schemes. Graduates repay nothing until their annual earnings cross a legally defined threshold, and any unpaid balance is eventually written off after several decades. Defenders note that this design injects steady revenue into universities while protecting graduates who experience periods of low pay or unemployment.",
+    "<strong>5</strong> However, real-world experience reveals clear drawbacks to loan-heavy systems. Even when repayments are tied to income, the psychological weight of carrying a large loan can deter risk-averse students from low-income backgrounds from applying at all. High balances can also distort career choices, pressuring graduates to chase lucrative corporate posts rather than entering lower-paid but vital public roles such as nursing, social work, or rural teaching.",
+    "<strong>6</strong> Given the imperfections on both sides, a purely ideological choice between 'completely free' and 'high fees for all' seems unhelpful. A more equitable middle path combines progressive tuition fees—paid by wealthier households—with generous non-repayable grants covering both study and living expenses for lower-income students. In my view, targeted public support protects university quality while ensuring that no capable student is ever excluded simply because they cannot afford the bill."
+   ],
+   "groups": [
+    {
+     "title": "Questions 27-30",
+     "instruction": "Choose the correct letter, <strong>A, B, C or D</strong>.",
+     "type": "mcq",
+     "items": [
+      {
+       "q": 27,
+       "text": "What contrast does the writer introduce in the first paragraph?",
+       "options": [
+        {
+         "k": "A",
+         "t": "Primary schools receive far less public funding than universities."
+        },
+        {
+         "k": "B",
+         "t": "Nations agree on funding basic schooling but differ sharply over financing universities."
+        },
+        {
+         "k": "C",
+         "t": "Nordic universities have lower academic standards than American universities."
+        },
+        {
+         "k": "D",
+         "t": "Most governments have recently replaced student loans with free tuition."
+        }
+       ]
+      },
+      {
+       "q": 28,
+       "text": "According to paragraph 3, why do some analysts describe free university as a 'hidden subsidy for affluent families'?",
+       "options": [
+        {
+         "k": "A",
+         "t": "Wealthy families receive extra tax breaks when their children graduate."
+        },
+        {
+         "k": "B",
+         "t": "Children from richer households are statistically more likely to gain university places."
+        },
+        {
+         "k": "C",
+         "t": "Private universities receive most of the government's research budget."
+        },
+        {
+         "k": "D",
+         "t": "Affluent students are paid salaries while studying at public campuses."
+        }
+       ]
+      },
+      {
+       "q": 29,
+       "text": "What unintended effect of large student loans is highlighted in paragraph 5?",
+       "options": [
+        {
+         "k": "A",
+         "t": "Universities are forced to close their nursing and social work departments."
+        },
+        {
+         "k": "B",
+         "t": "Graduates may avoid socially important but lower-paid professions."
+        },
+        {
+         "k": "C",
+         "t": "Loan repayments increase automatically when graduates lose their jobs."
+        },
+        {
+         "k": "D",
+         "t": "Students from wealthy families refuse to borrow money from the state."
+        }
+       ]
+      },
+      {
+       "q": 30,
+       "text": "What is the writer's preferred funding approach in the final paragraph?",
+       "options": [
+        {
+         "k": "A",
+         "t": "Abolishing all tuition fees regardless of family wealth"
+        },
+        {
+         "k": "B",
+         "t": "Replacing government grants with private bank loans"
+        },
+        {
+         "k": "C",
+         "t": "Charging fees to wealthier families while providing non-repayable grants to poorer students"
+        },
+        {
+         "k": "D",
+         "t": "Limiting university admission strictly to vocational and engineering degrees"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "title": "Questions 31-36",
+     "instruction": "Complete the summary using the list of words and phrases, <strong>A-I</strong>, below. Write the correct letter, <strong>A-I</strong>.",
+     "type": "summary_box",
+     "boxTitle": "Evaluating Income-Linked Loan Schemes",
+     "legend": [
+      {
+       "key": "A",
+       "text": "steady income"
+      },
+      {
+       "key": "B",
+       "text": "poorer households"
+      },
+      {
+       "key": "C",
+       "text": "corporate jobs"
+      },
+      {
+       "key": "D",
+       "text": "psychological stress"
+      },
+      {
+       "key": "E",
+       "text": "earning level"
+      },
+      {
+       "key": "F",
+       "text": "job loss"
+      },
+      {
+       "key": "G",
+       "text": "free housing"
+      },
+      {
+       "key": "H",
+       "text": "strict exams"
+      },
+      {
+       "key": "I",
+       "text": "research grants"
+      }
+     ],
+     "options": [
+      "A",
+      "B",
+      "C",
+      "D",
+      "E",
+      "F",
+      "G",
+      "H",
+      "I"
+     ],
+     "paragraphs": [
+      "In countries like Australia and the UK, student loans are designed so that graduates begin paying only after crossing a specific {{31}}, with remaining debt cancelled after several decades. Proponents say this guarantees reliable {{32}} for campuses while shielding borrowers during periods of {{33}}. Nevertheless, critics point out that the {{34}} of owing large amounts can put off cautious applicants from {{35}}, and steer graduates toward high-paying {{36}} instead of essential public services."
+     ]
+    },
+    {
+     "title": "Questions 37-40",
+     "instruction": "Do the following statements agree with the views of the writer in Reading Passage 3? Write <strong>YES</strong>, <strong>NO</strong>, or <strong>NOT GIVEN</strong>.",
+     "type": "tfng",
+     "options": [
+      "YES",
+      "NO",
+      "NOT GIVEN"
+     ],
+     "items": [
+      {
+       "q": 37,
+       "text": "Relying solely on tax money to fund universities can create pressure on other areas of public spending."
+      },
+      {
+       "q": 38,
+       "text": "Japanese students borrow larger sums of money for university than American students."
+      },
+      {
+       "q": 39,
+       "text": "Choosing between completely free tuition and high fees for everyone is the best way to solve funding problems."
+      },
+      {
+       "q": 40,
+       "text": "Financial grants for low-income students should cover living expenses as well as tuition."
+      }
+     ]
+    }
+   ],
+   "qRange": [
+    27,
+    40
+   ]
+  }
+ ],
+ "answers": {
+  "1": [
+   "filter"
+  ],
+  "2": [
+   "pharmacy"
+  ],
+  "3": [
+   "researchers"
+  ],
+  "4": [
+   "alumni"
+  ],
+  "5": [
+   "debt"
+  ],
+  "6": [
+   "logistics"
+  ],
+  "7": [
+   "portfolios"
+  ],
+  "8": [
+   "TRUE"
+  ],
+  "9": [
+   "NOT GIVEN"
+  ],
+  "10": [
+   "TRUE"
+  ],
+  "11": [
+   "NOT GIVEN"
+  ],
+  "12": [
+   "FALSE"
+  ],
+  "13": [
+   "FALSE"
+  ],
+  "14": [
+   "E"
+  ],
+  "15": [
+   "C"
+  ],
+  "16": [
+   "F"
+  ],
+  "17": [
+   "D"
+  ],
+  "18": [
+   "accents"
+  ],
+  "19": [
+   "cycling"
+  ],
+  "20": [
+   "tenancy"
+  ],
+  "21": [
+   "deposits"
+  ],
+  "22": [
+   "A"
+  ],
+  "23": [
+   "D"
+  ],
+  "24": [
+   "C"
+  ],
+  "25": [
+   "B"
+  ],
+  "26": [
+   "A"
+  ],
+  "27": [
+   "B"
+  ],
+  "28": [
+   "B"
+  ],
+  "29": [
+   "B"
+  ],
+  "30": [
+   "C"
+  ],
+  "31": [
+   "E"
+  ],
+  "32": [
+   "A"
+  ],
+  "33": [
+   "F"
+  ],
+  "34": [
+   "D"
+  ],
+  "35": [
+   "B"
+  ],
+  "36": [
+   "C"
+  ],
+  "37": [
+   "YES"
+  ],
+  "38": [
+   "NOT GIVEN"
+  ],
+  "39": [
+   "NO"
+  ],
+  "40": [
+   "YES"
+  ]
+ }
+}

@@ -1,0 +1,547 @@
+{
+ "schema": 1,
+ "id": "band-5-6-5-environment-test-5",
+ "series": "environment",
+ "category": "band_5_6_5",
+ "title": "Species, Green Spaces & Responsibility",
+ "summary": "Why Are Species Disappearing? • Green Spaces in Cities • Who Is Responsible for the Environment?",
+ "subtitle": "Band 5.0–6.5 · Environment",
+ "module": "academic",
+ "durationMin": 60,
+ "totalQuestions": 40,
+ "questionTypes": [
+  "notes",
+  "tfng",
+  "matching",
+  "summary_text",
+  "mcq",
+  "summary_box"
+ ],
+ "passages": [
+  {
+   "label": "READING PASSAGE 1",
+   "instruction": "You should spend about 20 minutes on Questions 1-13, which are based on Reading Passage 1 below.",
+   "title": "Why Are Species Disappearing?",
+   "subtitle": "Drivers of modern extinction, conservation priorities, and why ecosystems matter to human survival",
+   "paragraphs": [
+    "Throughout geological history, species have naturally emerged and disappeared over millions of years—a slow background process punctuated by five ancient mass die-offs. Today, however, biologists warn that humanity is triggering an unprecedented crisis: modern extinction rates are estimated to be hundreds of times higher than the natural baseline, placing roughly one million plant and animal species—including thousands of endangered species—under threat.",
+    "The single greatest driver of declining biodiversity is habitat loss. Expanding cattle ranches, mono-crop plantations, highways, and coastal resorts carve continuous forests and wetlands into isolated pockets too small to support breeding populations. Compounding this destruction are chemical runoff from farms, invasive non-native predators, and rapid climate change that bleaches coral reefs and shifts seasonal insect blooms out of sync with migrating birds.",
+    "Direct commercial exploitation accelerates the collapse of iconic creatures. Illegal poaching driven by underground markets for ivory, pangolin scales, and traditional remedies has decimated African and Asian wildlife. In response, conservation agencies have expanded protected wildlife reserves equipped with satellite acoustic sensors, drone surveillance, and community-run ranger units that share eco-tourism income with neighbouring villages.",
+    "Still, tight public budgets raise a fierce ethical debate: should societies spend funds saving obscure frogs or beetles while human poverty and disease persist, or focus conservation strictly on 'useful' species? Ecologists caution that nature operates as an intricate ecosystem and food chain. Removing one seemingly minor species can trigger a 'trophic cascade'—as when losing sea otters allows sea urchins to multiply unchecked and strip entire underwater kelp forests bare.",
+    "Protecting wildlife is therefore inseparable from human welfare. Wild insects pollinate roughly three-quarters of global food crops, coastal marshes buffer towns from storm surges, and rainforest compounds have yielded vital treatments for cancer and malaria. Preserving rich biodiversity is not a sentimental luxury; it is maintaining the living infrastructure upon which human health and economies depend."
+   ],
+   "groups": [
+    {
+     "title": "Questions 1-7",
+     "instruction": "Complete the notes below. Choose <strong>ONE WORD ONLY</strong> from the passage for each answer.",
+     "type": "notes",
+     "boxTitle": "Causes and Consequences of Species Loss",
+     "sections": [
+      {
+       "heading": "Habitat and climate pressures",
+       "items": [
+        "Warming oceans cause coral {{1}} to bleach and disrupt bird migration timing."
+       ]
+      },
+      {
+       "heading": "Poaching and enforcement",
+       "items": [
+        "Poachers target animals for ivory, traditional remedies, and pangolin {{2}}.",
+        "Modern reserves use drones, acoustic {{3}}, and local ranger teams."
+       ]
+      },
+      {
+       "heading": "Food chain impacts",
+       "items": [
+        "When sea otters disappear, multiplying sea {{4}} destroy underwater kelp forests."
+       ]
+      },
+      {
+       "heading": "Value to humanity",
+       "items": [
+        "Wild insects pollinate about three-quarters of the world's food {{5}}.",
+        "Coastal {{6}} protect nearby towns from storm surges.",
+        "Rainforest plants have supplied key medicines for cancer and {{7}}."
+       ]
+      }
+     ]
+    },
+    {
+     "title": "Questions 8-13",
+     "instruction": "Do the following statements agree with the information given in Reading Passage 1? Write <strong>TRUE</strong>, <strong>FALSE</strong>, or <strong>NOT GIVEN</strong>.",
+     "type": "tfng",
+     "options": [
+      "TRUE",
+      "FALSE",
+      "NOT GIVEN"
+     ],
+     "items": [
+      {
+       "q": 8,
+       "text": "Species extinction is a purely modern phenomenon that never occurred before humans existed."
+      },
+      {
+       "q": 9,
+       "text": "Climate change can cause migrating birds to arrive out of step with their insect food supply."
+      },
+      {
+       "q": 10,
+       "text": "Drone surveillance has reduced poaching more effectively in Asia than in Africa."
+      },
+      {
+       "q": 11,
+       "text": "Some wildlife reserves share revenue from eco-tourism with nearby local communities."
+      },
+      {
+       "q": 12,
+       "text": "Ecologists agree that losing an obscure species has no noticeable impact on larger ecosystems."
+      },
+      {
+       "q": 13,
+       "text": "Most pharmaceutical companies fund rainforest conservation projects in South America."
+      }
+     ]
+    }
+   ],
+   "qRange": [
+    1,
+    13
+   ]
+  },
+  {
+   "label": "READING PASSAGE 2",
+   "instruction": "You should spend about 20 minutes on Questions 14-26, which are based on Reading Passage 2 below.",
+   "title": "Green Spaces in Cities",
+   "subtitle": "Reconciling urban trees, community gardens, and housing demand in dense metropolises",
+   "paragraphs": [
+    "<strong>A</strong> With over half the global population now concentrated in cities—a share projected to approach seventy percent by 2050—urban land has become fiercely contested. Municipal authorities face a constant dilemma over land use: should scarce vacant plots be zoned for high-density apartments, or preserved as urban green space?",
+    "<strong>B</strong> Epidemiologists provide compelling evidence for defending city greenery. Dr. Sofia Lindgren, an environmental health researcher in Stockholm, points out that tree-lined streets trap airborne particulates, markedly improving local air quality while moderating the 'urban heat island' effect during heatwaves. 'Regular access to shaded open spaces also lowers cortisol stress hormones and improves mental well-being,' she adds, noting that greener districts record fewer hospital admissions for depression and heart disease.",
+    "<strong>C</strong> Urban gardening adds strong social cohesion to these health gains. Across cities such as Montreal, Seoul, and Bristol, residents transform neglected railway edges and empty lots into a thriving community garden growing heirloom tomatoes, greens, and pollinator flowers. Tariq Al-Jamil, who manages an urban farming network in Birmingham, observes that shared plots bridge generational and cultural divides. 'Retired neighbours mentor young apartment dwellers in composting and soil care, turning anonymous concrete blocks into supportive communities,' he says.",
+    "<strong>D</strong> Housing economists, however, caution against treating every empty urban parcel as untouchable parkland. Professor Rachel Kim, an urban policy analyst in Toronto, stresses that acute housing shortage is driving rents beyond the reach of teachers, hospital staff, and young families. 'When city councils block apartment construction to protect small vacant lots, housing spills outward into car-dependent suburbs—destroying far larger tracts of rural farmland and raising commuter emissions,' she warns.",
+    "<strong>E</strong> Innovative urban planning suggests cities need not choose rigidly between shelter and nature. Architect Lucas Oliveira, whose studio specialises in 'biophilic architecture' in Sao Paulo and Singapore, designs compact residential towers wrapped in planted sky-terraces, green courtyards, and edible rooftop allotments. 'By building moderately dense housing upwards rather than sprawling outwards, we house thousands affordably while embedding greenery directly into daily living spaces,' he explains.",
+    "<strong>F</strong> Leading city masterplans increasingly adopt this dual approach—setting mandatory green-space ratios for every new residential district while repurposing underused surface car parks into pocket parks and social housing. Balancing density with accessible nature offers the most liveable path for twenty-first-century cities."
+   ],
+   "groups": [
+    {
+     "title": "Questions 14-17",
+     "instruction": "Reading Passage 2 has six sections, <strong>A-F</strong>. Which section contains the following information? Write the correct letter, <strong>A-F</strong>.",
+     "type": "matching",
+     "options": [
+      "A",
+      "B",
+      "C",
+      "D",
+      "E",
+      "F"
+     ],
+     "items": [
+      {
+       "q": 14,
+       "text": "an explanation of how blocking urban apartments can unintentionally cause greater environmental harm outside cities"
+      },
+      {
+       "q": 15,
+       "text": "examples of underused spaces converted into shared neighbourhood vegetable plots"
+      },
+      {
+       "q": 16,
+       "text": "architectural approaches that integrate vertical housing with rooftop gardens and planted terraces"
+      },
+      {
+       "q": 17,
+       "text": "medical evidence linking greener urban areas to lower rates of hospital treatment"
+      }
+     ]
+    },
+    {
+     "title": "Questions 18-21",
+     "instruction": "Complete the summary below. Choose <strong>ONE WORD ONLY</strong> from the passage for each answer.",
+     "type": "summary_text",
+     "boxTitle": "Health, Community, and Housing in Modern Cities",
+     "paragraphs": [
+      "Urban trees capture airborne {{18}} and ease summer heat, while parks lower stress hormones. In community gardens, retired residents teach younger flat dwellers skills such as {{19}} and soil care. Yet Professor Rachel Kim warns that blocking new flats pushes families into car-dependent {{20}}, threatening rural farmland. To balance both needs, modern city plans convert unused surface car {{21}} into pocket parks and affordable housing."
+     ]
+    },
+    {
+     "title": "Questions 22-26",
+     "instruction": "Look at the following statements (Questions 22-26) and the list of people below. Match each statement with the correct person, <strong>A, B, C or D</strong>. <em>NB You may use any letter more than once.</em>",
+     "type": "matching",
+     "legendTitle": "List of People",
+     "legend": [
+      {
+       "key": "A",
+       "text": "Dr. Sofia Lindgren"
+      },
+      {
+       "key": "B",
+       "text": "Tariq Al-Jamil"
+      },
+      {
+       "key": "C",
+       "text": "Professor Rachel Kim"
+      },
+      {
+       "key": "D",
+       "text": "Lucas Oliveira"
+      }
+     ],
+     "options": [
+      "A",
+      "B",
+      "C",
+      "D"
+     ],
+     "items": [
+      {
+       "q": 22,
+       "text": "Refusing to build city apartments forces urban sprawl that destroys countryside farmland."
+      },
+      {
+       "q": 23,
+       "text": "Compact vertical housing with built-in terraces allows cities to provide affordable homes alongside greenery."
+      },
+      {
+       "q": 24,
+       "text": "Shared gardening spaces help connect older locals with younger residents living in apartments."
+      },
+      {
+       "q": 25,
+       "text": "Spending time in shaded parks helps reduce levels of stress hormones in the body."
+      },
+      {
+       "q": 26,
+       "text": "Street trees help cool urban neighbourhoods during periods of intense heat."
+      }
+     ]
+    }
+   ],
+   "qRange": [
+    14,
+    26
+   ]
+  },
+  {
+   "label": "READING PASSAGE 3",
+   "instruction": "You should spend about 20 minutes on Questions 27-40, which are based on Reading Passage 3 below.",
+   "title": "Who Is Responsible for the Environment?",
+   "subtitle": "Weighing state legislation, citizen habits, and international cooperation in tackling global pollution",
+   "paragraphs": [
+    "<strong>1</strong> While scientific consensus on climate disruption and ecological decline is now overwhelming, public debate frequently stalls over a single question: who bears primary responsibility to take action? Should environmental protection be driven from the top down by politicians and global treaties, or from the bottom up through the everyday choices of ordinary consumers?",
+    "<strong>2</strong> Policy scholars who emphasise state action argue that structural problems demand structural authority. Only governments can enact binding legislation, set industrial emissions caps, subsidise clean rail networks, and phase out coal power stations through coherent government policy. Expecting lone commuters to decarbonise national power grids or reshape urban transport infrastructure simply by switching lightbulbs, they contend, shifts blame away from powerful institutions that possess the legal and financial tools to act at scale.",
+    "<strong>3</strong> Yet advocates of individual responsibility warn against dismissing personal agency as powerless. In democratic and market economies alike, politicians and corporations closely track citizen behaviour. When millions of households reduce red-meat consumption, insulate their homes, favour public transit, and boycott wasteful brands, businesses race to supply greener alternatives—and elected leaders gain the political confidence to pass ambitious environmental rules without fearing voter backlash.",
+    "<strong>4</strong> An equally vital debate divides national action from international cooperation. Atmospheric carbon, ocean plastics, and overfished marine stocks ignore national frontiers. Moreover, if one country enforces strict factory emissions rules unilaterally, heavy industries may relocate to nations with weaker standards—an economic problem termed 'carbon leakage' that hurts domestic jobs without lowering global pollution.",
+    "<strong>5</strong> For this reason, signing a shared global agreement—such as the 2015 Paris Accord or international shipping fuel compacts—is indispensable for aligning standards and transferring clean technology to developing states. At the same time, diplomatic summits involving nearly two hundred nations advance slowly by consensus. Pioneering countries that adopt bold national policies early—such as Norway's electric-vehicle transition or Denmark's offshore wind build-out—drive down global technology prices and prove that ambitious reform is practically achievable.",
+    "<strong>6</strong> Treating government laws, personal choices, and global treaties as competing options misunderstands how real social change unfolds. Laws create the clean infrastructure that makes green choices effortless; citizens supply the democratic mandate that keeps laws strong; and international agreements ensure fair global rules. Safeguarding our shared planet ultimately demands a sustained collective effort linking every household, national parliament, and global summit."
+   ],
+   "groups": [
+    {
+     "title": "Questions 27-30",
+     "instruction": "Choose the correct letter, <strong>A, B, C or D</strong>.",
+     "type": "mcq",
+     "items": [
+      {
+       "q": 27,
+       "text": "Why do policy scholars mention 'switching lightbulbs' in paragraph 2?",
+       "options": [
+        {
+         "k": "A",
+         "t": "To show that household lighting uses more power than coal stations"
+        },
+        {
+         "k": "B",
+         "t": "To illustrate that small personal acts cannot replace large-scale state action"
+        },
+        {
+         "k": "C",
+         "t": "To argue that governments should subsidise home lighting"
+        },
+        {
+         "k": "D",
+         "t": "To prove that commuters have full control over national power grids"
+        }
+       ]
+      },
+      {
+       "q": 28,
+       "text": "What is 'carbon leakage', as explained in paragraph 4?",
+       "options": [
+        {
+         "k": "A",
+         "t": "Carbon escaping accidentally from damaged offshore wind cables"
+        },
+        {
+         "k": "B",
+         "t": "Polluting factories moving to countries with weaker environmental rules"
+        },
+        {
+         "k": "C",
+         "t": "Ocean plastics leaking toxic chemicals across national borders"
+        },
+        {
+         "k": "D",
+         "t": "Governments failing to report accurate emissions data at global summits"
+        }
+       ]
+      },
+      {
+       "q": 29,
+       "text": "Why does the writer cite Norway and Denmark in paragraph 5?",
+       "options": [
+        {
+         "k": "A",
+         "t": "To show that small nations are unaffected by slow diplomatic summits"
+        },
+        {
+         "k": "B",
+         "t": "To illustrate how pioneering national policies lower clean-tech costs and inspire others"
+        },
+        {
+         "k": "C",
+         "t": "To argue that global agreements like the Paris Accord are unnecessary"
+        },
+        {
+         "k": "D",
+         "t": "To prove that electric cars save more carbon than offshore wind power"
+        }
+       ]
+      },
+      {
+       "q": 30,
+       "text": "What is the writer's main argument in the final paragraph?",
+       "options": [
+        {
+         "k": "A",
+         "t": "National parliaments should wait for citizens to act before passing green laws."
+        },
+        {
+         "k": "B",
+         "t": "Global treaties are far more important than local consumer habits."
+        },
+        {
+         "k": "C",
+         "t": "State policies, individual choices, and international treaties reinforce one another and are all required."
+        },
+        {
+         "k": "D",
+         "t": "Social change happens fastest when governments avoid international summits."
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "title": "Questions 31-36",
+     "instruction": "Complete the summary using the list of words and phrases, <strong>A-I</strong>, below. Write the correct letter, <strong>A-I</strong>.",
+     "type": "summary_box",
+     "boxTitle": "Linking State, Citizen, and Global Action",
+     "legend": [
+      {
+       "key": "A",
+       "text": "industrial relocation"
+      },
+      {
+       "key": "B",
+       "text": "voter backlash"
+      },
+      {
+       "key": "C",
+       "text": "global treaties"
+      },
+      {
+       "key": "D",
+       "text": "legal authority"
+      },
+      {
+       "key": "E",
+       "text": "coordinated effort"
+      },
+      {
+       "key": "F",
+       "text": "pioneering nations"
+      },
+      {
+       "key": "G",
+       "text": "cheap petrol"
+      },
+      {
+       "key": "H",
+       "text": "free electricity"
+      },
+      {
+       "key": "I",
+       "text": "media campaigns"
+      }
+     ],
+     "options": [
+      "A",
+      "B",
+      "C",
+      "D",
+      "E",
+      "F",
+      "G",
+      "H",
+      "I"
+     ],
+     "paragraphs": [
+      "Supporters of state-led action point out that only governments hold the {{31}} needed to cap industrial pollution and fund clean transit. Conversely, advocates of personal action argue that greener shopping habits reshape business offerings and shield politicians from {{32}} when passing tough rules. Because pollution ignores borders and strict local rules risk causing {{33}}, nations also require {{34}} to align standards and share clean tech. Even while global talks move slowly, {{35}} can cut technology costs and show what is possible, proving that environmental protection depends on {{36}}."
+     ]
+    },
+    {
+     "title": "Questions 37-40",
+     "instruction": "Do the following statements agree with the claims of the writer in Reading Passage 3? Write <strong>YES</strong>, <strong>NO</strong>, or <strong>NOT GIVEN</strong>.",
+     "type": "tfng",
+     "options": [
+      "YES",
+      "NO",
+      "NOT GIVEN"
+     ],
+     "items": [
+      {
+       "q": 37,
+       "text": "Consumer choices can give elected politicians greater confidence to introduce strict environmental laws."
+      },
+      {
+       "q": 38,
+       "text": "Carbon leakage has already caused more job losses in Europe than in North America."
+      },
+      {
+       "q": 39,
+       "text": "Countries should delay adopting clean national policies until all 200 nations reach full diplomatic consensus."
+      },
+      {
+       "q": 40,
+       "text": "Strong government infrastructure makes it easier for ordinary citizens to make environmentally friendly choices."
+      }
+     ]
+    }
+   ],
+   "qRange": [
+    27,
+    40
+   ]
+  }
+ ],
+ "answers": {
+  "1": [
+   "reefs"
+  ],
+  "2": [
+   "scales"
+  ],
+  "3": [
+   "sensors"
+  ],
+  "4": [
+   "urchins"
+  ],
+  "5": [
+   "crops"
+  ],
+  "6": [
+   "marshes"
+  ],
+  "7": [
+   "malaria"
+  ],
+  "8": [
+   "FALSE"
+  ],
+  "9": [
+   "TRUE"
+  ],
+  "10": [
+   "NOT GIVEN"
+  ],
+  "11": [
+   "TRUE"
+  ],
+  "12": [
+   "FALSE"
+  ],
+  "13": [
+   "NOT GIVEN"
+  ],
+  "14": [
+   "D"
+  ],
+  "15": [
+   "C"
+  ],
+  "16": [
+   "E"
+  ],
+  "17": [
+   "B"
+  ],
+  "18": [
+   "particulates"
+  ],
+  "19": [
+   "composting"
+  ],
+  "20": [
+   "suburbs"
+  ],
+  "21": [
+   "parks"
+  ],
+  "22": [
+   "C"
+  ],
+  "23": [
+   "D"
+  ],
+  "24": [
+   "B"
+  ],
+  "25": [
+   "A"
+  ],
+  "26": [
+   "A"
+  ],
+  "27": [
+   "B"
+  ],
+  "28": [
+   "B"
+  ],
+  "29": [
+   "B"
+  ],
+  "30": [
+   "C"
+  ],
+  "31": [
+   "D"
+  ],
+  "32": [
+   "B"
+  ],
+  "33": [
+   "A"
+  ],
+  "34": [
+   "C"
+  ],
+  "35": [
+   "F"
+  ],
+  "36": [
+   "E"
+  ],
+  "37": [
+   "YES"
+  ],
+  "38": [
+   "NOT GIVEN"
+  ],
+  "39": [
+   "NO"
+  ],
+  "40": [
+   "YES"
+  ]
+ }
+}

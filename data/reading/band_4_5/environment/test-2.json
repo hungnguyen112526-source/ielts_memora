@@ -1,0 +1,565 @@
+{
+ "schema": 1,
+ "id": "band-4-5-environment-test-2",
+ "series": "environment",
+ "category": "band_4_5",
+ "title": "Consumer Goods, Energy & Wilderness",
+ "summary": "The Environmental Cost of Consumer Goods • From Fossil Fuels to Renewable Energy • Oil and Gas in Untouched Wilderness",
+ "subtitle": "Band 4.0–5.0 · Environment",
+ "module": "academic",
+ "durationMin": 60,
+ "totalQuestions": 40,
+ "questionTypes": [
+  "table",
+  "tfng",
+  "matching",
+  "multi2",
+  "summary_text",
+  "mcq",
+  "summary_box"
+ ],
+ "pairQuestions": [
+  [
+   20,
+   21,
+   [
+    "B",
+    "D"
+   ]
+  ]
+ ],
+ "passages": [
+  {
+   "label": "READING PASSAGE 1",
+   "instruction": "You should spend about 20 minutes on Questions 1-13, which are based on Reading Passage 1 below.",
+   "title": "The Environmental Cost of Consumer Goods",
+   "subtitle": "How mass production, packaging, and throwaway habits leave a heavy footprint",
+   "paragraphs": [
+    "Walk into any modern shopping mall or open a shopping app, and you can buy cheap clothes, phones, and kitchen gadgets in seconds. This culture of constant buying is known as consumerism. Thanks to modern mass production in giant factories, items that once took days to make by hand are now produced in millions at very low prices.",
+    "However, cheap shopping carries a hidden price for nature. Every product has a carbon footprint—the total amount of greenhouse gases released when making, shipping, and throwing it away. For instance, fast-fashion brands use huge amounts of water and chemical dyes to make trendy T-shirts that shoppers may wear only a few times before throwing out.",
+    "Another major problem is disposable products and unnecessary packaging. Coffee cups, plastic cutlery, and takeaway boxes are often used for just ten minutes, yet they can sit in rubbish dumps for hundreds of years. Online shopping has also increased waste, as small items are frequently wrapped in layers of bubble wrap and oversized cardboard boxes.",
+    "Even expensive electronics do not always last long. Some manufacturers practise planned obsolescence—designing phones, printers, or washing machines so they break down or become slow after only two or three years, forcing customers to buy brand-new models. Repairing an old device is often made difficult because spare parts are costly or batteries are glued shut.",
+    "Fortunately, a growing movement toward ethical consumption is fighting back. More shoppers are choosing second-hand clothes, bringing reusable coffee mugs, and visiting local 'repair cafes' where volunteers fix broken toasters and laptops for free. Several European countries have also passed 'right-to-repair' laws requiring electronics firms to supply spare parts for up to ten years."
+   ],
+   "groups": [
+    {
+     "title": "Questions 1-5",
+     "instruction": "Complete the table below. Choose <strong>ONE WORD ONLY</strong> from the passage for each answer.",
+     "type": "table",
+     "boxTitle": "Consumer Goods: Environmental Problems and Solutions",
+     "headers": [
+      "Area",
+      "Main issue",
+      "Example or response"
+     ],
+     "rows": [
+      [
+       "Fast fashion",
+       "Uses large amounts of water and chemical {{1}}",
+       ""
+      ],
+      [
+       "Online deliveries",
+       "Extra {{2}} such as bubble wrap and huge cardboard boxes",
+       ""
+      ],
+      [
+       "Electronics",
+       "Hard to repair when {{3}} are glued inside devices",
+       ""
+      ],
+      [
+       "Ethical consumption",
+       "Volunteers at local repair cafes fix broken laptops and {{4}} at no cost",
+       ""
+      ],
+      [
+       "European laws",
+       "Electronics companies must provide spare {{5}} for up to ten years",
+       ""
+      ]
+     ]
+    },
+    {
+     "title": "Questions 6-13",
+     "instruction": "Do the following statements agree with the information given in Reading Passage 1? Write <strong>TRUE</strong>, <strong>FALSE</strong>, or <strong>NOT GIVEN</strong>.",
+     "type": "tfng",
+     "options": [
+      "TRUE",
+      "FALSE",
+      "NOT GIVEN"
+     ],
+     "items": [
+      {
+       "q": 6,
+       "text": "Modern mass production has made many consumer items cheaper to buy than in the past."
+      },
+      {
+       "q": 7,
+       "text": "A product's carbon footprint only counts the gases produced inside the factory."
+      },
+      {
+       "q": 8,
+       "text": "Disposable takeaway containers can remain in rubbish dumps for centuries."
+      },
+      {
+       "q": 9,
+       "text": "Cardboard boxes cause more ocean pollution than bubble wrap."
+      },
+      {
+       "q": 10,
+       "text": "Planned obsolescence helps washing machines last for at least twenty years."
+      },
+      {
+       "q": 11,
+       "text": "Some people choose to buy second-hand clothing as part of ethical consumption."
+      },
+      {
+       "q": 12,
+       "text": "Repair cafes charge a small membership fee to cover the cost of tools."
+      },
+      {
+       "q": 13,
+       "text": "The United States passed right-to-repair laws before European countries did."
+      }
+     ]
+    }
+   ],
+   "qRange": [
+    1,
+    13
+   ]
+  },
+  {
+   "label": "READING PASSAGE 2",
+   "instruction": "You should spend about 20 minutes on Questions 14-26, which are based on Reading Passage 2 below.",
+   "title": "From Fossil Fuels to Renewable Energy",
+   "subtitle": "The benefits and practical challenges of switching to solar and wind power",
+   "paragraphs": [
+    "<strong>A</strong> For over two hundred years, modern civilisation has run mainly on fossil fuels—coal, oil, and natural gas. Because these fuels took millions of years to form underground, they are non-renewable and will eventually run low. More urgently, burning them creates air pollution and drives global warming, pushing countries to shift quickly toward renewable energy.",
+    "<strong>B</strong> Among clean options, solar and wind power have grown the fastest. Unlike coal power stations, solar panels and wind turbines produce electricity without releasing carbon dioxide or smoky fumes. Once built, sunlight and wind are free, meaning clean power plants have very low daily running costs and can supply electricity for decades.",
+    "<strong>C</strong> Switching to renewables also improves national energy security. Many nations currently buy oil and gas from foreign countries, leaving drivers and factories vulnerable whenever global fuel prices jump suddenly. Generating electricity from local sunshine and coastal winds helps governments reduce dependence on imported fuels and keeps household energy bills steadier over time.",
+    "<strong>D</strong> Despite these clear advantages, moving away from fossil fuels faces two big practical challenges. First, building large wind farms, solar fields, and new power lines requires a very high initial investment. Second, renewable power depends heavily on the weather: solar panels stop making power at night, and wind turbines slow down on calm days, so countries still struggle to keep lights on twenty-four hours a day.",
+    "<strong>E</strong> Engineers are working hard to solve these limits. Giant lithium and sand batteries are now being built to store extra electricity generated on sunny or windy afternoons for use during dark winter evenings. In addition, linking national power grids across neighbouring countries allows a windy region to share spare power with a calm one.",
+    "<strong>F</strong> Prices for solar panels have already fallen by more than eighty percent over the last fifteen years. With continued research, government support, and smarter storage systems, experts believe renewable energy can soon become both the cleanest and the cheapest way to power the world."
+   ],
+   "groups": [
+    {
+     "title": "Questions 14-19",
+     "instruction": "Reading Passage 2 has six paragraphs, <strong>A-F</strong>. Which paragraph contains the following information? Write the correct letter, <strong>A-F</strong>.",
+     "type": "matching",
+     "options": [
+      "A",
+      "B",
+      "C",
+      "D",
+      "E",
+      "F"
+     ],
+     "items": [
+      {
+       "q": 14,
+       "text": "a statistic showing how much cheaper solar technology has become recently"
+      },
+      {
+       "q": 15,
+       "text": "how clean local power protects countries from sudden foreign fuel price rises"
+      },
+      {
+       "q": 16,
+       "text": "why coal, oil, and gas are classified as non-renewable resources"
+      },
+      {
+       "q": 17,
+       "text": "new storage methods and cross-border networks that keep power steady"
+      },
+      {
+       "q": 18,
+       "text": "why clean power stations are inexpensive to operate day to day"
+      },
+      {
+       "q": 19,
+       "text": "major financial and weather-related obstacles to adopting renewables"
+      }
+     ]
+    },
+    {
+     "title": "Questions 20-21",
+     "instruction": "Choose <strong>TWO</strong> letters, <strong>A-E</strong>. Which <strong>TWO</strong> practical challenges of switching to renewable energy are mentioned in Paragraph D?",
+     "type": "multi2",
+     "qPair": [
+      20,
+      21
+     ],
+     "options": [
+      {
+       "k": "A",
+       "t": "Solar panels release toxic fumes while generating power."
+      },
+      {
+       "k": "B",
+       "t": "Constructing renewable plants and power lines costs a lot of money upfront."
+      },
+      {
+       "k": "C",
+       "t": "Most countries have run out of land for coastal wind turbines."
+      },
+      {
+       "k": "D",
+       "t": "Electricity output drops when there is no sunlight or wind."
+      },
+      {
+       "k": "E",
+       "t": "Household bills always double when wind farms are built."
+      }
+     ]
+    },
+    {
+     "title": "Questions 22-26",
+     "instruction": "Complete the summary below. Choose <strong>ONE WORD ONLY</strong> from the passage for each answer.",
+     "type": "summary_text",
+     "boxTitle": "Benefits and Technical Solutions for Clean Energy",
+     "paragraphs": [
+      "Unlike coal stations, solar panels and wind {{22}} create power without smoky fumes. Using local renewable sources helps nations cut their reliance on {{23}} oil and gas, keeping household energy {{24}} more stable. To deal with night-time and calm weather, engineers store extra electricity in large lithium and {{25}} batteries, and connect national power {{26}} across neighbouring countries."
+     ]
+    }
+   ],
+   "qRange": [
+    14,
+    26
+   ]
+  },
+  {
+   "label": "READING PASSAGE 3",
+   "instruction": "You should spend about 20 minutes on Questions 27-40, which are based on Reading Passage 3 below.",
+   "title": "Oil and Gas in Untouched Wilderness",
+   "subtitle": "Should energy companies be allowed to drill in the planet's last wild places?",
+   "paragraphs": [
+    "<strong>1</strong> As the world's population grows and economies expand, global energy demand remains very high. Because many old oil fields are slowly running dry, energy companies are looking toward remote regions—such as the Arctic tundra, deep rainforests, and icy polar seas—for new reserves. This push has sparked fierce debate over whether drilling should ever be permitted in an untouched wilderness.",
+    "<strong>2</strong> Supporters of resource extraction argue that opening remote oil and gas fields brings clear economic gains. Developing new supplies can keep petrol and heating costs affordable for ordinary families and create thousands of well-paid engineering jobs in poor or isolated towns. Energy firms also claim that modern computers and safer pipes make drilling much cleaner than it was fifty years ago.",
+    "<strong>3</strong> Environmental scientists strongly disagree. Even before a single drop of oil is pumped, building roads, pipelines, and landing strips slices through a pristine environment. Heavy trucks and noisy machinery cause serious habitat destruction, scaring away migrating reindeer, polar bears, and rare forest birds that depend on quiet, unbroken land to raise their young.",
+    "<strong>4</strong> An even greater fear is a major oil spill. In freezing Arctic waters or dense tropical jungles, rough weather and long distances from rescue ports make accidents extremely hard to clean up. A single leaking pipe can poison rivers, coat seabirds in thick black oil, and leave lasting ecological damage that takes decades to heal—destroying local fishing and hunting communities along the way.",
+    "<strong>5</strong> Indigenous groups who have lived in these wild areas for centuries often voice the strongest opposition. For them, forests and rivers are not empty wasteland waiting to be mined; they are living homes that provide food, clean water, and cultural identity. Many argue that short-term profits go mainly to distant corporations while local residents are left with polluted water.",
+    "<strong>6</strong> In my view, drilling in the Earth's last wild corners is a dangerous step backwards. Instead of spending billions searching for hard-to-reach oil that worsens climate change, governments and energy companies should direct that money toward renewable power and energy efficiency. Once a pristine wilderness is lost, no amount of money can bring it back."
+   ],
+   "groups": [
+    {
+     "title": "Questions 27-29",
+     "instruction": "Choose the correct letter, <strong>A, B, C or D</strong>.",
+     "type": "mcq",
+     "items": [
+      {
+       "q": 27,
+       "text": "Why are energy companies interested in remote regions like the Arctic in paragraph 1?",
+       "options": [
+        {
+         "k": "A",
+         "t": "Drilling equipment works faster in freezing temperatures."
+        },
+        {
+         "k": "B",
+         "t": "High energy demand and declining older oil fields push them to find new reserves."
+        },
+        {
+         "k": "C",
+         "t": "Environmental laws are completely absent in rainforests."
+        },
+        {
+         "k": "D",
+         "t": "Local towns invited companies to build polar ports."
+        }
+       ]
+      },
+      {
+       "q": 28,
+       "text": "What point do environmental scientists make in paragraph 3?",
+       "options": [
+        {
+         "k": "A",
+         "t": "Wildlife is harmed only when oil leaks from a broken pipe."
+        },
+        {
+         "k": "B",
+         "t": "Building roads and pipelines alone damages quiet habitats and disturbs animals."
+        },
+        {
+         "k": "C",
+         "t": "Reindeer and polar bears quickly get used to heavy trucks."
+        },
+        {
+         "k": "D",
+         "t": "Modern computers have prevented all noise in drilling areas."
+        }
+       ]
+      },
+      {
+       "q": 29,
+       "text": "Why do many indigenous people oppose drilling in paragraph 5?",
+       "options": [
+        {
+         "k": "A",
+         "t": "They want to build their own oil pipelines instead."
+        },
+        {
+         "k": "B",
+         "t": "They depend on the land for food and identity, while profits go to outside firms."
+        },
+        {
+         "k": "C",
+         "t": "They refuse to accept engineering jobs in nearby cities."
+        },
+        {
+         "k": "D",
+         "t": "They prefer nuclear power plants to oil rigs."
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "title": "Questions 30-35",
+     "instruction": "Complete the summary using the list of words and phrases, <strong>A-I</strong>, below. Write the correct letter, <strong>A-I</strong>.",
+     "type": "summary_box",
+     "boxTitle": "Arguments For and Against Wilderness Drilling",
+     "legend": [
+      {
+       "key": "A",
+       "text": "clean up"
+      },
+      {
+       "key": "B",
+       "text": "oil spill"
+      },
+      {
+       "key": "C",
+       "text": "clean energy"
+      },
+      {
+       "key": "D",
+       "text": "heating costs"
+      },
+      {
+       "key": "E",
+       "text": "ecological harm"
+      },
+      {
+       "key": "F",
+       "text": "modern technology"
+      },
+      {
+       "key": "G",
+       "text": "tourist hotels"
+      },
+      {
+       "key": "H",
+       "text": "free transport"
+      },
+      {
+       "key": "I",
+       "text": "coal mines"
+      }
+     ],
+     "options": [
+      "A",
+      "B",
+      "C",
+      "D",
+      "E",
+      "F",
+      "G",
+      "H",
+      "I"
+     ],
+     "paragraphs": [
+      "Supporters say drilling in wild places can keep {{30}} reasonable and create jobs in remote towns. They also believe {{31}} makes modern drilling safer. However, critics warn that new roads and loud machines disturb breeding wildlife, and an {{32}} in icy seas or thick jungles would be very hard to {{33}}. Such disasters cause long-term {{34}} and threaten local fishing. The writer concludes that funds should go into {{35}} rather than destroying wild areas."
+     ]
+    },
+    {
+     "title": "Questions 36-39",
+     "instruction": "Do the following statements agree with the claims of the writer in Reading Passage 3? Write <strong>YES</strong>, <strong>NO</strong>, or <strong>NOT GIVEN</strong>.",
+     "type": "tfng",
+     "options": [
+      "YES",
+      "NO",
+      "NOT GIVEN"
+     ],
+     "items": [
+      {
+       "q": 36,
+       "text": "Rescue teams can quickly clean up oil leaks in remote Arctic waters."
+      },
+      {
+       "q": 37,
+       "text": "More oil has been discovered in tropical rainforests than in the Arctic tundra."
+      },
+      {
+       "q": 38,
+       "text": "Indigenous communities view wild forests as empty land with little everyday value."
+      },
+      {
+       "q": 39,
+       "text": "Destroyed wilderness areas cannot be fully restored even with large amounts of money."
+      }
+     ]
+    },
+    {
+     "title": "Question 40",
+     "instruction": "Choose the correct letter, <strong>A, B, C or D</strong>.",
+     "type": "mcq",
+     "items": [
+      {
+       "q": 40,
+       "text": "What would be the best subtitle for Reading Passage 3?",
+       "options": [
+        {
+         "k": "A",
+         "t": "How Arctic drilling has solved global fuel shortages"
+        },
+        {
+         "k": "B",
+         "t": "Why protecting wild nature outweighs the short-term profits of remote drilling"
+        },
+        {
+         "k": "C",
+         "t": "Why local fishing towns welcome oil pipelines"
+        },
+        {
+         "k": "D",
+         "t": "How modern pipes have ended all oil spills forever"
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "qRange": [
+    27,
+    40
+   ]
+  }
+ ],
+ "answers": {
+  "1": [
+   "dyes"
+  ],
+  "2": [
+   "packaging"
+  ],
+  "3": [
+   "batteries"
+  ],
+  "4": [
+   "toasters"
+  ],
+  "5": [
+   "parts"
+  ],
+  "6": [
+   "TRUE"
+  ],
+  "7": [
+   "FALSE"
+  ],
+  "8": [
+   "TRUE"
+  ],
+  "9": [
+   "NOT GIVEN"
+  ],
+  "10": [
+   "FALSE"
+  ],
+  "11": [
+   "TRUE"
+  ],
+  "12": [
+   "FALSE"
+  ],
+  "13": [
+   "NOT GIVEN"
+  ],
+  "14": [
+   "F"
+  ],
+  "15": [
+   "C"
+  ],
+  "16": [
+   "A"
+  ],
+  "17": [
+   "E"
+  ],
+  "18": [
+   "B"
+  ],
+  "19": [
+   "D"
+  ],
+  "20": [
+   "B",
+   "D"
+  ],
+  "21": [
+   "B",
+   "D"
+  ],
+  "22": [
+   "turbines"
+  ],
+  "23": [
+   "imported"
+  ],
+  "24": [
+   "bills"
+  ],
+  "25": [
+   "sand"
+  ],
+  "26": [
+   "grids"
+  ],
+  "27": [
+   "B"
+  ],
+  "28": [
+   "B"
+  ],
+  "29": [
+   "B"
+  ],
+  "30": [
+   "D"
+  ],
+  "31": [
+   "F"
+  ],
+  "32": [
+   "B"
+  ],
+  "33": [
+   "A"
+  ],
+  "34": [
+   "E"
+  ],
+  "35": [
+   "C"
+  ],
+  "36": [
+   "NO"
+  ],
+  "37": [
+   "NOT GIVEN"
+  ],
+  "38": [
+   "NO"
+  ],
+  "39": [
+   "YES"
+  ],
+  "40": [
+   "B"
+  ]
+ }
+}

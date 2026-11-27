@@ -1,0 +1,555 @@
+{
+ "schema": 1,
+ "id": "band-5-6-5-education-test-6",
+ "series": "education",
+ "category": "band_5_6_5",
+ "title": "Education, Skills & Pressure",
+ "summary": "Learning Online or in the Classroom? • Taking a Year Off Before University • Why Is It Hard to Concentrate at School?",
+ "subtitle": "Band 5.0–6.5 · Education",
+ "module": "academic",
+ "durationMin": 60,
+ "totalQuestions": 40,
+ "questionTypes": [
+  "table",
+  "tfng",
+  "matching",
+  "multi2",
+  "summary_text",
+  "mcq",
+  "summary_box"
+ ],
+ "pairQuestions": [
+  [
+   20,
+   21,
+   [
+    "B",
+    "D"
+   ]
+  ]
+ ],
+ "passages": [
+  {
+   "label": "READING PASSAGE 1",
+   "instruction": "You should spend about 20 minutes on Questions 1-13, which are based on Reading Passage 1 below.",
+   "title": "Learning Online or in the Classroom?",
+   "subtitle": "Comparing digital convenience with the human dynamics of traditional teaching",
+   "paragraphs": [
+    "The rapid spread of high-speed internet has reshaped how people of all ages acquire new skills. While traditional schools and universities relied almost entirely on physical classrooms for centuries, millions of learners now log into virtual lectures from their bedrooms, local cafes, or commuter trains. This dramatic shift has sparked intense debate over whether online study can genuinely replace face-to-face teaching.",
+    "Supporters of digital education point first to convenience. Studying online lets learners save time and transport money by cutting out daily commutes across crowded cities. Courses are also remarkably flexible: recorded explanations allow students to pause difficult sections, review charts at their own pace, or fit study around part-time shifts and childcare. For adults living in rural towns far from major colleges, internet platforms have opened academic doors that were previously closed.",
+    "However, classroom evaluations suggest that digital convenience comes with hidden costs. Many students complain about a lack of interaction during video seminars, where muted microphones and blank camera screens discourage lively discussion. Without an instructor physically walking around the room, shy learners rarely raise questions, and small misunderstandings can build up unnoticed until exam week.",
+    "Maintaining focus at home is another persistent obstacle. When a student studies on the same laptop used for gaming, messaging, and streaming videos, every incoming alert acts as a powerful distraction. Household noise, unfinished chores, and weak home Wi-Fi further interrupt concentration. Research from two Australian universities found that students attending live campus lectures scored higher on memory recall tests than peers watching identical recordings at home.",
+    "Because neither format wins on every measure, most modern educators now favour a 'blended' model rather than replacing classrooms altogether. Under this approach, students watch short concept videos and complete automated vocabulary quizzes online before arriving on campus. Valuable classroom hours are then reserved for laboratory practicals, group debates, and direct teacher feedback—combining digital flexibility with authentic human connection."
+   ],
+   "groups": [
+    {
+     "title": "Questions 1-5",
+     "instruction": "Complete the table below. Choose <strong>ONE WORD ONLY</strong> from the passage for each answer.",
+     "type": "table",
+     "boxTitle": "Comparing Learning Formats",
+     "headers": [
+      "Learning format",
+      "Key advantage",
+      "Main limitation or feature"
+     ],
+     "rows": [
+      [
+       "Online learning",
+       "• Helps learners save time by removing daily {{1}}<br>• Very {{2}}, letting students pause recordings and study around work<br>• Notifications on laptops act as a constant {{3}} at home",
+       ""
+      ],
+      [
+       "Campus lectures",
+       "Australian research linked live classes to better memory {{4}}",
+       ""
+      ],
+      [
+       "Blended learning",
+       "Reserves classroom time for debates, lab practicals, and teacher {{5}}",
+       ""
+      ]
+     ]
+    },
+    {
+     "title": "Questions 6-13",
+     "instruction": "Do the following statements agree with the information given in Reading Passage 1? Write <strong>TRUE</strong>, <strong>FALSE</strong>, or <strong>NOT GIVEN</strong>.",
+     "type": "tfng",
+     "options": [
+      "TRUE",
+      "FALSE",
+      "NOT GIVEN"
+     ],
+     "items": [
+      {
+       "q": 6,
+       "text": "Online platforms have expanded study opportunities for adults living in remote rural areas."
+      },
+      {
+       "q": 7,
+       "text": "Recorded video lessons make it harder for working parents to balance study with childcare."
+      },
+      {
+       "q": 8,
+       "text": "Turning off cameras and muting microphones during online seminars tends to reduce lively discussion."
+      },
+      {
+       "q": 9,
+       "text": "Universities in Australia charge lower fees for online degrees than for campus degrees."
+      },
+      {
+       "q": 10,
+       "text": "In the Australian study, campus students and online students watched completely different lecture content."
+      },
+      {
+       "q": 11,
+       "text": "Most educators today think online tools should completely replace physical classrooms."
+      },
+      {
+       "q": 12,
+       "text": "In a blended model, students complete short vocabulary quizzes before coming to class."
+      },
+      {
+       "q": 13,
+       "text": "Secondary school pupils prefer blended learning more strongly than university students do."
+      }
+     ]
+    }
+   ],
+   "qRange": [
+    1,
+    13
+   ]
+  },
+  {
+   "label": "READING PASSAGE 2",
+   "instruction": "You should spend about 20 minutes on Questions 14-26, which are based on Reading Passage 2 below.",
+   "title": "Taking a Year Off Before University",
+   "subtitle": "Examining the benefits, pitfalls, and growing structure of the modern gap year",
+   "paragraphs": [
+    "<strong>A</strong> After twelve or thirteen years of continuous schooling and exam pressure, an increasing number of eighteen-year-olds choose to postpone higher education for twelve months. Commonly known as a gap year, this break was once seen mainly as a luxury for wealthy European school leavers wanting to backpack across Asia or South America. Today, however, structured gap programmes are actively encouraged by many universities in Britain, Australia, and North America.",
+    "<strong>B</strong> Supporters highlight personal growth as the biggest reward. Independent travel abroad teaches young adults how to budget limited savings, solve transport mishaps, and interact respectfully with unfamiliar communities. University admissions tutors frequently observe that returning gap-year students arrive on campus noticeably more mature, organised, and confident in seminar discussions than peers who enter straight from high school.",
+    "<strong>C</strong> A gap year does not have to involve international flights. Many school leavers spend the twelve months gaining paid work experience in offices, cafes, or local charities. Working full time helps teenagers save money toward university housing while testing whether a career field genuinely appeals to them. A student who spends six months assisting in a dental clinic or an architectural firm, for example, can confirm their interest before committing to a long, expensive degree.",
+    "<strong>D</strong> Nevertheless, taking a year off carries real risks if the time is poorly planned. Academic advisers warn that twelve months away from essays and maths exercises can cause some teenagers to lose motivation for formal study. Two common problems appear in dropout surveys: students who spend the year drifting without clear goals often feel bored and isolated once their friends leave for college, while others grow attached to a full-time wage and decide never to return to university.",
+    "<strong>E</strong> Financial fairness is another concern. Commercial 'voluntourism' companies charge thousands of dollars for short overseas wildlife or teaching placements, raising worries that exciting gap years remain out of reach for lower-income youth. Critics also question whether brief, unskilled volunteer trips genuinely benefit host villages, suggesting that local workers are sometimes displaced when charities rely on rotating foreign teenagers.",
+    "<strong>F</strong> To make a gap year truly worthwhile, career counsellors advise teenagers to design a clear calendar before leaving high school—combining paid local work for the first half of the year with focused travel, language study, or community projects in the second half. Crucially, securing a deferred university offer beforehand provides a firm return date, helping young adults enjoy their freedom without losing sight of their long-term ambitions."
+   ],
+   "groups": [
+    {
+     "title": "Questions 14-19",
+     "instruction": "Reading Passage 2 has six paragraphs, <strong>A-F</strong>. Which paragraph contains the following information? Write the correct letter, <strong>A-F</strong>.",
+     "type": "matching",
+     "options": [
+      "A",
+      "B",
+      "C",
+      "D",
+      "E",
+      "F"
+     ],
+     "items": [
+      {
+       "q": 14,
+       "text": "advice on splitting a gap year into two different stages and securing a university place in advance"
+      },
+      {
+       "q": 15,
+       "text": "how working during a gap year helps teenagers check if a profession really suits them"
+      },
+      {
+       "q": 16,
+       "text": "a concern that short-term foreign volunteers might negatively affect local employment"
+      },
+      {
+       "q": 17,
+       "text": "how attitudes toward gap years have shifted from a wealthy privilege to an accepted option"
+      },
+      {
+       "q": 18,
+       "text": "observations from university staff about the classroom behaviour of students who took a year off"
+      },
+      {
+       "q": 19,
+       "text": "the danger of academic skills fading during a twelve-month break from study"
+      }
+     ]
+    },
+    {
+     "title": "Questions 20-21",
+     "instruction": "Choose <strong>TWO</strong> letters, <strong>A-E</strong>. Which <strong>TWO</strong> problems are highlighted in dropout surveys regarding poorly planned gap years in paragraph D?",
+     "type": "multi2",
+     "qPair": [
+      20,
+      21
+     ],
+     "options": [
+      {
+       "k": "A",
+       "t": "Students run out of money while backpacking across South America."
+      },
+      {
+       "k": "B",
+       "t": "Students without clear plans can feel lonely and bored once peers start college."
+      },
+      {
+       "k": "C",
+       "t": "Universities frequently cancel deferred places for returning students."
+      },
+      {
+       "k": "D",
+       "t": "Some teenagers get used to earning regular pay and choose not to enter university."
+      },
+      {
+       "k": "E",
+       "t": "Employers refuse to hire eighteen-year-olds for temporary jobs."
+      }
+     ]
+    },
+    {
+     "title": "Questions 22-26",
+     "instruction": "Complete the summary below. Choose <strong>ONE WORD ONLY</strong> from the passage for each answer.",
+     "type": "summary_text",
+     "boxTitle": "Making the Most of a Gap Year",
+     "paragraphs": [
+      "Independent travel during a gap year helps teenagers budget carefully and handle transport {{22}}, allowing them to enter university more mature. Alternatively, staying home to gain paid work experience helps students save for university {{23}} and test out potential careers such as architecture or dentistry. However, critics question expensive commercial {{24}} trips, arguing they are unaffordable for poorer students. Counsellors therefore recommend planning a clear {{25}} and arranging a {{26}} university offer before leaving high school."
+     ]
+    }
+   ],
+   "qRange": [
+    14,
+    26
+   ]
+  },
+  {
+   "label": "READING PASSAGE 3",
+   "instruction": "You should spend about 20 minutes on Questions 27-40, which are based on Reading Passage 3 below.",
+   "title": "Why Is It Hard to Concentrate at School?",
+   "subtitle": "Investigating fatigue, classroom acoustics, smartphones, and cognitive overload in modern schools",
+   "paragraphs": [
+    "<strong>1</strong> Ask secondary school teachers around the world about their biggest daily frustration, and a remarkably consistent answer emerges: getting students to pay attention. Across both primary and high school classrooms, educators report that young people appear more restless and quicker to switch off during extended reading or problem-solving tasks than previous cohorts.",
+    "<strong>2</strong> While it is tempting to blame poor manners, sleep researchers point first to chronic exhaustion. Surveys show that a large proportion of teenagers arrive at morning classes severely tired, sleeping far less than the recommended eight to ten hours. Biological shifts during adolescence naturally push teenagers' sleep cycles later, yet early school start times and heavy evening homework loads collide with this rhythm, leaving adolescent brains foggy during first-period lessons.",
+    "<strong>3</strong> The physical classroom itself often works against sustained concentration. Acoustic engineers who measured sound levels in urban schools found that many rooms are unexpectedly noisy due to echoing ceilings, hallway footsteps, and traffic outside open windows. Even moderate background chatter forces young brains to expend extra mental effort just to decode a teacher's voice, leaving less working memory available for understanding new ideas.",
+    "<strong>4</strong> No factor, however, has transformed classroom focus more dramatically than the smartphone. Cognitive scientists have discovered that simply having a personal phone resting face-down on a desk reduces measurable concentration—a phenomenon dubbed 'brain drain'. Even when notifications are silenced, part of the student's mental bandwidth stays busy resisting the urge to check messages, while rapid-fire short videos watched after school train the brain to crave constant novelty rather than patient study.",
+    "<strong>5</strong> Educational psychologist Dr. Nadia Al-Mansoor emphasises that punishing distracted pupils rarely fixes the underlying causes. 'Concentration is a skill built inside supportive environments, not simply a matter of willpower,' she argues. Schools that shifted morning bells thirty minutes later, added acoustic ceiling panels, and introduced phone-free school days have recorded noticeable gains in both test scores and classroom calm.",
+    "<strong>6</strong> Helping students regain deep focus requires teamwork beyond the classroom door. Teachers can break long lectures into varied segments and assign purposeful rather than excessive homework, while families can protect bedtime routines by keeping phones charging outside teenagers' bedrooms. Only by addressing sleep, noise, and digital habits together can schools become places where young minds genuinely thrive."
+   ],
+   "groups": [
+    {
+     "title": "Questions 27-29",
+     "instruction": "Choose the correct letter, <strong>A, B, C or D</strong>.",
+     "type": "mcq",
+     "items": [
+      {
+       "q": 27,
+       "text": "According to paragraph 2, why do many teenagers struggle to focus during early morning lessons?",
+       "options": [
+        {
+         "k": "A",
+         "t": "They prefer spending morning classes talking to classmates."
+        },
+        {
+         "k": "B",
+         "t": "Natural shifts in teenage sleep rhythms clash with early bells and late homework."
+        },
+        {
+         "k": "C",
+         "t": "Sleep researchers advise teenagers to sleep less than eight hours."
+        },
+        {
+         "k": "D",
+         "t": "Schools do not teach interesting subjects during the first period."
+        }
+       ]
+      },
+      {
+       "q": 28,
+       "text": "What do acoustic engineers explain about background noise in paragraph 3?",
+       "options": [
+        {
+         "k": "A",
+         "t": "Only loud street traffic interferes with classroom listening."
+        },
+        {
+         "k": "B",
+         "t": "Filtering out moderate noise uses up mental capacity needed for learning."
+        },
+        {
+         "k": "C",
+         "t": "Students quickly become used to echoing ceilings and ignore them."
+        },
+        {
+         "k": "D",
+         "t": "Urban schools have quieter classrooms than rural schools."
+        }
+       ]
+      },
+      {
+       "q": 29,
+       "text": "What does the cognitive research on smartphones in paragraph 4 show?",
+       "options": [
+        {
+         "k": "A",
+         "t": "Silencing a phone completely eliminates its impact on classroom focus."
+        },
+        {
+         "k": "B",
+         "t": "Merely having a phone visible on a desk consumes mental energy."
+        },
+        {
+         "k": "C",
+         "t": "Watching short videos after school improves working memory."
+        },
+        {
+         "k": "D",
+         "t": "Phones only distract students who have heavy homework loads."
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "title": "Questions 30-35",
+     "instruction": "Complete the summary using the list of words and phrases, <strong>A-I</strong>, below. Write the correct letter, <strong>A-I</strong>.",
+     "type": "summary_box",
+     "boxTitle": "Tackling Distraction in Schools",
+     "legend": [
+      {
+       "key": "A",
+       "text": "strict punishment"
+      },
+      {
+       "key": "B",
+       "text": "constant novelty"
+      },
+      {
+       "key": "C",
+       "text": "teenagers' bedrooms"
+      },
+      {
+       "key": "D",
+       "text": "later starts"
+      },
+      {
+       "key": "E",
+       "text": "meaningful homework"
+      },
+      {
+       "key": "F",
+       "text": "poor manners"
+      },
+      {
+       "key": "G",
+       "text": "longer lectures"
+      },
+      {
+       "key": "H",
+       "text": "quiet libraries"
+      },
+      {
+       "key": "I",
+       "text": "extra exams"
+      }
+     ],
+     "options": [
+      "A",
+      "B",
+      "C",
+      "D",
+      "E",
+      "F",
+      "G",
+      "H",
+      "I"
+     ],
+     "paragraphs": [
+      "Research suggests that classroom inattention stems from environmental and biological pressures rather than bad {{30}}. Alongside lack of sleep and noisy rooms, rapid online clips train young minds to expect {{31}}. According to Dr. Nadia Al-Mansoor, simply using {{32}} fails to solve distraction. Instead, practical measures such as slightly {{33}}, sound-absorbing panels, and phone-free policies have improved academic results. Finally, the writer urges teachers to assign more {{34}} and parents to keep devices out of {{35}} overnight."
+     ]
+    },
+    {
+     "title": "Questions 36-39",
+     "instruction": "Do the following statements agree with the claims of the writer in Reading Passage 3? Write <strong>YES</strong>, <strong>NO</strong>, or <strong>NOT GIVEN</strong>.",
+     "type": "tfng",
+     "options": [
+      "YES",
+      "NO",
+      "NOT GIVEN"
+     ],
+     "items": [
+      {
+       "q": 36,
+       "text": "Teachers across different countries share similar concerns about declining student attention."
+      },
+      {
+       "q": 37,
+       "text": "Acoustic ceiling panels are more expensive to install than starting school later."
+      },
+      {
+       "q": 38,
+       "text": "Dr. Nadia Al-Mansoor believes that paying attention depends solely on a student's personal willpower."
+      },
+      {
+       "q": 39,
+       "text": "Solving concentration problems in schools requires cooperation between teachers and parents."
+      }
+     ]
+    },
+    {
+     "title": "Question 40",
+     "instruction": "Choose the correct letter, <strong>A, B, C or D</strong>.",
+     "type": "mcq",
+     "items": [
+      {
+       "q": 40,
+       "text": "What would be the most suitable subtitle for Reading Passage 3?",
+       "options": [
+        {
+         "k": "A",
+         "t": "Why smartphones should be used in every secondary classroom"
+        },
+        {
+         "k": "B",
+         "t": "Understanding the hidden barriers to student focus and how to overcome them"
+        },
+        {
+         "k": "C",
+         "t": "How homework loads can be doubled without causing tiredness"
+        },
+        {
+         "k": "D",
+         "t": "Why teachers should enforce stricter classroom discipline"
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "qRange": [
+    27,
+    40
+   ]
+  }
+ ],
+ "answers": {
+  "1": [
+   "commutes"
+  ],
+  "2": [
+   "flexible"
+  ],
+  "3": [
+   "distraction"
+  ],
+  "4": [
+   "recall"
+  ],
+  "5": [
+   "feedback"
+  ],
+  "6": [
+   "TRUE"
+  ],
+  "7": [
+   "FALSE"
+  ],
+  "8": [
+   "TRUE"
+  ],
+  "9": [
+   "NOT GIVEN"
+  ],
+  "10": [
+   "FALSE"
+  ],
+  "11": [
+   "FALSE"
+  ],
+  "12": [
+   "TRUE"
+  ],
+  "13": [
+   "NOT GIVEN"
+  ],
+  "14": [
+   "F"
+  ],
+  "15": [
+   "C"
+  ],
+  "16": [
+   "E"
+  ],
+  "17": [
+   "A"
+  ],
+  "18": [
+   "B"
+  ],
+  "19": [
+   "D"
+  ],
+  "20": [
+   "B",
+   "D"
+  ],
+  "21": [
+   "B",
+   "D"
+  ],
+  "22": [
+   "mishaps"
+  ],
+  "23": [
+   "housing"
+  ],
+  "24": [
+   "voluntourism"
+  ],
+  "25": [
+   "calendar"
+  ],
+  "26": [
+   "deferred"
+  ],
+  "27": [
+   "B"
+  ],
+  "28": [
+   "B"
+  ],
+  "29": [
+   "B"
+  ],
+  "30": [
+   "F"
+  ],
+  "31": [
+   "B"
+  ],
+  "32": [
+   "A"
+  ],
+  "33": [
+   "D"
+  ],
+  "34": [
+   "E"
+  ],
+  "35": [
+   "C"
+  ],
+  "36": [
+   "YES"
+  ],
+  "37": [
+   "NOT GIVEN"
+  ],
+  "38": [
+   "NO"
+  ],
+  "39": [
+   "YES"
+  ],
+  "40": [
+   "B"
+  ]
+ }
+}

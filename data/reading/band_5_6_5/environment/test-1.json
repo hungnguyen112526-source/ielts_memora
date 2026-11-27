@@ -1,0 +1,547 @@
+{
+ "schema": 1,
+ "id": "band-5-6-5-environment-test-1",
+ "series": "environment",
+ "category": "band_5_6_5",
+ "title": "Climate Change, Growth & Business",
+ "summary": "Climate Change: Causes and Effects • Economic Growth or Environmental Protection? • Climate Change: Risk or Opportunity for Business?",
+ "subtitle": "Band 5.0–6.5 · Environment",
+ "module": "academic",
+ "durationMin": 60,
+ "totalQuestions": 40,
+ "questionTypes": [
+  "notes",
+  "tfng",
+  "matching",
+  "summary_text",
+  "mcq",
+  "summary_box"
+ ],
+ "passages": [
+  {
+   "label": "READING PASSAGE 1",
+   "instruction": "You should spend about 20 minutes on Questions 1-13, which are based on Reading Passage 1 below.",
+   "title": "Climate Change: Causes and Effects",
+   "subtitle": "How rising carbon levels are altering weather extremes, coastal geography, and global food production",
+   "paragraphs": [
+    "Since the Industrial Revolution, the Earth's average surface temperature has climbed by more than 1.1 degrees Celsius—a rapid shift widely known as global warming. Climate scientists agree that human activity is the dominant driver. Burning coal, oil, and natural gas to power electricity grids, steel mills, and global shipping releases vast quantities of carbon emissions alongside methane from livestock and landfills. Together, these greenhouse gases thicken the heat-trapping layer surrounding the planet.",
+    "In natural quantities, greenhouse gases keep Earth habitable rather than frozen. Once concentrations pass historical norms, however, excess heat builds up in both the atmosphere and the oceans. Warmer seas evaporate faster, loading storm clouds with extra moisture and fuelling extreme weather—from prolonged heatwaves across southern Europe to destructive cyclones and sudden flash floods in river basins.",
+    "Polar regions are warming even faster than the global average, accelerating melting ice caps across Greenland and western Antarctica. Combined with the thermal expansion of warming ocean water, this meltwater is driving steady rising sea levels. Low-lying deltas in Bangladesh and Pacific coral atolls face worsening saltwater intrusion into drinking wells, forcing planners to debate whether to build massive concrete barriers or organise 'managed retreat' by relocating coastal towns inland.",
+    "Agriculture stands on the front line of these shifts. Unpredictable monsoon rains, soil-parching droughts, and sudden late frosts trigger widespread crop failure in major wheat, maize, and rice belts. When harvests fall sharply in exporting nations, supermarket prices spike worldwide, hitting low-income urban families hardest and forcing commercial insurers to raise premiums on farm policies.",
+    "Because some warming is already locked into the climate system for decades, policy experts emphasize a dual response: cutting emissions while learning to live with climate change. Practical adaptation ranges from breeding drought-tolerant grain varieties and restoring coastal mangroves to installing cooling 'white roofs' in overheated cities. Combining ambitious emissions cuts with smart adaptation offers the surest protection for future livelihoods."
+   ],
+   "groups": [
+    {
+     "title": "Questions 1-7",
+     "instruction": "Complete the notes below. Choose <strong>ONE WORD ONLY</strong> from the passage for each answer.",
+     "type": "notes",
+     "boxTitle": "Drivers, Impacts, and Adaptation to Climate Change",
+     "sections": [
+      {
+       "heading": "Human causes",
+       "items": [
+        "Burning fossil fuels for power, shipping, and steel {{1}} releases large amounts of carbon.",
+        "Methane is also emitted by landfills and {{2}}."
+       ]
+      },
+      {
+       "heading": "Ocean and coastal effects",
+       "items": [
+        "Warmer ocean surfaces add extra {{3}} to storm systems, intensifying weather extremes.",
+        "Rising seas push saltwater into freshwater {{4}} in low-lying deltas and atolls.",
+        "Planners weigh concrete barriers against moving coastal settlements {{5}}."
+       ]
+      },
+      {
+       "heading": "Economic and farm impacts",
+       "items": [
+        "Frequent crop failure leads insurers to increase farm policy {{6}}."
+       ]
+      },
+      {
+       "heading": "Adaptation measures",
+       "items": [
+        "Coastal protection includes restoring {{7}} alongside developing drought-tolerant grains."
+       ]
+      }
+     ]
+    },
+    {
+     "title": "Questions 8-13",
+     "instruction": "Do the following statements agree with the information given in Reading Passage 1? Write <strong>TRUE</strong>, <strong>FALSE</strong>, or <strong>NOT GIVEN</strong>.",
+     "type": "tfng",
+     "options": [
+      "TRUE",
+      "FALSE",
+      "NOT GIVEN"
+     ],
+     "items": [
+      {
+       "q": 8,
+       "text": "Without natural greenhouse gases, Earth would be too cold for human habitation."
+      },
+      {
+       "q": 9,
+       "text": "Polar regions are warming at a slower rate than the rest of the planet."
+      },
+      {
+       "q": 10,
+       "text": "Melting ice caps are the sole cause of rising global sea levels."
+      },
+      {
+       "q": 11,
+       "text": "Bangladesh has already relocated more coastal residents inland than Pacific island nations."
+      },
+      {
+       "q": 12,
+       "text": "Poorer city residents are particularly affected when poor harvests push up global food prices."
+      },
+      {
+       "q": 13,
+       "text": "Installing white roofs is more expensive for cities than breeding drought-tolerant crops."
+      }
+     ]
+    }
+   ],
+   "qRange": [
+    1,
+    13
+   ]
+  },
+  {
+   "label": "READING PASSAGE 2",
+   "instruction": "You should spend about 20 minutes on Questions 14-26, which are based on Reading Passage 2 below.",
+   "title": "Economic Growth or Environmental Protection?",
+   "subtitle": "Examining whether developing nations can end poverty without exhausting natural ecosystems",
+   "paragraphs": [
+    "<strong>A</strong> For decades, policymakers treated rapid economic growth as the undisputed cure for human hardship. Expanding manufacturing, highways, and global trade helped lift people out of poverty across East Asia and Latin America, delivering modern clinics, clean piped water, and higher literacy rates to hundreds of millions of citizens.",
+    "<strong>B</strong> Yet ecologists warn that conventional industrial growth rests on an unsustainable foundation. Dr. Amara Okafor, an environmental economist in Nigeria, argues that unregulated mining, timber clearing, and coal generation rapidly deplete resources faster than nature can regenerate them. 'Official GDP figures celebrate factory output while completely ignoring poisoned rivers, eroded farmland, and rising asthma bills,' she observes. 'Destroying our ecological base eventually stalls growth itself.'",
+    "<strong>C</strong> Spokespeople for emerging economies often respond that green restrictions risk locking poorer populations out of prosperity. Carlos Mendez, a trade adviser in Colombia, points out that wealthy Western nations industrialised using cheap fossil fuels for nearly two centuries. 'Asking developing states to halt affordable power plants before cleaner grids are financed feels deeply inequitable,' he argues. 'When factories close abruptly, rural migrants lose steady wages and poverty rebounds.'",
+    "<strong>D</strong> To move past this stalemate, international institutions promote sustainable development—an approach aiming to strike a balance between poverty reduction and ecological stability. Central to this vision is 'decoupling': designing economies that expand output and living standards while steadily lowering carbon emissions and raw material use per unit of wealth produced.",
+    "<strong>E</strong> Supporters of a green economy maintain that environmental care can become a powerful engine of employment rather than a drag on growth. Haruki Sato, an industrial strategist in Tokyo, points to surging demand for grid-scale batteries, geothermal engineering, and circular recycling hubs. 'Retrofitting older buildings for energy efficiency alone creates thousands of skilled local jobs that cannot be outsourced overseas,' he notes.",
+    "<strong>F</strong> Still, financing the transition remains the decisive hurdle for low-income nations. Dr. Elena Petrova, a development finance specialist in Geneva, stresses that global climate funds and green bonds must lower borrowing costs for emerging markets. 'Wealthy countries already enjoy cheap capital for clean energy,' she explains. 'Unless international lenders share investment risks fairly, poorer states will remain trapped between urgent poverty relief and long-term environmental protection.'"
+   ],
+   "groups": [
+    {
+     "title": "Questions 14-17",
+     "instruction": "Reading Passage 2 has six sections, <strong>A-F</strong>. Which section contains the following information? Write the correct letter, <strong>A-F</strong>.",
+     "type": "matching",
+     "options": [
+      "A",
+      "B",
+      "C",
+      "D",
+      "E",
+      "F"
+     ],
+     "items": [
+      {
+       "q": 14,
+       "text": "an explanation of a concept that separates rising prosperity from increasing resource use"
+      },
+      {
+       "q": 15,
+       "text": "a criticism that standard economic measurements fail to count environmental damage"
+      },
+      {
+       "q": 16,
+       "text": "an example of green work that stays permanently within local communities"
+      },
+      {
+       "q": 17,
+       "text": "the argument that richer countries should help reduce borrowing costs for clean projects abroad"
+      }
+     ]
+    },
+    {
+     "title": "Questions 18-21",
+     "instruction": "Complete the summary below. Choose <strong>ONE WORD ONLY</strong> from the passage for each answer.",
+     "type": "summary_text",
+     "boxTitle": "Reconciling Growth and Sustainability",
+     "paragraphs": [
+      "Industrialisation has brought clinics, piped water, and higher {{18}} rates to millions, yet unregulated growth damages farmland and water supplies. While Carlos Mendez warns that closing factories too quickly costs rural {{19}} their incomes, Haruki Sato highlights how a green economy generates jobs in battery manufacturing, recycling hubs, and {{20}} engineering. To make this shift possible globally, Dr. Elena Petrova argues that international lenders must share investment {{21}} with emerging economies."
+     ]
+    },
+    {
+     "title": "Questions 22-26",
+     "instruction": "Look at the following statements (Questions 22-26) and the list of people below. Match each statement with the correct person, <strong>A, B, C or D</strong>. <em>NB You may use any letter more than once.</em>",
+     "type": "matching",
+     "legendTitle": "List of People",
+     "legend": [
+      {
+       "key": "A",
+       "text": "Dr. Amara Okafor"
+      },
+      {
+       "key": "B",
+       "text": "Carlos Mendez"
+      },
+      {
+       "key": "C",
+       "text": "Haruki Sato"
+      },
+      {
+       "key": "D",
+       "text": "Dr. Elena Petrova"
+      }
+     ],
+     "options": [
+      "A",
+      "B",
+      "C",
+      "D"
+     ],
+     "items": [
+      {
+       "q": 22,
+       "text": "Upgrading existing buildings to use less energy generates local jobs that cannot move abroad."
+      },
+      {
+       "q": 23,
+       "text": "Pressuring poorer nations to stop cheap power generation before green funding arrives is unfair."
+      },
+      {
+       "q": 24,
+       "text": "Degrading natural ecosystems will ultimately hold back economic growth itself."
+      },
+      {
+       "q": 25,
+       "text": "Rich nations already have easier access to affordable financing for renewable projects."
+      },
+      {
+       "q": 26,
+       "text": "National economic statistics overlook the health costs caused by industrial pollution."
+      }
+     ]
+    }
+   ],
+   "qRange": [
+    14,
+    26
+   ]
+  },
+  {
+   "label": "READING PASSAGE 3",
+   "instruction": "You should spend about 20 minutes on Questions 27-40, which are based on Reading Passage 3 below.",
+   "title": "Climate Change: Risk or Opportunity for Business?",
+   "subtitle": "How corporate supply chains, carbon pricing, and green innovation are reshaping global markets",
+   "paragraphs": [
+    "<strong>1</strong> Not long ago, corporate boardrooms treated environmental protection mainly as a public-relations exercise detached from core profits. That mindset has shifted dramatically. As extreme weather disrupts factories and governments tighten climate rules, executives now recognise climate change as a fundamental commercial force—one that threatens unprepared firms while opening vast new markets for agile innovators.",
+    "<strong>2</strong> Physical climate risks already weigh heavily on balance sheets across several sectors. Agribusinesses face shrinking cocoa, coffee, and olive yields due to heat stress; alpine and coastal tourism operators confront shorter ski seasons and storm-damaged resorts; and global insurers are withdrawing coverage from high-risk flood zones after years of record payouts. Even digital enterprises face rising cooling expenses for data centres during intense summer heatwaves.",
+    "<strong>3</strong> Equally disruptive are indirect shocks travelling along international supply chain networks. When droughts lower water levels in major shipping canals or floods halt semiconductor factories in Asia, electronics and car manufacturers thousands of kilometres away experience costly bottlenecks. Simultaneously, regulatory pressure is mounting: an expanding number of jurisdictions impose a carbon tax or emissions-trading fee, turning heavy pollution from a free externality into a direct operating cost.",
+    "<strong>4</strong> Yet climate transition is also sparking one of the largest investment waves in modern economic history. Capital is pouring into the renewable industry and green technology—spanning next-generation solar cells, electric freight trucks, heat pumps, and low-carbon steel. Major pension funds and banks increasingly rely on ESG (environmental, social, and governance) ratings to decide which companies deserve long-term backing, making it cheaper for clean-tech pioneers to invest in expansion.",
+    "<strong>5</strong> Consumer behaviour is reinforcing this commercial pivot. Market studies show that a growing segment of shoppers actively seeks eco-friendly products, from repairable electronics to plant-based packaging, and is willing to switch away from brands accused of 'greenwashing'—making vague or exaggerated environmental claims without real action. Firms that genuinely redesign operations to cut energy and packaging waste frequently discover that sustainability lowers overhead costs as well as winning customer trust.",
+    "<strong>6</strong> In short, climate change is redrawing the boundary between corporate winners and losers. Companies that cling to carbon-intensive models face escalating taxes, fragile supply chains, and departing investors. By contrast, enterprises that adapt to new realities early—treating green innovation as a core business strategy rather than a compliance burden—are best positioned to prosper in the low-carbon economy ahead."
+   ],
+   "groups": [
+    {
+     "title": "Questions 27-30",
+     "instruction": "Choose the correct letter, <strong>A, B, C or D</strong>.",
+     "type": "mcq",
+     "items": [
+      {
+       "q": 27,
+       "text": "What change in corporate attitude is described in the first paragraph?",
+       "options": [
+        {
+         "k": "A",
+         "t": "Executives now view climate change mainly as a marketing opportunity."
+        },
+        {
+         "k": "B",
+         "t": "Boardrooms have shifted from seeing climate issues as mere PR to treating them as a core business force."
+        },
+        {
+         "k": "C",
+         "t": "Most companies believe government climate rules will soon be cancelled."
+        },
+        {
+         "k": "D",
+         "t": "Only small startups are affected by changing weather and regulations."
+        }
+       ]
+      },
+      {
+       "q": 28,
+       "text": "Why does the writer mention shipping canals and semiconductor factories in paragraph 3?",
+       "options": [
+        {
+         "k": "A",
+         "t": "To show that digital companies are unaffected by droughts"
+        },
+        {
+         "k": "B",
+         "t": "To demonstrate how local climate shocks can disrupt distant manufacturers via supply chains"
+        },
+        {
+         "k": "C",
+         "t": "To argue that carmakers should relocate all plants to Asia"
+        },
+        {
+         "k": "D",
+         "t": "To explain why carbon taxes are highest in the shipping sector"
+        }
+       ]
+      },
+      {
+       "q": 29,
+       "text": "What risk do companies face if they practise 'greenwashing' in paragraph 5?",
+       "options": [
+        {
+         "k": "A",
+         "t": "They will automatically pay double carbon taxes."
+        },
+        {
+         "k": "B",
+         "t": "Customers may abandon them for more trustworthy competitors."
+        },
+        {
+         "k": "C",
+         "t": "Pension funds will ban them from selling plant-based packaging."
+        },
+        {
+         "k": "D",
+         "t": "Their overhead energy bills will rise immediately."
+        }
+       ]
+      },
+      {
+       "q": 30,
+       "text": "What is the writer's main conclusion in the final paragraph?",
+       "options": [
+        {
+         "k": "A",
+         "t": "Environmental regulations are destroying profits across all industries."
+        },
+        {
+         "k": "B",
+         "t": "Only renewable energy manufacturers will survive future carbon taxes."
+        },
+        {
+         "k": "C",
+         "t": "Companies that embrace green innovation early as a central strategy will thrive."
+        },
+        {
+         "k": "D",
+         "t": "Firms should treat sustainability strictly as a legal compliance task."
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "title": "Questions 31-36",
+     "instruction": "Complete the summary using the list of words and phrases, <strong>A-I</strong>, below. Write the correct letter, <strong>A-I</strong>.",
+     "type": "summary_box",
+     "boxTitle": "Commercial Pressures and Clean Investment",
+     "legend": [
+      {
+       "key": "A",
+       "text": "lower expenses"
+      },
+      {
+       "key": "B",
+       "text": "carbon pricing"
+      },
+      {
+       "key": "C",
+       "text": "insurance markets"
+      },
+      {
+       "key": "D",
+       "text": "production bottlenecks"
+      },
+      {
+       "key": "E",
+       "text": "major investors"
+      },
+      {
+       "key": "F",
+       "text": "sustainability ratings"
+      },
+      {
+       "key": "G",
+       "text": "cheaper coal"
+      },
+      {
+       "key": "H",
+       "text": "longer winters"
+      },
+      {
+       "key": "I",
+       "text": "vague advertising"
+      }
+     ],
+     "options": [
+      "A",
+      "B",
+      "C",
+      "D",
+      "E",
+      "F",
+      "G",
+      "H",
+      "I"
+     ],
+     "paragraphs": [
+      "Climate change creates direct financial losses across farming, tourism, and {{31}}, where insurers are pulling out of flood-prone areas. Meanwhile, extreme events abroad can cause costly {{32}} for distant factories, while new {{33}} policies force heavy polluters to pay for emissions. On the opportunity side, {{34}} are channelling funds toward green tech using {{35}}, and companies that genuinely cut energy and packaging waste often enjoy both stronger brand loyalty and {{36}}."
+     ]
+    },
+    {
+     "title": "Questions 37-40",
+     "instruction": "Do the following statements agree with the claims of the writer in Reading Passage 3? Write <strong>YES</strong>, <strong>NO</strong>, or <strong>NOT GIVEN</strong>.",
+     "type": "tfng",
+     "options": [
+      "YES",
+      "NO",
+      "NOT GIVEN"
+     ],
+     "items": [
+      {
+       "q": 37,
+       "text": "Hotter summer temperatures can increase operational costs even for digital businesses."
+      },
+      {
+       "q": 38,
+       "text": "Emissions-trading fees have proved more effective than carbon taxes at cutting industrial pollution."
+      },
+      {
+       "q": 39,
+       "text": "Clean-technology startups usually find it more expensive to borrow money than coal companies do."
+      },
+      {
+       "q": 40,
+       "text": "Cutting waste in manufacturing can benefit a company financially as well as environmentally."
+      }
+     ]
+    }
+   ],
+   "qRange": [
+    27,
+    40
+   ]
+  }
+ ],
+ "answers": {
+  "1": [
+   "mills"
+  ],
+  "2": [
+   "livestock"
+  ],
+  "3": [
+   "moisture"
+  ],
+  "4": [
+   "wells"
+  ],
+  "5": [
+   "inland"
+  ],
+  "6": [
+   "premiums"
+  ],
+  "7": [
+   "mangroves"
+  ],
+  "8": [
+   "TRUE"
+  ],
+  "9": [
+   "FALSE"
+  ],
+  "10": [
+   "FALSE"
+  ],
+  "11": [
+   "NOT GIVEN"
+  ],
+  "12": [
+   "TRUE"
+  ],
+  "13": [
+   "NOT GIVEN"
+  ],
+  "14": [
+   "D"
+  ],
+  "15": [
+   "B"
+  ],
+  "16": [
+   "E"
+  ],
+  "17": [
+   "F"
+  ],
+  "18": [
+   "literacy"
+  ],
+  "19": [
+   "migrants"
+  ],
+  "20": [
+   "geothermal"
+  ],
+  "21": [
+   "risks"
+  ],
+  "22": [
+   "C"
+  ],
+  "23": [
+   "B"
+  ],
+  "24": [
+   "A"
+  ],
+  "25": [
+   "D"
+  ],
+  "26": [
+   "A"
+  ],
+  "27": [
+   "B"
+  ],
+  "28": [
+   "B"
+  ],
+  "29": [
+   "B"
+  ],
+  "30": [
+   "C"
+  ],
+  "31": [
+   "C"
+  ],
+  "32": [
+   "D"
+  ],
+  "33": [
+   "B"
+  ],
+  "34": [
+   "E"
+  ],
+  "35": [
+   "F"
+  ],
+  "36": [
+   "A"
+  ],
+  "37": [
+   "YES"
+  ],
+  "38": [
+   "NOT GIVEN"
+  ],
+  "39": [
+   "NO"
+  ],
+  "40": [
+   "YES"
+  ]
+ }
+}

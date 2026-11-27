@@ -1,0 +1,629 @@
+{
+ "schema": 1,
+ "id": "band-4-5-environment-test-4",
+ "series": "environment",
+ "category": "band_4_5",
+ "title": "Air Travel, Cleaner Cities & Waste",
+ "summary": "Air Travel vs. the Environment • Cleaner Cities: From Car-Free Days to Cycling • Waste, Recycling and Plastic",
+ "subtitle": "Band 4.0–5.0 · Environment",
+ "module": "academic",
+ "durationMin": 60,
+ "totalQuestions": 40,
+ "questionTypes": [
+  "tfng",
+  "flowchart",
+  "notes",
+  "summary_box",
+  "mcq"
+ ],
+ "passages": [
+  {
+   "label": "READING PASSAGE 1",
+   "instruction": "You should spend about 20 minutes on Questions 1-13, which are based on Reading Passage 1 below.",
+   "title": "Air Travel vs. the Environment",
+   "subtitle": "Balancing budget flights, tourism jobs, and rising carbon emissions",
+   "paragraphs": [
+    "Fifty years ago, flying abroad was a rare luxury reserved for wealthy businesspeople and movie stars. Today, the rise of budget airlines has made air travel affordable for millions of ordinary families. Cheap weekend tickets allow young people to explore foreign capitals, visit distant relatives, and enjoy greater travel freedom than any earlier generation.",
+    "Yet flying has a heavy impact on the planet. Per passenger kilometre, aeroplanes release far more carbon emissions than trains or shared buses, and even more than a car carrying a full family. Because planes burn jet fuel high in the atmosphere, their warm exhaust trails trap extra heat, making aviation one of the fastest-growing sources of climate pollution.",
+    "In response, environmental campaigners want governments to limit non-essential flights, especially short domestic trips where fast trains already exist. France, for example, recently banned short-haul domestic flights on routes that can be completed in under two and a half hours by rail. Some campaigners also call for higher ticket taxes on frequent flyers to discourage unnecessary weekend trips.",
+    "However, raising flight prices sharply could hurt the tourism industry and international business. Many island nations and coastal towns depend heavily on holidaymakers arriving by plane to support local hotels, cafes, and tour guides. Business groups also warn that making flights too expensive could reduce global trade and unfairly limit travel freedom for lower-income families.",
+    "Many airlines now promote a simple three-step 'carbon offset' process for passengers who still need to fly. First, travellers calculate the CO2 from their journey using an online calculator on the booking website. Next, passengers pay a small extra fee to fund green projects such as planting trees or building solar farms. Finally, independent auditors check these projects to confirm they genuinely absorb carbon—though critics warn that paying to offset is never as good as simply taking fewer flights and investing in cleaner electric or biofuel aircraft."
+   ],
+   "groups": [
+    {
+     "title": "Questions 1-7",
+     "instruction": "Do the following statements agree with the information given in Reading Passage 1? Write <strong>TRUE</strong>, <strong>FALSE</strong>, or <strong>NOT GIVEN</strong>.",
+     "type": "tfng",
+     "options": [
+      "TRUE",
+      "FALSE",
+      "NOT GIVEN"
+     ],
+     "items": [
+      {
+       "q": 1,
+       "text": "Half a century ago, flying overseas was mostly limited to rich travellers."
+      },
+      {
+       "q": 2,
+       "text": "Per passenger kilometre, flying produces fewer carbon emissions than travelling in a full family car."
+      },
+      {
+       "q": 3,
+       "text": "France has banned short domestic flights where a train can make the trip in less than 2.5 hours."
+      },
+      {
+       "q": 4,
+       "text": "Germany plans to copy France's domestic flight ban next year."
+      },
+      {
+       "q": 5,
+       "text": "Many island towns rely strongly on air tourists to keep local hotels and cafes running."
+      },
+      {
+       "q": 6,
+       "text": "Business passengers pay higher carbon offset fees than holiday travellers."
+      },
+      {
+       "q": 7,
+       "text": "Critics believe paying to offset emissions is just as effective as flying less."
+      }
+     ]
+    },
+    {
+     "title": "Questions 8-10",
+     "instruction": "Complete the flow-chart below. Choose <strong>NO MORE THAN TWO WORDS</strong> from the passage for each answer.",
+     "type": "flowchart",
+     "boxTitle": "How Airline Carbon Offset Schemes Work",
+     "steps": [
+      "Step 1: Estimate flight emissions with an {{8}} during ticket booking.",
+      "Step 2: Pay an {{9}} to support tree planting or solar projects.",
+      "Step 3: Projects are verified by {{10}} to ensure carbon is truly absorbed."
+     ]
+    },
+    {
+     "title": "Questions 11-13",
+     "instruction": "Complete the notes below. Choose <strong>ONE WORD ONLY</strong> from the passage for each answer.",
+     "type": "notes",
+     "boxTitle": "Aviation Pollution and Future Alternatives",
+     "sections": [
+      {
+       "heading": "Why flying harms the climate",
+       "items": [
+        "Jet fuel burned high up leaves warm exhaust {{11}} that trap extra heat."
+       ]
+      },
+      {
+       "heading": "Economic concerns",
+       "items": [
+        "Expensive tickets could hurt global {{12}} and island tourism."
+       ]
+      },
+      {
+       "heading": "Long-term solutions",
+       "items": [
+        "Airlines should invest in electric or {{13}} aircraft."
+       ]
+      }
+     ]
+    }
+   ],
+   "qRange": [
+    1,
+    13
+   ]
+  },
+  {
+   "label": "READING PASSAGE 2",
+   "instruction": "You should spend about 20 minutes on Questions 14-26, which are based on Reading Passage 2 below.",
+   "title": "Cleaner Cities: From Car-Free Days to Cycling",
+   "subtitle": "How urban leaders tackle traffic congestion and air pollution through sustainable transport",
+   "paragraphs": [
+    "<strong>1</strong> Every morning in major cities around the world, millions of drivers sit trapped in slow-moving lines of cars. Heavy traffic congestion wastes hours of workers' lives and fills city streets with dangerous air pollution that causes asthma and heart illness. To reclaim urban roads for people, mayors from Paris to Bogota are experimenting with bold new ways to encourage sustainable transport.",
+    "<strong>2</strong> One popular idea is holding a regular car-free day. Every Sunday in Bogota, Colombia, over 120 kilometres of main avenues are closed to motor vehicles, turning noisy highways into safe spaces for walkers, runners, and families on bicycles. Similarly, annual vehicle-free days in European capitals allow residents to experience how quiet and pleasant their neighbourhoods feel without engines.",
+    "<strong>3</strong> Critics argue that a single car-free Sunday does not change weekday habits. However, city planners say these events act as a powerful showcase: once citizens enjoy cleaner air and safer streets, they are much more willing to support permanent changes during their Monday-to-Friday commute.",
+    "<strong>4</strong> Encouraging everyday cycling is one of the cheapest and healthiest ways to cut transport emissions. In Dutch cities like Utrecht and Amsterdam, wide separated cycle lanes, smooth pavements, and giant bicycle garages near train stations make riding a bike the fastest way to cross town. As a result, people of all ages—from schoolchildren to grandparents—cycle comfortably in regular clothes.",
+    "<strong>5</strong> Still, cycling is not easy everywhere. In many cities, commuters face real barriers: narrow roads with no safe cycle lanes, heavy rain or extreme summer heat, steep hills, and fear of careless drivers. Elderly people and residents carrying heavy groceries also cannot rely on bicycles alone.",
+    "<strong>6</strong> For this reason, successful clean cities combine safe bike networks with fast, affordable public transport. Adding electric buses, clean subways, and shaded walking paths ensures that every resident—regardless of age or weather—has a safe, low-carbon way to move around town."
+   ],
+   "groups": [
+    {
+     "title": "Questions 14-19",
+     "instruction": "Complete the summary using the list of words and phrases, <strong>A-J</strong>, below. Write the correct letter, <strong>A-J</strong>.",
+     "type": "summary_box",
+     "boxTitle": "Building Cleaner Urban Transport",
+     "legend": [
+      {
+       "key": "A",
+       "text": "cycle lanes"
+      },
+      {
+       "key": "B",
+       "text": "air pollution"
+      },
+      {
+       "key": "C",
+       "text": "car-free day"
+      },
+      {
+       "key": "D",
+       "text": "public transport"
+      },
+      {
+       "key": "E",
+       "text": "walking paths"
+      },
+      {
+       "key": "F",
+       "text": "weather conditions"
+      },
+      {
+       "key": "G",
+       "text": "petrol taxes"
+      },
+      {
+       "key": "H",
+       "text": "budget airlines"
+      },
+      {
+       "key": "I",
+       "text": "free cars"
+      },
+      {
+       "key": "J",
+       "text": "factory smoke"
+      }
+     ],
+     "options": [
+      "A",
+      "B",
+      "C",
+      "D",
+      "E",
+      "F",
+      "G",
+      "H",
+      "I",
+      "J"
+     ],
+     "paragraphs": [
+      "Crowded city roads lead to wasted time and harmful {{14}}. Cities like Bogota close major avenues for a weekly {{15}}, helping residents imagine quieter streets and support greener weekday travel. In the Netherlands, safe {{16}} and large station bike garages allow people of all ages to ride easily. However, commuters in other cities still face obstacles such as bad {{17}}, steep hills, and safety fears. Planners therefore advise pairing bike routes with reliable {{18}} and shaded {{19}}."
+     ]
+    },
+    {
+     "title": "Questions 20-23",
+     "instruction": "Do the following statements agree with the claims of the writer in Reading Passage 2? Write <strong>YES</strong>, <strong>NO</strong>, or <strong>NOT GIVEN</strong>.",
+     "type": "tfng",
+     "options": [
+      "YES",
+      "NO",
+      "NOT GIVEN"
+     ],
+     "items": [
+      {
+       "q": 20,
+       "text": "Air pollution from city traffic can cause asthma and heart disease."
+      },
+      {
+       "q": 21,
+       "text": "Bogota closes more roads on Sundays than Paris does."
+      },
+      {
+       "q": 22,
+       "text": "In Utrecht and Amsterdam, cycling is mainly popular with young sports enthusiasts."
+      },
+      {
+       "q": 23,
+       "text": "Bicycles alone can meet the daily travel needs of every city resident."
+      }
+     ]
+    },
+    {
+     "title": "Questions 24-26",
+     "instruction": "Choose the correct letter, <strong>A, B, C or D</strong>.",
+     "type": "mcq",
+     "items": [
+      {
+       "q": 24,
+       "text": "According to paragraph 3, why do city planners value car-free days despite critics' doubts?",
+       "options": [
+        {
+         "k": "A",
+         "t": "They raise large sums of money from parking fines."
+        },
+        {
+         "k": "B",
+         "t": "They show citizens how pleasant quiet streets feel, building support for permanent change."
+        },
+        {
+         "k": "C",
+         "t": "They stop all commuters from owning private cars immediately."
+        },
+        {
+         "k": "D",
+         "t": "They make train tickets free for office workers."
+        }
+       ]
+      },
+      {
+       "q": 25,
+       "text": "Which barrier to cycling is NOT mentioned in paragraph 5?",
+       "options": [
+        {
+         "k": "A",
+         "t": "Steep hills"
+        },
+        {
+         "k": "B",
+         "t": "Heavy rain or hot summers"
+        },
+        {
+         "k": "C",
+         "t": "High prices of new bicycles"
+        },
+        {
+         "k": "D",
+         "t": "Worry about careless car drivers"
+        }
+       ]
+      },
+      {
+       "q": 26,
+       "text": "What does paragraph 6 say makes a clean city transport system work for everyone?",
+       "options": [
+        {
+         "k": "A",
+         "t": "Banning all buses and subways in favour of bicycles"
+        },
+        {
+         "k": "B",
+         "t": "Combining safe cycle networks with affordable public transit and walking paths"
+        },
+        {
+         "k": "C",
+         "t": "Allowing cars only on rainy winter days"
+        },
+        {
+         "k": "D",
+         "t": "Building wider highways around train stations"
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "qRange": [
+    14,
+    26
+   ]
+  },
+  {
+   "label": "READING PASSAGE 3",
+   "instruction": "You should spend about 20 minutes on Questions 27-40, which are based on Reading Passage 3 below.",
+   "title": "Waste, Recycling and Plastic",
+   "subtitle": "Tackling food waste, low recycling rates, and single-use plastic pollution",
+   "paragraphs": [
+    "<strong>1</strong> Every year, cities around the globe produce over two billion tonnes of household rubbish. Much of this waste is dumped into giant open sites called landfill, where rotting trash releases methane—a powerful greenhouse gas—and leaks dirty liquids into underground water. Reducing rubbish has become one of the most urgent environmental tasks of our time.",
+    "<strong>2</strong> Two categories of waste cause special concern: food waste and plastic. Around one-third of all food grown in the world is never eaten, thrown away by supermarkets that reject ugly vegetables or by households that buy too much. Meanwhile, single-use plastic—such as shopping bags, drink bottles, and food wrappers—has created severe plastic pollution in rivers and oceans, harming turtles, seabirds, and fish.",
+    "<strong>3</strong> Recycling seems like an obvious answer, yet the global recycling rate for plastic remains shockingly low—under ten percent. Many citizens feel confused about which bin takes which material, and a single dirty food container can spoil an entire truckload of clean paper or plastic. In addition, making brand-new plastic from cheap oil often costs factories less than sorting and cleaning old plastic.",
+    "<strong>4</strong> Because voluntary recycling has moved too slowly, many governments are introducing strict laws. Over ninety countries now place a partial or total ban on lightweight plastic shopping bags, encouraging shoppers to carry cloth totes instead. In South Korea and Germany, strict sorting laws require families to separate food scraps, glass, and paper into different bins, and local authorities impose fines on households or businesses that break the rules.",
+    "<strong>5</strong> Laws work even better when paired with education from an early age. In Japanese primary schools, children learn to wash milk cartons, sort classroom rubbish, and finish all the food on their lunch trays every day. Community campaigns also raise awareness about 'best-before' dates so families stop throwing away fresh food unnecessarily.",
+    "<strong>6</strong> Ultimately, recycling alone cannot save us if we keep producing mountains of throwaway items. Combining strict plastic bans, fair fines, smart supermarket rules, and childhood education can turn wasteful cities into cleaner, smarter communities that respect every resource."
+   ],
+   "groups": [
+    {
+     "title": "Questions 27-32",
+     "instruction": "Complete the summary using the list of words and phrases, <strong>A-J</strong>, below. Write the correct letter, <strong>A-J</strong>.",
+     "type": "summary_box",
+     "boxTitle": "Solving the Global Waste Crisis",
+     "legend": [
+      {
+       "key": "A",
+       "text": "impose fines"
+      },
+      {
+       "key": "B",
+       "text": "primary schools"
+      },
+      {
+       "key": "C",
+       "text": "landfill sites"
+      },
+      {
+       "key": "D",
+       "text": "recycling rate"
+      },
+      {
+       "key": "E",
+       "text": "single-use plastic"
+      },
+      {
+       "key": "F",
+       "text": "strict ban"
+      },
+      {
+       "key": "G",
+       "text": "free bags"
+      },
+      {
+       "key": "H",
+       "text": "supermarket discounts"
+      },
+      {
+       "key": "I",
+       "text": "clean rivers"
+      },
+      {
+       "key": "J",
+       "text": "factory jobs"
+      }
+     ],
+     "options": [
+      "A",
+      "B",
+      "C",
+      "D",
+      "E",
+      "F",
+      "G",
+      "H",
+      "I",
+      "J"
+     ],
+     "paragraphs": [
+      "Huge amounts of rubbish end up in {{27}}, creating methane gas and water pollution. A third of global food is wasted, while {{28}} threatens marine wildlife. Although recycling helps, the plastic {{29}} stays very low because sorting is confusing and new plastic is cheap. To force faster change, over ninety nations have introduced a {{30}} on thin plastic bags, and countries like South Korea {{31}} on people who fail to sort trash. Teaching good sorting habits in {{32}} also helps build lifelong respect for resources."
+     ]
+    },
+    {
+     "title": "Questions 33-36",
+     "instruction": "Do the following statements agree with the claims of the writer in Reading Passage 3? Write <strong>YES</strong>, <strong>NO</strong>, or <strong>NOT GIVEN</strong>.",
+     "type": "tfng",
+     "options": [
+      "YES",
+      "NO",
+      "NOT GIVEN"
+     ],
+     "items": [
+      {
+       "q": 33,
+       "text": "More than half of all plastic waste worldwide is currently recycled."
+      },
+      {
+       "q": 34,
+       "text": "German households pay higher recycling fines than South Korean households."
+      },
+      {
+       "q": 35,
+       "text": "Understanding food date labels properly can help families waste less edible food."
+      },
+      {
+       "q": 36,
+       "text": "Cloth shopping bags are more expensive to manufacture than plastic bottles."
+      }
+     ]
+    },
+    {
+     "title": "Questions 37-40",
+     "instruction": "Choose the correct letter, <strong>A, B, C or D</strong>.",
+     "type": "mcq",
+     "items": [
+      {
+       "q": 37,
+       "text": "Why does the writer mention 'ugly vegetables' in paragraph 2?",
+       "options": [
+        {
+         "k": "A",
+         "t": "To show that ugly vegetables taste worse than normal ones"
+        },
+        {
+         "k": "B",
+         "t": "To give an example of how supermarkets contribute to food waste"
+        },
+        {
+         "k": "C",
+         "t": "To explain why farms use single-use plastic wrappers"
+        },
+        {
+         "k": "D",
+         "t": "To argue that households should grow their own vegetables"
+        }
+       ]
+      },
+      {
+       "q": 38,
+       "text": "According to paragraph 3, why do many factories prefer using new plastic instead of recycled plastic?",
+       "options": [
+        {
+         "k": "A",
+         "t": "Recycled plastic cannot be turned into drink bottles."
+        },
+        {
+         "k": "B",
+         "t": "Making new plastic from oil is often cheaper than sorting and cleaning used plastic."
+        },
+        {
+         "k": "C",
+         "t": "Governments ban factories from buying sorted plastic."
+        },
+        {
+         "k": "D",
+         "t": "Clean paper cannot be recycled alongside glass."
+        }
+       ]
+      },
+      {
+       "q": 39,
+       "text": "What do Japanese primary school pupils practise daily in paragraph 5?",
+       "options": [
+        {
+         "k": "A",
+         "t": "Designing cloth tote bags for local shops"
+        },
+        {
+         "k": "B",
+         "t": "Washing milk cartons, sorting rubbish, and finishing their lunches"
+        },
+        {
+         "k": "C",
+         "t": "Visiting landfill sites to measure methane gas"
+        },
+        {
+         "k": "D",
+         "t": "Writing laws to ban single-use plastic"
+        }
+       ]
+      },
+      {
+       "q": 40,
+       "text": "What is the writer's main conclusion in paragraph 6?",
+       "options": [
+        {
+         "k": "A",
+         "t": "Recycling by itself is enough to fix the global waste problem."
+        },
+        {
+         "k": "B",
+         "t": "Only strict fines can change how families throw away rubbish."
+        },
+        {
+         "k": "C",
+         "t": "Solving waste requires bans, fines, smarter shop rules, and early education together."
+        },
+        {
+         "k": "D",
+         "t": "Supermarkets should stop selling fresh food in cities."
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "qRange": [
+    27,
+    40
+   ]
+  }
+ ],
+ "answers": {
+  "1": [
+   "TRUE"
+  ],
+  "2": [
+   "FALSE"
+  ],
+  "3": [
+   "TRUE"
+  ],
+  "4": [
+   "NOT GIVEN"
+  ],
+  "5": [
+   "TRUE"
+  ],
+  "6": [
+   "NOT GIVEN"
+  ],
+  "7": [
+   "FALSE"
+  ],
+  "8": [
+   "online calculator"
+  ],
+  "9": [
+   "extra fee"
+  ],
+  "10": [
+   "independent auditors"
+  ],
+  "11": [
+   "trails"
+  ],
+  "12": [
+   "trade"
+  ],
+  "13": [
+   "biofuel"
+  ],
+  "14": [
+   "B"
+  ],
+  "15": [
+   "C"
+  ],
+  "16": [
+   "A"
+  ],
+  "17": [
+   "F"
+  ],
+  "18": [
+   "D"
+  ],
+  "19": [
+   "E"
+  ],
+  "20": [
+   "YES"
+  ],
+  "21": [
+   "NOT GIVEN"
+  ],
+  "22": [
+   "NO"
+  ],
+  "23": [
+   "NO"
+  ],
+  "24": [
+   "B"
+  ],
+  "25": [
+   "C"
+  ],
+  "26": [
+   "B"
+  ],
+  "27": [
+   "C"
+  ],
+  "28": [
+   "E"
+  ],
+  "29": [
+   "D"
+  ],
+  "30": [
+   "F"
+  ],
+  "31": [
+   "A"
+  ],
+  "32": [
+   "B"
+  ],
+  "33": [
+   "NO"
+  ],
+  "34": [
+   "NOT GIVEN"
+  ],
+  "35": [
+   "YES"
+  ],
+  "36": [
+   "NOT GIVEN"
+  ],
+  "37": [
+   "B"
+  ],
+  "38": [
+   "B"
+  ],
+  "39": [
+   "B"
+  ],
+  "40": [
+   "C"
+  ]
+ }
+}

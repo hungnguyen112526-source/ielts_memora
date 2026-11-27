@@ -1,0 +1,547 @@
+{
+ "schema": 1,
+ "id": "band-4-5-environment-test-5",
+ "series": "environment",
+ "category": "band_4_5",
+ "title": "Species, Green Spaces & Responsibility",
+ "summary": "Why Are Species Disappearing? • Green Spaces in Cities • Who Is Responsible for the Environment?",
+ "subtitle": "Band 4.0–5.0 · Environment",
+ "module": "academic",
+ "durationMin": 60,
+ "totalQuestions": 40,
+ "questionTypes": [
+  "notes",
+  "tfng",
+  "matching",
+  "summary_text",
+  "mcq",
+  "summary_box"
+ ],
+ "passages": [
+  {
+   "label": "READING PASSAGE 1",
+   "instruction": "You should spend about 20 minutes on Questions 1-13, which are based on Reading Passage 1 below.",
+   "title": "Why Are Species Disappearing?",
+   "subtitle": "Understanding extinction, wildlife reserves, and why biodiversity matters to humans",
+   "paragraphs": [
+    "Scientists estimate that Earth is home to roughly eight million plant and animal species. Although natural extinction has always happened slowly over millions of years—such as when the dinosaurs disappeared—biologists warn that today's rate of species loss is hundreds of times faster than normal. Across forests, oceans, and grasslands, thousands of endangered species now face the risk of vanishing forever.",
+    "The number-one threat to wildlife is habitat loss. As human cities, highways, and farms expand, wild animals lose the forests, wetlands, and meadows they need to find food and raise their young. Pollution from farm pesticides and factory waste further poisons rivers and soil, while climate change melts sea ice and warms coral reefs faster than animals can adapt.",
+    "Illegal hunting, known as poaching, pushes famous animals even closer to the edge. Elephants are killed for their ivory tusks, rhinos for their horns, and tigers for their skins and bones. To protect these creatures, many countries have created protected wildlife reserves patrolled by trained rangers and monitored with hidden cameras.",
+    "Some people ask why we should spend public money saving wild animals when humans still face poverty and disease. Others argue that governments should only protect cute or useful creatures rather than every insect or frog. However, ecologists explain that every species plays a part inside an interconnected ecosystem and food chain. If bees disappear, farmers lose the insects that pollinate fruit and vegetables; if wolves vanish, deer numbers explode and destroy young trees.",
+    "Protecting biodiversity is therefore not a choice between animals and people—it is essential for human survival too. Healthy forests clean our air, wetlands filter drinking water, and wild plants have provided ingredients for many modern medicines. Saving wild habitats helps protect the natural life-support system that all humans rely on."
+   ],
+   "groups": [
+    {
+     "title": "Questions 1-7",
+     "instruction": "Complete the notes below. Choose <strong>ONE WORD ONLY</strong> from the passage for each answer.",
+     "type": "notes",
+     "boxTitle": "Causes of Species Loss and Why Protection Matters",
+     "sections": [
+      {
+       "heading": "Main threats to wildlife",
+       "items": [
+        "The biggest danger is habitat {{1}} caused by expanding cities, roads, and farms.",
+        "Warming oceans damage coral {{2}} and melt sea ice."
+       ]
+      },
+      {
+       "heading": "Poaching and protection",
+       "items": [
+        "Poachers hunt elephants for tusks and rhinos for their {{3}}.",
+        "Protected wildlife reserves use hidden cameras and trained {{4}}."
+       ]
+      },
+      {
+       "heading": "Role in the food chain",
+       "items": [
+        "Farmers rely on {{5}} to pollinate fruit and vegetable crops.",
+        "Without wolves, growing {{6}} populations can damage young trees."
+       ]
+      },
+      {
+       "heading": "Benefits to humans",
+       "items": [
+        "Wild plants supply key ingredients for many modern {{7}}."
+       ]
+      }
+     ]
+    },
+    {
+     "title": "Questions 8-13",
+     "instruction": "Do the following statements agree with the information given in Reading Passage 1? Write <strong>TRUE</strong>, <strong>FALSE</strong>, or <strong>NOT GIVEN</strong>.",
+     "type": "tfng",
+     "options": [
+      "TRUE",
+      "FALSE",
+      "NOT GIVEN"
+     ],
+     "items": [
+      {
+       "q": 8,
+       "text": "Species extinction has never occurred naturally in Earth's history before modern humans."
+      },
+      {
+       "q": 9,
+       "text": "Today, species are disappearing much more quickly than the normal natural rate."
+      },
+      {
+       "q": 10,
+       "text": "Tigers are poached more frequently than elephants in wildlife reserves."
+      },
+      {
+       "q": 11,
+       "text": "Ecologists agree that governments should protect only attractive animals and ignore insects."
+      },
+      {
+       "q": 12,
+       "text": "Wetlands help clean the water that humans drink."
+      },
+      {
+       "q": 13,
+       "text": "Most national parks charge tourists an entrance fee to pay for hidden cameras."
+      }
+     ]
+    }
+   ],
+   "qRange": [
+    1,
+    13
+   ]
+  },
+  {
+   "label": "READING PASSAGE 2",
+   "instruction": "You should spend about 20 minutes on Questions 14-26, which are based on Reading Passage 2 below.",
+   "title": "Green Spaces in Cities",
+   "subtitle": "Balancing trees, parks, and community gardens against urgent housing shortages",
+   "paragraphs": [
+    "<strong>A</strong> More than half of the world's people now live in cities, and urban populations continue to climb every year. As towers and roads expand, city leaders face a difficult question about land use: should empty plots be used to build much-needed apartments, or should they be protected as urban green space?",
+    "<strong>B</strong> Health researchers strongly defend city parks and street trees. Dr. Hannah Kowalski, a public health doctor in Poland, studies how greenery affects busy neighbourhoods. 'Trees filter dust and exhaust fumes, improving local air quality and cooling hot streets by several degrees in summer,' she explains. 'Just twenty minutes of walking in open spaces also lowers stress and boosts mental well-being.'",
+    "<strong>C</strong> Urban gardening has added another lively layer to city greenery. Across London, Detroit, and Tokyo, neighbours turn unused corners into a shared community garden where families grow tomatoes, herbs, and flowers together. David Okonkwo, who coordinates a community plot in Manchester, says urban gardening brings isolated people together. 'Elderly residents and young families chat while watering vegetables, and children finally learn where fresh food comes from,' he observes.",
+    "<strong>D</strong> Yet housing campaigners warn that cities cannot ignore the severe housing shortage. Claire Dupont, a property economist in France, notes that rents have soared in many capitals because there is not enough land for affordable homes. 'Protecting every empty lot as grass sounds nice,' she says, 'but young workers and nurses cannot live in a park. If cities block new flats, ordinary families get pushed far out into the suburbs.'",
+    "<strong>E</strong> Fortunately, smart urban planning shows that cities do not have to choose only trees or only houses. Architect Raj Patel in Singapore points out that well-designed apartment blocks can include rooftop vegetable gardens, green balconies, and shaded pocket parks at street level. 'Building taller, greener homes lets us house thousands of people on small footprints while keeping nature close to every front door,' he explains.",
+    "<strong>F</strong> City councils around the world are now adopting this mixed vision. By requiring every new housing project to include trees, courtyard gardens, and safe open spaces, growing cities can tackle homelessness while still giving residents fresh air and peaceful places to relax."
+   ],
+   "groups": [
+    {
+     "title": "Questions 14-17",
+     "instruction": "Reading Passage 2 has six sections, <strong>A-F</strong>. Which section contains the following information? Write the correct letter, <strong>A-F</strong>.",
+     "type": "matching",
+     "options": [
+      "A",
+      "B",
+      "C",
+      "D",
+      "E",
+      "F"
+     ],
+     "items": [
+      {
+       "q": 14,
+       "text": "architectural designs that combine tall housing with greenery on roofs and balconies"
+      },
+      {
+       "q": 15,
+       "text": "an explanation of how shared neighbourhood plots help different age groups connect"
+      },
+      {
+       "q": 16,
+       "text": "the cooling and health benefits of trees and walking in parks"
+      },
+      {
+       "q": 17,
+       "text": "the warning that blocking apartment construction forces ordinary workers out of city centres"
+      }
+     ]
+    },
+    {
+     "title": "Questions 18-21",
+     "instruction": "Complete the summary below. Choose <strong>ONE WORD ONLY</strong> from the passage for each answer.",
+     "type": "summary_text",
+     "boxTitle": "Greenery vs. Housing in Growing Cities",
+     "paragraphs": [
+      "Urban greenery offers major health gains: trees remove dust and exhaust {{18}} while cooling streets during summer. Shared community gardens also help lonely neighbours connect while growing flowers, herbs, and {{19}}. However, Claire Dupont warns that high {{20}} in capitals are pushing workers into the suburbs. Architect Raj Patel recommends combining taller homes with rooftop gardens and shaded pocket {{21}}."
+     ]
+    },
+    {
+     "title": "Questions 22-26",
+     "instruction": "Look at the following statements (Questions 22-26) and the list of people below. Match each statement with the correct person, <strong>A, B, C or D</strong>. <em>NB You may use any letter more than once.</em>",
+     "type": "matching",
+     "legendTitle": "List of People",
+     "legend": [
+      {
+       "key": "A",
+       "text": "Dr. Hannah Kowalski"
+      },
+      {
+       "key": "B",
+       "text": "David Okonkwo"
+      },
+      {
+       "key": "C",
+       "text": "Claire Dupont"
+      },
+      {
+       "key": "D",
+       "text": "Raj Patel"
+      }
+     ],
+     "options": [
+      "A",
+      "B",
+      "C",
+      "D"
+     ],
+     "items": [
+      {
+       "q": 22,
+       "text": "Designing taller buildings with green features saves space while keeping nature nearby."
+      },
+      {
+       "q": 23,
+       "text": "A short walk in a park can noticeably reduce stress and improve mental health."
+      },
+      {
+       "q": 24,
+       "text": "Saving every empty space as grass can make housing too expensive for key workers."
+      },
+      {
+       "q": 25,
+       "text": "Working together in a shared garden helps children understand where food comes from."
+      },
+      {
+       "q": 26,
+       "text": "Street trees can reduce urban temperatures by several degrees during warm months."
+      }
+     ]
+    }
+   ],
+   "qRange": [
+    14,
+    26
+   ]
+  },
+  {
+   "label": "READING PASSAGE 3",
+   "instruction": "You should spend about 20 minutes on Questions 27-40, which are based on Reading Passage 3 below.",
+   "title": "Who Is Responsible for the Environment?",
+   "subtitle": "Comparing government policy, personal habits, and global cooperation",
+   "paragraphs": [
+    "<strong>1</strong> Almost everyone now agrees that climate change, polluted air, and vanishing forests are urgent problems. Yet when it comes to taking real action, people often point fingers at one another. Should politicians pass tough rules, should ordinary citizens change their shopping habits, or must nations work together globally?",
+    "<strong>2</strong> Many analysts argue that governments hold the greatest power to take action at scale. Through strong legislation and smart government policy, leaders can set strict pollution limits on factories, tax dirty fuels, and invest billions in clean railways, electric buses, and wind farms. An ordinary commuter cannot build a subway line or ban toxic factory chemicals alone—only states have the legal authority and public budgets to reshape national transport and power systems.",
+    "<strong>3</strong> On the other hand, supporters of individual responsibility point out that governments and corporations respond directly to what voters and shoppers do. When millions of families eat less red meat, turn down home heating, cycle to work, and choose eco-friendly brands, companies quickly change the products they make. Moreover, citizens who care about nature elect leaders who are willing to pass brave green laws.",
+    "<strong>4</strong> A second major debate asks whether environmental action should be national or global. Pollution does not stop at border fences: smoke from coal plants in one country warms the air above every other nation, and plastic dumped into one river washes onto distant foreign beaches. For this reason, scientists stress that international cooperation is essential.",
+    "<strong>5</strong> Signing a global agreement, such as the 2015 Paris Climate Agreement, sets shared targets and helps richer nations share clean technology with developing countries. However, global talks can move painfully slowly because nearly two hundred countries must agree. Therefore, individual nations should not wait around for everyone else; passing strong national laws first sets an inspiring example and proves that clean energy and green transport actually work.",
+    "<strong>6</strong> In the end, arguing over whether politicians, citizens, or international treaties matter most misses the point. Protecting the Earth requires a collective effort at every level: brave national policies, fair global agreements, and responsible daily choices from millions of people working in the same direction."
+   ],
+   "groups": [
+    {
+     "title": "Questions 27-30",
+     "instruction": "Choose the correct letter, <strong>A, B, C or D</strong>.",
+     "type": "mcq",
+     "items": [
+      {
+       "q": 27,
+       "text": "Why does the writer mention building a subway line in paragraph 2?",
+       "options": [
+        {
+         "k": "A",
+         "t": "To argue that subways pollute more than electric buses"
+        },
+        {
+         "k": "B",
+         "t": "To illustrate large changes that only governments have the power and money to make"
+        },
+        {
+         "k": "C",
+         "t": "To show that ordinary commuters prefer driving private cars"
+        },
+        {
+         "k": "D",
+         "t": "To suggest that factories should pay for public railways"
+        }
+       ]
+      },
+      {
+       "q": 28,
+       "text": "According to paragraph 3, how do ordinary citizens influence both companies and politicians?",
+       "options": [
+        {
+         "k": "A",
+         "t": "By writing new factory pollution laws themselves"
+        },
+        {
+         "k": "B",
+         "t": "Through their daily shopping choices and the leaders they vote for"
+        },
+        {
+         "k": "C",
+         "t": "By refusing to pay taxes until wind farms are built"
+        },
+        {
+         "k": "D",
+         "t": "By stopping all international trade"
+        }
+       ]
+      },
+      {
+       "q": 29,
+       "text": "What weakness of global environmental talks is noted in paragraph 5?",
+       "options": [
+        {
+         "k": "A",
+         "t": "They do not allow developing countries to attend."
+        },
+        {
+         "k": "B",
+         "t": "Reaching agreement among nearly 200 nations can take a very long time."
+        },
+        {
+         "k": "C",
+         "t": "The 2015 Paris Agreement banned national green laws."
+        },
+        {
+         "k": "D",
+         "t": "Rich countries refuse to sign any international treaties."
+        }
+       ]
+      },
+      {
+       "q": 30,
+       "text": "What is the writer's overall conclusion in the final paragraph?",
+       "options": [
+        {
+         "k": "A",
+         "t": "Only international treaties can stop climate change."
+        },
+        {
+         "k": "B",
+         "t": "Ordinary individuals should take full responsibility instead of governments."
+        },
+        {
+         "k": "C",
+         "t": "Governments, citizens, and global agreements must all work together."
+        },
+        {
+         "k": "D",
+         "t": "National policies are more harmful than helpful."
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "title": "Questions 31-36",
+     "instruction": "Complete the summary using the list of words and phrases, <strong>A-I</strong>, below. Write the correct letter, <strong>A-I</strong>.",
+     "type": "summary_box",
+     "boxTitle": "Shared Responsibility for the Planet",
+     "legend": [
+      {
+       "key": "A",
+       "text": "international treaties"
+      },
+      {
+       "key": "B",
+       "text": "green leaders"
+      },
+      {
+       "key": "C",
+       "text": "national borders"
+      },
+      {
+       "key": "D",
+       "text": "environmental laws"
+      },
+      {
+       "key": "E",
+       "text": "positive example"
+      },
+      {
+       "key": "F",
+       "text": "personal action"
+      },
+      {
+       "key": "G",
+       "text": "cheap petrol"
+      },
+      {
+       "key": "H",
+       "text": "private jets"
+      },
+      {
+       "key": "I",
+       "text": "free housing"
+      }
+     ],
+     "options": [
+      "A",
+      "B",
+      "C",
+      "D",
+      "E",
+      "F",
+      "G",
+      "H",
+      "I"
+     ],
+     "paragraphs": [
+      "Governments play a leading role because they can pass strict {{31}} and fund clean public transport and power. At the same time, {{32}} matters because everyday buying choices guide businesses and voters choose {{33}}. Because smoke and ocean plastic easily cross {{34}}, countries also need {{35}} such as the Paris Agreement. Even when world talks move slowly, nations acting early can provide a {{36}} for others."
+     ]
+    },
+    {
+     "title": "Questions 37-40",
+     "instruction": "Do the following statements agree with the claims of the writer in Reading Passage 3? Write <strong>YES</strong>, <strong>NO</strong>, or <strong>NOT GIVEN</strong>.",
+     "type": "tfng",
+     "options": [
+      "YES",
+      "NO",
+      "NOT GIVEN"
+     ],
+     "items": [
+      {
+       "q": 37,
+       "text": "When large numbers of shoppers choose greener items, businesses adapt their products."
+      },
+      {
+       "q": 38,
+       "text": "Eating less red meat saves more carbon than cycling to work."
+      },
+      {
+       "q": 39,
+       "text": "Individual countries should wait until every nation signs a global deal before passing their own green laws."
+      },
+      {
+       "q": 40,
+       "text": "Solving environmental problems requires combined efforts at local, national, and global levels."
+      }
+     ]
+    }
+   ],
+   "qRange": [
+    27,
+    40
+   ]
+  }
+ ],
+ "answers": {
+  "1": [
+   "loss"
+  ],
+  "2": [
+   "reefs"
+  ],
+  "3": [
+   "horns"
+  ],
+  "4": [
+   "rangers"
+  ],
+  "5": [
+   "bees"
+  ],
+  "6": [
+   "deer"
+  ],
+  "7": [
+   "medicines"
+  ],
+  "8": [
+   "FALSE"
+  ],
+  "9": [
+   "TRUE"
+  ],
+  "10": [
+   "NOT GIVEN"
+  ],
+  "11": [
+   "FALSE"
+  ],
+  "12": [
+   "TRUE"
+  ],
+  "13": [
+   "NOT GIVEN"
+  ],
+  "14": [
+   "E"
+  ],
+  "15": [
+   "C"
+  ],
+  "16": [
+   "B"
+  ],
+  "17": [
+   "D"
+  ],
+  "18": [
+   "fumes"
+  ],
+  "19": [
+   "tomatoes"
+  ],
+  "20": [
+   "rents"
+  ],
+  "21": [
+   "parks"
+  ],
+  "22": [
+   "D"
+  ],
+  "23": [
+   "A"
+  ],
+  "24": [
+   "C"
+  ],
+  "25": [
+   "B"
+  ],
+  "26": [
+   "A"
+  ],
+  "27": [
+   "B"
+  ],
+  "28": [
+   "B"
+  ],
+  "29": [
+   "B"
+  ],
+  "30": [
+   "C"
+  ],
+  "31": [
+   "D"
+  ],
+  "32": [
+   "F"
+  ],
+  "33": [
+   "B"
+  ],
+  "34": [
+   "C"
+  ],
+  "35": [
+   "A"
+  ],
+  "36": [
+   "E"
+  ],
+  "37": [
+   "YES"
+  ],
+  "38": [
+   "NOT GIVEN"
+  ],
+  "39": [
+   "NO"
+  ],
+  "40": [
+   "YES"
+  ]
+ }
+}

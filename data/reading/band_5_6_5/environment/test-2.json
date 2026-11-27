@@ -1,0 +1,565 @@
+{
+ "schema": 1,
+ "id": "band-5-6-5-environment-test-2",
+ "series": "environment",
+ "category": "band_5_6_5",
+ "title": "Consumer Goods, Energy & Wilderness",
+ "summary": "The Environmental Cost of Consumer Goods • From Fossil Fuels to Renewable Energy • Oil and Gas in Untouched Wilderness",
+ "subtitle": "Band 5.0–6.5 · Environment",
+ "module": "academic",
+ "durationMin": 60,
+ "totalQuestions": 40,
+ "questionTypes": [
+  "table",
+  "tfng",
+  "matching",
+  "multi2",
+  "summary_text",
+  "mcq",
+  "summary_box"
+ ],
+ "pairQuestions": [
+  [
+   20,
+   21,
+   [
+    "B",
+    "D"
+   ]
+  ]
+ ],
+ "passages": [
+  {
+   "label": "READING PASSAGE 1",
+   "instruction": "You should spend about 20 minutes on Questions 1-13, which are based on Reading Passage 1 below.",
+   "title": "The Environmental Cost of Consumer Goods",
+   "subtitle": "Unpacking the ecological footprint of fast fashion, e-commerce packaging, and short-lived electronics",
+   "paragraphs": [
+    "Modern retail thrives on speed and abundance. Automated mass production and ultra-fast global shipping have driven down prices for clothing, homeware, and digital gadgets, fuelling a culture of relentless consumerism. While affordable goods have raised material comfort for billions, environmental auditors calculate that household consumption accounts for roughly two-thirds of global greenhouse gas emissions once full supply chains are measured.",
+    "Every purchased item carries a hidden carbon footprint—spanning raw-material mining, factory energy, international freight, and eventual disposal. The fast-fashion sector illustrates this strain vividly. To release micro-trends every fortnight, brands rely heavily on synthetic polyester spun from crude oil, alongside water-intensive cotton farming and toxic fabric bleaches. Millions of tonnes of lightly worn garments are incinerated or shipped to overseas landfills each year.",
+    "Convenience culture has also multiplied disposable products and multi-layered packaging. Coffee cups lined with thin plastic waterproof film cannot be recycled in ordinary paper mills, while the boom in next-day e-commerce has filled domestic bins with air pillows, tape, and oversized cartons designed to protect single lightweight items during rough van deliveries.",
+    "Even durable household appliances often suffer from planned obsolescence. Consumer groups complain that smartphones, headphones, and dishwashers are routinely engineered with sealed batteries, proprietary screws, or software updates that slow older chips—encouraging replacement every two or three years rather than straightforward repair. As a result, electronic waste ('e-waste') is now the fastest-growing domestic waste stream on Earth.",
+    "Pushback is gaining momentum through both ethical consumption and smart regulation. Shoppers increasingly turn to resale platforms, refill grocery stations, and neighbourhood 'libraries of things' where residents borrow drills or camping tents instead of buying them. On the legal front, France has introduced a mandatory 'repairability index' printed on electronics boxes, scoring devices from one to ten so buyers can reward manufacturers who design products built to last."
+   ],
+   "groups": [
+    {
+     "title": "Questions 1-5",
+     "instruction": "Complete the table below. Choose <strong>ONE WORD ONLY</strong> from the passage for each answer.",
+     "type": "table",
+     "boxTitle": "Hidden Costs of Consumer Culture and Responses",
+     "headers": [
+      "Sector or trend",
+      "Environmental concern",
+      "Key detail or solution"
+     ],
+     "rows": [
+      [
+       "Fast fashion",
+       "Uses oil-based {{1}}, large amounts of water, and toxic bleaches",
+       ""
+      ],
+      [
+       "Takeaway cups",
+       "Thin plastic waterproof {{2}} stops standard paper mills from recycling them",
+       ""
+      ],
+      [
+       "Electronics",
+       "Repairs are blocked by sealed batteries and special {{3}}",
+       ""
+      ],
+      [
+       "Sharing initiatives",
+       "Local 'libraries of things' lend items like camping tents and {{4}}",
+       ""
+      ],
+      [
+       "French regulation",
+       "A mandatory repairability {{5}} rates electronics from one to ten",
+       ""
+      ]
+     ]
+    },
+    {
+     "title": "Questions 6-13",
+     "instruction": "Do the following statements agree with the information given in Reading Passage 1? Write <strong>TRUE</strong>, <strong>FALSE</strong>, or <strong>NOT GIVEN</strong>.",
+     "type": "tfng",
+     "options": [
+      "TRUE",
+      "FALSE",
+      "NOT GIVEN"
+     ],
+     "items": [
+      {
+       "q": 6,
+       "text": "Household consumption is linked to about two-thirds of global emissions when full supply chains are counted."
+      },
+      {
+       "q": 7,
+       "text": "A product's carbon footprint excludes emissions created when the item is finally thrown away."
+      },
+      {
+       "q": 8,
+       "text": "Fast-fashion brands release more clothing collections in Europe than in North America."
+      },
+      {
+       "q": 9,
+       "text": "Next-day online deliveries have reduced the amount of cardboard packaging used by retailers."
+      },
+      {
+       "q": 10,
+       "text": "Software updates can sometimes reduce the performance of older electronic devices."
+      },
+      {
+       "q": 11,
+       "text": "Electronic waste is currently expanding faster than any other type of household rubbish."
+      },
+      {
+       "q": 12,
+       "text": "Online resale platforms charge lower fees than traditional charity shops."
+      },
+      {
+       "q": 13,
+       "text": "In France, electronics manufacturers can choose voluntarily whether to print the repairability score on boxes."
+      }
+     ]
+    }
+   ],
+   "qRange": [
+    1,
+    13
+   ]
+  },
+  {
+   "label": "READING PASSAGE 2",
+   "instruction": "You should spend about 20 minutes on Questions 14-26, which are based on Reading Passage 2 below.",
+   "title": "From Fossil Fuels to Renewable Energy",
+   "subtitle": "Evaluating the economics, intermittency challenges, and geopolitical rewards of clean power",
+   "paragraphs": [
+    "<strong>A</strong> Coal, oil, and natural gas—collectively termed fossil fuels—powered two centuries of industrial transformation. Because these underground deposits formed over geological timescales, they are strictly non-renewable. More pressingly, combusting them drives both urban air toxicity and climate instability, compelling governments worldwide to accelerate the transition toward renewable energy.",
+    "<strong>B</strong> Solar and wind power now lead global capacity additions by a wide margin. Unlike coal or gas stations that require continuous fuel shipments and emit heavy carbon dioxide, wind turbines and photovoltaic panels generate zero-emission electricity using free natural flows. Once installed, their marginal operating expenses are minimal, allowing clean plants to deliver predictable power prices for twenty-five to thirty years.",
+    "<strong>C</strong> Beyond climate goals, renewables strengthen national energy security. Countries that import most of their oil and liquefied gas remain acutely exposed to foreign conflicts, pipeline disruptions, and sudden price spikes that squeeze both factories and household budgets. Harnessing domestic sunlight, offshore winds, and geothermal heat enables governments to reduce dependence on volatile international fuel markets.",
+    "<strong>D</strong> Nevertheless, replacing fossil fuels on a national scale poses formidable engineering and financial hurdles. First, constructing offshore wind arrays, modernising ageing transmission cables, and training technicians demand a massive initial investment long before revenues arrive. Second, solar and wind suffer from 'intermittency'—output falls sharply at night or during windless winter high-pressure spells—creating the risk of blackouts unless backup capacity is always available.",
+    "<strong>E</strong> Grid engineers are deploying an array of innovations to solve intermittency. Utility-scale batteries, pumped-hydro reservoirs that store water uphill during sunny hours, and 'green hydrogen' produced from surplus wind power can all release electricity when skies darken. In parallel, smart meters encourage households to charge electric cars overnight when wind generation is abundant and tariffs drop.",
+    "<strong>F</strong> Economic trends increasingly favour the clean transition: utility-scale solar electricity has plunged in cost by nearly ninety percent since 2010, making it the cheapest new power source in most regions. Analysts conclude that while grid upgrades require bold upfront funding, the long-term payoff is a cleaner, self-reliant energy system."
+   ],
+   "groups": [
+    {
+     "title": "Questions 14-19",
+     "instruction": "Reading Passage 2 has six paragraphs, <strong>A-F</strong>. Which paragraph contains the following information? Write the correct letter, <strong>A-F</strong>.",
+     "type": "matching",
+     "options": [
+      "A",
+      "B",
+      "C",
+      "D",
+      "E",
+      "F"
+     ],
+     "items": [
+      {
+       "q": 14,
+       "text": "how clean domestic power shields economies from overseas political crises and price shocks"
+      },
+      {
+       "q": 15,
+       "text": "a figure demonstrating the steep drop in solar electricity costs since 2010"
+      },
+      {
+       "q": 16,
+       "text": "energy storage methods and flexible pricing tools used to smooth power supply"
+      },
+      {
+       "q": 17,
+       "text": "the long operational lifespan and low running costs of wind and solar installations"
+      },
+      {
+       "q": 18,
+       "text": "why coal, oil, and gas are finite resources that also harm urban air quality"
+      },
+      {
+       "q": 19,
+       "text": "upfront funding demands and supply gaps linked to changing weather conditions"
+      }
+     ]
+    },
+    {
+     "title": "Questions 20-21",
+     "instruction": "Choose <strong>TWO</strong> letters, <strong>A-E</strong>. Which <strong>TWO</strong> major hurdles to replacing fossil fuels are highlighted in Paragraph D?",
+     "type": "multi2",
+     "qPair": [
+      20,
+      21
+     ],
+     "options": [
+      {
+       "k": "A",
+       "t": "Wind turbines release carbon dioxide during winter spells."
+      },
+      {
+       "k": "B",
+       "t": "Very large upfront capital is needed for offshore wind farms and grid upgrades."
+      },
+      {
+       "k": "C",
+       "t": "Most governments lack legal permission to build transmission cables."
+      },
+      {
+       "k": "D",
+       "t": "Power generation fluctuates with daylight and wind conditions, risking outages."
+      },
+      {
+       "k": "E",
+       "t": "Solar panels wear out within five years of installation."
+      }
+     ]
+    },
+    {
+     "title": "Questions 22-26",
+     "instruction": "Complete the summary below. Choose <strong>ONE WORD ONLY</strong> from the passage for each answer.",
+     "type": "summary_text",
+     "boxTitle": "Keeping Renewable Power Reliable",
+     "paragraphs": [
+      "Unlike traditional stations that depend on constant fuel {{22}}, photovoltaic panels and wind turbines run on free natural energy. Using domestic renewables—including offshore wind and {{23}} heat—cuts reliance on unstable global markets. To overcome weather intermittency, engineers store spare power using pumped-hydro {{24}} and green {{25}}, while smart {{26}} guide households to charge vehicles overnight at lower rates."
+     ]
+    }
+   ],
+   "qRange": [
+    14,
+    26
+   ]
+  },
+  {
+   "label": "READING PASSAGE 3",
+   "instruction": "You should spend about 20 minutes on Questions 27-40, which are based on Reading Passage 3 below.",
+   "title": "Oil and Gas in Untouched Wilderness",
+   "subtitle": "Debating resource extraction across polar tundras, deep rainforests, and fragile marine frontiers",
+   "paragraphs": [
+    "<strong>1</strong> Despite rapid expansion in renewable power, global energy demand remains closely tied to petroleum and natural gas for aviation, shipping, and chemical manufacturing. As easily accessible reserves in older basins decline, multinational energy corporations are pushing into remote ecological frontiers—from Arctic permafrost plains to unlogged Amazonian basins. Whether drilling should be permitted inside an untouched wilderness has become a defining clash between short-term economic gain and irreversible environmental loss.",
+    "<strong>2</strong> Proponents of frontier extraction frame the issue around affordability and regional development. Expanding domestic oil and gas supply, they argue, shields consumers from volatile fuel imports, generates royalties for state budgets, and brings high-wage technical jobs to isolated northern or jungle municipalities. Industry engineers further contend that directional drilling—which taps multiple underground pockets from a single small gravel pad—dramatically shrinks the surface footprint compared with twentieth-century oil fields.",
+    "<strong>3</strong> Conservation biologists counter that 'smaller footprint' claims disguise wider disruption. Opening a pristine environment requires access highways, seismic blasting lines, pipelines, and airstrips that slice continuous landscapes into fragments. This habitat destruction blocks seasonal caribou migrations, exposes previously unreachable rainforests to illegal loggers and poachers, and accelerates thawing of carbon-rich permafrost beneath heated pipelines.",
+    "<strong>4</strong> The spectre of a catastrophic oil spill magnifies these concerns. In ice-choked polar seas or dense equatorial rivers, sub-zero storms, winter darkness, and vast distances from emergency ports render rapid containment nearly impossible. Experience from past maritime and jungle leaks demonstrates that heavy crude lingers beneath ice floes and river sediment for decades, inflicting severe ecological damage on seabirds, fish spawning grounds, and local subsistence fisheries.",
+    "<strong>5</strong> Indigenous communities residing in these regions raise profound questions of justice. Having stewarded wild ecosystems sustainably for millennia, many argue they are rarely given genuine veto power over national drilling licences. While corporate revenues flow largely to distant shareholders and capital cities, local villages absorb contaminated groundwater, noise pollution, and the erosion of traditional livelihoods.",
+    "<strong>6</strong> In my judgment, sacrificing the planet's last intact wildernesses for new fossil reserves is both ecologically reckless and economically short-sighted. Global climate agencies already warn that meeting international warming limits leaves no room for developing untouched oil fields. Redirecting those billions toward grid storage, public transit, and community-led conservation protects biodiversity while building a far more durable future."
+   ],
+   "groups": [
+    {
+     "title": "Questions 27-29",
+     "instruction": "Choose the correct letter, <strong>A, B, C or D</strong>.",
+     "type": "mcq",
+     "items": [
+      {
+       "q": 27,
+       "text": "Why do industry engineers mention 'directional drilling' in paragraph 2?",
+       "options": [
+        {
+         "k": "A",
+         "t": "To show that frontier oil fields create more jobs than older fields"
+        },
+        {
+         "k": "B",
+         "t": "To claim that modern techniques disturb far less surface land than older methods"
+        },
+        {
+         "k": "C",
+         "t": "To explain why drilling in Amazonian basins is cheaper than in the Arctic"
+        },
+        {
+         "k": "D",
+         "t": "To prove that gravel pads completely prevent underground oil leaks"
+        }
+       ]
+      },
+      {
+       "q": 28,
+       "text": "What secondary consequence of building access roads into rainforests is noted in paragraph 3?",
+       "options": [
+        {
+         "k": "A",
+         "t": "It lowers the cost of transporting local farm crops to cities."
+        },
+        {
+         "k": "B",
+         "t": "It allows illegal loggers and poachers to reach previously protected areas."
+        },
+        {
+         "k": "C",
+         "t": "It prevents permafrost from thawing beneath heated pipelines."
+        },
+        {
+         "k": "D",
+         "t": "It encourages caribou herds to migrate earlier each spring."
+        }
+       ]
+      },
+      {
+       "q": 29,
+       "text": "What fairness complaint do indigenous communities voice in paragraph 5?",
+       "options": [
+        {
+         "k": "A",
+         "t": "They are prohibited from buying shares in multinational oil corporations."
+        },
+        {
+         "k": "B",
+         "t": "Outsiders capture the financial profits while local residents bear the pollution and disruption."
+        },
+        {
+         "k": "C",
+         "t": "National governments force them to relocate to capital cities before drilling starts."
+        },
+        {
+         "k": "D",
+         "t": "They receive smaller state royalties than northern municipalities."
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "title": "Questions 30-35",
+     "instruction": "Complete the summary using the list of words and phrases, <strong>A-I</strong>, below. Write the correct letter, <strong>A-I</strong>.",
+     "type": "summary_box",
+     "boxTitle": "Frontier Extraction: Claims vs. Ecological Realities",
+     "legend": [
+      {
+       "key": "A",
+       "text": "climate targets"
+      },
+      {
+       "key": "B",
+       "text": "oil spill"
+      },
+      {
+       "key": "C",
+       "text": "local fisheries"
+      },
+      {
+       "key": "D",
+       "text": "tax royalties"
+      },
+      {
+       "key": "E",
+       "text": "habitat fragmentation"
+      },
+      {
+       "key": "F",
+       "text": "frozen ground"
+      },
+      {
+       "key": "G",
+       "text": "renewable subsidies"
+      },
+      {
+       "key": "H",
+       "text": "tourist income"
+      },
+      {
+       "key": "I",
+       "text": "urban transit"
+      }
+     ],
+     "options": [
+      "A",
+      "B",
+      "C",
+      "D",
+      "E",
+      "F",
+      "G",
+      "H",
+      "I"
+     ],
+     "paragraphs": [
+      "Supporters say drilling in remote frontiers generates state {{30}} and technical jobs while limiting reliance on volatile imports. Critics reply that infrastructure such as pipelines and airstrips causes {{31}}, disrupting animal migrations and warming {{32}}. Worse still, harsh weather and remoteness make containing an {{33}} extremely difficult, leaving lasting harm to {{34}}. The writer notes that international {{35}} leave no room to open untouched oil fields."
+     ]
+    },
+    {
+     "title": "Questions 36-39",
+     "instruction": "Do the following statements agree with the claims of the writer in Reading Passage 3? Write <strong>YES</strong>, <strong>NO</strong>, or <strong>NOT GIVEN</strong>.",
+     "type": "tfng",
+     "options": [
+      "YES",
+      "NO",
+      "NOT GIVEN"
+     ],
+     "items": [
+      {
+       "q": 36,
+       "text": "Directional drilling eliminates all environmental disruption in remote wilderness areas."
+      },
+      {
+       "q": 37,
+       "text": "Cleaning up an oil leak is significantly cheaper in Amazonian rivers than in Arctic seas."
+      },
+      {
+       "q": 38,
+       "text": "Indigenous communities are frequently denied a real right to block drilling licences on their lands."
+      },
+      {
+       "q": 39,
+       "text": "Developing untouched wilderness oil reserves is compatible with international climate goals."
+      }
+     ]
+    },
+    {
+     "title": "Question 40",
+     "instruction": "Choose the correct letter, <strong>A, B, C or D</strong>.",
+     "type": "mcq",
+     "items": [
+      {
+       "q": 40,
+       "text": "What would be the most suitable subtitle for Reading Passage 3?",
+       "options": [
+        {
+         "k": "A",
+         "t": "How directional drilling has made Arctic oil completely safe"
+        },
+        {
+         "k": "B",
+         "t": "Why opening the planet's last wild frontiers to drilling carries unacceptable costs"
+        },
+        {
+         "k": "C",
+         "t": "Why aviation and shipping no longer depend on petroleum"
+        },
+        {
+         "k": "D",
+         "t": "How indigenous villages are profiting from remote pipelines"
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "qRange": [
+    27,
+    40
+   ]
+  }
+ ],
+ "answers": {
+  "1": [
+   "polyester"
+  ],
+  "2": [
+   "film"
+  ],
+  "3": [
+   "screws"
+  ],
+  "4": [
+   "drills"
+  ],
+  "5": [
+   "index"
+  ],
+  "6": [
+   "TRUE"
+  ],
+  "7": [
+   "FALSE"
+  ],
+  "8": [
+   "NOT GIVEN"
+  ],
+  "9": [
+   "FALSE"
+  ],
+  "10": [
+   "TRUE"
+  ],
+  "11": [
+   "TRUE"
+  ],
+  "12": [
+   "NOT GIVEN"
+  ],
+  "13": [
+   "FALSE"
+  ],
+  "14": [
+   "C"
+  ],
+  "15": [
+   "F"
+  ],
+  "16": [
+   "E"
+  ],
+  "17": [
+   "B"
+  ],
+  "18": [
+   "A"
+  ],
+  "19": [
+   "D"
+  ],
+  "20": [
+   "B",
+   "D"
+  ],
+  "21": [
+   "B",
+   "D"
+  ],
+  "22": [
+   "shipments"
+  ],
+  "23": [
+   "geothermal"
+  ],
+  "24": [
+   "reservoirs"
+  ],
+  "25": [
+   "hydrogen"
+  ],
+  "26": [
+   "meters"
+  ],
+  "27": [
+   "B"
+  ],
+  "28": [
+   "B"
+  ],
+  "29": [
+   "B"
+  ],
+  "30": [
+   "D"
+  ],
+  "31": [
+   "E"
+  ],
+  "32": [
+   "F"
+  ],
+  "33": [
+   "B"
+  ],
+  "34": [
+   "C"
+  ],
+  "35": [
+   "A"
+  ],
+  "36": [
+   "NO"
+  ],
+  "37": [
+   "NOT GIVEN"
+  ],
+  "38": [
+   "YES"
+  ],
+  "39": [
+   "NO"
+  ],
+  "40": [
+   "B"
+  ]
+ }
+}

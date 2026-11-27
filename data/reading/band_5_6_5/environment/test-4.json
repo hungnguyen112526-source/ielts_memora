@@ -1,0 +1,629 @@
+{
+ "schema": 1,
+ "id": "band-5-6-5-environment-test-4",
+ "series": "environment",
+ "category": "band_5_6_5",
+ "title": "Air Travel, Cleaner Cities & Waste",
+ "summary": "Air Travel vs. the Environment • Cleaner Cities: From Car-Free Days to Cycling • Waste, Recycling and Plastic",
+ "subtitle": "Band 5.0–6.5 · Environment",
+ "module": "academic",
+ "durationMin": 60,
+ "totalQuestions": 40,
+ "questionTypes": [
+  "tfng",
+  "flowchart",
+  "notes",
+  "summary_box",
+  "mcq"
+ ],
+ "passages": [
+  {
+   "label": "READING PASSAGE 1",
+   "instruction": "You should spend about 20 minutes on Questions 1-13, which are based on Reading Passage 1 below.",
+   "title": "Air Travel vs. the Environment",
+   "subtitle": "Confronting budget aviation, rail alternatives, and the limits of carbon offsets",
+   "paragraphs": [
+    "The deregulation of aviation and the emergence of budget airlines transformed air travel from an elite privilege into an everyday habit. Discount carriers opened regional airports across Europe and Asia, allowing students, migrant workers, and families to enjoy unprecedented travel freedom at prices that frequently undercut long-distance train tickets.",
+    "From a climate standpoint, however, cheap flights carry an outsized toll. Per passenger kilometre, short-haul jets emit several times more carbon emissions than high-speed rail and significantly more than a shared petrol car. Worse still, aircraft release nitrogen oxides and water vapour at cruising altitude, forming condensation trails ('contrails') that trap additional infrared heat—multiplying aviation's warming effect beyond CO2 alone.",
+    "Alarmed by soaring passenger numbers, climate campaigners urge governments to curb non-essential flights. Policy proposals include ending tax exemptions on jet kerosene, banning domestic routes already served by fast trains, and introducing a 'frequent-flyer levy'—a progressive tax that leaves one annual holiday flight untaxed while charging sharply higher fees on each additional journey. Research indicates that a tiny wealthy minority accounts for over half of all global passenger flights.",
+    "Aviation groups and hospitality associations push back firmly. They warn that steep ticket taxes could cripple the tourism industry in remote islands and developing economies where visitors arrive almost exclusively by air, threatening millions of jobs in hotels, restaurants, and local transport. Critics also argue that raising fares indiscriminately could erode travel freedom for working-class families visiting relatives abroad.",
+    "Rather than shrinking flight volumes, airlines heavily promote voluntary carbon offset schemes built on a three-stage verification model. First, booking software computes a passenger's flight footprint based on route distance and cabin class. Next, the traveller's payment buys certified carbon credits funding projects like forest preservation or clean cookstoves. Finally, external registries retire those credits permanently so they cannot be resold. Yet independent investigations have found that many offset schemes exaggerate their climate benefits, leading experts to argue that cutting unnecessary trips and scaling up sustainable aviation fuel (SAF) remain indispensable."
+   ],
+   "groups": [
+    {
+     "title": "Questions 1-7",
+     "instruction": "Do the following statements agree with the information given in Reading Passage 1? Write <strong>TRUE</strong>, <strong>FALSE</strong>, or <strong>NOT GIVEN</strong>.",
+     "type": "tfng",
+     "options": [
+      "TRUE",
+      "FALSE",
+      "NOT GIVEN"
+     ],
+     "items": [
+      {
+       "q": 1,
+       "text": "Tickets on budget airlines are sometimes cheaper than long-distance rail fares."
+      },
+      {
+       "q": 2,
+       "text": "Carbon dioxide is the only way aeroplanes contribute to global warming."
+      },
+      {
+       "q": 3,
+       "text": "Under a frequent-flyer levy, a passenger's first holiday flight each year would remain untaxed."
+      },
+      {
+       "q": 4,
+       "text": "More than half of all passenger flights worldwide are taken by a small, wealthy group of travellers."
+      },
+      {
+       "q": 5,
+       "text": "European budget airlines have already agreed to stop operating domestic routes under three hours."
+      },
+      {
+       "q": 6,
+       "text": "Independent studies have confirmed that virtually all carbon offset schemes deliver their promised carbon savings."
+      },
+      {
+       "q": 7,
+       "text": "Sustainable aviation fuel is currently cheaper to produce than conventional jet kerosene."
+      }
+     ]
+    },
+    {
+     "title": "Questions 8-10",
+     "instruction": "Complete the flow-chart below. Choose <strong>NO MORE THAN TWO WORDS</strong> from the passage for each answer.",
+     "type": "flowchart",
+     "boxTitle": "Three-Stage Verification Model for Airline Carbon Offsets",
+     "steps": [
+      "Stage 1: Software calculates the traveller's {{8}} using distance and seat class.",
+      "Stage 2: Passenger funds purchase {{9}} to finance forestry or cookstove projects.",
+      "Stage 3: Credits are permanently retired by {{10}} to prevent resale."
+     ]
+    },
+    {
+     "title": "Questions 11-13",
+     "instruction": "Complete the notes below. Choose <strong>ONE WORD ONLY</strong> from the passage for each answer.",
+     "type": "notes",
+     "boxTitle": "Aviation Impacts and Industry Arguments",
+     "sections": [
+      {
+       "heading": "Climate impact",
+       "items": [
+        "At cruising height, aircraft exhaust forms heat-trapping {{11}}."
+       ]
+      },
+      {
+       "heading": "Policy debate",
+       "items": [
+        "Campaigners want governments to remove tax {{12}} on jet fuel."
+       ]
+      },
+      {
+       "heading": "Social concerns",
+       "items": [
+        "Higher fares across the board could make it harder for working families to visit {{13}} overseas."
+       ]
+      }
+     ]
+    }
+   ],
+   "qRange": [
+    1,
+    13
+   ]
+  },
+  {
+   "label": "READING PASSAGE 2",
+   "instruction": "You should spend about 20 minutes on Questions 14-26, which are based on Reading Passage 2 below.",
+   "title": "Cleaner Cities: From Car-Free Days to Cycling",
+   "subtitle": "Reclaiming congested urban streets through vehicle-free zones, protected bike lanes, and integrated transit",
+   "paragraphs": [
+    "<strong>1</strong> For much of the twentieth century, urban engineers tried to cure traffic congestion by widening boulevards and building multi-lane flyovers. Yet transport researchers consistently observe a counterintuitive phenomenon called 'induced demand': adding extra road space simply encourages more people to drive, quickly filling new lanes with gridlock and worsening urban air pollution. Today, forward-thinking mayors are reversing course by prioritising sustainable transport.",
+    "<strong>2</strong> One widely copied catalyst for change is the regular car-free day. Inspired by Bogota's famous Ciclovia—which closes major arteries to private cars every Sunday—cities from Jakarta to Brussels now temporarily open central roads to pedestrians, skaters, and cyclists. Even when initially limited to a single day, vehicle-free events allow sceptical shopkeepers and residents to experience quieter air and brisk foot traffic firsthand.",
+    "<strong>3</strong> Critics often dismiss annual car-free days as symbolic gestures that do little to alter weekday rush-hour patterns. Urban sociologists disagree, pointing out that cities frequently use temporary road closures as low-cost public trials. In Paris, temporary pedestrian zones along the River Seine proved so popular with families that city officials converted them permanently into riverside promenades and commuting routes.",
+    "<strong>4</strong> Expanding everyday cycling delivers some of the highest health and carbon returns per dollar invested. Studies from Copenhagen and Dutch cities confirm that painted lines on busy roads do not attract nervous riders; what transforms a city's daily commute is physically separated cycle lanes, priority traffic signals, and secure weatherproof bike parking at rail hubs. When safety is built into street design, cycling shifts from a niche fitness hobby into an ordinary transport choice for children and seniors alike.",
+    "<strong>5</strong> Nevertheless, planners acknowledge real constraints. Steep topography, monsoon downpours, scorching summer humidity, and long suburban distances make cycling impractical for many commuters. Likewise, people with mobility impairments, tradespeople hauling equipment, and parents transporting multiple toddlers cannot depend exclusively on bicycles.",
+    "<strong>6</strong> Consequently, Europe's and Asia's cleanest metropolises treat cycling as one strand of an integrated network alongside frequent, affordable public transport. Pairing electric metro lines and dedicated bus lanes with shaded walkways and e-bike rentals ensures every resident can move efficiently without relying on a private petrol car."
+   ],
+   "groups": [
+    {
+     "title": "Questions 14-19",
+     "instruction": "Complete the summary using the list of words and phrases, <strong>A-J</strong>, below. Write the correct letter, <strong>A-J</strong>.",
+     "type": "summary_box",
+     "boxTitle": "Rethinking Urban Mobility",
+     "legend": [
+      {
+       "key": "A",
+       "text": "permanent"
+      },
+      {
+       "key": "B",
+       "text": "public transit"
+      },
+      {
+       "key": "C",
+       "text": "induced demand"
+      },
+      {
+       "key": "D",
+       "text": "protected lanes"
+      },
+      {
+       "key": "E",
+       "text": "physical limitations"
+      },
+      {
+       "key": "F",
+       "text": "car-free day"
+      },
+      {
+       "key": "G",
+       "text": "free parking"
+      },
+      {
+       "key": "H",
+       "text": "higher speeds"
+      },
+      {
+       "key": "I",
+       "text": "rural highways"
+      },
+      {
+       "key": "J",
+       "text": "factory zones"
+      }
+     ],
+     "options": [
+      "A",
+      "B",
+      "C",
+      "D",
+      "E",
+      "F",
+      "G",
+      "H",
+      "I",
+      "J"
+     ],
+     "paragraphs": [
+      "Widening roads rarely ends gridlock because of {{14}}, where extra lanes attract additional cars. Instead, many mayors host a {{15}}, allowing locals to witness cleaner air and lively streets, which can pave the way for {{16}} pedestrian zones. To encourage everyday cycling, cities need {{17}} rather than simple road paint. Still, because bad weather, hills, and {{18}} limit who can cycle, planners stress combining bike networks with reliable {{19}}."
+     ]
+    },
+    {
+     "title": "Questions 20-23",
+     "instruction": "Do the following statements agree with the claims of the writer in Reading Passage 2? Write <strong>YES</strong>, <strong>NO</strong>, or <strong>NOT GIVEN</strong>.",
+     "type": "tfng",
+     "options": [
+      "YES",
+      "NO",
+      "NOT GIVEN"
+     ],
+     "items": [
+      {
+       "q": 20,
+       "text": "Building wider multi-lane roads is a proven long-term method for eliminating city traffic jams."
+      },
+      {
+       "q": 21,
+       "text": "Brussels attracts more cyclists on car-free days than Jakarta does."
+      },
+      {
+       "q": 22,
+       "text": "Painting bicycle lanes directly onto busy traffic roads is enough to reassure nervous cyclists."
+      },
+      {
+       "q": 23,
+       "text": "Temporary vehicle-free trials can help build public support for permanent street changes."
+      }
+     ]
+    },
+    {
+     "title": "Questions 24-26",
+     "instruction": "Choose the correct letter, <strong>A, B, C or D</strong>.",
+     "type": "mcq",
+     "items": [
+      {
+       "q": 24,
+       "text": "Why does the writer mention the River Seine in Paris in paragraph 3?",
+       "options": [
+        {
+         "k": "A",
+         "t": "To show that shopkeepers always oppose car-free zones"
+        },
+        {
+         "k": "B",
+         "t": "To give an example of a temporary closure becoming a permanent pedestrian space"
+        },
+        {
+         "k": "C",
+         "t": "To explain why Brussels copied Parisian traffic signals"
+        },
+        {
+         "k": "D",
+         "t": "To argue that river ferries pollute more than private cars"
+        }
+       ]
+      },
+      {
+       "q": 25,
+       "text": "According to paragraph 4, what happens when cities build safe, physically separated cycling infrastructure?",
+       "options": [
+        {
+         "k": "A",
+         "t": "Cycling becomes a mainstream transport choice for all age groups."
+        },
+        {
+         "k": "B",
+         "t": "Train stations no longer need electric metro connections."
+        },
+        {
+         "k": "C",
+         "t": "Private car ownership drops to zero within one year."
+        },
+        {
+         "k": "D",
+         "t": "Cycling remains popular mainly among athletic commuters."
+        }
+       ]
+      },
+      {
+       "q": 26,
+       "text": "What approach do the cleanest cities in Europe and Asia follow in paragraph 6?",
+       "options": [
+        {
+         "k": "A",
+         "t": "Replacing all public buses with private bicycle lanes"
+        },
+        {
+         "k": "B",
+         "t": "Integrating cycling with electric metros, dedicated bus lanes, walkways, and e-bikes"
+        },
+        {
+         "k": "C",
+         "t": "Banning tradespeople from bringing vans into city centres"
+        },
+        {
+         "k": "D",
+         "t": "Charging cyclists for using weatherproof parking at train hubs"
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "qRange": [
+    14,
+    26
+   ]
+  },
+  {
+   "label": "READING PASSAGE 3",
+   "instruction": "You should spend about 20 minutes on Questions 27-40, which are based on Reading Passage 3 below.",
+   "title": "Waste, Recycling and Plastic",
+   "subtitle": "Why voluntary recycling falls short—and how legislation, fines, and education can close the gap",
+   "paragraphs": [
+    "<strong>1</strong> Global cities currently generate more than two billion tonnes of municipal solid waste annually—a volume projected to surge by seventy percent before 2050. Much of this rubbish is still buried in open or lined landfill sites, where decomposing organic scraps emit potent methane gas and rainfall carries toxic leachate toward groundwater. Managing waste is therefore both a local sanitation issue and an urgent climate challenge.",
+    "<strong>2</strong> Two waste streams stand out for their scale and persistence: food waste and plastic. Roughly a third of global food production is lost or discarded, fuelled by strict cosmetic supermarket standards, oversized restaurant portions, and confused household shopping. Meanwhile, cheap single-use plastic—wrappers, sachets, and carrier bags—drives severe plastic pollution across waterways and oceans, breaking down into microplastics that enter marine food webs and even human bloodstreams.",
+    "<strong>3</strong> For decades, governments and corporations promoted consumer recycling as the primary fix. Yet the global plastic recycling rate hovers stubbornly below ten percent. Complex multi-layer food pouches are technically impossible to separate, while greasy takeaway boxes routinely contaminate entire batches of otherwise clean paper. Even when sorted properly, recycled plastic struggles to compete economically whenever cheap crude oil makes virgin plastic resin inexpensive to manufacture.",
+    "<strong>4</strong> Recognising the failure of purely voluntary habits, policymakers are turning to enforceable rules. Over ninety nations now enforce a partial or total ban on thin plastic bags, while France prohibits supermarkets from throwing away unsold edible groceries, requiring donations to charities instead. In South Korea, a 'pay-as-you-throw' system weighs household food scraps and charges fees accordingly, while municipal inspectors impose fines on residents and firms that mix recyclables with general rubbish—lifting South Korea's food recycling rate above ninety percent.",
+    "<strong>5</strong> Increasingly, regulators are also adopting 'extended producer responsibility' (EPR) laws that make packaging manufacturers pay for collection and sorting costs—giving companies a financial incentive to simplify materials. Alongside legislation, early education remains vital. Schools in Japan and Taiwan integrate daily waste sorting and cafeteria zero-waste lunches into the curriculum, while public campaigns raise awareness about date labels so families distinguish safety deadlines from cosmetic 'best-before' guidelines.",
+    "<strong>6</strong> Closing the global waste gap will never happen through recycling bins alone. Lasting progress requires combining upstream bans and producer accountability with fair household fines and school-based habits—shifting society from managing mountains of trash to preventing waste before it is ever created."
+   ],
+   "groups": [
+    {
+     "title": "Questions 27-32",
+     "instruction": "Complete the summary using the list of words and phrases, <strong>A-J</strong>, below. Write the correct letter, <strong>A-J</strong>.",
+     "type": "summary_box",
+     "boxTitle": "Moving Beyond Voluntary Recycling",
+     "legend": [
+      {
+       "key": "A",
+       "text": "financial penalties"
+      },
+      {
+       "key": "B",
+       "text": "producer responsibility"
+      },
+      {
+       "key": "C",
+       "text": "landfill sites"
+      },
+      {
+       "key": "D",
+       "text": "recycling rate"
+      },
+      {
+       "key": "E",
+       "text": "single-use plastic"
+      },
+      {
+       "key": "F",
+       "text": "school curricula"
+      },
+      {
+       "key": "G",
+       "text": "cheap oil"
+      },
+      {
+       "key": "H",
+       "text": "cosmetic fruit"
+      },
+      {
+       "key": "I",
+       "text": "charity shops"
+      },
+      {
+       "key": "J",
+       "text": "free bags"
+      }
+     ],
+     "options": [
+      "A",
+      "B",
+      "C",
+      "D",
+      "E",
+      "F",
+      "G",
+      "H",
+      "I",
+      "J"
+     ],
+     "paragraphs": [
+      "Expanding cities dump huge quantities of trash into {{27}}, producing methane and groundwater contamination. Meanwhile, {{28}} fragments into microplastics entering marine food chains. Relying purely on voluntary sorting has kept the plastic {{29}} below ten percent due to contamination and cheap virgin resin. Governments now pair plastic bag bans with {{30}} for poor sorting and {{31}} laws that bill packaging makers for disposal. Teaching sorting routines in {{32}} further builds lifelong waste reduction."
+     ]
+    },
+    {
+     "title": "Questions 33-36",
+     "instruction": "Do the following statements agree with the claims of the writer in Reading Passage 3? Write <strong>YES</strong>, <strong>NO</strong>, or <strong>NOT GIVEN</strong>.",
+     "type": "tfng",
+     "options": [
+      "YES",
+      "NO",
+      "NOT GIVEN"
+     ],
+     "items": [
+      {
+       "q": 33,
+       "text": "Low crude oil prices make it harder for recycled plastic to compete financially with brand-new plastic."
+      },
+      {
+       "q": 34,
+       "text": "South Korea's pay-as-you-throw food waste system has achieved a recycling rate above ninety percent."
+      },
+      {
+       "q": 35,
+       "text": "Taiwanese schools introduced zero-waste lunches earlier than Japanese schools did."
+      },
+      {
+       "q": 36,
+       "text": "Providing more household recycling bins is sufficient on its own to solve the global waste problem."
+      }
+     ]
+    },
+    {
+     "title": "Questions 37-40",
+     "instruction": "Choose the correct letter, <strong>A, B, C or D</strong>.",
+     "type": "mcq",
+     "items": [
+      {
+       "q": 37,
+       "text": "What are TWO technical reasons mentioned in paragraph 3 for low recycling rates?",
+       "options": [
+        {
+         "k": "A",
+         "t": "Multi-layer packaging cannot be separated, and dirty boxes spoil clean paper batches."
+        },
+        {
+         "k": "B",
+         "t": "Citizens refuse to buy recycled paper, and trucks are too small."
+        },
+        {
+         "k": "C",
+         "t": "Landfills pay factories more than recycling centres do."
+        },
+        {
+         "k": "D",
+         "t": "Microplastics destroy sorting machines inside paper mills."
+        }
+       ]
+      },
+      {
+       "q": 38,
+       "text": "What does French law require supermarkets to do with unsold edible food in paragraph 4?",
+       "options": [
+        {
+         "k": "A",
+         "t": "Weigh it and send it to municipal landfill sites"
+        },
+        {
+         "k": "B",
+         "t": "Donate it to charities instead of throwing it away"
+        },
+        {
+         "k": "C",
+         "t": "Sell it exclusively to school cafeterias at half price"
+        },
+        {
+         "k": "D",
+         "t": "Package it in multi-layer pouches to extend shelf life"
+        }
+       ]
+      },
+      {
+       "q": 39,
+       "text": "How do extended producer responsibility (EPR) laws influence packaging companies in paragraph 5?",
+       "options": [
+        {
+         "k": "A",
+         "t": "They ban companies from exporting packaged goods abroad."
+        },
+        {
+         "k": "B",
+         "t": "They give firms a financial motive to design simpler, easier-to-recycle packaging."
+        },
+        {
+         "k": "C",
+         "t": "They allow companies to charge shoppers extra for charity donations."
+        },
+        {
+         "k": "D",
+         "t": "They require manufacturers to operate public school cafeterias."
+        }
+       ]
+      },
+      {
+       "q": 40,
+       "text": "What fundamental shift does the writer call for in the final paragraph?",
+       "options": [
+        {
+         "k": "A",
+         "t": "Building larger lined landfills further outside growing cities"
+        },
+        {
+         "k": "B",
+         "t": "Moving from handling huge piles of rubbish to preventing waste at the source"
+        },
+        {
+         "k": "C",
+         "t": "Replacing all school education campaigns with heavier household fines"
+        },
+        {
+         "k": "D",
+         "t": "Stopping the manufacture of all food packaging worldwide"
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "qRange": [
+    27,
+    40
+   ]
+  }
+ ],
+ "answers": {
+  "1": [
+   "TRUE"
+  ],
+  "2": [
+   "FALSE"
+  ],
+  "3": [
+   "TRUE"
+  ],
+  "4": [
+   "TRUE"
+  ],
+  "5": [
+   "NOT GIVEN"
+  ],
+  "6": [
+   "FALSE"
+  ],
+  "7": [
+   "NOT GIVEN"
+  ],
+  "8": [
+   "flight footprint"
+  ],
+  "9": [
+   "carbon credits"
+  ],
+  "10": [
+   "external registries"
+  ],
+  "11": [
+   "contrails"
+  ],
+  "12": [
+   "exemptions"
+  ],
+  "13": [
+   "relatives"
+  ],
+  "14": [
+   "C"
+  ],
+  "15": [
+   "F"
+  ],
+  "16": [
+   "A"
+  ],
+  "17": [
+   "D"
+  ],
+  "18": [
+   "E"
+  ],
+  "19": [
+   "B"
+  ],
+  "20": [
+   "NO"
+  ],
+  "21": [
+   "NOT GIVEN"
+  ],
+  "22": [
+   "NO"
+  ],
+  "23": [
+   "YES"
+  ],
+  "24": [
+   "B"
+  ],
+  "25": [
+   "A"
+  ],
+  "26": [
+   "B"
+  ],
+  "27": [
+   "C"
+  ],
+  "28": [
+   "E"
+  ],
+  "29": [
+   "D"
+  ],
+  "30": [
+   "A"
+  ],
+  "31": [
+   "B"
+  ],
+  "32": [
+   "F"
+  ],
+  "33": [
+   "YES"
+  ],
+  "34": [
+   "YES"
+  ],
+  "35": [
+   "NOT GIVEN"
+  ],
+  "36": [
+   "NO"
+  ],
+  "37": [
+   "A"
+  ],
+  "38": [
+   "B"
+  ],
+  "39": [
+   "B"
+  ],
+  "40": [
+   "B"
+  ]
+ }
+}

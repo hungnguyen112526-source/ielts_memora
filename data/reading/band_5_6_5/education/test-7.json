@@ -1,0 +1,529 @@
+{
+ "schema": 1,
+ "id": "band-5-6-5-education-test-7",
+ "series": "education",
+ "category": "band_5_6_5",
+ "title": "School Curriculum & Life Skills",
+ "summary": "Children and TV • Playing Sports in a Team • Learning at Home: Homeschooling",
+ "subtitle": "Band 5.0–6.5 · Education",
+ "module": "academic",
+ "durationMin": 60,
+ "totalQuestions": 40,
+ "questionTypes": [
+  "notes",
+  "tfng",
+  "mcq",
+  "matching"
+ ],
+ "passages": [
+  {
+   "label": "READING PASSAGE 1",
+   "instruction": "You should spend about 20 minutes on Questions 1-13, which are based on Reading Passage 1 below.",
+   "title": "Children and TV",
+   "subtitle": "How content quality and sensible screen limits shape childhood habits",
+   "paragraphs": [
+    "Ever since television sets entered family living rooms in the 1950s, parents and paediatricians have debated their impact on childhood development. Although tablets and streaming apps now compete for attention, broadcast and on-demand TV remain a central part of daily family life. Rather than asking whether television is simply 'good' or 'bad', modern researchers emphasise two decisive factors: what children watch and how long they spend watching.",
+    "Well-designed television can deliver genuine learning gains, particularly for pre-schoolers. Longitudinal studies show that a carefully researched educational programme—featuring clear narration, gentle pacing, and interactive questions—can expand young children's vocabulary, early numeracy, and cultural curiosity. Wildlife documentaries and science series also expose kids from low-income urban homes to oceans, forests, and museums they might rarely visit in person.",
+    "By contrast, unsupervised viewing of fast-paced or violent shows raises clear developmental concerns. Psychologists have found that repeated exposure to aggressive cartoons or action dramas can make children less sensitive to real-life suffering and encourage impulsive behaviour on the playground. Even non-violent shows that cut rapidly from scene to scene can temporarily strain young children's attention spans immediately after viewing.",
+    "Total daily screen time matters just as much as content. When watching television becomes an automatic evening habit, it steadily crowds out physical play, face-to-face family conversation, and bedtime reading. Health surveys consistently link more than three hours of daily recreational viewing with higher rates of childhood obesity and irregular sleep, especially when televisions are placed inside children's bedrooms.",
+    "Consequently, major medical associations now encourage parents to focus on practical boundaries instead of total bans. Recommended steps include setting predictable daily viewing limits, switching off screens at least an hour before sleep, and keeping mealtimes completely screen-free. Equally valuable is watching key programmes together so parents can discuss storylines, explain commercials, and turn passive viewing into active family dialogue."
+   ],
+   "groups": [
+    {
+     "title": "Questions 1-7",
+     "instruction": "Complete the notes below. Choose <strong>ONE WORD ONLY</strong> from the passage for each answer.",
+     "type": "notes",
+     "boxTitle": "Effects of Television on Children",
+     "sections": [
+      {
+       "heading": "Positive impacts",
+       "items": [
+        "A quality educational programme uses gentle pacing, interactive questions, and clear {{1}}.",
+        "Nature and science shows introduce city children to oceans, forests, and {{2}}."
+       ]
+      },
+      {
+       "heading": "Risks of poor content",
+       "items": [
+        "Aggressive dramas and cartoons can trigger impulsive {{3}} at school."
+       ]
+      },
+      {
+       "heading": "Risks of excessive screen time",
+       "items": [
+        "Watching TV habitually can replace active play, conversation, and bedtime {{4}}.",
+        "Over three hours of daily viewing is associated with irregular sleep and childhood {{5}}."
+       ]
+      },
+      {
+       "heading": "Recommended family boundaries",
+       "items": [
+        "Avoid screens during {{6}} and for an hour prior to bedtime.",
+        "Co-watching lets parents discuss stories and explain {{7}}."
+       ]
+      }
+     ]
+    },
+    {
+     "title": "Questions 8-13",
+     "instruction": "Do the following statements agree with the information given in Reading Passage 1? Write <strong>TRUE</strong>, <strong>FALSE</strong>, or <strong>NOT GIVEN</strong>.",
+     "type": "tfng",
+     "options": [
+      "TRUE",
+      "FALSE",
+      "NOT GIVEN"
+     ],
+     "items": [
+      {
+       "q": 8,
+       "text": "Modern researchers believe that how much TV children watch is just as important as what they watch."
+      },
+      {
+       "q": 9,
+       "text": "Non-violent programmes never have any short-term effect on young children's concentration."
+      },
+      {
+       "q": 10,
+       "text": "Wildlife documentaries are more popular with boys than with girls."
+      },
+      {
+       "q": 11,
+       "text": "Keeping a television inside a child's bedroom is linked with sleep problems."
+      },
+      {
+       "q": 12,
+       "text": "Major medical associations advise parents to ban television completely for all children under twelve."
+      },
+      {
+       "q": 13,
+       "text": "Streaming apps contain fewer advertisements than traditional broadcast television channels."
+      }
+     ]
+    }
+   ],
+   "qRange": [
+    1,
+    13
+   ]
+  },
+  {
+   "label": "READING PASSAGE 2",
+   "instruction": "You should spend about 20 minutes on Questions 14-26, which are based on Reading Passage 2 below.",
+   "title": "Playing Sports in a Team",
+   "subtitle": "Comparing the social rewards of team sports with the personal discipline of individual athletics",
+   "paragraphs": [
+    "Physical activity is widely recognised as vital for keeping young people healthy, lowering stress, and building strong bones and hearts. Yet parents and physical education teachers frequently debate which format offers greater long-term value: joining a team sport such as basketball, hockey, or football, or practising an individual discipline like swimming, gymnastics, or tennis.",
+    "Advocates of team sports emphasise their unmatched power to develop social intelligence. On a pitch or court, no single player can succeed alone; athletes must constantly communicate, read one another's movements, and cooperate toward a shared tactical goal. Through structured teamwork, shy adolescents learn how to speak up clearly, trust teammates under pressure, and accept that group success sometimes requires passing the ball rather than seeking personal glory.",
+    "Team sports also foster deep friendship and emotional resilience. Training together three times a week through rain, tiring drills, and tough away matches builds a sense of belonging that extends far beyond the changing room. Longitudinal youth studies in Canada found that teenagers who participated in school team sports reported lower rates of loneliness and higher feelings of school connection than peers who exercised alone.",
+    "At the same time, supporters of individual sports point out clear drawbacks in poorly managed group environments. Intense competition for starting positions can leave less athletic children sitting on the bench for entire seasons, damaging their confidence. In addition, when coaches shout aggressively or focus exclusively on winning trophies, group sports can trigger anxiety and encourage unfair play.",
+    "By contrast, individual sports such as track running, martial arts, or swimming offer unique psychological benefits. Every participant stays active throughout practice without waiting for a pass, and progress is measured clearly against personal best times rather than teammates' mistakes. Because an athlete cannot blame anyone else for a poor race, individual training builds remarkable self-discipline, focus, and calm problem-solving under pressure.",
+    "Increasingly, youth sport psychologists suggest that children gain the most by sampling both worlds. Rotating between a local football squad and a swimming club allows young people to experience cooperative teamwork alongside independent goal-setting—helping them discover a lifelong physical habit they genuinely enjoy."
+   ],
+   "groups": [
+    {
+     "title": "Questions 14-18",
+     "instruction": "Do the following statements agree with the information given in Reading Passage 2? Write <strong>TRUE</strong>, <strong>FALSE</strong>, or <strong>NOT GIVEN</strong>.",
+     "type": "tfng",
+     "options": [
+      "TRUE",
+      "FALSE",
+      "NOT GIVEN"
+     ],
+     "items": [
+      {
+       "q": 14,
+       "text": "In Canadian studies, teenagers playing school team sports felt less lonely than those who exercised on their own."
+      },
+      {
+       "q": 15,
+       "text": "Basketball requires better communication skills than hockey."
+      },
+      {
+       "q": 16,
+       "text": "Strong competition for team places can sometimes reduce the confidence of less skilled players."
+      },
+      {
+       "q": 17,
+       "text": "In individual sports, athletes can easily blame teammates when they perform poorly in a race."
+      },
+      {
+       "q": 18,
+       "text": "Youth sport psychologists recommend that children specialise in only one team sport from an early age."
+      }
+     ]
+    },
+    {
+     "title": "Questions 19-26",
+     "instruction": "Complete the notes below. Choose <strong>ONE WORD ONLY</strong> from the passage for each answer.",
+     "type": "notes",
+     "boxTitle": "Team Sports vs. Individual Sports",
+     "sections": [
+      {
+       "heading": "Advantages of team sports",
+       "items": [
+        "Players cooperate to achieve a shared tactical {{19}}.",
+        "Teaches players to prioritise group success over personal {{20}}.",
+        "Tough matches and tiring {{21}} create a lasting sense of belonging."
+       ]
+      },
+      {
+       "heading": "Drawbacks of poorly managed teams",
+       "items": [
+        "Less athletic players may spend full seasons sitting on the {{22}}.",
+        "Aggressive coaches focused solely on winning {{23}} can cause anxiety."
+       ]
+      },
+      {
+       "heading": "Advantages of individual sports",
+       "items": [
+        "Examples include swimming, track running, and martial {{24}}.",
+        "Improvement is tracked clearly through personal best {{25}}."
+       ]
+      },
+      {
+       "heading": "Psychologists' recommendation",
+       "items": [
+        "Trying both formats helps children build an enjoyable lifelong physical {{26}}."
+       ]
+      }
+     ]
+    }
+   ],
+   "qRange": [
+    14,
+    26
+   ]
+  },
+  {
+   "label": "READING PASSAGE 3",
+   "instruction": "You should spend about 20 minutes on Questions 27-40, which are based on Reading Passage 3 below.",
+   "title": "Learning at Home: Homeschooling",
+   "subtitle": "Personalised learning, social development, and the growing global rise of home education",
+   "paragraphs": [
+    "<strong>1</strong> Once viewed as an unusual choice practised by a tiny minority of families in remote farming regions, homeschooling has expanded steadily across countries such as the United States, the United Kingdom, and Australia. Today, parents decide to educate their children at home for remarkably varied reasons—ranging from dissatisfaction with overcrowded classrooms and school bullying to the desire for a calmer, more personalised learning routine.",
+    "<strong>2</strong> The strongest academic argument for homeschooling is individual attention. In a conventional classroom of thirty pupils, teachers must pitch lessons at the average pace, leaving rapid learners bored and struggling students behind. By contrast, one-to-one instruction allows parents to adjust the daily timetable around a child's natural energy and curiosity. A teenager who masters algebra quickly can move ahead without waiting, while a child who finds reading challenging can spend extra quiet weeks building confidence without public embarrassment.",
+    "<strong>3</strong> Critics, however, consistently raise two major objections. First, they worry that children studying alone at kitchen tables miss out on the daily practice needed to build healthy social skills—such as cooperating with classmates from different backgrounds, navigating disagreements, and speaking before a group. Second, education inspectors point out that most parents are not trained subject specialists; while teaching primary numeracy at home may feel manageable, guiding a sixteen-year-old through advanced chemistry, foreign languages, or essay analysis is far more demanding.",
+    "<strong>4</strong> Modern home-educating communities have worked hard to answer these concerns. Rather than isolating children indoors, many families form local learning cooperatives where parents pool their expertise—an engineer father runs weekly physics experiments while a former journalist teaches writing. Homeschooled youngsters also frequently join community orchestras, youth sports leagues, and museum workshops, interacting regularly with both peers and adults of varied ages.",
+    "<strong>5</strong> Even with cooperative networks, homeschooling places heavy economic and emotional demands on households. Because at least one adult usually reduces paid employment to oversee lessons, home education remains financially unrealistic for many single-parent or low-income families. Furthermore, national rules vary sharply: while countries like Germany largely prohibit homeschooling to ensure shared civic standards, others permit it with minimal oversight, raising fears that a small minority of children might receive poor-quality instruction unnoticed.",
+    "<strong>6</strong> Ultimately, homeschooling is neither a miraculous cure for every school flaw nor an educational threat to be banned outright. When well-supported parents use flexible timetables and stay connected to local communities, home-educated children can thrive both academically and socially. At the same time, fair government checks—such as annual portfolio reviews and access to school science labs—are essential to protect every child's right to a high-standard education."
+   ],
+   "groups": [
+    {
+     "title": "Questions 27-30",
+     "instruction": "Choose the correct letter, <strong>A, B, C or D</strong>.",
+     "type": "mcq",
+     "items": [
+      {
+       "q": 27,
+       "text": "What point does the writer make about homeschooling in the first paragraph?",
+       "options": [
+        {
+         "k": "A",
+         "t": "It is still limited almost entirely to remote rural farming communities."
+        },
+        {
+         "k": "B",
+         "t": "It has grown more common and is chosen by families for diverse reasons."
+        },
+        {
+         "k": "C",
+         "t": "It has replaced conventional schooling in Australia and the UK."
+        },
+        {
+         "k": "D",
+         "t": "It is chosen exclusively by children who experienced bullying."
+        }
+       ]
+      },
+      {
+       "q": 28,
+       "text": "Why does the writer mention 'an engineer father' and 'a former journalist' in paragraph 4?",
+       "options": [
+        {
+         "k": "A",
+         "t": "To show that only professionals should be allowed to homeschool their children"
+        },
+        {
+         "k": "B",
+         "t": "To illustrate how parent cooperatives share subject skills across families"
+        },
+        {
+         "k": "C",
+         "t": "To argue that physics is more difficult to teach at home than writing"
+        },
+        {
+         "k": "D",
+         "t": "To explain why homeschooled teenagers rarely visit museums"
+        }
+       ]
+      },
+      {
+       "q": 29,
+       "text": "Why does the writer describe homeschooling as financially unrealistic for many families in paragraph 5?",
+       "options": [
+        {
+         "k": "A",
+         "t": "Community orchestras and sports leagues charge high fees to homeschooled kids."
+        },
+        {
+         "k": "B",
+         "t": "Home-educating parents usually have to cut back on paid work hours."
+        },
+        {
+         "k": "C",
+         "t": "Governments charge heavy taxes on families who educate children at home."
+        },
+        {
+         "k": "D",
+         "t": "Online textbooks cost more than private school tuition."
+        }
+       ]
+      },
+      {
+       "q": 30,
+       "text": "What is the writer's conclusion about regulating homeschooling in the final paragraph?",
+       "options": [
+        {
+         "k": "A",
+         "t": "All governments should follow Germany and ban homeschooling completely."
+        },
+        {
+         "k": "B",
+         "t": "Parents should be left entirely free without any external monitoring."
+        },
+        {
+         "k": "C",
+         "t": "Home education should be allowed alongside reasonable state checks and lab access."
+        },
+        {
+         "k": "D",
+         "t": "Only children with reading difficulties should be permitted to study at home."
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "title": "Questions 31-34",
+     "instruction": "Complete each sentence with the correct ending, <strong>A-F</strong>, below. Write the correct letter, <strong>A-F</strong>.",
+     "type": "matching",
+     "legendTitle": "Sentence Endings",
+     "legend": [
+      {
+       "key": "A",
+       "text": "can adjust study schedules to match an individual child's pace."
+      },
+      {
+       "key": "B",
+       "text": "mostly prohibit home education to uphold common national standards."
+      },
+      {
+       "key": "C",
+       "text": "often find it difficult to teach specialised high-school subjects on their own."
+      },
+      {
+       "key": "D",
+       "text": "must teach classes of thirty pupils at an average speed."
+      },
+      {
+       "key": "E",
+       "text": "achieve lower scores in university music and sports tests."
+      },
+      {
+       "key": "F",
+       "text": "prefer studying alone indoors to joining youth orchestras."
+      }
+     ],
+     "options": [
+      "A",
+      "B",
+      "C",
+      "D",
+      "E",
+      "F"
+     ],
+     "items": [
+      {
+       "q": 31,
+       "text": "Teachers in standard school classrooms..."
+      },
+      {
+       "q": 32,
+       "text": "Parents delivering one-to-one lessons at home..."
+      },
+      {
+       "q": 33,
+       "text": "Parents who lack formal subject training..."
+      },
+      {
+       "q": 34,
+       "text": "Education authorities in countries such as Germany..."
+      }
+     ]
+    },
+    {
+     "title": "Questions 35-40",
+     "instruction": "Do the following statements agree with the views of the writer in Reading Passage 3? Write <strong>YES</strong>, <strong>NO</strong>, or <strong>NOT GIVEN</strong>.",
+     "type": "tfng",
+     "options": [
+      "YES",
+      "NO",
+      "NOT GIVEN"
+     ],
+     "items": [
+      {
+       "q": 35,
+       "text": "One-to-one home study can help struggling readers improve without feeling embarrassed in front of peers."
+      },
+      {
+       "q": 36,
+       "text": "Homeschooled teenagers consistently achieve higher university grades than conventionally schooled teenagers."
+      },
+      {
+       "q": 37,
+       "text": "All homeschooled children grow up completely isolated from people outside their own families."
+      },
+      {
+       "q": 38,
+       "text": "Lack of government oversight can leave some homeschooled children vulnerable to poor teaching."
+      },
+      {
+       "q": 39,
+       "text": "Single-parent families in the UK receive special government grants to support homeschooling."
+      },
+      {
+       "q": 40,
+       "text": "Homeschooling should be banned completely because it damages society."
+      }
+     ]
+    }
+   ],
+   "qRange": [
+    27,
+    40
+   ]
+  }
+ ],
+ "answers": {
+  "1": [
+   "narration"
+  ],
+  "2": [
+   "museums"
+  ],
+  "3": [
+   "behaviour"
+  ],
+  "4": [
+   "reading"
+  ],
+  "5": [
+   "obesity"
+  ],
+  "6": [
+   "mealtimes"
+  ],
+  "7": [
+   "commercials"
+  ],
+  "8": [
+   "TRUE"
+  ],
+  "9": [
+   "FALSE"
+  ],
+  "10": [
+   "NOT GIVEN"
+  ],
+  "11": [
+   "TRUE"
+  ],
+  "12": [
+   "FALSE"
+  ],
+  "13": [
+   "NOT GIVEN"
+  ],
+  "14": [
+   "TRUE"
+  ],
+  "15": [
+   "NOT GIVEN"
+  ],
+  "16": [
+   "TRUE"
+  ],
+  "17": [
+   "FALSE"
+  ],
+  "18": [
+   "FALSE"
+  ],
+  "19": [
+   "goal"
+  ],
+  "20": [
+   "glory"
+  ],
+  "21": [
+   "drills"
+  ],
+  "22": [
+   "bench"
+  ],
+  "23": [
+   "trophies"
+  ],
+  "24": [
+   "arts"
+  ],
+  "25": [
+   "times"
+  ],
+  "26": [
+   "habit"
+  ],
+  "27": [
+   "B"
+  ],
+  "28": [
+   "B"
+  ],
+  "29": [
+   "B"
+  ],
+  "30": [
+   "C"
+  ],
+  "31": [
+   "D"
+  ],
+  "32": [
+   "A"
+  ],
+  "33": [
+   "C"
+  ],
+  "34": [
+   "B"
+  ],
+  "35": [
+   "YES"
+  ],
+  "36": [
+   "NOT GIVEN"
+  ],
+  "37": [
+   "NO"
+  ],
+  "38": [
+   "YES"
+  ],
+  "39": [
+   "NOT GIVEN"
+  ],
+  "40": [
+   "NO"
+  ]
+ }
+}
