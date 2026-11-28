@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import os
+import time
 
 import streamlit as st
 
@@ -9,6 +10,7 @@ from . import auth
 from .reader_component import cookie_bridge
 
 COOKIE_NAME = "memora_session"
+ACTIVE_CHECK_SEC = 60        # bao lâu kiểm tra lại một lần xem tài khoản còn hoạt động không
 
 
 def _read_cookie() -> str | None:
@@ -30,11 +32,26 @@ def _admin_names() -> list[str]:
     return names
 
 
-def current_user() -> dict | None:
+def current_user(check: bool = False) -> dict | None:
+    """check=True (chỉ app.py dùng): cứ ~60 giây kiểm tra lại DB, tài khoản bị khóa/xóa thì đăng xuất ngay."""
     user = _current_user()
+    if user is not None and check and not _still_active(user):
+        auth.delete_session(st.session_state.get("_session_token") or _read_cookie())
+        for k in list(st.session_state.keys()):
+            del st.session_state[k]
+        st.session_state["_cookie_cleared"] = True
+        return None
     if user is not None:
         user["is_admin"] = auth.is_admin(user["username"], _admin_names())
     return user
+
+
+def _still_active(user: dict) -> bool:
+    now = time.time()
+    if now - st.session_state.get("_user_checked", 0) < ACTIVE_CHECK_SEC:
+        return True
+    st.session_state["_user_checked"] = now
+    return auth.is_active(user["id"])
 
 
 def _current_user() -> dict | None:
@@ -68,6 +85,7 @@ def _sign_in(user: dict) -> None:
     for k in ("reading_test", "reading_opens", "_cookie_cleared"):
         st.session_state.pop(k, None)
     st.session_state["user"] = user
+    st.session_state["_user_checked"] = time.time()
     st.session_state["_session_token"] = token
     st.session_state["_cookie_token"] = token
 

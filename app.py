@@ -31,7 +31,7 @@ _init_db()
 inject_css()
 st.logo(str(ASSETS / "logo.svg"), icon_image=str(ASSETS / "icon.svg"), size="large")
 
-user = current_user()
+user = current_user(check=True)
 
 
 READING_PAGE = "views/reading.py"

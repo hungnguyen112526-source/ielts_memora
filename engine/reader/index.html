@@ -9,8 +9,26 @@
   <!-- Google Fonts: Inter -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <!-- Font không được chặn việc hiển thị: tải xong mới áp dụng (lỗi mạng thì dùng font hệ thống) -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"></noscript>
   <style>
+    /* Khởi động: chưa nhận được đề thì không hiện khung trống (header "Orange/Reading"), chỉ hiện vòng chờ trên nền trong suốt */
+    body.booting { background: transparent !important; }
+    body.booting > header, body.booting > section, body.booting > #modalOverlay { visibility: hidden; }
+    #bootLoader { display: none; position: fixed; inset: 0; align-items: center; justify-content: center; z-index: 60; }
+    body.booting #bootLoader { display: flex; }
+    #bootLoader i { width: 34px; height: 34px; border-radius: 50%; border: 3px solid rgba(148,163,184,.35); border-top-color: #2563eb; animation: bootspin .8s linear infinite; }
+    @keyframes bootspin { to { transform: rotate(360deg); } }
+    /* Điện thoại: nút "Danh sách đề" chỉ còn mũi tên (trước đây bị ẩn hẳn dưới 640px) */
+    .lbl-sm { display: none; }
+    @media (min-width: 640px) { .lbl-sm { display: inline; } }
+    /* Lời giải sau khi nộp */
+    details.expl { margin-top: 14px; border: 1px solid #e2e8f0; border-radius: 12px; padding: 8px 12px; background: rgba(248,250,252,.7); font-size: 13px; line-height: 1.55; }
+    details.expl > summary { cursor: pointer; font-weight: 700; color: #1d4ed8; }
+    details.expl p { margin: 6px 0 0; }
+    .dark details.expl { border-color: #334155; background: rgba(15,23,42,.5); }
+    .dark details.expl > summary { color: #93c5fd; }
     html, body { font-family: 'Inter', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; }
     /* Tùy chỉnh thanh cuộn gọn gàng và hiệu ứng highlight văn bản */
     ::-webkit-scrollbar { width: 7px; height: 7px; }
@@ -52,7 +70,8 @@
     }
   </style>
 </head>
-<body class="bg-slate-50 text-slate-800 dark:bg-slate-950 dark:text-slate-100 font-sans antialiased h-screen flex flex-col overflow-hidden">
+<body class="bg-slate-50 text-slate-800 dark:bg-slate-950 dark:text-slate-100 font-sans antialiased h-screen flex flex-col overflow-hidden booting">
+  <div id="bootLoader"><i></i></div>
 
   <!-- ==================== HEADER ==================== -->
   <header class="bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 px-3 sm:px-5 py-2.5 flex items-center justify-between gap-2 shrink-0 z-20 shadow-sm">
@@ -68,9 +87,9 @@
         </div>
       </button>
 
-      <button onclick="exitToLibrary()" class="hidden sm:inline-flex items-center gap-1 px-2.5 py-1.5 rounded-lg text-xs sm:text-sm font-semibold border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 transition">
+      <button onclick="exitToLibrary()" title="Về danh sách đề" aria-label="Danh sách đề" class="inline-flex items-center gap-1 px-2.5 py-1.5 rounded-lg text-xs sm:text-sm font-semibold border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 transition">
         <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.4" d="M15 19l-7-7 7-7"/></svg>
-        Danh sách đề
+        <span class="lbl-sm">Danh sách đề</span>
       </button>
 
       <!-- Test Switcher (visible in test view) -->
@@ -143,7 +162,7 @@
     <!-- Split Panes Container -->
     <div class="flex-1 flex flex-col md:flex-row overflow-hidden relative">
       <!-- LEFT PANE: READING PASSAGE -->
-      <div id="passagePane" class="w-full min-w-0 h-full overflow-y-auto p-4 sm:p-6 lg:p-8 bg-white dark:bg-slate-900 md:border-r border-slate-200 dark:border-slate-800">
+      <div id="passagePane" class="md:block w-full min-w-0 h-full overflow-y-auto p-4 sm:p-6 lg:p-8 bg-white dark:bg-slate-900 md:border-r border-slate-200 dark:border-slate-800">
         <div class="max-w-3xl mx-auto">
           <div class="flex items-center justify-between gap-2 mb-4 pb-3 border-b border-slate-100 dark:border-slate-800">
             <span id="passageLabel" class="text-xs font-bold uppercase tracking-wider px-2.5 py-1 rounded-lg bg-blue-50 text-blue-700 dark:bg-blue-900/40 dark:text-blue-300">
@@ -221,6 +240,11 @@
     let SCOPE = 'full';       // 'full' (cả đề) hoặc 'p1'..'pN' (làm lẻ một passage)
     let PIDX = null;          // chỉ số passage khi làm lẻ, null khi làm cả đề
     let SESSION_KEY = null;
+    let UID = 'anon';         // id người dùng, dùng làm khóa bản nháp trong trình duyệt
+    let EXPL = {};            // lời giải từng câu (chỉ có sau khi nộp)
+    let darkTouched = false;  // người dùng đã tự bấm sáng/tối chưa (chưa thì theo giao diện Streamlit)
+    let stateTs = 0;          // mốc (ms) của lần sửa cuối
+    let ignoreReveal = false, pendingResult = false, pendingTimeout = false, revealTries = 0, revealTimer = null;
 
     let appState = {
       darkMode: false,
@@ -258,6 +282,11 @@
 
     // Đọc trạng thái đã lưu (chịu được bản cũ: chỉ có timeLeft, hoặc chế độ passage cũ có pspent)
     function loadSaved(saved) {
+      const bk = readBackup();
+      if (bk && !(saved && saved.submitted) && typeof bk.ts === 'number' && bk.ts > ((saved && saved.ts) || 0)
+          && bk.answers !== undefined && bk.configured) {
+        saved = bk; restoredFromBackup = true;       // bản nháp trong trình duyệt mới hơn bản đã lưu ở server
+      }
       const base = freshState();
       if (!saved || (saved.answers === undefined && saved.timeLeft === undefined && saved.configured === undefined)) return base;
       const num = (v, d) => (typeof v === 'number' && isFinite(v) && v >= 0 ? Math.floor(v) : d);
@@ -265,7 +294,7 @@
       if (saved.limit === undefined && typeof saved.timeLeft === 'number') {
         return Object.assign(base, { answers: saved.answers || {}, submitted: !!saved.submitted,
           score: saved.score == null ? null : saved.score, configured: true, limit: lim,
-          spent: Math.max(0, lim - Math.floor(saved.timeLeft)) });
+          spent: Math.max(0, lim - Math.floor(saved.timeLeft)), ts: 0 });
       }
       let spent = num(saved.spent, 0);
       if (saved.pspent) spent = Object.values(saved.pspent).reduce((s, v) => s + (num(v, 0)), 0);
@@ -273,7 +302,7 @@
         answers: saved.answers || {}, submitted: !!saved.submitted, score: saved.score == null ? null : saved.score,
         configured: saved.configured === undefined ? true : !!saved.configured,
         limit: num(saved.limit, lim), spent: spent,
-        passage: PIDX === null ? num(saved.passage, 0) : PIDX, hl: saved.hl || {}
+        passage: PIDX === null ? num(saved.passage, 0) : PIDX, hl: saved.hl || {}, ts: num(saved.ts, 0)
       });
     }
 
@@ -289,11 +318,12 @@
 
     let dirty = false;
     let lastSent = 0;
+    let restoredFromBackup = false;
 
     function snapshot() {
       const st = appState.tests[0];
       return { answers: st.answers, submitted: st.submitted, score: st.score, configured: st.configured,
-               limit: st.limit, spent: st.spent, passage: currentPassageIdx, hl: st.hl };
+               limit: st.limit, spent: st.spent, passage: currentPassageIdx, hl: st.hl, ts: stateTs };
     }
 
     function pushState(event, result) {
@@ -305,7 +335,7 @@
         testId: TEST.id,
         scope: SCOPE,
         state: snapshot(),
-        prefs: { darkMode: appState.darkMode, fontSize: appState.fontSize, split: appState.split }
+        prefs: { darkMode: darkTouched ? appState.darkMode : null, fontSize: appState.fontSize, split: appState.split }
       };
       if (result) payload.result = result;
       sendMsg('streamlit:setComponentValue', { value: payload, dataType: 'json' });
@@ -313,14 +343,33 @@
       lastSent = Date.now();
     }
 
-    // Mọi thay đổi chỉ đánh dấu "bẩn"; tự gửi lên server tối đa mỗi ~8 giây. Đồng hồ không đánh dấu bẩn.
-    function saveState() { dirty = true; }
-    setInterval(() => { if (dirty && TEST && Date.now() - lastSent > 8000) pushState('autosave'); }, 3000);
+    // Mọi thay đổi chỉ đánh dấu "bẩn"; tự gửi lên server tối đa mỗi ~12 giây (mỗi lần gửi làm Streamlit chạy lại script).
+    // Song song, bản nháp được ghi vào localStorage ngay (không qua mạng) nên đóng tab / F5 / chuyển trang không mất bài.
+    function saveState() { dirty = true; stateTs = Date.now(); scheduleBackup(); }
+    setInterval(() => { if (dirty && TEST && Date.now() - lastSent > 12000) pushState('autosave'); }, 3000);
+
+    let backupTimer = null;
+    function bkKey() { return 'memora:bk:' + UID + ':' + (TEST ? TEST.id : '') + ':' + SCOPE; }
+    function scheduleBackup() { if (!backupTimer) backupTimer = setTimeout(() => { backupTimer = null; writeBackup(); }, 500); }
+    function writeBackup() {
+      try {
+        if (!TEST || currentTestIdx === null) return;
+        const st = appState.tests[0];
+        if (!st.configured || st.submitted) return;
+        localStorage.setItem(bkKey(), JSON.stringify(snapshot()));
+      } catch (e) { /* localStorage bị chặn: bỏ qua */ }
+    }
+    function readBackup() { try { const r = localStorage.getItem(bkKey()); return r ? JSON.parse(r) : null; } catch (e) { return null; } }
+    function clearBackup() { try { localStorage.removeItem(bkKey()); } catch (e) {} }
+    setInterval(writeBackup, 4000);                  // cập nhật cả thời gian đã làm
+
+    function flushOnLeave() { writeBackup(); if (dirty && TEST) pushState('autosave'); }
     document.addEventListener('visibilitychange', () => {
-      if (document.hidden && dirty && TEST) pushState('autosave');
-      else if (!document.hidden) tick();            // quay lại tab: cập nhật đồng hồ ngay
+      if (document.hidden) flushOnLeave();
+      else tick();                                   // quay lại tab: cập nhật đồng hồ ngay
     });
-    window.addEventListener('pagehide', () => { if (dirty && TEST) pushState('autosave'); });
+    window.addEventListener('pagehide', flushOnLeave);
+    window.addEventListener('beforeunload', writeBackup);
 
     function exitToLibrary() {
       stopTimer();
@@ -362,6 +411,7 @@
 
     function toggleDarkMode() {
       appState.darkMode = !appState.darkMode;
+      darkTouched = true;
       applyTheme();
       saveState();
     }
@@ -485,7 +535,10 @@
       if (st.submitted || !st.configured) return;
       let spent = tBase + Math.floor((Date.now() - tStart) / 1000);
       if (st.limit > 0) spent = Math.min(spent, st.limit);
-      if (spent !== st.spent) { st.spent = spent; updateTimerUI(); }
+      if (spent !== st.spent) {
+        st.spent = spent; updateTimerUI();
+        if (spent % 60 === 0) saveState();           // thời gian làm bài cũng được lưu lên server mỗi phút
+      }
       if (st.limit > 0 && spent >= st.limit) onTimeUp();
     }
 
@@ -505,10 +558,18 @@
       if (!timerPaused) {
         tick();
         timerPaused = true;
+        saveState();
+        openModal(`
+          <div class="text-center">
+            <h3 class="text-lg font-extrabold text-slate-900 dark:text-white mb-2">Đã tạm dừng</h3>
+            <p class="text-sm text-slate-600 dark:text-slate-300 mb-5">Đồng hồ đang dừng và bài làm được ẩn đi. Bấm tiếp tục để làm bài.</p>
+            <button onclick="toggleTimer()" class="px-5 py-2 rounded-xl text-sm font-bold bg-blue-600 hover:bg-blue-700 text-white shadow-sm transition">Tiếp tục làm bài</button>
+          </div>`);
       } else {
         tBase = st.spent || 0;
         tStart = Date.now();
         timerPaused = false;
+        closeModal();
       }
       updateTimerUI();
     }
@@ -646,7 +707,7 @@
     function renderQuestions(passage) {
       const container = document.getElementById('questionsContainer');
       const st = appState.tests[currentTestIdx];
-      const isSubmitted = st.submitted;
+      const isSubmitted = st.submitted && revealed();
       const locked = isLocked(currentPassageIdx);
 
       container.innerHTML = passage.groups.map(group => {
@@ -846,6 +907,7 @@
             <h3 class="text-base font-extrabold text-slate-900 dark:text-white mb-1">${group.title}</h3>
             <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400 mb-4">${group.instruction}</p>
             ${bodyHtml}
+            ${explHtml(group, isSubmitted)}
           </div>
         `;
       }).join('');
@@ -854,11 +916,11 @@
 
     function replaceInlineInputs(text) {
       const st = appState.tests[currentTestIdx];
-      const isSubmitted = st.submitted;
+      const isSubmitted = st.submitted && revealed();
       const locked = isLocked(currentPassageIdx);
       return text.replace(/\{\{(\d+)\}\}/g, (_, qNum) => {
         const q = parseInt(qNum, 10);
-        const val = (st.answers[q] || '').replace(/"/g, '&quot;');
+        const val = escAttr(st.answers[q] || '');
         let extraClass = '';
         let reviewHtml = '';
         if (isSubmitted) {
@@ -880,7 +942,7 @@
 
     function replaceInlineSelects(text, options) {
       const st = appState.tests[currentTestIdx];
-      const isSubmitted = st.submitted;
+      const isSubmitted = st.submitted && revealed();
       const locked = isLocked(currentPassageIdx);
       return text.replace(/\{\{(\d+)\}\}/g, (_, qNum) => {
         const q = parseInt(qNum, 10);
@@ -907,7 +969,7 @@
 
     function getQuestionCardBorder(q) {
       const st = appState.tests[currentTestIdx];
-      if (!st.submitted) return 'border-slate-200 dark:border-slate-800';
+      if (!(st.submitted && revealed())) return 'border-slate-200 dark:border-slate-800';
       return isQuestionCorrect(currentTestIdx, q)
         ? 'border-emerald-400 dark:border-emerald-600 bg-emerald-50/30 dark:bg-emerald-950/20'
         : 'border-rose-400 dark:border-rose-600 bg-rose-50/30 dark:bg-rose-950/20';
@@ -982,7 +1044,7 @@
       for (let q = lo; q <= hi; q++) {
         const answered = hasAns(st.answers[q]);
         let cls = 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 border-slate-200 dark:border-slate-700';
-        if (st.submitted) {
+        if (st.submitted && revealed()) {
           cls = isQuestionCorrect(currentTestIdx, q)
             ? 'bg-emerald-500 text-white border-emerald-600'
             : 'bg-rose-500 text-white border-rose-600';
@@ -1022,6 +1084,61 @@
       return String(str === null || str === undefined ? '' : str).toLowerCase()
         .replace(/[\u2010-\u2015\u2212-]/g, ' ').replace(/\s+/g, ' ').trim()
         .replace(/^[\s.,;:!?"'\u201c\u201d\u2018\u2019]+|[\s.,;:!?"'\u201c\u201d\u2018\u2019]+$/g, '');
+    }
+
+    /* ---- Đáp án chỉ có sau khi nộp: server gửi qua `reveal` ---- */
+    function revealed() { return !!(TEST && TEST.answers); }
+    function escHtml(s) { return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;'); }
+    function escAttr(s) { return escHtml(s).replace(/"/g, '&quot;'); }
+
+    function applyReveal(r) {
+      TEST.answers = r.answers || {};
+      TEST.pairQuestions = r.pairQuestions || [];
+      EXPL = r.explanations || {};
+    }
+
+    // Số các câu thuộc một nhóm câu hỏi (để gom lời giải đúng nhóm)
+    function groupQs(g) {
+      if (g.items) return g.items.map(i => i.q);
+      if (g.qPair) return g.qPair.slice();
+      const m = JSON.stringify(g).match(/\{\{(\d+)\}\}/g) || [];
+      return m.map(x => parseInt(x.replace(/\D/g, ''), 10));
+    }
+    function explHtml(group, isSubmitted) {
+      if (!isSubmitted) return '';
+      const qs = groupQs(group).filter(q => EXPL[q]);
+      if (!qs.length) return '';
+      return `<details class="expl"><summary>Giải thích đáp án</summary>${
+        qs.map(q => `<p><strong>Câu ${q}:</strong> ${escHtml(EXPL[q])}</p>`).join('')}</details>`;
+    }
+
+    // Đáp án vừa về sau khi nộp: vẽ lại phần chấm điểm và mở bảng kết quả
+    function afterReveal() {
+      const st = appState.tests[0];
+      if (!st.submitted || !revealed()) return;
+      clearTimeout(revealTimer);
+      st.score = computeResult(pendingTimeout).score;
+      renderQuestions(TEST.passages[currentPassageIdx]);
+      renderHighlights();
+      renderFooterNav();
+      updateHeaderActionButtons();
+      updateTimerUI();
+      if (pendingResult) { pendingResult = false; openResultModal(pendingTimeout); }
+    }
+    function showGrading() {
+      openModal(`<div class="text-center py-4"><div class="mx-auto mb-4" style="width:34px;height:34px;border-radius:50%;border:3px solid rgba(148,163,184,.35);border-top-color:#2563eb;animation:bootspin .8s linear infinite"></div>
+        <h3 class="text-lg font-extrabold text-slate-900 dark:text-white">Đang chấm điểm…</h3></div>`);
+    }
+    // Nếu 7 giây chưa thấy đáp án, gửi lại yêu cầu (tối đa 3 lần) rồi báo lỗi
+    function watchReveal() {
+      clearTimeout(revealTimer);
+      revealTimer = setTimeout(() => {
+        if (revealed() || !appState.tests[0].submitted) return;
+        if (++revealTries <= 3) { pushState('autosave'); watchReveal(); }
+        else openModal(`<div class="text-center"><h3 class="text-lg font-extrabold mb-2">Chưa nhận được đáp án</h3>
+          <p class="text-sm text-slate-600 dark:text-slate-300 mb-4">Bài của bạn đã được lưu. Hãy mở lại đề từ danh sách để xem kết quả.</p>
+          <button onclick="exitToLibrary()" class="px-4 py-2 rounded-xl text-sm font-bold bg-blue-600 text-white">Về danh sách đề</button></div>`);
+      }, 7000);
     }
 
     function isQuestionCorrect(testIdx, q) {
@@ -1094,20 +1211,27 @@
       stopTimer();
       const st = appState.tests[currentTestIdx];
       if (st.submitted) return;
-      const result = computeResult(isTimeout);
+      // Lúc làm bài trình duyệt chưa có đáp án: khóa bài, gửi lên server chấm, đáp án về thì hiện kết quả (afterReveal)
+      const known = revealed();
+      const result = known ? computeResult(isTimeout) : null;
       st.submitted = true;
-      st.score = result.score;
+      st.score = result ? result.score : null;
 
       updateHeaderActionButtons();
       renderQuestions(TESTS[currentTestIdx].passages[currentPassageIdx]);
       renderHighlights();
       renderFooterNav();
       updateTimerUI();
-      openResultModal(isTimeout);
-      pushState('submit', result);
+      if (known) openResultModal(isTimeout);
+      else { pendingResult = true; pendingTimeout = !!isTimeout; showGrading(); }
+      pushState('submit', result || { timeout: !!isTimeout, scope: SCOPE });
+      clearBackup();
+      revealTries = 0;
+      if (!known) watchReveal();
     }
 
     function openResultModal(isTimeout = false) {
+      if (!revealed()) { pendingResult = true; pendingTimeout = !!isTimeout; showGrading(); return; }
       const r = computeResult(isTimeout);
       const mmss = s => formatTime(s || 0);
       const pct = r.total ? Math.round(r.score / r.total * 100) : 0;
@@ -1168,6 +1292,9 @@
 
     function resetCurrentTest() {
       appState.tests[currentTestIdx] = freshState();
+      delete TEST.answers; delete TEST.pairQuestions; EXPL = {};   // làm lại thì giấu đáp án đi
+      ignoreReveal = true; pendingResult = false; clearTimeout(revealTimer);
+      clearBackup();
       pushState('reset');
       closeModal();
       openTest(currentTestIdx);
@@ -1390,13 +1517,18 @@
     /* =========================================================================
        12. KHỞI CHẠY ỨNG DỤNG
        ========================================================================= */
+    let lastHeight = 0;
     function onRender(args) {
-      if (args.height) setFrameHeight(args.height);
+      if (args.height && args.height !== lastHeight) { lastHeight = args.height; setFrameHeight(args.height); }
       if (!args.test) return;
       NAV = Object.assign({ prev: false, next: false }, args.nav || {});
       applyNav();
       const key = args.sessionKey || args.test.id;
-      if (key === SESSION_KEY) return;          // Streamlit rerun: giữ nguyên trạng thái đang làm
+      if (key === SESSION_KEY) {                // Streamlit chạy lại: giữ nguyên trạng thái đang làm
+        if (!args.reveal) ignoreReveal = false; // server đã xử lý "làm lại": từ giờ nhận đáp án bình thường
+        else if (!ignoreReveal && TEST && !revealed()) { applyReveal(args.reveal); afterReveal(); }
+        return;
+      }
       SESSION_KEY = key;
 
       TEST = args.test;
@@ -1405,12 +1537,17 @@
       const saved = args.saved || {};
       const prefs = args.prefs || {};
       const meta = args.meta || {};
+      UID = String(meta.uid || 'anon');
+      ignoreReveal = false; pendingResult = false; revealTries = 0; restoredFromBackup = false;
+      if (args.reveal) applyReveal(args.reveal); else { delete TEST.answers; EXPL = {}; }
 
       // Chưa từng chọn sáng/tối thì theo giao diện của Streamlit
-      appState.darkMode = typeof prefs.darkMode === 'boolean' ? prefs.darkMode : args.theme === 'dark';
+      darkTouched = typeof prefs.darkMode === 'boolean';
+      appState.darkMode = darkTouched ? prefs.darkMode : args.theme === 'dark';
       appState.fontSize = prefs.fontSize || 15;
       appState.split = typeof prefs.split === 'number' ? prefs.split : 42;
       appState.tests[0] = loadSaved(saved);
+      stateTs = Number(appState.tests[0].ts || 0);
 
       document.getElementById('logoBadge').textContent = meta.badge || 'O';
       document.getElementById('hdrTitle').textContent = meta.seriesTitle || 'Orange';
@@ -1418,6 +1555,8 @@
       dirty = false;
       applyTheme();
       openTest(0);
+      document.body.classList.remove('booting');    // đã có đề: bỏ vòng chờ, hiện giao diện
+      if (restoredFromBackup) { dirty = true; showToast('Đã khôi phục bài làm chưa kịp lưu.'); }
     }
 
     window.addEventListener('message', function (ev) {

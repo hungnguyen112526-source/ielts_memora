@@ -74,7 +74,10 @@ def build_catalog() -> dict:
 
 def write_catalog() -> dict:
     cat = build_catalog()
-    CATALOG_PATH.write_text(json.dumps(cat, ensure_ascii=False, indent=1), encoding="utf-8")
+    try:
+        CATALOG_PATH.write_text(json.dumps(cat, ensure_ascii=False, indent=1), encoding="utf-8")
+    except OSError:          # ổ đĩa chỉ đọc (một số nền tảng deploy): dùng bản vừa dựng trong bộ nhớ
+        pass
     return cat
 
 
@@ -105,6 +108,22 @@ def load_test(catalog: dict, test_id: str) -> dict | None:
     if entry is None:
         return None
     return json.loads((DATA_DIR / entry["file"]).read_text(encoding="utf-8"))
+
+
+EXPL_DIR = DATA_DIR.parent / "explanations"
+_ID_RE = re.compile(r"[A-Za-z0-9._-]+")
+
+
+def load_explanations(test_id: str) -> dict[str, str]:
+    """Lời giải từng câu (data/explanations/<id đề>.json): {"1": "...", ...}. Không có file thì trả {}."""
+    if not _ID_RE.fullmatch(test_id or ""):
+        return {}
+    path = EXPL_DIR / f"{test_id}.json"
+    try:
+        raw = json.loads(path.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError):
+        return {}
+    return {str(k): str(v) for k, v in raw.items() if isinstance(raw, dict) and str(v).strip()}
 
 
 def neighbours(catalog: dict, test_id: str) -> tuple[str | None, str | None]:

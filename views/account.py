@@ -1,7 +1,8 @@
 import streamlit as st
 
 from core import auth
-from core.session import current_user
+from core.reader_component import cookie_bridge
+from core.session import COOKIE_NAME, current_user
 from core.ui import badge, esc, page_title, section
 
 user = current_user()
@@ -31,6 +32,7 @@ with st.container(key="card-password"):
             token = auth.create_session(user["id"])
             st.session_state["_session_token"] = token
             st.session_state["_cookie_token"] = token
+            cookie_bridge("set", COOKIE_NAME, token, auth.SESSION_DAYS, key="cookie_bridge_pw")   # ghi cookie ngay, F5 không bị đăng xuất
             st.toast(msg, icon="✅")
             st.success(msg)
         else:

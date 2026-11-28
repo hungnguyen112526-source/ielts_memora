@@ -121,6 +121,13 @@ def user_from_token(token: str | None) -> dict | None:
     return dict(row) if row else None
 
 
+def is_active(user_id: int) -> bool:
+    """Tài khoản còn tồn tại và chưa bị khóa."""
+    with db.connect() as c:
+        row = c.execute("SELECT status FROM users WHERE id=?", (user_id,)).fetchone()
+    return bool(row) and row["status"] == "active"
+
+
 def delete_session(token: str | None) -> None:
     if not token:
         return

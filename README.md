@@ -28,12 +28,14 @@ core/
   catalog.py            Danh mục đề (tự quét thư mục data/)
   scoring.py            Chấm điểm (cả đề / một passage) + quy đổi band (chạy ở server)
   migrate.py            Nâng cấp dữ liệu cũ (chế độ passage tuần tự đã bỏ), tự chạy khi khởi động
+  exam_events.py        Xử lý sự kiện engine gửi về (lưu tiến độ, chấm điểm ở server, không ghi đè bài đã nộp)
   reader_component.py   Nối Streamlit với engine làm bài
 engine/reader/          Engine làm bài (giao diện từ cam21: chia đôi, highlight, timer…)
 engine/cookie_bridge/   Component vô hình để ghi cookie đăng nhập
 data/reading/           Dữ liệu đề (xem bên dưới)
 tools/                  validate.py, build_catalog.py, tailwind/ (build CSS cho engine)
-tests/                  pytest: chấm điểm, migration (python -m pytest tests)
+tests/                  pytest: chấm điểm, migration, sự kiện bài thi (python -m pytest tests); engine_smoke.js: test engine bằng jsdom
+data/explanations/      Lời giải từng câu (tùy chọn): <id đề>.json = {"1": "...", ...}, hiện sau khi nộp bài
 ```
 
 ## Thêm đề Reading
@@ -81,6 +83,16 @@ Muốn thêm dạng mới, thêm một nhánh render trong `renderQuestions` c�
 
 Giữ cho file nhẹ: một đề một file, ảnh để file riêng và ghi đường dẫn, không nhúng base64.
 
+## Cách làm bài hoạt động (đã tối ưu)
+
+- **Đáp án không gửi xuống trình duyệt khi đang làm.** Đề gửi cho engine không có `answers` / `pairQuestions`; chỉ sau khi nộp, server chấm rồi gửi đáp án + lời giải xuống. Mở lại bài đã nộp ("Xem lại") thì nhận ngay.
+- **Không mất bài khi đóng tab / F5 / chuyển trang.** Mọi thay đổi được ghi vào `localStorage` của trình duyệt ngay, song song với autosave lên server (tối đa mỗi ~12 giây). Lần mở sau, nếu bản nháp mới hơn bản trên server thì được khôi phục.
+- **Bấm làm đề vào thẳng bài thi** (nút dùng `on_click`), khung engine ẩn đến khi nhận được đề nên không còn màn hình trống chen giữa.
+- **Autosave không còn làm màn hình tối lại.** Streamlit làm mờ phần tử cũ khi script chạy lại; màn làm bài tắt hiệu ứng này (`EXAM_CSS`) và mỗi lần chạy lại chỉ còn 1 truy vấn DB (dữ liệu mở đề đọc một lần).
+- Lưu tiến độ dùng `save_progress_if_open`: một câu SQL, không bao giờ ghi đè bài đã nộp (kể cả khi hai sự kiện đến lộn thứ tự).
+- Tạm dừng đồng hồ sẽ che bài; bấm "Tiếp tục làm bài" để làm tiếp.
+- Tài khoản bị khóa/xóa bị đăng xuất sau tối đa ~60 giây.
+
 ## Đăng nhập
 
 - Mật khẩu được băm bằng PBKDF2-SHA256 (310.000 vòng, salt riêng cho mỗi người). Không lưu mật khẩu gốc.
@@ -121,6 +133,9 @@ Sao lưu file `memora.db` (và thư mục `data/` nếu bạn sửa đề). Tran
 ## Việc chưa làm
 
 Ngữ pháp, Listening, Writing, Speaking mới có trang giữ chỗ, chờ tài liệu.
+Lời giải mới có cho 30 đề (Band 4–5.0/5–6.5 Education và Environment, Orange 18/19). Thêm lời giải cho đề khác: tạo `data/explanations/<id đề>.json`, rồi chạy `python tools/validate.py`.
+
+Test engine (cần Node): `cd /tmp && npm i jsdom@24 && JSDOM_PATH=/tmp/node_modules/jsdom node <repo>/tests/engine_smoke.js <repo>`.
 
 ## Giao diện và quản trị
 

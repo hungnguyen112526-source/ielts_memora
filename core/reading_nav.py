@@ -1,3 +1,5 @@
+import uuid
+
 import streamlit as st
 
 from core import catalog as cat_mod
@@ -21,6 +23,7 @@ def open_test(test_id: str, scope: str = "full") -> None:
     st.session_state["reading_test"] = test_id
     st.session_state["reading_scope"] = scope
     st.session_state["reading_opens"] = st.session_state.get("reading_opens", 0) + 1
+    st.session_state["reading_open_id"] = uuid.uuid4().hex      # định danh lần mở này (dữ liệu mở đề, nonce, khóa component)
     entry = cat_mod.find_test_entry(cat_mod.load_catalog(), test_id)
     if entry:
         st.session_state["reading_cat"] = entry["category"]      # thoát ra thì về đúng mục chứa đề này

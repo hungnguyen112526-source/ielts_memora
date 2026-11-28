@@ -13,10 +13,12 @@ _cookie = components.declare_component("memora_cookie", path=str(_ENGINE / "cook
 
 def reader(test: dict, meta: dict, saved: dict | None, prefs: dict, session_key: str,
            scope: str = "full", theme: str | None = None,
-           nav: dict | None = None, height: int = 800, key: str | None = None):
-    """Render the exam. Returns the latest event dict from the browser (or None)."""
+           nav: dict | None = None, reveal: dict | None = None, height: int = 800, key: str | None = None):
+    """Render the exam. Returns the latest event dict from the browser (or None).
+    `reveal` (đáp án + lời giải) chỉ truyền sau khi bài đã nộp; khi làm bài `test` không chứa đáp án."""
     return _reader(test=test, meta=meta, saved=saved or {}, prefs=prefs or {},
-                   sessionKey=session_key, scope=scope, theme=theme, nav=nav or {}, height=height, key=key, default=None)
+                   sessionKey=session_key, scope=scope, theme=theme, nav=nav or {}, reveal=reveal,
+                   height=height, key=key, default=None)
 
 
 def cookie_bridge(action: str, name: str, value: str = "", days: int = 14, key: str = "cookie_bridge"):

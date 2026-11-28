@@ -101,6 +101,21 @@ def validate_test(path: Path, seen_ids: set[str]) -> list[str]:
         for x in qs:
             if str(x) not in answers:
                 errs.append(f"pairQuestions {qs} không có đáp án câu {x}")
+
+    # Lời giải (tùy chọn): data/explanations/<id đề>.json, khóa là số câu
+    expl_file = DATA.parent / "explanations" / f"{t.get('id')}.json"
+    if expl_file.exists():
+        try:
+            expl = json.loads(expl_file.read_text(encoding="utf-8"))
+        except json.JSONDecodeError as e:
+            errs.append(f"lời giải {expl_file.name}: JSON lỗi ({e})")
+        else:
+            bad = [k for k in expl if not (str(k).isdigit() and 1 <= int(k) <= total)]
+            if bad:
+                errs.append(f"lời giải {expl_file.name}: số câu không hợp lệ {bad}")
+            missing = [q for q in range(1, total + 1) if not str(expl.get(str(q), "")).strip()]
+            if missing:
+                errs.append(f"lời giải {expl_file.name}: thiếu câu {missing}")
     return errs
 
 

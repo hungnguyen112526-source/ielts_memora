@@ -115,6 +115,25 @@ def _clean_highlights(raw, n_passages: int) -> dict:
     return out
 
 
+def public_test(test: dict) -> dict:
+    """Bản đề gửi xuống trình duyệt khi đang làm: KHÔNG kèm đáp án."""
+    return {k: v for k, v in test.items() if k not in ("answers", "pairQuestions")}
+
+
+def reveal_payload(test: dict, explanations: dict | None = None) -> dict:
+    """Đáp án (và lời giải nếu có), chỉ gửi sau khi bài đã nộp."""
+    return {"answers": test["answers"], "pairQuestions": test.get("pairQuestions", []),
+            "explanations": explanations or {}}
+
+
+def clean_prefs(prefs: dict) -> dict:
+    """darkMode = None nghĩa là người dùng chưa chọn, engine sẽ theo giao diện Streamlit."""
+    size, split, dark = prefs.get("fontSize"), prefs.get("split"), prefs.get("darkMode")
+    return {"darkMode": dark if isinstance(dark, bool) else None,
+            "fontSize": min(22, max(13, size)) if isinstance(size, (int, float)) and not isinstance(size, bool) else 15,
+            "split": min(70, max(25, split)) if isinstance(split, (int, float)) and not isinstance(split, bool) else 42}
+
+
 def clean_state(test: dict, state: dict | None, scope="full") -> dict:
     """Validate the state object sent by the browser before it is stored."""
     scope, pidx = parse_scope(test, scope)
@@ -141,4 +160,5 @@ def clean_state(test: dict, state: dict | None, scope="full") -> dict:
         "spent": _int(state.get("spent"), 0, cap, 0),
         "passage": pidx if pidx is not None else _int(state.get("passage"), 0, max(0, n_pass - 1), 0),
         "hl": hl,
+        "ts": _int(state.get("ts"), 0, 10**13, 0),      # mốc thời gian (ms) của lần sửa cuối, để so với bản nháp trong trình duyệt
     }

@@ -95,14 +95,18 @@ def _backup_bytes() -> bytes:
 
 section("Lưu trữ và sao lưu")
 with st.container(key="card-backup"):
-    if db.backend() == "postgres":
+    pg = db.backend() == "postgres"
+    if pg:
         st.success("Dữ liệu đang lưu ở PostgreSQL bên ngoài, không bị mất khi app khởi động lại.", icon="✅")
         st.caption("Bạn vẫn có thể tải thêm một bản sao lưu JSON (mật khẩu chỉ ở dạng băm).")
-        st.download_button("Tải bản sao lưu (JSON)",
-                           data=json.dumps(db.export_all(), ensure_ascii=False, indent=1).encode("utf-8"),
-                           file_name="memora-backup.json", mime="application/json", icon=":material/download:")
     else:
         st.warning("Đang dùng SQLite (file trên ổ đĩa tạm). Trên Streamlit Cloud, dữ liệu sẽ MẤT khi app khởi động lại. "
                    "Hãy đặt `DATABASE_URL` trong Secrets để lưu bền (xem README, mục Lưu dữ liệu bền).", icon="⚠️")
-        st.download_button("Tải bản sao lưu (memora.db)", data=_backup_bytes(), file_name="memora-backup.db",
-                           mime="application/octet-stream", icon=":material/download:")
+    # Chỉ dựng bản sao lưu khi bấm nút (trước đây dựng lại ở mỗi lần thao tác trên trang này)
+    if st.button("Tạo bản sao lưu", icon=":material/backup:", key="adm_make_backup"):
+        st.session_state["_backup"] = (json.dumps(db.export_all(), ensure_ascii=False, indent=1).encode("utf-8") if pg
+                                       else _backup_bytes())
+    if st.session_state.get("_backup"):
+        st.download_button("Tải bản sao lưu", data=st.session_state["_backup"],
+                           file_name="memora-backup.json" if pg else "memora-backup.db",
+                           mime="application/json" if pg else "application/octet-stream", icon=":material/download:")

@@ -304,6 +304,24 @@ def save_progress(user_id: int, test_id: str, state: dict) -> None:
         )
 
 
+def save_progress_if_open(user_id: int, test_id: str, state: dict) -> bool:
+    """Như save_progress nhưng KHÔNG ghi đè bài đã nộp (một câu SQL, nguyên tử).
+    Trả về True nếu đã ghi, False nếu bài này đã nộp từ trước."""
+    with connect() as c:
+        cur = c.execute(
+            """INSERT INTO reading_progress(user_id, test_id, state_json, submitted, updated_at)
+               VALUES(?,?,?,?,?)
+               ON CONFLICT(user_id, test_id) DO UPDATE SET
+                 state_json=excluded.state_json,
+                 submitted=excluded.submitted,
+                 updated_at=excluded.updated_at
+               WHERE reading_progress.submitted = 0""",
+            (user_id, test_id, json.dumps(state, ensure_ascii=False),
+             1 if state.get("submitted") else 0, now()),
+        )
+        return (cur.rowcount or 0) > 0
+
+
 def delete_progress(user_id: int, test_id: str) -> None:
     with connect() as c:
         c.execute("DELETE FROM reading_progress WHERE user_id=? AND test_id=?", (user_id, test_id))
@@ -356,6 +374,21 @@ def list_attempts(user_id: int, limit: int = 200) -> list[dict]:
         a["valid"] = (answered > 0) if isinstance(answered, int) else a["score"] > 0
         out.append(a)
     return out
+
+
+def last_attempts(user_id: int) -> dict[tuple[str, str], dict]:
+    """Lượt làm mới nhất của từng (đề, phạm vi), không kèm chi tiết, nhẹ hơn list_attempts nhiều."""
+    with connect() as c:
+        rows = c.execute(
+            """SELECT a.test_id, a.scope, a.score, a.total, a.band, a.created_at
+               FROM reading_attempts a
+               WHERE a.user_id=? AND a.id = (
+                   SELECT b.id FROM reading_attempts b
+                   WHERE b.user_id=a.user_id AND b.test_id=a.test_id AND b.scope=a.scope
+                   ORDER BY b.created_at DESC, b.id DESC LIMIT 1)""",
+            (user_id,),
+        ).fetchall()
+    return {(r["test_id"], r["scope"]): dict(r) for r in rows}
 
 
 # ------------------------------------------------------------------- prefs
